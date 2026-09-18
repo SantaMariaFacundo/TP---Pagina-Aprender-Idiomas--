@@ -157,3 +157,10 @@
 .mas-info p{
     font-size: 1.2rem;
 }
+
+@media screen and (max-width: 69rem) {
+    
+    main{
+        
+    }
+}

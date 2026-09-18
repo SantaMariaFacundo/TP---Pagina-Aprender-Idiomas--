@@ -31,7 +31,7 @@ mel: usuario,
 
 ----------------- TIPOGRAFIA -------------------
 
-- 
+-   font-family: "Inter", sans-serif;
 
 
 

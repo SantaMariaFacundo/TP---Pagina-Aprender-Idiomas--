@@ -106,6 +106,7 @@ header .buscador-acceder-language .acceder{
 }
 
 main {
+    width: 100%;
     flex: 1;
     background-color: #f8e9db;
     padding-top: 2.5rem;
@@ -181,4 +182,11 @@ footer .redes-footer a{
 
 footer .redes-footer i{
     font-size: 2rem;
+}
+
+@media screen and (max-width: 69rem) {
+    
+    header .buscador-acceder-language .span-acceder{
+        display: none;
+    }
 }
