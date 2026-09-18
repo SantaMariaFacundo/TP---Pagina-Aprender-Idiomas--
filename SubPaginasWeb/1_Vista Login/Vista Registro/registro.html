@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css">
+    <link rel="stylesheet" href="../../../StyleGeneral.css">
+    <link rel="stylesheet" href="registro.css">
+    <link rel="icon" href="../../../images/FAVICON-LOGO-BLANCO.png" type="image/png" sizes="512x512">
+    <title>GrammaTech</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo-explorar">
+            <a href="#"><img class="img-logo" src="../../../images/LOGO-BLANCO.png" alt="logo"><span
+                    class="nombre-logo">Gramma</span><span class="nombre-logo-tech">Tech</span></a>
+            <a class="boton-explora" href="">Explora
+                <i class="fa-solid fa-angle-down"></i>
+            </a>
+        </div>
+        <div class="buscador-acceder-language">
+            <div class="conteiner-search">
+                <input type="search" class="search-class" id="buscador" placeholder="Becas, Cursos, y Vocabulario...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <a class="acceder login" href="">Incia sesión<i class="fa-solid fa-circle-user"></i></a>
+            <a class="language" href="">Es<i class="fa-solid fa-angle-down"></i></a>
+        </div>
+    </header>
+    <main>
+        <div class="barra-superior">
+            <a href="">Volver</a>
+            <button class="language">ES</button>
+        </div>
+        <section>
+            <div>
+                <h1>Registrate con: </h1>
+                <button type="button"><i class="fa-brands fa-google"></i></button>
+                <button type="button"><i class="fa-brands fa-linkedin"></i></button>
+                <button type="button"><i class="fa-brands fa-facebook"></i></button>
+            </div>
+            <form action="">
+                <h2>O rellena tus datos:</h2>
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre">
+                <label for="apellido">Apellido</label>
+                <input type="text" name="apellido" id="apellido">
+                <label for="pais">País de residencia</label>
+                <select name="pais" id="pais">
+                    <option value="argentina">Argentina</option>
+                    <option value="brasil">Brasil</option>
+                    <option value="chile">Chile</option>
+                </select>
+                <label for="fecha">Fecha de Nacimiento</label>
+                <input type="date" name="fecha" id="fecha">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+                <div>
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" name="contrasena" id="contrasena">
+                    <ul>
+                        <li>Mínimo 10 caracteres</li>
+                        <li>Una Mayúscula</li>
+                        <li>Una minúscula</li>
+                        <li>Un número</li>
+                    </ul>
+                </div>
+                <div>
+                    <label for="repcontrasena">Repetir Contraseña</label>
+                    <input type="password" name="repcontrasena" id="repcontrasena">
+                    <ul>
+                        <li>Mínimo 10 caracteres</li>
+                        <li>Una Mayúscula</li>
+                        <li>Una minúscula</li>
+                        <li>Un número</li>
+                    </ul>
+                </div>
+                <input type="checkbox" name="politica-privacidad" id="politica-privacidad">
+                <label for="politica-privacidad">He leído y acepto la <span>Política de Privacidad, Condiciones generales de
+                    uso y Política de Cookies</span></label>
+                <button type="submit">Registrarme</button>
+                <a href="">¿Ya tenes cuenta? Inicia sesión</a>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="logo-footer">
+            <a href="#"><img class="img-logo-footer" src="../../../images/LOGO-BLANCO.png" alt="logo"><span
+                    class="nombre-logo">Gramma</span><span class="nombre-logo-tech">Tech</span></a>
+        </div>
+        <div class="condiciones-footer">
+            <p> <a href="">Condiciones Generales</a> - <a href="">Aviso Legal</a> - <a href="">Privacidad</a> - <a
+                    href="">Cookies</a> - <a href="">Accesibilidad</a>
+            </p>
+            <p> <a href="">Soporte y Ayuda</a></p>
+            <p>© Todos los derechos reservados, 2026, Gramatech.</p>
+        </div>
+        <div class="redes-footer">
+            <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+            <a href="https://github.com/SantaMariaFacundo/TP---Pagina-Aprender-Idiomas--"><i
+                    class="fa-brands fa-square-github"></i></a>
+            <a href="#"><i class="fa-brands fa-square-x-twitter"></i></a>
+        </div>
+    </footer>
+</body>
+
+</html>
