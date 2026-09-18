@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -8,6 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family: "Inter", sans-serif;
 }
 
 
@@ -30,7 +33,7 @@ header .logo-explorar{
     gap: 4rem;
 }
 
-header .logo-explorar a{
+header .logo-explorar a, button{
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -47,9 +50,11 @@ header .logo-explorar .nombre-logo-tech{
 }
 
 
-header .logo-explorar .boton-explora{
+header .boton-explora, .language{
+    all: unset;
+    cursor: pointer;
     display: flex;
-    gap: .15rem;
+    gap: .2rem;
 
 }
 
@@ -69,10 +74,6 @@ header .buscador-acceder-language a{
     align-items: center;
     text-decoration: none;
     color: inherit;
-}
-
-header .buscador-acceder-language .language{
-    gap: .15rem;
 }
 
 header .buscador-acceder-language .conteiner-search{
@@ -100,7 +101,7 @@ header .buscador-acceder-language .search-class{
 
 header .buscador-acceder-language .acceder{
     background-color: #f8e9db;
-    padding: .5rem .6rem;
+    padding: .5rem .6rem .5rem .8rem;
     border-radius: 1.5rem;
 }
 

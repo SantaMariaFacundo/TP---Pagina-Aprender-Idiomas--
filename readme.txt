@@ -37,9 +37,9 @@ mel: usuario,
 
 ----------------- tareas pendientes o dudas al hacer codigo ------------------
 
--
+-necesito que me den idean para rellenar los textos de info sobre nosotros.
 
--
+-definir diseño de las cards de los cursos 
 
 -
 
