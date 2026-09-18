@@ -1,11 +1,362 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <link rel="stylesheet" href="../../StyleGeneral.css">
+    <link rel="stylesheet" href="perfilUsuario.css">
+
+    <link rel="icon"
+        href="../../images/FAVICON-LOGO-BLANCO.png"
+        type="image/png">
+
+    <title>Mi Perfil - GrammaTech</title>
 </head>
+
 <body>
-    
+
+    <header>
+
+        <div class="logo-explorar">
+
+            <a href="../2_Vista home/home.html">
+
+                <img
+                    class="img-logo"
+                    src="../../images/LOGO-BLANCO.png"
+                    alt="Logo de GrammaTech">
+
+                <span class="nombre-logo">Gramma</span>
+                <span class="nombre-logo-tech">Tech</span>
+
+            </a>
+
+            <button class="boton-explora">
+                Explora ▼
+            </button>
+
+        </div>
+
+
+        <div class="buscador-acceder-language">
+
+            <div class="conteiner-search">
+
+                <input
+                    type="search"
+                    class="search-class"
+                    id="buscador"
+                    placeholder="Becas, Cursos, y Vocabulario...">
+
+            </div>
+
+
+            <nav class="nav-usuario">
+
+                <a href="../2_Vista home/home.html">
+                    Cursos
+                </a>
+
+                <span class="pagina-actual">
+                    Perfil
+                </span>
+
+                <a href="../6_Vista Tabla Clasificación/clasificacion.html">
+                    Ranking
+                </a>
+
+                <span class="usuario">
+                    Juan
+                </span>
+
+            </nav>
+
+
+            <button class="language">
+                Es ▼
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main class="main-perfil">
+
+        <section class="encabezado-perfil">
+
+            <h1>MI PERFIL</h1>
+
+            <p>
+                Gestioná tus datos personales y tu progreso en GrammaTech.
+            </p>
+
+        </section>
+
+
+        <section class="resumen-usuario">
+
+            <div class="avatar">
+                JP
+            </div>
+
+            <div class="informacion-usuario">
+
+                <h2>Juan Pérez</h2>
+
+                <p class="nombre-usuario">
+                    @juanperez_web
+                </p>
+
+                <p>
+                    Email: juan.perez@alumnos.unlam.edu.ar
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <form class="formulario-perfil">
+
+
+            <section class="datos-cuenta">
+
+                <h2>DATOS DE LA CUENTA</h2>
+
+                <p>
+                    <strong>Nombre completo:</strong>
+                    Juan Pérez
+                </p>
+
+                <p>
+                    <strong>Nombre de usuario:</strong>
+                    @juanperez_web
+                </p>
+
+                <p>
+                    <strong>Miembro desde:</strong>
+                    Marzo de 2025
+                </p>
+
+
+                <div class="campo">
+
+                    <label for="idioma">
+                        Idioma principal de la interfaz
+                    </label>
+
+                    <select id="idioma" name="idioma">
+
+                        <option value="espanol" selected>
+                            Español
+                        </option>
+
+                        <option value="ingles">
+                            Inglés
+                        </option>
+
+                        <option value="aleman">
+                            Alemán
+                        </option>
+
+                        <option value="chino">
+                            Chino Mandarín
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </section>
+
+
+            <section class="seguridad">
+
+                <h2>SEGURIDAD</h2>
+
+                <div class="campo">
+
+                    <label for="password-actual">
+                        Contraseña actual
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password-actual"
+                        name="password-actual"
+                        required>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="password-nueva">
+                        Nueva contraseña
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password-nueva"
+                        name="password-nueva"
+                        required>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="password-confirmar">
+                        Confirmar nueva contraseña
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password-confirmar"
+                        name="password-confirmar"
+                        required>
+
+                </div>
+
+            </section>
+
+
+            <div class="guardar">
+
+                <button class="guardar-cambios" type="submit">
+                    Guardar cambios
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <section class="logros">
+
+            <h2>MIS LOGROS</h2>
+
+            <div class="contenedor-logros">
+
+                <article class="logro">
+
+                    <span class="icono-logro">
+                        🏆
+                    </span>
+
+                    <h3>Liga Bronce</h3>
+
+                    <p>
+                        Posición actual en la clasificación.
+                    </p>
+
+                </article>
+
+
+                <article class="logro">
+
+                    <span class="icono-logro">
+                        🔥
+                    </span>
+
+                    <h3>Racha de 5 días</h3>
+
+                    <p>
+                        Cinco días consecutivos aprendiendo.
+                    </p>
+
+                </article>
+
+
+                <article class="logro">
+
+                    <span class="icono-logro">
+                        ⚡
+                    </span>
+
+                    <h3>350 XP</h3>
+
+                    <p>
+                        Experiencia acumulada.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <section class="sesion">
+
+            <a href="../1_Vista Login/login.html">
+                Cerrar sesión
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div class="logo-footer">
+
+            <a href="../2_Vista home/home.html">
+
+                <img
+                    class="img-logo-footer"
+                    src="../../images/LOGO-BLANCO.png"
+                    alt="Logo de GrammaTech">
+
+                <span class="nombre-logo">Gramma</span>
+                <span class="nombre-logo-tech">Tech</span>
+
+            </a>
+
+        </div>
+
+
+        <div class="condiciones-footer">
+
+            <p>
+                <a href="">Condiciones Generales</a> -
+                <a href="">Aviso Legal</a> -
+                <a href="">Privacidad</a> -
+                <a href="">Cookies</a> -
+                <a href="">Accesibilidad</a>
+            </p>
+
+            <p>
+                <a href="">Soporte y Ayuda</a>
+            </p>
+
+            <p>
+                © Todos los derechos reservados, 2026, GrammaTech.
+            </p>
+
+        </div>
+
+
+        <div class="redes-footer">
+
+            <a href="#">Instagram</a>
+
+            <a href="#">Facebook</a>
+
+            <a href="https://github.com/SantaMariaFacundo/TP---Pagina-Aprender-Idiomas--">
+                GitHub
+            </a>
+
+            <a href="#">X</a>
+
+        </div>
+
+    </footer>
+
 </body>
+
 </html>
