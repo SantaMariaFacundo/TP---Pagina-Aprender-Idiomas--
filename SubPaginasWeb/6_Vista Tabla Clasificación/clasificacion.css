@@ -1,0 +1,245 @@
+.main-clasificacion {
+    padding: 7rem 8% 4rem;
+    color: #2B2B2B;
+}
+
+
+/* NAVEGACION */
+
+.nav-usuario {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-usuario a {
+    text-decoration: none;
+    color: #2B2B2B;
+    font-weight: bold;
+}
+
+.nav-usuario span {
+    font-weight: bold;
+}
+
+.pagina-actual {
+    color: #6D2508;
+}
+
+.usuario {
+    color: #2B2B2B;
+}
+
+
+/* TITULO PRINCIPAL */
+
+.encabezado-clasificacion {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.encabezado-clasificacion h1 {
+    font-size: 2.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.encabezado-clasificacion p {
+    font-size: 1rem;
+}
+
+
+/* SELECTOR DE LIGA */
+
+.selector-liga {
+    max-width: 75%;
+    margin: 0 auto 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.selector-liga label {
+    font-weight: bold;
+}
+
+.selector-liga select {
+    padding: 0.7rem 1rem;
+
+    border: 0.1rem solid #6D2508;
+    border-radius: 0.7rem;
+
+    font-family: inherit;
+    font-size: 1rem;
+
+    background-color: white;
+}
+
+
+/* RANKING */
+
+.ranking {
+    max-width: 75%;
+    margin: 0 auto 3rem;
+
+    background-color: white;
+
+    border: 0.1rem solid #6D2508;
+    border-radius: 1.5rem;
+
+    padding: 2rem;
+}
+
+.titulo-ranking {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.titulo-ranking h2 {
+    color: #6D2508;
+    margin-bottom: 0.5rem;
+}
+
+
+/* TABLA */
+
+.contenedor-tabla {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 1rem;
+    text-align: center;
+
+    border-bottom: 0.1rem solid #F4D7C8;
+}
+
+th {
+    background-color: #CA6035;
+    color: white;
+}
+
+tbody tr {
+    background-color: white;
+}
+
+.usuario-actual {
+    background-color: #F4D7C8;
+    font-weight: bold;
+}
+
+
+/* RESUMEN DEL USUARIO */
+
+.resumen-posicion {
+    max-width: 75%;
+    margin: 0 auto 3rem;
+}
+
+.resumen-posicion h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.datos-posicion {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1.5rem;
+}
+
+.dato {
+    background-color: #F4D7C8;
+
+    border: 0.1rem solid #6D2508;
+    border-radius: 1.5rem;
+
+    padding: 1.5rem;
+
+    text-align: center;
+}
+
+.numero {
+    display: block;
+
+    color: #CA6035;
+
+    font-size: 2rem;
+    font-weight: bold;
+
+    margin-bottom: 0.5rem;
+}
+
+.dato h3 {
+    font-size: 1rem;
+}
+
+
+/* VOLVER */
+
+.volver {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.volver a {
+    display: inline-block;
+
+    text-decoration: none;
+
+    background-color: #6D2508;
+    color: white;
+
+    padding: 0.8rem 1.5rem;
+
+    border-radius: 1rem;
+
+    font-weight: bold;
+}
+
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 48em) {
+
+    .main-clasificacion {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .ranking {
+        max-width: 100%;
+    }
+
+    .selector-liga {
+        max-width: 100%;
+
+        flex-direction: column;
+    }
+
+    .resumen-posicion {
+        max-width: 100%;
+    }
+
+    .datos-posicion {
+        grid-template-columns: 1fr;
+    }
+
+    th,
+    td {
+        padding: 0.7rem;
+    }
+
+    .nav-usuario {
+        gap: 0.8rem;
+    }
+}

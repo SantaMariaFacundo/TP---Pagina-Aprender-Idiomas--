@@ -15,7 +15,7 @@
 facu:  home, progreso
 mai:   login
 agus:   registarse
-mel: usuario, 
+mel: usuario, vista tabla clasificacion
 
 ------------------------------------------------------------
 
