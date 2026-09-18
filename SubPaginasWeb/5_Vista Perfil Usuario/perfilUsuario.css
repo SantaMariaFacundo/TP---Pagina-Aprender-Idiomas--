@@ -4,193 +4,6 @@
 }
 
 
-/* NAVEGACION DEL USUARIO */
-
-.nav-usuario {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.nav-usuario a {
-    text-decoration: none;
-    color: #2B2B2B;
-    font-weight: bold;
-}
-
-.nav-usuario span {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: bold;
-}
-
-
-/* TITULO */
-
-.encabezado-perfil {
-    text-align: center;
-    margin-bottom: 2.5rem;
-}
-
-.encabezado-perfil h1 {
-    font-size: 2.3rem;
-    margin-bottom: 0.5rem;
-}
-
-.encabezado-perfil p {
-    font-size: 1rem;
-}
-
-
-/* RESUMEN DEL USUARIO */
-
-.resumen-usuario {
-    max-width: 75%;
-    margin: 0 auto 2rem;
-
-    background-color: #F4D7C8;
-    border: 0.1rem solid #6D2508;
-    border-radius: 1.5rem;
-
-    padding: 1.5rem 2rem;
-
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
-
-.avatar {
-    width: 6rem;
-    height: 6rem;
-
-    border-radius: 50%;
-
-    background-color: #CA6035;
-    color: white;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-.informacion-usuario h2 {
-    font-size: 1.7rem;
-    margin-bottom: 0.3rem;
-}
-
-.informacion-usuario p {
-    margin-bottom: 0.4rem;
-}
-
-.nombre-usuario {
-    color: #6D2508;
-    font-weight: bold;
-}
-
-
-/* FORMULARIO */
-
-.formulario-perfil {
-    max-width: 75%;
-    margin: 0 auto 3rem;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-}
-
-
-/* DATOS DE CUENTA */
-
-.datos-cuenta {
-    background-color: white;
-
-    border: 0.1rem solid #6D2508;
-    border-radius: 1.5rem;
-
-    padding: 2rem;
-}
-
-.datos-cuenta h2 {
-    color: #6D2508;
-    margin-bottom: 1.5rem;
-    font-size: 1.4rem;
-}
-
-.datos-cuenta p {
-    margin-bottom: 1rem;
-}
-
-
-/* SEGURIDAD */
-
-.seguridad {
-    background-color: white;
-
-    border: 0.1rem solid #6D2508;
-    border-radius: 1.5rem;
-
-    padding: 2rem;
-}
-
-.seguridad h2 {
-    color: #6D2508;
-    margin-bottom: 1.5rem;
-    font-size: 1.4rem;
-}
-
-
-/* CAMPOS */
-
-.campo {
-    margin-bottom: 1.2rem;
-}
-
-.campo label {
-    display: block;
-
-    margin-bottom: 0.4rem;
-
-    font-weight: bold;
-}
-
-.campo input,
-.campo select {
-    width: 100%;
-
-    padding: 0.7rem;
-
-    border: 0.1rem solid #6D2508;
-    border-radius: 0.7rem;
-
-    font-family: inherit;
-    font-size: 1rem;
-
-    box-sizing: border-box;
-}
-
-
-/* BOTON GUARDAR */
-
-.guardar {
-    grid-column: 1 / 3;
-    text-align: center;
-}
-
-.guardar-cambios {
-    border: none;
-
-    background-color: #CA6035;
-  .main-perfil {
-    padding: 7rem 8% 4rem;
-    color: #2B2B2B;
-}
-
-
 /* NAVEGACION */
 
 .nav-usuario {
@@ -293,6 +106,7 @@
 
     display: grid;
     grid-template-columns: 1fr 1fr;
+
     gap: 2rem;
 }
 
@@ -375,7 +189,6 @@
 
 .guardar {
     grid-column: 1 / 3;
-
     text-align: center;
 }
 
@@ -404,7 +217,6 @@
 
 .logros h2 {
     text-align: center;
-
     margin-bottom: 1.5rem;
 }
 
@@ -448,7 +260,6 @@
 
 .sesion {
     text-align: center;
-
     margin-bottom: 2rem;
 }
 
