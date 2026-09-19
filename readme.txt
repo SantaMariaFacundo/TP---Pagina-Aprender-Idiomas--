@@ -43,7 +43,7 @@ mel: usuario, vista tabla clasificacion
 
 -saquen la etiqueta del explora 
 
--borrar librerias linkeadas
+-fijarse color de los iconos q estan en la seccion 3 index.html 
 
 -
 
