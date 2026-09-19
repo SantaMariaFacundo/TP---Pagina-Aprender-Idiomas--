@@ -18,14 +18,15 @@
         <div class="logo-explorar">
             <a href="#"><img class="img-logo" src="../../../images/LOGO-BLANCO.png" alt="logo"><span
                     class="nombre-logo">Gramma</span><span class="nombre-logo-tech">Tech</span></a>
-            <a class="boton-explora" href="">Explora </a>
+           
         </div>
         <div class="buscador-acceder-language">
             <div class="conteiner-search">
                 <input type="search" class="search-class" id="buscador" placeholder="Becas, Cursos, y Vocabulario...">
-                
+
             </div>
-            <a class="acceder login" href="">Registrate</a>
+            <p>¿Aún no tenes cuenta?</p>
+            <a class="acceder login" href="../1_Vista Login/Vista Registro/registro.html">Registrate</a>
             <a class="language" href="">Es</a>
         </div>
     </header>
@@ -35,47 +36,76 @@
 
     <main>
 
+        <div class="boton-volver">
+
+            <a class="link-volver" href="../../index.html"> <img src="../../images/icono-volver.svg" alt="volver">Volver</a>
+
+        </div>
+
         <div class="contenedor">
             <div class="form-caja">
                 <form action="">
 
                     <div class="iniciar-redes">
 
-                    <h2>Inicia sesión con: </h2>
+                        <h2>Inicia sesión con: </h2>
 
-                    <div class="redes">
-                        
-                        <a href="#"> <img class="img-redes" src="../../images/google-icon.svg" alt="Google"></a>
-                        <a href="#"> <img class="img-redes" src="../../images/facebook.svg" alt="Facebook"></a>
-                        <a href="#"> <img class="img-redes" src="../../images/microsoft-icon.svg" alt="Microsoft"></a>
-                        <a href="#"> <img class="img-redes" src="../../images/linkedin-icon.svg" alt="Google"></a>
+                        <div class="redes">
+
+                            <a class="boton-red" href="#"> <img class="img-redes" src="../../images/google-icon.svg"
+                                    alt="Google"></a>
+                            <a class="boton-red" href="#"> <img class="img-redes" src="../../images/facebook.svg"
+                                    alt="Facebook"></a>
+                            <a class="boton-red" href="#"> <img class="img-redes" src="../../images/microsoft-icon.svg"
+                                    alt="Microsoft"></a>
+                            <a class="boton-red" href="#"> <img class="img-redes" src="../../images/linkedin-icon.svg"
+                                    alt="Google"></a>
+
+                        </div>
 
 
                     </div>
 
+                    <div class="completar-datos">
+                        <h2>O rellena tus datos: </h2>
+
+                        <div class="relleno">
+                            <div class="relleno-label">
+                                <label for="email">Email</label>
+
+                            </div>
+                            <input type="email" name="correo" placeholder="tu-nombre@correo.com" required>
+                        </div>
+
+                        <div class="relleno">
+                            <div class="relleno-label">
+                                <label for="contraseña">Contraseña</label>
+                            </div>
+
+                            <input type="password" name="password" placeholder="Contraseña" required>
+                        </div>
+
+
+
+                        <button class="boton-iniciar" type="submit">Iniciar Sesión</button>
+
 
                     </div>
 
+                    <div class="links-login">
 
-                    <div class="relleno">
-                        <input type="email" name="correo" placeholder="tu-nombre@correo.com">
-                    </div>
-
-                    <div class="relleno">
-                        <input type="contraseña" name="contraseña" placeholder="Contraseña">
-                    </div>
-
-                    <div class="olvido-contraseña">
+                        <div class="olvido-contraseña">
 
                             <a href="#">Olvidé mi contraseña</a>
+                        </div>
+
+                        <div class="registrarse">
+
+                            <a href="../1_Vista Login/Vista Registro/registro.html">¿No tenes cuenta en GrammaTech? Registrate</a>
+                        </div>
+
                     </div>
 
-                    <div class="registrarse">
-
-                            <a href="#">¿No tenes cuenta en GrammaTech? Registrate</a>
-                    </div>
-
-                    <button type="submit">Iniciar Sesión</button>
 
                 </form>
 
@@ -83,7 +113,7 @@
 
         </div>
 
-       
+
     </main>
 
 
@@ -109,7 +139,7 @@
             <p>© Todos los derechos reservados, 2026, Gramatech.</p>
         </div>
         <div class="redes-footer">
-            <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
             <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
             <a href="https://github.com/SantaMariaFacundo/TP---Pagina-Aprender-Idiomas--"><i
                     class="fa-brands fa-square-github"></i></a>
