@@ -6,3 +6,78 @@ header .logo-explorar .boton-explora {
     display: none;
 }
 
+.barra-superior {
+    padding: 0 10rem;
+    margin-top: 4rem ;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+section {
+    background-color: white;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    width: 55%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    border: 0.15rem solid #CA6035;
+}
+
+h1 {
+    font-size: 1.6rem;
+    align-self: center;
+}
+
+form {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    gap: 2rem;
+}
+
+.contenedor-form {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+}
+
+.terminos {
+    display: flex;
+    gap: 1rem;
+    font-size: .9rem;
+}
+
+input:not([type="checkbox"]) , select {
+    height: 3rem;
+    width: 23rem;
+    border-radius: 1rem;
+    border: 0.15rem solid #CA6035;
+
+}
+
+.contenedor-registrarme {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    gap: 1rem;
+    align-items: center;
+    align-self: center;
+}
+
+.registrarme {
+    border-radius: 1.5rem;
+    height: 3rem;
+    text-align: center;
+    width: 15rem;
+    background-color: #CA6035;
+    font-size: 1rem;
+    border: none;
+    color: white;
+}
+
+
