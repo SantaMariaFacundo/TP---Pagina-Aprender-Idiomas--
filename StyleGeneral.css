@@ -31,7 +31,7 @@ header .logo-explorar{
     gap: 4rem;
 }
 
-header .logo-explorar a, button{
+header .logo-explorar a, .logo-explorar button{
     display: flex;
     align-items: center;
     text-decoration: none;

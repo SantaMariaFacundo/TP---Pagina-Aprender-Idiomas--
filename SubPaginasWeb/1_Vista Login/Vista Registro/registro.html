@@ -14,50 +14,53 @@
 <body>
     <header>
         <div class="logo-explorar">
-            <a href="#"><img class="img-logo" src="../../../images/LOGO-BLANCO.png" alt="logo"><span
+            <a href="index.html"><img class="img-logo" src="../../../images/LOGO-BLANCO.png" alt="logo"><span
                     class="nombre-logo">Gramma</span><span class="nombre-logo-tech">Tech</span></a>
-            <a class="boton-explora" href="">Explora
-                <i class="fa-solid fa-angle-down"></i>
-            </a>
+            <button class="boton-explora">Explora</button>
         </div>
         <div class="buscador-acceder-language">
             <div class="conteiner-search">
                 <input type="search" class="search-class" id="buscador" placeholder="Becas, Cursos, y Vocabulario...">
-                <i class="fa-solid fa-magnifying-glass"></i>
+
             </div>
-            <a class="acceder login" href="">Incia sesión<i class="fa-solid fa-circle-user"></i></a>
-            <a class="language" href="">Es<i class="fa-solid fa-angle-down"></i></a>
+            <a class="acceder" href=""><span class="span-acceder">Acceder</span></a>
+            <button class="language">Es</button>
         </div>
     </header>
     <main>
         <div class="barra-superior">
-            <a href="">Volver</a>
-            <button class="language">ES</button>
+            <a href="">
+                < Volver</a>
+                    <button class="language">ES</button>
         </div>
         <section>
-            <div>
-                <h1>Registrate con: </h1>
-                <button type="button"><i class="fa-brands fa-google"></i></button>
-                <button type="button"><i class="fa-brands fa-linkedin"></i></button>
-                <button type="button"><i class="fa-brands fa-facebook"></i></button>
-            </div>
             <form action="">
-                <h2>O rellena tus datos:</h2>
-                <label for="nombre">Nombre</label>
-                <input type="text" name="nombre" id="nombre">
-                <label for="apellido">Apellido</label>
-                <input type="text" name="apellido" id="apellido">
-                <label for="pais">País de residencia</label>
-                <select name="pais" id="pais">
-                    <option value="argentina">Argentina</option>
-                    <option value="brasil">Brasil</option>
-                    <option value="chile">Chile</option>
-                </select>
-                <label for="fecha">Fecha de Nacimiento</label>
-                <input type="date" name="fecha" id="fecha">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email">
-                <div>
+                <h1>Rellena con tus datos</h1>
+                <div class="contenedor-form">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre">
+                </div>
+                <div class="contenedor-form">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" name="apellido" id="apellido">
+                </div>
+                <div class="contenedor-form">
+                    <label for="pais">País de residencia</label>
+                    <select name="pais" id="pais">
+                        <option value="argentina">Argentina</option>
+                        <option value="brasil">Brasil</option>
+                        <option value="chile">Chile</option>
+                    </select>
+                </div>
+                <div class="contenedor-form">
+                    <label for="fecha">Fecha de Nacimiento</label>
+                    <input type="date" name="fecha" id="fecha">
+                </div>
+                <div class="contenedor-form">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div class="contenedor-form">
                     <label for="contrasena">Contraseña</label>
                     <input type="password" name="contrasena" id="contrasena">
                     <ul>
@@ -67,7 +70,7 @@
                         <li>Un número</li>
                     </ul>
                 </div>
-                <div>
+                <div class="contenedor-form">
                     <label for="repcontrasena">Repetir Contraseña</label>
                     <input type="password" name="repcontrasena" id="repcontrasena">
                     <ul>
@@ -77,11 +80,17 @@
                         <li>Un número</li>
                     </ul>
                 </div>
-                <input type="checkbox" name="politica-privacidad" id="politica-privacidad">
-                <label for="politica-privacidad">He leído y acepto la <span>Política de Privacidad, Condiciones generales de
-                    uso y Política de Cookies</span></label>
-                <button type="submit">Registrarme</button>
-                <a href="">¿Ya tenes cuenta? Inicia sesión</a>
+                <div class="terminos">
+                    <input type="checkbox" name="politica-privacidad" id="politica-privacidad">
+                    <label class="condiciones" for="politica-privacidad">He leído y acepto la <span>Política de
+                            Privacidad, Condiciones
+                            generales de
+                            uso y Política de Cookies</span></label>
+                </div>
+                <div class="contenedor-registrarme">
+                    <button class="registrarme" type="submit">Registrarme</button>
+                    <a href="">¿Ya tenes cuenta? Inicia sesión</a>
+                </div>
             </form>
         </section>
     </main>
@@ -98,11 +107,10 @@
             <p>© Todos los derechos reservados, 2026, Gramatech.</p>
         </div>
         <div class="redes-footer">
-            <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
-            <a href="https://github.com/SantaMariaFacundo/TP---Pagina-Aprender-Idiomas--"><i
-                    class="fa-brands fa-square-github"></i></a>
-            <a href="#"><i class="fa-brands fa-square-x-twitter"></i></a>
+            <a href="#">instagram</a>
+            <a href="#">facebook</a>
+            <a href="https://github.com/SantaMariaFacundo/TP---Pagina-Aprender-Idiomas--">github</a>
+            <a href="#">x</a>
         </div>
     </footer>
 </body>
