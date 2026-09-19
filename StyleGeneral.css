@@ -127,7 +127,7 @@ footer {
     width: 100%;
     height: 10rem;
     background-color: #f8e9db;
-    border-top: .1rem solid #6D2508;
+    border-top: .1rem solid #6d25082e ;
     display: grid;
     grid-template-columns: 20% 50% 30%;
 }
@@ -205,25 +205,27 @@ footer .redes-footer i{
     footer{
         padding: .8rem;
         grid-template-columns: 60% 40%;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 35% 65%;
     
     }
 
     footer .logo-footer{
         justify-content: center;
-        grid-column: 2/3;
+        grid-column: 1/2;
         grid-row: 1/2;
     }
 
     footer .condiciones-footer{
         grid-column: 1/2;
-        grid-row: 1/3;
+        grid-row: 2/3;
     }
 
     footer .redes-footer{
+        flex-direction: column;
         justify-content: center;
+        gap: .5rem;
         grid-column: 2/3;
-        grid-row: 2/3;
+        grid-row: 1/3;
     }
 }
 
@@ -236,11 +238,11 @@ footer .redes-footer i{
     }
 
     header .buscador-acceder-language{
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 40% 60%;
     }
 
     header .buscador-acceder-language .search-class{
         padding: 1rem;
-        width: 5rem;
+        width: 8rem;
     }
 }

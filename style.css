@@ -50,7 +50,7 @@
     align-items: center;
     padding: 2rem;
     margin-bottom: 6rem;
-    border-top: .1rem solid black;
+    border-top: .1rem solid #6d25082e 
 }
 
 .seccion-2 h2 {
@@ -60,7 +60,7 @@
 .cards {
     display: flex;
     justify-content: space-between;
-    column-gap: 8rem;
+    gap: 8rem;
 }
 
 .cards-idioma {
@@ -69,7 +69,7 @@
     align-items: center;
     background-color: white;
     border-radius: 1.5rem;
-    padding: 2.5rem 2rem 2rem 2rem;
+    padding: 2.5rem 1rem 2rem 1rem;
     
 }
 
@@ -88,8 +88,9 @@
 }
 
 .img-pais {
-    width: 100%;
-    height: 7.5rem;
+    min-width: 16rem;
+    width: 85%;
+    height: auto;
     object-fit: contain;
     border-radius: 1rem;
 }
@@ -160,9 +161,9 @@
     font-size: 1.2rem;
 }
 
-@media screen and (max-width: 69rem) {
+@media screen and (max-width: 72rem) {
     
-    main{
-        
+    .cards{
+        gap: clam(1rem, 5vm, 8rem);
     }
 }

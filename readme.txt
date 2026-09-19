@@ -41,9 +41,9 @@ mel: usuario, vista tabla clasificacion
 
 -definir diseño de las cards de los cursos 
 
--saquen la etiqueta del explora
+-saquen la etiqueta del explora 
 
--
+-borrar librerias linkeadas
 
 -
 
