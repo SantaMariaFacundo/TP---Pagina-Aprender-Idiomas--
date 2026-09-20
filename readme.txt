@@ -45,7 +45,9 @@ mel: usuario, vista tabla clasificacion
 
 -fijarse color de los iconos q estan en la seccion 3 index.html 
 
--
+- Antes de entregar revisar todos los href para que redireccionen a donde tiene que ir 
+
+- Investigar/preguntar como redireccionar con un submit 
 
 -------------------------------------------------------------------------------
 

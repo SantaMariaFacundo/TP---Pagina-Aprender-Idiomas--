@@ -7,27 +7,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css">
     <link rel="stylesheet" href="../../../StyleGeneral.css">
     <link rel="stylesheet" href="login.css">
-    <link rel="icon" href="../../../images/FAVICON-LOGO-BLANCO.png" type="image/png" sizes="512x512">
+    <link rel="icon" href="../../images/img-logo/FAVICON-LOGO-BLANCO.png" type="image/png" sizes="512x512">
     <title>GrammaTech</title>
 </head>
 
 <body>
 
 
-    <header>
+     <header>
         <div class="logo-explorar">
-            <a href="#"><img class="img-logo" src="../../../images/LOGO-BLANCO.png" alt="logo"><span
+            <a href="index.html"><img class="img-logo" src="../../images/img-logo/LOGO-BLANCO.png" alt="logo"><span
                     class="nombre-logo">Gramma</span><span class="nombre-logo-tech">Tech</span></a>
-           
         </div>
         <div class="buscador-acceder-language">
             <div class="conteiner-search">
                 <input type="search" class="search-class" id="buscador" placeholder="Becas, Cursos, y Vocabulario...">
-
+                <img class="img-search" src="images/iconosBlack-svg/search-svgrepo-com.svg" alt="">
             </div>
             <p>¿Aún no tenes cuenta?</p>
-            <a class="acceder login" href="../1_Vista Login/Vista Registro/registro.html">Registrate</a>
-            <a class="language" href="">Es</a>
+            <a class="acceder" href="Vista Registro/registro.html"><span class="span-acceder">Registrate</span>
+                </a>
+            <select id="idioma" class="idioma">
+                <option value="español">Es</option>
+                <option value="english">En</option>
+            </select>
         </div>
     </header>
 
@@ -38,7 +41,7 @@
 
         <div class="boton-volver">
 
-            <a class="link-volver" href="../../index.html"> <img src="../../images/icono-volver.svg" alt="volver">Volver</a>
+            <a class="link-volver" href="Vista Registro/registro.html"> <img src="../../images/icons-general/check.svg" alt="volver">Volver</a>
 
         </div>
 
@@ -52,13 +55,13 @@
 
                         <div class="redes">
 
-                            <a class="boton-red" href="#"> <img class="img-redes" src="../../images/google-icon.svg"
+                            <a class="boton-red" href="#"> <img class="img-redes" src="../../images/iconosRedes-svg/google-icon.svg"
                                     alt="Google"></a>
-                            <a class="boton-red" href="#"> <img class="img-redes" src="../../images/facebook.svg"
+                            <a class="boton-red" href="#"> <img class="img-redes" src="../../images/iconosRedes-svg/facebook.svg"
                                     alt="Facebook"></a>
-                            <a class="boton-red" href="#"> <img class="img-redes" src="../../images/microsoft-icon.svg"
+                            <a class="boton-red" href="#"> <img class="img-redes" src="../../images/iconosRedes-svg/microsoft-icon.svg"
                                     alt="Microsoft"></a>
-                            <a class="boton-red" href="#"> <img class="img-redes" src="../../images/linkedin-icon.svg"
+                            <a class="boton-red" href="#"> <img class="img-redes" src="../../images/iconosRedes-svg/linkedin-icon.svg"
                                     alt="Google"></a>
 
                         </div>
@@ -128,7 +131,7 @@
 
     <footer>
         <div class="logo-footer">
-            <a href="#"><img class="img-logo-footer" src="../../../images/LOGO-BLANCO.png" alt="logo"><span
+            <a href="#"><img class="img-logo-footer" src="../../images/img-logo/LOGO-BLANCO.png" alt="logo"><span
                     class="nombre-logo">Gramma</span><span class="nombre-logo-tech">Tech</span></a>
         </div>
         <div class="condiciones-footer">
@@ -139,11 +142,15 @@
             <p>© Todos los derechos reservados, 2026, Gramatech.</p>
         </div>
         <div class="redes-footer">
-            <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
-            <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
-            <a href="https://github.com/SantaMariaFacundo/TP---Pagina-Aprender-Idiomas--"><i
-                    class="fa-brands fa-square-github"></i></a>
-            <a href="#"><i class="fa-brands fa-square-x-twitter"></i></a>
+            <a href="#">
+                <img src="../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg" alt="link redes instagram">
+            </a>
+            <a href="#">
+                <img src="../../images/iconosBlack-svg/facebook-rounded-svgr.svg" alt="link redes facebook ">
+            </a>
+            <a href="#">
+                <img src="../../images/iconosBlack-svg/twitter-rounded-svg.svg" alt="link redes twitter">
+            </a>
         </div>
     </footer>
 </body>
