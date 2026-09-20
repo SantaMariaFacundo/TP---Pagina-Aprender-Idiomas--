@@ -43,7 +43,7 @@ mel: usuario, vista tabla clasificacion
 
 -saquen la etiqueta del explora
 
--
+-Modificar el header de HTML registro: Cambiarle el botos acceder x incia sesion y agregarle adelante el ¿ya tienes cuenta?
 
 -
 
