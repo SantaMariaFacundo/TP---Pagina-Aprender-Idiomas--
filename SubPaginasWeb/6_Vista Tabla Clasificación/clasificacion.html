@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="clasificacion.css">
 
     <link rel="icon"
-        href="../../images/FAVICON-LOGO-BLANCO.png"
+        href="../../images/img-logo/FAVICON-LOGO-BLANCO.png"
         type="image/png">
 
     <title>Clasificación - GrammaTech</title>
@@ -21,21 +21,17 @@
 
         <div class="logo-explorar">
 
-            <a href="../2_Vista home/home.html">
+            <a href="../../index.html">
 
                 <img
                     class="img-logo"
-                    src="../../images/LOGO-BLANCO.png"
+                    src="../../images/img-logo/LOGO-BLANCO.png"
                     alt="Logo de GrammaTech">
 
                 <span class="nombre-logo">Gramma</span>
                 <span class="nombre-logo-tech">Tech</span>
 
             </a>
-
-            <button class="boton-explora">
-                Explora
-            </button>
 
         </div>
 
@@ -50,13 +46,18 @@
                     id="buscador"
                     placeholder="Becas, Cursos, y Vocabulario...">
 
+                <img
+                    class="img-search"
+                    src="../../images/iconosBlack-svg/search-svgrepo-com.svg"
+                    alt="">
+
             </div>
 
 
             <nav class="nav-usuario">
 
-                <a href="../2_Vista home/home.html">
-                    Cursos
+                <a href="../../index.html">
+                    Inicio
                 </a>
 
                 <a href="../5_Vista Perfil Usuario/perfilUsuario.html">
@@ -74,9 +75,17 @@
             </nav>
 
 
-            <button class="language">
-                Es
-            </button>
+            <select id="idioma" class="idioma">
+
+                <option value="espanol">
+                    Es
+                </option>
+
+                <option value="english">
+                    En
+                </option>
+
+            </select>
 
         </div>
 
@@ -84,6 +93,21 @@
 
 
     <main class="main-clasificacion">
+
+        <div class="boton-volver">
+
+            <a class="link-volver" href="../../index.html">
+
+                <img
+                    src="../../images/icons-general/icono-volver.svg"
+                    alt="Volver">
+
+                Volver
+
+            </a>
+
+        </div>
+
 
         <section class="encabezado-clasificacion">
 
@@ -127,7 +151,7 @@
             <div class="titulo-ranking">
 
                 <h2>
-                    🏆 TABLA DE CLASIFICACIÓN - LIGA BRONCE
+                    🏆 LIGA BRONCE
                 </h2>
 
                 <p>
@@ -146,9 +170,9 @@
 
                         <tr>
                             <th>Puesto</th>
-                            <th>Estudiante</th>
+                            <th>Avatar</th>
+                            <th>Usuario</th>
                             <th>XP semanal</th>
-                            <th>Estado</th>
                         </tr>
 
                     </thead>
@@ -157,50 +181,140 @@
                     <tbody>
 
                         <tr>
-                            <td>🥇 1</td>
-                            <td>DragonBall</td>
-                            <td>850 XP</td>
-                            <td>Zona de ascenso</td>
+
+                            <td>
+                                🥇 1
+                            </td>
+
+                            <td>
+                                <span class="avatar-ranking">
+                                    MG
+                                </span>
+                            </td>
+
+                            <td>
+                                @MariaG_22
+                            </td>
+
+                            <td>
+                                850 XP
+                            </td>
+
                         </tr>
 
 
                         <tr class="usuario-actual">
-                            <td>🥈 2</td>
-                            <td>Juan Pérez (Tú)</td>
-                            <td>720 XP</td>
-                            <td>Zona de ascenso</td>
+
+                            <td>
+                                🥈 2
+                            </td>
+
+                            <td>
+                                <span class="avatar-ranking">
+                                    JP
+                                </span>
+                            </td>
+
+                            <td>
+                                @juanperez_web (Tú)
+                            </td>
+
+                            <td>
+                                720 XP
+                            </td>
+
                         </tr>
 
 
                         <tr>
-                            <td>🥉 3</td>
-                            <td>MelGra</td>
-                            <td>610 XP</td>
-                            <td>Zona de ascenso</td>
+
+                            <td>
+                                🥉 3
+                            </td>
+
+                            <td>
+                                <span class="avatar-ranking">
+                                    CD
+                                </span>
+                            </td>
+
+                            <td>
+                                @Carlos_Dev
+                            </td>
+
+                            <td>
+                                610 XP
+                            </td>
+
                         </tr>
 
 
                         <tr>
-                            <td>4</td>
-                            <td>MaiCoder</td>
-                            <td>570 XP</td>
-                            <td>Zona de ascenso</td>
+
+                            <td>
+                                4
+                            </td>
+
+                            <td>
+                                <span class="avatar-ranking">
+                                    MC
+                                </span>
+                            </td>
+
+                            <td>
+                                @MaiCoder
+                            </td>
+
+                            <td>
+                                570 XP
+                            </td>
+
                         </tr>
 
 
                         <tr>
-                            <td>5</td>
-                            <td>FacuWeb</td>
-                            <td>520 XP</td>
-                            <td>Zona de ascenso</td>
+
+                            <td>
+                                5
+                            </td>
+
+                            <td>
+                                <span class="avatar-ranking">
+                                    FW
+                                </span>
+                            </td>
+
+                            <td>
+                                @FacuWeb
+                            </td>
+
+                            <td>
+                                520 XP
+                            </td>
+
                         </tr>
 
 
                         <tr>
-                            <td>6</td>
-                            <td>AgusDev</td>
-                            <td>480 XP</td>
-                            <td>Permanece</td>
+
+                            <td>
+                                6
+                            </td>
+
+                            <td>
+                                <span class="avatar-ranking">
+                                    AD
+                                </span>
+                            </td>
+
+                            <td>
+                                @AgusDev
+                            </td>
+
+                            <td>
+                                480 XP
+                            </td>
+
                         </tr>
 
                     </tbody>
@@ -235,7 +349,7 @@
                         720
                     </span>
 
-                    <h3>XP semanal</h3>
+                    <h3>XP esta semana</h3>
 
                 </article>
 
@@ -246,20 +360,11 @@
                         131
                     </span>
 
-                    <h3>XP para alcanzar el primer puesto</h3>
+                    <h3>XP para superar el primer puesto</h3>
 
                 </article>
 
             </div>
-
-        </section>
-
-
-        <section class="volver">
-
-            <a href="../2_Vista home/home.html">
-                Volver a Cursos
-            </a>
 
         </section>
 
@@ -270,11 +375,11 @@
 
         <div class="logo-footer">
 
-            <a href="../2_Vista home/home.html">
+            <a href="../../index.html">
 
                 <img
                     class="img-logo-footer"
-                    src="../../images/LOGO-BLANCO.png"
+                    src="../../images/img-logo/LOGO-BLANCO.png"
                     alt="Logo de GrammaTech">
 
                 <span class="nombre-logo">Gramma</span>
@@ -308,15 +413,23 @@
 
         <div class="redes-footer">
 
-            <a href="#">instagram</a>
-
-            <a href="#">facebook</a>
-
-            <a href="https://github.com/SantaMariaFacundo/TP---Pagina-Aprender-Idiomas--">
-                github
+            <a href="#">
+                <img
+                    src="../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg"
+                    alt="Instagram">
             </a>
 
-            <a href="#">x</a>
+            <a href="#">
+                <img
+                    src="../../images/iconosBlack-svg/facebook-rounded-svgr.svg"
+                    alt="Facebook">
+            </a>
+
+            <a href="#">
+                <img
+                    src="../../images/iconosBlack-svg/twitter-rounded-svg.svg"
+                    alt="Twitter">
+            </a>
 
         </div>
 

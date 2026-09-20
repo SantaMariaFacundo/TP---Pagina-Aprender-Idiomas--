@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="perfilUsuario.css">
 
     <link rel="icon"
-        href="../../images/FAVICON-LOGO-BLANCO.png"
+        href="../../images/img-logo/FAVICON-LOGO-BLANCO.png"
         type="image/png">
 
     <title>Mi Perfil - GrammaTech</title>
@@ -21,21 +21,17 @@
 
         <div class="logo-explorar">
 
-            <a href="../2_Vista home/home.html">
+            <a href="../../index.html">
 
                 <img
                     class="img-logo"
-                    src="../../images/LOGO-BLANCO.png"
+                    src="../../images/img-logo/LOGO-BLANCO.png"
                     alt="Logo de GrammaTech">
 
                 <span class="nombre-logo">Gramma</span>
                 <span class="nombre-logo-tech">Tech</span>
 
             </a>
-
-            <button class="boton-explora">
-                Explora
-            </button>
 
         </div>
 
@@ -50,13 +46,18 @@
                     id="buscador"
                     placeholder="Becas, Cursos, y Vocabulario...">
 
+                <img
+                    class="img-search"
+                    src="../../images/iconosBlack-svg/search-svgrepo-com.svg"
+                    alt="">
+
             </div>
 
 
             <nav class="nav-usuario">
 
-                <a href="../2_Vista home/home.html">
-                    Cursos
+                <a href="../../index.html">
+                    Inicio
                 </a>
 
                 <span class="pagina-actual">
@@ -74,9 +75,17 @@
             </nav>
 
 
-            <button class="language">
-                Es
-            </button>
+            <select id="idioma" class="idioma">
+
+                <option value="espanol">
+                    Es
+                </option>
+
+                <option value="english">
+                    En
+                </option>
+
+            </select>
 
         </div>
 
@@ -84,6 +93,21 @@
 
 
     <main class="main-perfil">
+
+        <div class="boton-volver">
+
+            <a class="link-volver" href="../../index.html">
+
+                <img
+                    src="../../images/icons-general/icono-volver.svg"
+                    alt="Volver">
+
+                Volver
+
+            </a>
+
+        </div>
+
 
         <section class="encabezado-perfil">
 
@@ -111,7 +135,7 @@
                 </p>
 
                 <p>
-                    Email: juan.perez@alumnos.unlam.edu.ar
+                    juan.perez@alumnos.unlam.edu.ar
                 </p>
 
             </div>
@@ -143,11 +167,13 @@
 
                 <div class="campo">
 
-                    <label for="idioma">
+                    <label for="idioma-interfaz">
                         Idioma principal de la interfaz
                     </label>
 
-                    <select id="idioma" name="idioma">
+                    <select
+                        id="idioma-interfaz"
+                        name="idioma-interfaz">
 
                         <option value="espanol" selected>
                             Español
@@ -185,8 +211,7 @@
                     <input
                         type="password"
                         id="password-actual"
-                        name="password-actual"
-                        required>
+                        name="password-actual">
 
                 </div>
 
@@ -200,8 +225,7 @@
                     <input
                         type="password"
                         id="password-nueva"
-                        name="password-nueva"
-                        required>
+                        name="password-nueva">
 
                 </div>
 
@@ -215,8 +239,7 @@
                     <input
                         type="password"
                         id="password-confirmar"
-                        name="password-confirmar"
-                        required>
+                        name="password-confirmar">
 
                 </div>
 
@@ -280,7 +303,7 @@
                         ⚡
                     </span>
 
-                    <h3>350 XP</h3>
+                    <h3>1.850 XP</h3>
 
                     <p>
                         Experiencia acumulada.
@@ -308,11 +331,11 @@
 
         <div class="logo-footer">
 
-            <a href="../2_Vista home/home.html">
+            <a href="../../index.html">
 
                 <img
                     class="img-logo-footer"
-                    src="../../images/LOGO-BLANCO.png"
+                    src="../../images/img-logo/LOGO-BLANCO.png"
                     alt="Logo de GrammaTech">
 
                 <span class="nombre-logo">Gramma</span>
@@ -346,15 +369,23 @@
 
         <div class="redes-footer">
 
-            <a href="#">instagram</a>
-
-            <a href="#">facebook</a>
-
-            <a href="https://github.com/SantaMariaFacundo/TP---Pagina-Aprender-Idiomas--">
-                github
+            <a href="#">
+                <img
+                    src="../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg"
+                    alt="Instagram">
             </a>
 
-            <a href="#">x</a>
+            <a href="#">
+                <img
+                    src="../../images/iconosBlack-svg/facebook-rounded-svgr.svg"
+                    alt="Facebook">
+            </a>
+
+            <a href="#">
+                <img
+                    src="../../images/iconosBlack-svg/twitter-rounded-svg.svg"
+                    alt="Twitter">
+            </a>
 
         </div>
 
