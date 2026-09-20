@@ -6,11 +6,18 @@ header .logo-explorar .boton-explora {
     display: none;
 }
 
+
+
 header p {
     color: #F8E9DB;
     font-weight: 500;
     gap: 2rem;
     margin-left: 1rem;
+}
+
+header .buscador-acceder-language .acceder {
+
+    padding: .5rem .7rem;
 }
 
 .boton-volver {
@@ -58,6 +65,7 @@ header p {
     margin: 5rem auto;
     box-sizing: border-box;
     border-radius: 1.5rem;
+    box-shadow: 0 0.0625rem 0.375rem 0 rgba(68, 68, 68, 0.2);
 }
 
 .iniciar-redes h2 {
