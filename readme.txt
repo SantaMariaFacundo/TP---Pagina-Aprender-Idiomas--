@@ -13,8 +13,8 @@
 -------------------------- distribucion de paginas ---------------------- 
 
 facu:  home, progreso
-mai:   login
-agus:   registarse
+mai:   login, registarse
+agus:  leccion interactiva
 mel: usuario, vista tabla clasificacion
 
 ------------------------------------------------------------
@@ -48,6 +48,10 @@ mel: usuario, vista tabla clasificacion
 - Antes de entregar revisar todos los href para que redireccionen a donde tiene que ir 
 
 - Investigar/preguntar como redireccionar con un submit 
+
+- revisar/investigar el responsive de login y registro, porque si le sacamos los iconos del botón
+ del header de "registro" e "inicia sesión", en el responsive a partir de un breakpoint se empieza a ver 
+ un circulo beige sin contenido (viene del responsive de stylegeneral) 
 
 -------------------------------------------------------------------------------
 
