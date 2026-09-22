@@ -230,8 +230,6 @@ tbody tr {
 .dato h3 {
     font-size: 1rem;
 }
-
-
 /* RESPONSIVE */
 
 @media screen and (max-width: 76rem) {
@@ -246,19 +244,66 @@ tbody tr {
 
 @media screen and (max-width: 50rem) {
 
+    /* HEADER */
+
+    header {
+        height: auto;
+        grid-template-columns: 1fr;
+    }
+
+    header .logo-explorar {
+        grid-column: 1;
+        justify-content: center;
+        margin-left: 0;
+        padding-top: 0.5rem;
+    }
+
+    header .buscador-acceder-language {
+        grid-column: 1;
+
+        justify-content: center;
+        flex-wrap: wrap;
+
+        gap: 0.8rem;
+
+        padding: 0.5rem 1rem 0.8rem;
+    }
+
+    header .buscador-acceder-language .search-class {
+        width: 12rem;
+    }
+
+    header .buscador-acceder-language .conteiner-search input::placeholder {
+        color: #2B2B2B;
+    }
+
+    .nav-usuario {
+        display: flex;
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 0.8rem;
+
+        font-size: 0.85rem;
+    }
+
+
+    /* CONTENIDO */
+
     .main-clasificacion {
+        padding-top: 10rem;
         padding-left: 5%;
         padding-right: 5%;
     }
 
-    .ranking {
-        max-width: 100%;
-    }
-
     .selector-liga {
         max-width: 100%;
-
         flex-direction: column;
+    }
+
+    .ranking {
+        max-width: 100%;
     }
 
     .resumen-posicion {
@@ -274,23 +319,50 @@ tbody tr {
         padding: 0.7rem;
     }
 
-    .nav-usuario {
-        gap: 0.7rem;
-        font-size: 0.8rem;
-    }
-
-    .usuario {
-        display: none;
-    }
-
 }
 
 
 @media screen and (max-width: 34rem) {
 
+    header .logo-explorar .nombre-logo,
+    header .logo-explorar .nombre-logo-tech {
+        font-size: 1.5rem;
+    }
+
+    header .buscador-acceder-language .search-class {
+        width: 10rem;
+    }
+
     .nav-usuario {
-        gap: 0.5rem;
+        gap: 0.6rem;
         font-size: 0.75rem;
     }
 
+    .main-clasificacion {
+        padding-top: 11rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .encabezado-clasificacion h1 {
+        font-size: 1.8rem;
+    }
+
+    .ranking {
+        padding: 1.2rem;
+    }
+
+    th,
+    td {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .avatar-ranking {
+        width: 2rem;
+        height: 2rem;
+        font-size: 0.8rem;
+    }
+
 }
+
