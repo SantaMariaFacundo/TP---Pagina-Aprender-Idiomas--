@@ -227,7 +227,7 @@ h3 {
 
 .boton-examenfinal {
 
-    padding: 0.8rem 5rem 0.8rem 5rem;
+    padding: 0.8rem 5rem 0.8rem rem;
     background-color: #858484;
     border-radius: 2rem;
     text-decoration: none;
@@ -235,4 +235,3 @@ h3 {
     pointer-events: none;
 }
 
-}
