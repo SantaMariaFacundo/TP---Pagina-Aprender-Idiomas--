@@ -12,9 +12,10 @@
 </head>
 
 <body>
-     <header>
+    <header>
         <div class="logo-explorar">
-            <a href="../../../../TP---Pagina-Aprender-Idiomas--/index.html"><img class="img-logo" src="../../../images/img-logo/LOGO-BLANCO.png" alt="logo"><span
+            <a href="../../../../TP---Pagina-Aprender-Idiomas--/index.html"><img class="img-logo"
+                    src="../../../images/img-logo/LOGO-BLANCO.png" alt="logo"><span
                     class="nombre-logo">Gramma</span><span class="nombre-logo-tech">Tech</span></a>
         </div>
         <div class="buscador-acceder-language">
@@ -23,8 +24,8 @@
                 <img class="img-search" src="images/iconosBlack-svg/search-svgrepo-com.svg" alt="">
             </div>
             <p>¿Ya tenes cuenta?</p>
-            <a class="acceder" href="../login.html"><span class="span-acceder">Inicia Sesión</span>
-                </a>
+            <a class="acceder" href="../login.html"><span class="span-iniciar">Inicia Sesión</span>
+            </a>
             <select id="idioma" class="idioma">
                 <option value="español">Es</option>
                 <option value="english">En</option>
@@ -37,6 +38,7 @@
     <main>
         <div class="boton-volver">
 
+
             <a class="link-volver" href="../../../index.html"> <img src="../../../images/icons-general/icono-volver.svg"
                     alt="volver">Volver</a>
 
@@ -44,7 +46,7 @@
 
         <div class="contenedor">
             <div class="form-caja">
-                <form action="">
+                <form action="../../2_Vista home/home.html" method="get">
 
                     <div class="iniciar-redes">
 
@@ -52,14 +54,14 @@
 
                         <div class="redes">
 
-                            <a class="boton-red" href="#"> <img class="img-redes" src="../../../images/iconosRedes-svg/google-icon.svg"
-                                    alt="Google"></a>
-                            <a class="boton-red" href="#"> <img class="img-redes" src="../../../images/iconosRedes-svg/facebook.svg"
-                                    alt="Facebook"></a>
-                            <a class="boton-red" href="#"> <img class="img-redes" src="../../../images/iconosRedes-svg/microsoft-icon.svg"
-                                    alt="Microsoft"></a>
-                            <a class="boton-red" href="#"> <img class="img-redes" src="../../../images/iconosRedes-svg/linkedin-icon.svg"
-                                    alt="Google"></a>
+                            <a class="boton-red" href="#"> <img class="img-redes"
+                                    src="../../../images/iconosRedes-svg/google-icon.svg" alt="Google"></a>
+                            <a class="boton-red" href="#"> <img class="img-redes"
+                                    src="../../../images/iconosRedes-svg/facebook.svg" alt="Facebook"></a>
+                            <a class="boton-red" href="#"> <img class="img-redes"
+                                    src="../../../images/iconosRedes-svg/microsoft-icon.svg" alt="Microsoft"></a>
+                            <a class="boton-red" href="#"> <img class="img-redes"
+                                    src="../../../images/iconosRedes-svg/linkedin-icon.svg" alt="Google"></a>
 
                         </div>
 
@@ -74,7 +76,7 @@
                                 <label for="name">Nombre</label>
                             </div>
 
-                            <input type="name" name="name" placeholder="Nombre" required>
+                            <input type="name" id="name" name="name" placeholder="Nombre" required>
                         </div>
 
                         <div class="relleno">
@@ -111,7 +113,7 @@
                                 <label for="email">Email</label>
 
                             </div>
-                            <input type="email" name="correo" placeholder="tu-nombre@correo.com" required>
+                            <input type="email" name="correo" id="email" placeholder="tu-nombre@correo.com" required>
                         </div>
 
                         <div class="relleno">
@@ -121,12 +123,16 @@
 
                             </div>
 
-                            <input type="password" name="password" placeholder="Contraseña" required>
+                            <input type="password" name="password" id="contraseña" placeholder="Contraseña" required>
                             <ul>
-                                <li> <img class="icono-check" src="../.././../images/icons-general/check.svg" alt="tilde verificación"> Mínimo 10 caracteres</li>
-                                <li> <img class="icono-check" src="../.././../images/icons-general/check.svg" alt="tilde verificación"> Una Mayúscula</li>
-                                <li><img class="icono-check" src="../.././../images/icons-general/check.svg" alt="tilde verificación"> Una minúscula</li>
-                                <li><img class="icono-check" src="../.././../images/icons-general/check.svg" alt="tilde verificación"> Un número</li>
+                                <li> <img class="icono-check" src="../.././../images/icons-general/check.svg"
+                                        alt="tilde verificación"> Mínimo 10 caracteres</li>
+                                <li> <img class="icono-check" src="../.././../images/icons-general/check.svg"
+                                        alt="tilde verificación"> Una Mayúscula</li>
+                                <li><img class="icono-check" src="../.././../images/icons-general/check.svg"
+                                        alt="tilde verificación"> Una minúscula</li>
+                                <li><img class="icono-check" src="../.././../images/icons-general/check.svg"
+                                        alt="tilde verificación"> Un número</li>
                             </ul>
                         </div>
 
@@ -139,17 +145,23 @@
 
                             <input type="password" name="repcontrasena" id="repcontrasena" required>
                             <ul>
-                                <li> <img class="icono-check" src="../.././../images/icons-general/check.svg" alt="tilde verificación"> Mínimo 10 caracteres</li>
-                                <li> <img class="icono-check" src="../.././../images/icons-general/check.svg" alt="tilde verificación"> Una Mayúscula</li>
-                                <li><img class="icono-check" src="../.././../images/icons-general/check.svg" alt="tilde verificación"> Una minúscula</li>
-                                <li><img class="icono-check" src="../.././../images/icons-general/check.svg" alt="tilde verificación"> Un número</li>
+                                <li> <img class="icono-check" src="../.././../images/icons-general/check.svg"
+                                        alt="tilde verificación"> Mínimo 10 caracteres</li>
+                                <li> <img class="icono-check" src="../.././../images/icons-general/check.svg"
+                                        alt="tilde verificación"> Una Mayúscula</li>
+                                <li><img class="icono-check" src="../.././../images/icons-general/check.svg"
+                                        alt="tilde verificación"> Una minúscula</li>
+                                <li><img class="icono-check" src="../.././../images/icons-general/check.svg"
+                                        alt="tilde verificación"> Un número</li>
                             </ul>
 
                         </div>
 
                         <div class="terminos">
                             <input type="checkbox" name="politica-privacidad" id="politica-privacidad" required>
-                            <label class="condiciones" for="politica-privacidad">He leído y acepto la <a href="#">Política de Privacidad, Condiciones generales de uso y Política de Cookies.</a></label>
+                            <label class="condiciones" for="politica-privacidad">He leído y acepto la <a
+                                    href="#">Política de Privacidad, Condiciones generales de uso y Política de
+                                    Cookies.</a></label>
                         </div>
 
 
@@ -180,27 +192,6 @@
 
 
     </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <footer>
