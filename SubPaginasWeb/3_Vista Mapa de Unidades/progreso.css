@@ -1,0 +1,238 @@
+progress {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 0.6rem;
+    border-radius: 1rem;
+    border: none;
+    overflow: hidden;
+
+}
+
+progress::-webkit-progress-bar {
+    background-color: #bdbdbd;
+    border-radius: 1rem;
+
+}
+
+progress::-webkit-progress-value {
+    background-color: #2A9C8D;
+    border-radius: 1rem;
+}
+
+.barra-progreso {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+
+.boton-card {
+
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: #CA6035;
+    border-radius: 1rem;
+    text-decoration: none;
+    color: #F8E9DB;
+    text-align: center;
+}
+
+.boton-card:hover {
+
+    transform: scale(1.1);
+}
+
+.boton-examen {
+
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    background-color: #858484;
+    border-radius: 2rem;
+    text-decoration: none;
+    text-align: center;
+    pointer-events: none;
+}
+
+.seccion-a1a2 {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6rem;
+    margin-bottom: 6rem;
+
+}
+
+h2 {
+    padding-bottom: 5rem;
+    font-size: 2rem;
+}
+
+h3 {
+
+    padding: 1.5rem;
+
+}
+
+.contenedor-cards {
+    display: grid;
+    width: 50rem;
+    height: 20rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5%;
+    align-items: stretch;
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.cards-a1a2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 1.8rem;
+    padding: 2rem;
+    border: none;
+    box-shadow: 0 0.0625rem 0.375rem 0 rgba(68, 68, 68, 0.5);
+}
+
+
+.cards-a1a2 img {
+
+    width: 5rem;
+    height: 5rem;
+}
+
+.examen {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.examen img {
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+
+
+
+/* aca empieza la sección de  b1b2  */
+
+
+.seccion-b1b2 {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem;
+
+}
+
+.cards-b1b2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 1.8rem;
+    padding: 2rem;
+    border: none;
+    box-shadow: 0 0.0625rem 0.375rem 0 rgba(68, 68, 68, 0.5);
+}
+
+
+.cards-b1b2 img {
+
+    width: 5rem;
+    height: 5rem;
+}
+
+
+/* aca empieza la sección de  C1C2  */
+
+
+.seccion-c1c2 {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10rem;
+    margin-bottom: 6rem;
+
+}
+
+.cards-c1c2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 1.8rem;
+    padding: 2rem;
+    border: none;
+    box-shadow: 0 0.0625rem 0.375rem 0 rgba(68, 68, 68, 0.5);
+}
+
+
+.cards-c1c2 img {
+
+    width: 5rem;
+    height: 5rem;
+}
+
+.contenedor-examenfinal {
+
+    display: flex;
+    flex-direction: column;
+    width: 50rem;
+    height: 22rem;
+    background-color: #ffffff;
+    margin: 5rem auto;
+    box-sizing: border-box;
+    border-radius: 1.5rem;
+    box-shadow: 0 0.0625rem 0.375rem 0 rgba(68, 68, 68, 0.2);
+}
+
+.titulo-examfinal {
+
+    text-align: center;
+    padding: 2rem;
+}
+
+
+
+.contenido-examf {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.contenido-examf .img-examenfinal {
+
+    width: 8rem;
+    height: 8rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.contenido-examf .img-candado {
+
+    width: 2rem;
+    height: 2rem;
+}
+
+.boton-examenfinal {
+
+    padding: 0.8rem 5rem 0.8rem 5rem;
+    background-color: #858484;
+    border-radius: 2rem;
+    text-decoration: none;
+    text-align: center;
+    pointer-events: none;
+}
+
+}
