@@ -38,54 +38,31 @@
 
     <main>
 
-
         <div class="contenedor">
-            <div class="form-caja">
 
-                <div class="completar-datos">
-                    <h1>¿Olvidaste tu contraseña?</h1>
-                    <form action="../2_Vista home/home.html" method="get">
+            <h1>¿Olvidaste tu contraseña?</h1>
 
-                        <div class="relleno">
-                            <div class="relleno-label">
-                                <label for="email">Email</label>
-                            </div>
-                            <input type="email" name="correo" id="email" placeholder="tu-nombre@correo.com" required>
-                        </div>
+            <form class="form-mail" action="" method="get">
 
-                        <p>Te enviaremos un correo para restablecer tu contraseña</p>
-
-                        <button class="boton-iniciar" type="submit">Recuperar Contraseña</button>
-                    </form>
-                    <form action=""></form>
-                    <button class="boton-iniciar" type="submit">Cancelar</button>
-
+                <div class="relleno">
+                    <div class="relleno-label">
+                        <label for="email">Email</label>
+                    </div>
+                    <input type="email" name="correo" id="email" placeholder="tu-nombre@correo.com" required>
                 </div>
 
+                <p>Te enviaremos un correo para restablecer tu contraseña</p>
 
+                <button class="boton-iniciar" type="submit">Recuperar Contraseña</button>
+            </form>
 
-
-
-                <div class="links-login">
-
-                    <div class="olvido-contraseña">
-
-                        <a href="#">Olvidé mi contraseña</a>
-                    </div>
-
-                    <div class="registrarse">
-
-                        <a href="../1_Vista Login/Vista Registro/registro.html">¿No tenes cuenta en GrammaTech?
-                            Registrate</a>
-                    </div>
-
-                </div>
-
-
-
-            </div>
+            <form class="form-cancelar" action="../login.html">
+                <button class="boton-cancelar" type="submit">Cancelar</button>
+            </form>
 
         </div>
+
+
 
 
     </main>
