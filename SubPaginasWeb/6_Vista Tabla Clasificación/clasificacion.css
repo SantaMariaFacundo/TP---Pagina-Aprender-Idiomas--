@@ -3,58 +3,10 @@
     color: #2B2B2B;
 }
 
-
-/* BOTON VOLVER */
-
-.boton-volver {
-    margin-bottom: 2rem;
-}
-
-.link-volver {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-
-    text-decoration: none;
-    color: #2B2B2B;
-
+header .buscador-acceder-language .navegacion .pagina-actual {
+    color: #222222;
     font-weight: bold;
 }
-
-.link-volver img {
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
-
-/* NAVEGACION */
-
-.nav-usuario {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.nav-usuario a {
-    text-decoration: none;
-    color: #2B2B2B;
-    font-weight: bold;
-}
-
-.nav-usuario span {
-    font-weight: bold;
-}
-
-.pagina-actual {
-    color: #6D2508;
-}
-
-.usuario {
-    color: #2B2B2B;
-}
-
-
-/* TITULO */
 
 .encabezado-clasificacion {
     text-align: center;
@@ -70,17 +22,12 @@
     font-size: 1rem;
 }
 
-
-/* SELECTOR DE LIGA */
-
 .selector-liga {
     max-width: 75%;
     margin: 0 auto 2rem;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     gap: 1rem;
 }
 
@@ -90,29 +37,19 @@
 
 .selector-liga select {
     padding: 0.7rem 1rem;
-
     border: 0.1rem solid #6d25082e;
     border-radius: 0.7rem;
-
     background-color: white;
-
     font-family: inherit;
     font-size: 1rem;
 }
 
-
-/* RANKING */
-
 .ranking {
     max-width: 75%;
     margin: 0 auto 3rem;
-
     background-color: white;
-
     border-radius: 1.8rem;
-
     padding: 2rem;
-
     box-shadow: 0 0.0625rem 0.375rem 0 rgba(68, 68, 68, 0.5);
 }
 
@@ -121,13 +58,23 @@
     margin-bottom: 2rem;
 }
 
-.titulo-ranking h2 {
-    color: #6D2508;
+.titulo-liga {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
     margin-bottom: 0.5rem;
 }
 
+.titulo-liga h2 {
+    color: #6D2508;
+}
 
-/* TABLA */
+.icono-liga {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
+}
 
 .contenedor-tabla {
     width: 100%;
@@ -142,9 +89,7 @@ table {
 th,
 td {
     padding: 1rem;
-
     text-align: center;
-
     border-bottom: 0.1rem solid #6d25082e;
 }
 
@@ -162,29 +107,18 @@ tbody tr {
     font-weight: bold;
 }
 
-
-/* AVATAR */
-
 .avatar-ranking {
     width: 2.5rem;
     height: 2.5rem;
-
     margin: 0 auto;
-
     border-radius: 50%;
-
     background-color: #CA6035;
     color: white;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-weight: bold;
 }
-
-
-/* RESUMEN */
 
 .resumen-posicion {
     max-width: 75%;
@@ -198,53 +132,39 @@ tbody tr {
 
 .datos-posicion {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
     gap: 1.5rem;
 }
 
 .dato {
     background-color: white;
-
     border-radius: 1.8rem;
-
     padding: 1.5rem;
-
     text-align: center;
-
     box-shadow: 0 0.0625rem 0.375rem 0 rgba(68, 68, 68, 0.5);
 }
 
 .numero {
     display: block;
-
     color: #CA6035;
-
     font-size: 2rem;
     font-weight: bold;
-
     margin-bottom: 0.5rem;
 }
 
 .dato h3 {
     font-size: 1rem;
 }
-/* RESPONSIVE */
 
 @media screen and (max-width: 76rem) {
 
-    .nav-usuario {
-        gap: 1rem;
-        font-size: 0.9rem;
+    .navegacion {
+        gap: 0.6rem;
     }
 
 }
 
-
 @media screen and (max-width: 50rem) {
-
-    /* HEADER */
 
     header {
         height: auto;
@@ -260,12 +180,9 @@ tbody tr {
 
     header .buscador-acceder-language {
         grid-column: 1;
-
         justify-content: center;
         flex-wrap: wrap;
-
         gap: 0.8rem;
-
         padding: 0.5rem 1rem 0.8rem;
     }
 
@@ -277,19 +194,16 @@ tbody tr {
         color: #2B2B2B;
     }
 
-    .nav-usuario {
+    .navegacion {
         display: flex;
         flex-wrap: wrap;
-
         justify-content: center;
-
         gap: 0.8rem;
-
-        font-size: 0.85rem;
     }
 
-
-    /* CONTENIDO */
+    header .buscador-acceder-language .navegacion a {
+        font-size: 0.85rem;
+    }
 
     .main-clasificacion {
         padding-top: 10rem;
@@ -321,7 +235,6 @@ tbody tr {
 
 }
 
-
 @media screen and (max-width: 34rem) {
 
     header .logo-explorar .nombre-logo,
@@ -333,9 +246,12 @@ tbody tr {
         width: 10rem;
     }
 
-    .nav-usuario {
-        gap: 0.6rem;
+    header .buscador-acceder-language .navegacion a {
         font-size: 0.75rem;
+    }
+
+    .navegacion {
+        gap: 0.6rem;
     }
 
     .main-clasificacion {
@@ -352,6 +268,10 @@ tbody tr {
         padding: 1.2rem;
     }
 
+    .titulo-liga {
+        flex-direction: column;
+    }
+
     th,
     td {
         padding: 0.5rem;
@@ -365,4 +285,3 @@ tbody tr {
     }
 
 }
-

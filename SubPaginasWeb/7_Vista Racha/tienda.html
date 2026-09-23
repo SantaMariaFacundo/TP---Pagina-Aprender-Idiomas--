@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../StyleGeneral.css">
+    <link rel="stylesheet" href="tienda.css">
+
+    <link rel="icon" href="../../images/img-logo/FAVICON-LOGO-BLANCO.png" type="image/png">
+
+    <title>Tienda y Rachas - GrammaTech</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-explorar">
+            <a href="../2_Vista home/home.html">
+                <img class="img-logo" src="../../images/img-logo/LOGO-BLANCO.png" alt="Logo de GrammaTech">
+                <span class="nombre-logo">Gramma</span>
+                <span class="nombre-logo-tech">Tech</span>
+            </a>
+        </div>
+
+        <div class="buscador-acceder-language">
+
+            <div class="conteiner-search">
+                <input
+                    type="search"
+                    class="search-class"
+                    id="buscador"
+                    placeholder="Becas, Cursos, y Vocabulario..."
+                >
+
+                <img
+                    class="img-search"
+                    src="../../images/iconosBlack-svg/search-svgrepo-com.svg"
+                    alt="Icono de búsqueda"
+                >
+            </div>
+
+            <nav class="navegacion">
+                <a href="../2_Vista home/home.html">Cursos</a>
+                <a href="../5_Vista Perfil Usuario/perfilUsuario.html">Perfil</a>
+                <a href="../6_Vista Tabla Clasificación/clasificacion.html">Clasificación</a>
+                <a class="pagina-actual" href="tienda.html">Tienda</a>
+            </nav>
+
+            <select id="idioma" class="idioma">
+                <option value="espanol">Es</option>
+                <option value="english">En</option>
+            </select>
+
+        </div>
+    </header>
+
+
+    <main class="main-tienda">
+
+        <div class="boton-volver">
+            <a class="link-volver" href="../2_Vista home/home.html">
+
+                <img
+                    src="../../images/icons-general/icono-volver.svg"
+                    alt="Volver"
+                >
+
+                Volver
+
+            </a>
+        </div>
+
+
+        <section class="encabezado-tienda">
+
+            <h1>TIENDA Y RACHAS</h1>
+
+            <p>
+                Mantené tu constancia, seguí tu progreso y conseguí recompensas.
+            </p>
+
+        </section>
+
+
+        <section class="resumen-racha">
+
+            <article class="tarjeta-resumen">
+
+                <img
+                    src="../../images/icons-general/calendar-days-svgrepo-com.svg"
+                    alt="Calendario"
+                >
+
+                <div>
+
+                    <h2>Racha actual</h2>
+
+                    <p class="numero-destacado">
+                        🔥 5 días
+                    </p>
+
+                    <p>
+                        Seguí practicando para mantenerla activa.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="tarjeta-resumen">
+
+                <img
+                    src="../../images/icons-general/flag-svgrepo-com.svg"
+                    alt="Meta diaria"
+                >
+
+                <div class="contenido-meta">
+
+                    <h2>Meta de hoy</h2>
+
+                    <p class="numero-destacado">
+                        30 / 40 XP
+                    </p>
+
+                    <progress value="30" max="40"></progress>
+
+                    <p>
+                        Te faltan 10 XP para completar tu meta diaria.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="tarjeta-resumen">
+
+                <img
+                    src="../../images/icons-general/medal-reward-svgrepo-com.svg"
+                    alt="Experiencia acumulada"
+                >
+
+                <div>
+
+                    <h2>Experiencia total</h2>
+
+                    <p class="numero-destacado">
+                        ⚡ 1.850 XP
+                    </p>
+
+                    <p>
+                        Todo lo que aprendiste hasta ahora suma.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <section class="semana-racha">
+
+            <div class="titulo-seccion">
+
+                <h2>TU RACHA ESTA SEMANA</h2>
+
+                <p>
+                    Completá una actividad por día para mantener el fuego encendido.
+                </p>
+
+            </div>
+
+
+            <div class="dias-semana">
+
+                <article class="dia completado">
+                    <span>Lun</span>
+                    <strong>✓</strong>
+                </article>
+
+                <article class="dia completado">
+                    <span>Mar</span>
+                    <strong>✓</strong>
+                </article>
+
+                <article class="dia completado">
+                    <span>Mié</span>
+                    <strong>✓</strong>
+                </article>
+
+                <article class="dia completado">
+                    <span>Jue</span>
+                    <strong>✓</strong>
+                </article>
+
+                <article class="dia completado">
+                    <span>Vie</span>
+                    <strong>✓</strong>
+                </article>
+
+                <article class="dia pendiente">
+                    <span>Sáb</span>
+                    <strong>○</strong>
+                </article>
+
+                <article class="dia pendiente">
+                    <span>Dom</span>
+                    <strong>○</strong>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <section class="tienda-recompensas">
+
+            <div class="titulo-seccion titulo-tienda">
+
+                <div>
+
+                    <h2>TIENDA DE RECOMPENSAS</h2>
+
+                    <p>
+                        Usá tus monedas para conseguir beneficios de estudio.
+                    </p>
+
+                </div>
+
+                <p class="saldo">
+                    🪙 650 monedas
+                </p>
+
+            </div>
+
+
+            <div class="contenedor-productos">
+
+                <article class="producto">
+
+                    <div class="icono-producto">
+                        🔥
+                    </div>
+
+                    <h3>Protector de racha</h3>
+
+                    <p>
+                        Protege tu racha durante un día si no podés completar una actividad.
+                    </p>
+
+                    <span class="precio">
+                        🪙 200
+                    </span>
+
+                    <button type="button">
+                        Canjear
+                    </button>
+
+                </article>
+
+
+                <article class="producto">
+
+                    <div class="icono-producto">
+                        ❤️
+                    </div>
+
+                    <h3>Vida extra</h3>
+
+                    <p>
+                        Sumá una vida para continuar practicando durante tus lecciones.
+                    </p>
+
+                    <span class="precio">
+                        🪙 100
+                    </span>
+
+                    <button type="button">
+                        Canjear
+                    </button>
+
+                </article>
+
+
+                <article class="producto">
+
+                    <div class="icono-producto">
+                        ⚡
+                    </div>
+
+                    <h3>Doble XP</h3>
+
+                    <p>
+                        Duplicá la experiencia obtenida durante tus próximas actividades.
+                    </p>
+
+                    <span class="precio">
+                        🪙 300
+                    </span>
+
+                    <button type="button">
+                        Canjear
+                    </button>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <section class="consejo-racha">
+
+            <h2>
+                🔥 Consejo para mantener tu racha
+            </h2>
+
+            <p>
+                No necesitás estudiar horas todos los días.
+                Una práctica corta y constante también te acerca a tu objetivo.
+            </p>
+
+            <a href="../2_Vista home/home.html">
+                Ir a mis cursos
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div class="logo-footer">
+
+            <a href="../2_Vista home/home.html">
+
+                <img
+                    class="img-logo-footer"
+                    src="../../images/img-logo/LOGO-BLANCO.png"
+                    alt="Logo de GrammaTech"
+                >
+
+                <span class="nombre-logo">Gramma</span>
+                <span class="nombre-logo-tech">Tech</span>
+
+            </a>
+
+        </div>
+
+
+        <div class="condiciones-footer">
+
+            <p>
+                <a href="">Condiciones Generales</a> -
+                <a href="">Aviso Legal</a> -
+                <a href="">Privacidad</a> -
+                <a href="">Cookies</a> -
+                <a href="">Accesibilidad</a>
+            </p>
+
+            <p>
+                <a href="">Soporte y Ayuda</a>
+            </p>
+
+            <p>
+                © Todos los derechos reservados, 2026, Gramatech.
+            </p>
+
+        </div>
+
+
+        <div class="redes-footer">
+
+            <a href="#">
+                <img
+                    src="../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg"
+                    alt="Instagram"
+                >
+            </a>
+
+            <a href="#">
+                <img
+                    src="../../images/iconosBlack-svg/facebook-rounded-svgr.svg"
+                    alt="Facebook"
+                >
+            </a>
+
+            <a href="#">
+                <img
+                    src="../../images/iconosBlack-svg/twitter-rounded-svg.svg"
+                    alt="Twitter"
+                >
+            </a>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
