@@ -17,6 +17,7 @@ header {
     height: 3.5rem;
     background-color: #CA6035;
     position: fixed;
+    z-index: 100;
     top: 0;
     display: grid;
     grid-template-columns: 20% 80%; 
@@ -53,7 +54,7 @@ header .buscador-acceder-language{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
     padding-right: 1.5rem;
 }
 
@@ -97,7 +98,7 @@ header .buscador-acceder-language .search-class{
 
 header .buscador-acceder-language .acceder{
     background-color: #f8e9db;
-    padding: .5rem .6rem .5rem .8rem;
+    padding: .3rem .6rem .3rem .8rem;
     border-radius: 1.5rem;
 }
 
@@ -108,6 +109,22 @@ header .buscador-acceder-language .idioma{
     cursor: pointer;
     font: inherit;
     color: inherit;
+}
+
+/* header con nav */
+
+.navegacion{
+    display: flex;
+    gap: .7rem;
+}
+
+header .buscador-acceder-language .navegacion a{
+    color: #F8E9DB;
+    font-size: 1.1rem;
+}
+
+header .buscador-acceder-language .navegacion a:hover{
+    color: #222222;   
 }
 
 main {
@@ -196,10 +213,6 @@ footer .redes-footer a:hover{
 }
 
 @media screen and (max-width: 76rem) {
-
-    header .buscador-acceder-language .span-acceder{
-        display: 
-    }
 
     footer{
         height: auto;

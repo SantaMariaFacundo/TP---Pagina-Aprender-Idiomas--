@@ -3,6 +3,7 @@
     min-height: 100vh;
     width: 75%;
     margin: 0 auto;
+
     align-items: center;
     justify-content: center;
     gap: 3rem;
@@ -17,7 +18,7 @@
 
 .titulo h1 {
     margin-bottom: 1rem;
-    font-size: 2.5rem;
+    font-size: 3rem;
 }
 
 .titulo p {
@@ -40,10 +41,10 @@
 }
 
 .img-sc1 {
-    width: 36rem;
+    width: 42rem;
     height: auto;
     object-fit: contain;
-    margin-bottom: 10rem; 
+    margin-bottom: 5rem;
 }
 
 .seccion-2 {
@@ -56,7 +57,9 @@
 }
 
 .seccion-2 h2 {
-    padding: 5rem;
+    text-align: center;
+    padding: 4rem 0 5rem;
+    font-size: 2rem;
 }
 
 .cards {
@@ -78,8 +81,13 @@
     box-shadow: 0 0.0625rem 0.375rem 0 rgba(68, 68, 68, 0.5);
 }
 
+.cards-idioma p{
+    padding-top: 2rem;
+}
+
 .cards-idioma h3{
-    padding: .8rem;
+    font-size: 1.5rem;
+    padding: 0 .8rem 1.5rem;
     text-align: center;
 }
 
@@ -87,7 +95,7 @@
     text-decoration: none;
     color: white;
     background-color: #CA6035;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     padding: .5rem .8rem;
     border-radius: .8rem;
     transition: .3s;
@@ -237,10 +245,7 @@
         width: 85%;
     }
 
-    .img-sc1{
-        width: 80%;
-        max-width: 22.5rem;
-    }
+    
 
     .seccion-3{
         grid-template-columns: 1fr;
@@ -258,9 +263,29 @@
 
 @media screen and (max-width: 31rem){
 
-
-
     .titulo h1{
+        text-align: center;
         font-size: 1.7rem;
     }
+
+    .titulo a{
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 23.45rem){
+    
+    .seccion-2 h2{
+        font-size: 1.5rem;
+        padding: 1.5rem 0 3rem;
+    }
+
+}
+
+@media screen and (max-width: 20.125rem){
+    
+    .seccion-2 h2{
+        font-size: 1.5rem
+    }
+
 }

@@ -1,6 +1,7 @@
 main {
     padding: 1rem;
 }
+
 .card {
     background-color: #ffffff;
     border-radius: 1.5rem;
@@ -8,19 +9,49 @@ main {
     padding: 2rem;
     max-width: 40rem;
     margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 8rem;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2.5rem;
 }
 
 .barra {
-    margin: 3.5rem ;
-    display: flex;
+    margin: auto;
+    margin-top: 7rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    width: 70%;
+    align-items: center;
     justify-content: space-evenly;
+    background: #ffffff;
+    border-radius: 5rem;
+    padding: 1rem;
 }
 
 .barra .vidas {
     margin-left: .5rem;
+}
+
+.boton-atras {
+
+    padding: 0.8rem 1rem;
+    background-color: #CA6035;
+    border-radius: 50%;
+    color: #F8E9DB;
+    text-decoration: none;
+    font-weight: bold;
+    text-decoration: none;
+    
+}
+
+
+.boton-atras:hover {
+
+    color: #2b2b2b;
+    transform: scale(1.1);
+
+
 }
 
 .frase {
@@ -38,9 +69,11 @@ main {
     align-self: center;
 }
 
-h1, h2 {
+h1,
+h2 {
     font-size: 1.4rem;
-    font-weight: 500;
+    font-weight: bold;
+    color: #2b2b2b;
 }
 
 .comprobar {
@@ -60,7 +93,8 @@ h1, h2 {
     transform: scale(1.1);
 }
 
-.respuesta button, .banco-palabras button {
+.respuesta button,
+.banco-palabras button {
     border-radius: 2rem;
     padding: 0.5rem 1rem;
     border: 0.1rem solid #8f8f8f3d;
@@ -72,16 +106,19 @@ progress {
     height: 0.6rem;
     border-radius: 1rem;
     border: none;
+    width: 100%;
+    padding: 0 1rem;
     overflow: hidden;
+    margin-bottom: .3rem;
 }
 
 progress::-webkit-progress-bar {
-    background-color:#ffffff;
+    background-color: #cdcdcd;
     border-radius: 1rem;
 }
 
 progress::-webkit-progress-value {
-    background-color: #CA6035;
+    background-color: #2A9C8D;
     border-radius: 1rem;
 }
 
@@ -94,7 +131,7 @@ hr {
 .opciones {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 1.5rem;
 }
 
 @media screen and (max-width: 40rem) {
