@@ -96,10 +96,16 @@ header .buscador-acceder-language .search-class{
     padding-left: 1rem;
 }
 
-header .buscador-acceder-language .acceder{
+header .buscador-acceder-language .btn-acceder{
     background-color: #f8e9db;
     padding: .3rem .6rem .3rem .8rem;
     border-radius: 1.5rem;
+    transition: .3s;
+}
+
+header .buscador-acceder-language .btn-acceder:hover{
+    background-color: #d40000;
+    color: white;
 }
 
 header .buscador-acceder-language .idioma{
@@ -161,6 +167,7 @@ footer .logo-footer a{
     text-decoration: none;
     color: inherit;
     font-size: 1.5rem;
+    cursor: default;
 }
 
 footer .logo-footer .nombre-logo{

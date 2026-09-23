@@ -26,9 +26,9 @@ main{
 }
 
 .contenedor {
-    width: 30rem;
+    width: auto;
     height: auto;
-    padding: 2rem;
+    padding: 4rem 4rem 3rem;
     background-color: #ffffff;
     margin: 0 auto;
     box-sizing: border-box;
@@ -63,14 +63,13 @@ input {
     margin-bottom: 0.7rem;
     display: flex;
     gap: 0.5rem;
-
 }
 
 
 .form-mail {
     display: grid;
     grid-template-rows: auto auto auto;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .form-cancelar{
@@ -81,6 +80,7 @@ input {
     text-align: center;
     width: 80%;
     margin: 0 auto;
+    margin-top: 2rem;
     text-decoration: none;
     color: white;
     font-weight: bold;
