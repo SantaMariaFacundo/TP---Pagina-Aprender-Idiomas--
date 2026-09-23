@@ -283,10 +283,11 @@ progress::-webkit-progress-value {
 
 .boton-examenfinal {
 
-    padding: 0.8rem 5rem 0.8rem 5rem;
+    padding: 0.8rem 5rem 0.8rem rem;
     background-color: #858484;
     border-radius: 2rem;
     text-decoration: none;
     text-align: center;
     pointer-events: none;
 }
+
