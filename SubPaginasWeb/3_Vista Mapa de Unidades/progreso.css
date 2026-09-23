@@ -315,10 +315,16 @@ progress::-webkit-progress-value {
 }
 
 
-
 @media screen and (max-width: 23.125rem) {
 
     .cards-a1a2{
         padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 58.125rem){
+
+    .primera-seccion{
+        margin-top: 1rem;
     }
 }

@@ -431,3 +431,10 @@ progress::-webkit-progress-value {
         grid-template-columns: auto;
     }
 }
+
+@media screen and (max-width: 58.125rem){
+
+    .seccion-1{
+        margin-top: 5rem;
+    }
+}

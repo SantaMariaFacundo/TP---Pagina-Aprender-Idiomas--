@@ -142,3 +142,14 @@ hr {
         padding: 0 1rem;
     }
 }
+
+@media screen and (max-width: 58.125rem){
+
+    section{
+        margin-top: 10rem;
+    }
+
+    .boton-atras{
+        padding: .3rem .5rem;
+    }
+}

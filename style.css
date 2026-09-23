@@ -189,7 +189,6 @@
 @media screen and (max-width: 89rem) {
 
     .seccion-1{
-        padding-top: 4rem;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto auto;
@@ -288,4 +287,11 @@
         font-size: 1.5rem
     }
 
+}
+
+
+@media screen and (max-width: 58.125rem){
+    main{
+        padding-top: 6rem;
+    }
 }

@@ -330,12 +330,7 @@ footer .redes-footer a:hover{
         font-size: 0.85rem;
     }
 
-    .primera-seccion {
     
-        padding-top: 8rem;
-        padding-left: 5%;
-        padding-right: 5%;
-    }
 }
 
 @media screen and (max-width: 34rem) {
