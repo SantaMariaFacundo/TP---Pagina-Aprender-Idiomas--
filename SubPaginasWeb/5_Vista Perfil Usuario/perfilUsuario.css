@@ -17,6 +17,11 @@
     font-size: 1rem;
 }
 
+.usuario{
+    display: flex;
+    gap: 2rem;
+}
+
 .resumen-usuario {
     max-width: 75%;
     margin: 0 auto 2rem;
@@ -24,8 +29,7 @@
     border-radius: 1.8rem;
     padding: 1.5rem 2rem;
     display: flex;
-    align-items: center;
-    gap: 2rem;
+    justify-content: space-between;
     box-shadow: 0 0.0625rem 0.375rem 0 rgba(68, 68, 68, 0.5);
 }
 
@@ -164,12 +168,12 @@
     font-size: 0.9rem;
 }
 
-.sesion {
-    text-align: center;
-    margin-bottom: 2rem;
+.cerrar-sesion {
+    display: flex;
+    align-items: center;
 }
 
-.sesion a {
+.cerrar-sesion a {
     display: inline-block;
     text-decoration: none;
     background-color: #CA6035;
@@ -178,9 +182,10 @@
     border-radius: 1rem;
     font-weight: bold;
     transition: 0.3s;
+    align-items: center;
 }
 
-.sesion a:hover {
+.cerrar-sesion a:hover {
     transform: scale(1.1);
 }
 

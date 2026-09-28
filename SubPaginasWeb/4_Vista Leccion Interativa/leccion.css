@@ -27,6 +27,7 @@ main {
     background: #ffffff;
     border-radius: 5rem;
     padding: 1rem;
+    gap: .5rem;
 }
 
 .barra .vidas {
@@ -107,7 +108,6 @@ progress {
     border-radius: 1rem;
     border: none;
     width: 100%;
-    padding: 0 1rem;
     overflow: hidden;
     margin-bottom: .3rem;
 }
