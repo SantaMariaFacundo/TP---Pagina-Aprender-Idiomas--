@@ -190,6 +190,7 @@
 
     .seccion-1{
         display: grid;
+        margin-top: 3rem;
         grid-template-columns: 1fr;
         grid-template-rows: auto auto;
         gap: 0;    

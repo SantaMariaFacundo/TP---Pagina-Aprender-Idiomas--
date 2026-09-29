@@ -39,20 +39,26 @@
             <div class="barra">
                 <a class="boton-atras" href="../3_Vista Mapa de Unidades/progreso-aleman.html">x</a>
                 <div>
-                    <progress value="45" max="100"></progress>
+                    <progress value="0" max="100"></progress>
                 </div>
                 <div>
                     <img src="../../images/icons-general/icono-corazon.svg" alt="vida">
                     <img src="../../images/icons-general/icono-corazon.svg" alt="vida">
-                    <img src="../../images/icons-general/icono-corazonvacio.svg" alt="corazon vacio">
-                    <span class="vidas">Vidas: 2</span>
+                    <img src="../../images/icons-general/icono-corazon.svg" alt="vida">
+                    <span class="vidas">Vidas: 3</span>
                 </div>
             </div>
             <div class="card">
                 <h1>Traduce la siguiente oración:</h1>
                 <div class="frase">
                     <p lang="de">"Guten Tag, wie geht es dir?"</p>
-                    <button type="button">🔊</button>
+                    <input type="checkbox" id="audio-ingles" class="audio-ingles">
+                    <label for="audio-ingles" class="btn-audio-ingles">🔊</label>
+
+                    <div class="conteiner-audio-ingles">
+                        <embed src="../../audios/audio-aleman-tp.mp3" autostart="true" hidden="true">
+                    </div>
+
                 </div>
                 <div class="respuesta">
                     <button type="button">Buenos <span>x</span></button>

@@ -6,26 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../StyleGeneral.css">
     <link rel="stylesheet" href="leccion.css">
-    <link rel="icon" href="../../../images/FAVICON-LOGO-BLANCO.png" type="image/png" sizes="512x512">
-    <title>GrammaTech - Chino Mandarin </title>
+    <link rel="icon" href="../../../images/img-logo/FAVICON-LOGO-BLANCO.png" type="image/png" sizes="512x512">
+    <title>GrammaTech - Ingles</title>
 </head>
 
 <body>
     <header>
         <div class="logo-explorar">
-            <a href="../2_Vista home/home.html"><img class="img-logo" src="../../images/img-logo/LOGO-BLANCO.png" alt="imagen logo"><span
-                    class="nombre-logo">Gramma</span><span class="nombre-logo-tech">Tech</span></a>
+            <a href="../../2_Vista home/home.html"><img class="img-logo" src="../../../images/img-logo/LOGO-BLANCO.png"
+                    alt="imagen logo"><span class="nombre-logo">Gramma</span><span
+                    class="nombre-logo-tech">Tech</span></a>
         </div>
         <div class="buscador-acceder-language">
             <div class="conteiner-search">
                 <input type="search" class="search-class" id="buscador" placeholder="Becas, Cursos, y Vocabulario...">
-                <img class="img-search" src="../../images/iconosBlack-svg/search-svgrepo-com.svg" alt="icono lupa">
+                <img class="img-search" src="../../../images/iconosBlack-svg/search-svgrepo-com.svg" alt="icono lupa">
             </div>
             <nav class="navegacion">
-                <a href="../2_Vista home/home.html">Cursos</a>
-                <a href="../5_Vista Perfil Usuario/perfilUsuario.html">Perfil</a>
-                <a href="../6_Vista Tabla Clasificación/clasificacion.html">Clasificación</a>
-                <a href="../7_Vista Racha/tienda.html">Tienda</a>
+                <a href="../../2_Vista home/home.html">Cursos</a>
+                <a href="../../5_Vista Perfil Usuario/perfilUsuario.html">Perfil</a>
+                <a href="../../6_Vista Tabla Clasificación/clasificacion.html">Clasificación</a>
+                <a href="../../7_Vista Racha/tienda.html">Tienda</a>
             </nav>
             <select id="idioma" class="idioma">
                 <option value="español">Es</option>
@@ -36,46 +37,46 @@
     <main>
         <section>
             <div class="barra">
-                <a class="boton-atras" href="../3_Vista Mapa de Unidades/progreso-chino.html">x</a>
+                <a class="boton-atras" href="../../3_Vista Mapa de Unidades/progreso-ingles.html">x</a>
                 <div>
-                    <progress value="00" max="100"></progress>
-                
+                    <progress value="100" max="100"></progress>
+
                 </div>
                 <div>
-                    <img src="../../images/icons-general/icono-corazon.svg" alt="corazon">
-                    <img src="../../images/icons-general/icono-corazon.svg" alt="corazon">
-                    <img src="../../images/icons-general/icono-corazon.svg" alt="corazon">
+                    <img src="../../../images/icons-general/icono-corazon.svg" alt="vida">
+                    <img src="../../../images/icons-general/icono-corazon.svg" alt="vida">
+                    <img src="../../../images/icons-general/icono-corazon.svg" alt="vida">
                     <span class="vidas">Vidas: 3</span>
                 </div>
             </div>
             <div class="card">
-                <h1>Completa la frase:</h1>
+                <h1>Elegí la traduccion correcta:</h1>
                 <div class="frase">
-                    <p lang="zh">你 ___ 吗？</p>
+                    <p lang="en">"I would like to order a coffee, please"</p>
                     <input type="checkbox" id="audio-ingles" class="audio-ingles">
                     <label for="audio-ingles" class="btn-audio-ingles">🔊</label>
 
                     <div class="conteiner-audio-ingles">
-                        <embed src="../../audios/audio-chino-tp.mp3" autostart="true" hidden="true">
+                        <embed src="../../../audios/audio-ingles-tp.mp3" autostart="true" hidden="true">
                     </div>
 
                 </div>
                 <div class="opciones">
                     <div>
-                        <input type="radio" name="respuesta" id="op1" value="hao">
-                        <label for="op1">好 (bien)</label>
+                        <input type="radio" name="respuesta" id="op1" value="te">
+                        <label for="op1">Me gustaría pedir un té, por favor</label>
                     </div>
                     <div>
-                        <input type="radio" name="respuesta" id="op2" value="xiexie">
-                        <label for="op2">谢谢 (gracias)</label>
+                        <input type="radio" name="respuesta" id="op2" value="cafe">
+                        <label for="op2">Quisiera pedir un café, por favor</label>
                     </div>
                     <div>
-                        <input type="radio" name="respuesta" id="op3" value="zaijian">
-                        <label for="op3">再见 (adiós)</label>
+                        <input type="radio" name="respuesta" id="op3" value="mesa">
+                        <label for="op3">Necesito una mesa para dos, por favor</label>
                     </div>
                     <div>
-                        <input type="radio" name="respuesta" id="op4" value="mingzi">
-                        <label for="op4">名字 (nombre)</label>
+                        <input type="radio" name="respuesta" id="op4" value="cuenta">
+                        <label for="op4">¿Podría traerme la cuenta, por favor?</label>
                     </div>
                 </div>
                 <button type="button" class="comprobar">Comprobar</button>

@@ -339,6 +339,10 @@ footer .redes-footer a:hover{
 
 @media screen and (max-width: 34rem) {
 
+    header .buscador-acceder-language .conteiner-search input::placeholder {
+        color: #F8E9DB;
+    }
+
     header .logo-explorar .nombre-logo,
     header .logo-explorar .nombre-logo-tech {
         font-size: 1.5rem;
