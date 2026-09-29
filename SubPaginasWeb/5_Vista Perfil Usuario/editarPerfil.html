@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="../../StyleGeneral.css">
     <link rel="stylesheet" href="perfilUsuario.css">
 
-    <link rel="icon" href="../../images/img-logo/FAVICON-LOGO-BLANCO.png" type="image/png">
+    <link
+        rel="icon"
+        href="../../images/img-logo/FAVICON-LOGO-BLANCO.png"
+        type="image/png">
 
-    <title>Mi Perfil - GrammaTech</title>
+    <title>Editar Perfil - GrammaTech</title>
 </head>
 
 <body>
@@ -21,7 +24,8 @@
 
             <a href="../2_Vista home/home.html">
 
-                <img class="img-logo"
+                <img
+                    class="img-logo"
                     src="../../images/img-logo/LOGO-BLANCO.png"
                     alt="Logo de GrammaTech">
 
@@ -69,7 +73,9 @@
 
             </nav>
 
-            <select id="idioma" class="idioma">
+            <select
+                id="idioma"
+                class="idioma">
 
                 <option value="espanol">
                     Es
@@ -86,59 +92,15 @@
     </header>
 
 
-    <main class="main-perfil">
+    <main class="main-perfil editar-perfil">
 
         <section class="encabezado-perfil">
 
-            <h1>MI PERFIL</h1>
+            <h1>EDITAR PERFIL</h1>
 
             <p>
-                Gestioná tus datos personales y tu progreso en GrammaTech.
+                Modificá tus datos personales y la configuración de tu cuenta.
             </p>
-
-        </section>
-
-
-        <section class="resumen-usuario">
-
-            <div class="usuario">
-
-                <div class="avatar">
-                    JP
-                </div>
-
-                <div class="informacion-usuario">
-
-                    <h2>Juan Pérez</h2>
-
-                    <p class="nombre-usuario">
-                        @juanperez_web
-                    </p>
-
-                    <p>
-                        juan.perez@alumnos.unlam.edu.ar
-
-                        <a class="boton-editar" href="editarPerfil.html">
-                            Editar
-                        </a>
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <section class="cerrar-sesion">
-
-                <div>
-
-                    <a href="../../index.html">
-                        Cerrar sesión
-                    </a>
-
-                </div>
-
-            </section>
 
         </section>
 
@@ -152,28 +114,60 @@
 
                 <h2>DATOS DE LA CUENTA</h2>
 
-                <p>
-                    <strong>Nombre completo:</strong>
-                    Juan Pérez
 
-                    <a class="boton-editar" href="editarPerfil.html">
-                        Editar
-                    </a>
-                </p>
+                <div class="campo">
 
-                <p>
-                    <strong>Nombre de usuario:</strong>
-                    @juanperez_web
+                    <label for="nombre-completo">
+                        Nombre completo
+                    </label>
 
-                    <a class="boton-editar" href="editarPerfil.html">
-                        Editar
-                    </a>
-                </p>
+                    <input
+                        type="text"
+                        id="nombre-completo"
+                        name="nombre-completo"
+                        value="Juan Pérez"
+                        required>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="nombre-usuario">
+                        Nombre de usuario
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nombre-usuario"
+                        name="nombre-usuario"
+                        value="@juanperez_web"
+                        required>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="email">
+                        Correo electrónico
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value="juan.perez@alumnos.unlam.edu.ar"
+                        required>
+
+                </div>
+
 
                 <p>
                     <strong>Miembro desde:</strong>
                     Marzo de 2025
                 </p>
+
 
                 <div class="campo">
 
@@ -212,6 +206,7 @@
 
                 <h2>SEGURIDAD</h2>
 
+
                 <div class="campo">
 
                     <label for="password-actual">
@@ -225,6 +220,7 @@
 
                 </div>
 
+
                 <div class="campo">
 
                     <label for="password-nueva">
@@ -237,6 +233,7 @@
                         name="password-nueva">
 
                 </div>
+
 
                 <div class="campo">
 
@@ -267,64 +264,6 @@
             </div>
 
         </form>
-
-
-        <section class="logros">
-
-            <h2>MIS LOGROS</h2>
-
-            <div class="contenedor-logros">
-
-                <article class="logro">
-
-                    <img
-                        class="icono-logro"
-                        src="../../images/icons-general/medal-reward-svgrepo-com.svg"
-                        alt="Medalla de clasificación">
-
-                    <h3>Liga Bronce</h3>
-
-                    <p>
-                        Posición actual en la clasificación.
-                    </p>
-
-                </article>
-
-
-                <article class="logro">
-
-                    <img
-                        class="icono-logro"
-                        src="../../images/icons-general/calendar-days-svgrepo-com.svg"
-                        alt="Calendario de racha">
-
-                    <h3>Racha de 5 días</h3>
-
-                    <p>
-                        Cinco días consecutivos aprendiendo.
-                    </p>
-
-                </article>
-
-
-                <article class="logro">
-
-                    <img
-                        class="icono-logro"
-                        src="../../images/icons-general/chronometer-naranja-svgrepo-com.svg"
-                        alt="Experiencia acumulada">
-
-                    <h3>1.850 XP</h3>
-
-                    <p>
-                        Experiencia acumulada.
-                    </p>
-
-                </article>
-
-            </div>
-
-        </section>
 
     </main>
 
