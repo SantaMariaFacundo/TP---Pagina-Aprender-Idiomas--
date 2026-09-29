@@ -134,6 +134,41 @@ hr {
     gap: 1.5rem;
 }
 
+
+/* prueba audios*/
+
+
+/* Ocultamos el checkbox */
+.audio-ingles {
+  display: none;
+}
+
+/* Ocultamos el reproductor por defecto */
+.conteiner-audio-ingles {
+  display: none;
+}
+
+/* Cuando se marca el checkbox (al hacer click en el label), mostramos y reproduce el audio */
+.audio-ingles:checked ~ .conteiner-audio-ingles {
+  display: block;
+}
+
+.conteiner-audio-ingles{
+    position: absolute;
+}
+
+/* Estilo del botón */
+.btn-audio-ingles {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #5d635d;
+  color: white;
+  border-radius: 1rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+
 @media screen and (max-width: 40rem) {
     .barra {
         flex-direction: column;

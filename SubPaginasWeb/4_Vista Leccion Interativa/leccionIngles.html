@@ -11,10 +11,11 @@
 </head>
 
 <body>
-       <header>
+    <header>
         <div class="logo-explorar">
-            <a href="../2_Vista home/home.html"><img class="img-logo" src="../../images/img-logo/LOGO-BLANCO.png" alt="imagen logo"><span
-                    class="nombre-logo">Gramma</span><span class="nombre-logo-tech">Tech</span></a>
+            <a href="../2_Vista home/home.html"><img class="img-logo" src="../../images/img-logo/LOGO-BLANCO.png"
+                    alt="imagen logo"><span class="nombre-logo">Gramma</span><span
+                    class="nombre-logo-tech">Tech</span></a>
         </div>
         <div class="buscador-acceder-language">
             <div class="conteiner-search">
@@ -52,7 +53,13 @@
                 <h1>Elegí la traduccion correcta:</h1>
                 <div class="frase">
                     <p lang="en">"I would like to order a coffee, please"</p>
-                    <button type="button">🔊</button>
+                    <input type="checkbox" id="audio-ingles" class="audio-ingles">
+                    <label for="audio-ingles" class="btn-audio-ingles">🔊</label>
+
+                    <div class="conteiner-audio-ingles">
+                        <embed src="../../audios/audio-ingles-tp.mp3" autostart="true" hidden="true">
+                    </div>
+
                 </div>
                 <div class="opciones">
                     <div>
