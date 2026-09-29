@@ -30,7 +30,7 @@ main{
     height: auto;
     padding: 4rem 4rem 3rem;
     background-color: #ffffff;
-    margin: 0 auto;
+    margin: 4rem 0 4rem 0;
     box-sizing: border-box;
     border-radius: 1.5rem;
     box-shadow: 0 0.0625rem 0.375rem 0 rgba(68, 68, 68, 0.2);
@@ -420,3 +420,55 @@ li .icono-check {
         font-size: 0.8rem;
     }
 }
+
+.main-confirmacion {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1rem;
+}
+
+.mensaje-guardado {
+    width: 90%;
+    max-width: 40rem;
+    background-color: white;
+    padding: 3rem 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0.0625rem 0.375rem rgba(68, 68, 68, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.mensaje-guardado h1 {
+    margin: 0;
+    color: #702600;
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+.mensaje-guardado p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.mensaje-guardado .guardar-cambios {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background-color: #d45f30;
+    color: white;
+    text-decoration: none;
+    border-radius: 1.5rem;
+    font-weight: bold;
+}
+
+.mensaje-guardado .guardar-cambios:hover {
+    transform: scale(1.03);
+    transition: 0.3s;
+}
+
