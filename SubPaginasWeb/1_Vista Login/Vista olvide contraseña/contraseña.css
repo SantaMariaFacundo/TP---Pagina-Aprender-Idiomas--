@@ -19,10 +19,11 @@ header .buscador-acceder-language .acceder {
     padding: .5rem .7rem;
 }
 
-main{
+main {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #f8e9db;
 }
 
 .contenedor {
@@ -39,7 +40,47 @@ main{
     gap: .5rem;
 }
 
-.contenedor h1{
+
+.contra-cambiada {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 2rem;
+}
+
+.contra-cambiada .img-verificacion {
+
+    width: 9rem;
+    height: 9rem;
+}
+
+.contra-cambiada .titulo-confirmacion {
+
+    padding-bottom: 2rem;
+}
+
+.boton-cuenta {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-color: #CA6035;
+    padding: 1rem 1.8rem;
+    border-radius: .7rem;
+    border: none;
+    transition: .3s;
+
+}
+
+.boton-cuenta:hover {
+    transform: scale(1.1);
+}
+
+.contenedor h1 {
     padding-bottom: 3rem;
     text-align: center;
 }
@@ -72,7 +113,7 @@ input {
     gap: 3rem;
 }
 
-.form-cancelar{
+.form-cancelar {
     text-align: center;
 }
 
@@ -186,6 +227,9 @@ li .icono-check {
 
 
 
+
+
+
 @media screen and (max-width: 40rem) {
 
     .boton-volver {
@@ -226,6 +270,12 @@ li .icono-check {
         width: 32rem;
     }
 
+       .parrafo-confirmacion {
+        display: block;
+        text-align: center;
+
+    }
+    
     .iniciar-redes .redes {
 
         gap: 0.8rem;
@@ -301,7 +351,7 @@ li .icono-check {
     .contenedor {
 
         width: 24rem;
-        height: 48rem;
+        height: 30rem;
     }
 
 
@@ -391,7 +441,7 @@ li .icono-check {
 
     .boton-volver {
         padding: 0.1rem 16rem 0.4rem 2rem;
-    
+
     }
 
     .contenedor {
@@ -399,6 +449,22 @@ li .icono-check {
         width: 20rem;
     }
 
+    .contenedor .contraseña-cambiada {
+
+        width: 21rem;
+        height: 31rem;
+    }
+
+    .titulo-confirmacion {
+
+        font-size: 1.8rem;
+    }
+
+    .parrafo-confirmacion {
+        display: block;
+        text-align: center;
+
+    }
 
     .iniciar-redes {
         display: flex;
@@ -415,60 +481,9 @@ li .icono-check {
     .completar-datos h2 {
         text-align: center;
     }
+
     .links-login a {
 
         font-size: 0.8rem;
     }
 }
-
-.main-confirmacion {
-    min-height: 70vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3rem 1rem;
-}
-
-.mensaje-guardado {
-    width: 90%;
-    max-width: 40rem;
-    background-color: white;
-    padding: 3rem 2rem;
-    border-radius: 1.5rem;
-    box-shadow: 0 0.0625rem 0.375rem rgba(68, 68, 68, 0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    text-align: center;
-}
-
-.mensaje-guardado h1 {
-    margin: 0;
-    color: #702600;
-    font-size: 2rem;
-    line-height: 1.2;
-}
-
-.mensaje-guardado p {
-    margin: 0;
-    font-size: 1.1rem;
-    line-height: 1.5;
-}
-
-.mensaje-guardado .guardar-cambios {
-    display: inline-block;
-    margin-top: 0.5rem;
-    padding: 0.8rem 1.5rem;
-    background-color: #d45f30;
-    color: white;
-    text-decoration: none;
-    border-radius: 1.5rem;
-    font-weight: bold;
-}
-
-.mensaje-guardado .guardar-cambios:hover {
-    transform: scale(1.03);
-    transition: 0.3s;
-}
-
