@@ -204,6 +204,12 @@
     transform: scale(1.03);
 }
 
+.img-verificacion {
+
+    width: 9rem;
+    height: 9rem;
+}
+
 .main-confirmacion {
     min-height: 70vh;
     display: flex;
@@ -224,11 +230,13 @@
     align-items: center;
     gap: 1.5rem;
     text-align: center;
+    margin: 4rem 0 4rem 0;
+
 }
 
 .mensaje-guardado h1 {
     margin: 0;
-    color: #702600;
+    color: #2B2B2B;
     font-size: 2rem;
     line-height: 1.2;
 }
@@ -261,6 +269,10 @@
         gap: 0.6rem;
     }
 
+    .mensaje-guardado {
+
+        margin: 8rem 0 4rem 0;
+    }
 }
 
 @media screen and (max-width: 50rem) {
@@ -399,6 +411,7 @@
 
     .mensaje-guardado h1 {
         font-size: 1.6rem;
+
     }
 
 }
