@@ -112,6 +112,7 @@ header .buscador-acceder-language .acceder {
 .frase {
     display: flex;
     gap: 1rem;
+    justify-content: center;
 }
 
 .titulo {
@@ -129,6 +130,7 @@ header .buscador-acceder-language .acceder {
 
 
 .respuesta {
+    width: 100%;
     align-self: center;
 }
 
