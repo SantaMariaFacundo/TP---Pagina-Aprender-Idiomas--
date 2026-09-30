@@ -513,3 +513,29 @@ progress::-webkit-progress-value {
         margin-top: 5rem;
     }
 }
+
+@media screen and (max-width: 64.3rem) {
+    
+    .seccion-2-extra{
+        padding-bottom: 9rem;
+    }
+
+    .cards{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    .card-ingles{
+        grid-row: 1;
+    }
+
+    .card-chino{
+        grid-row: 2;
+    }
+
+    .card-aleman{
+        grid-row: 3;
+    }
+
+
+}
