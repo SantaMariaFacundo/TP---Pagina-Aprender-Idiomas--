@@ -102,9 +102,6 @@ progress::-webkit-progress-value {
 }
 
 .dias-semana {
-    list-style: none;
-    margin: 0;
-    padding: 0;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 1rem;
@@ -135,10 +132,6 @@ progress::-webkit-progress-value {
     width: 1.5rem;
     height: 1.5rem;
     object-fit: contain;
-}
-
-.dia abbr {
-    text-decoration: none;
 }
 
 .texto-pendiente {
@@ -277,6 +270,8 @@ progress::-webkit-progress-value {
 }
 
 
+/* PAGINA DE CANJE */
+
 .main-canje {
     min-height: 75vh;
     padding: 8rem 1rem 4rem;
@@ -325,22 +320,12 @@ progress::-webkit-progress-value {
     margin: 1.5rem 0;
 }
 
-.detalle-canje div {
+.detalle-canje p {
     margin-bottom: 0.8rem;
 }
 
-.detalle-canje div:last-child {
+.detalle-canje p:last-child {
     margin-bottom: 0;
-}
-
-.detalle-canje dt {
-    display: inline;
-    font-weight: bold;
-}
-
-.detalle-canje dd {
-    display: inline;
-    margin: 0;
 }
 
 .saldo-nuevo {
@@ -523,8 +508,4 @@ progress::-webkit-progress-value {
         font-size: 1.7rem;
     }
 
-}
-
-.condiciones-footer small {
-    font-size: inherit;
 }

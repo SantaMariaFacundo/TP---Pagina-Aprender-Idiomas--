@@ -49,7 +49,3 @@
     transform: scale(1.03);
     transition: 0.3s;
 }
-
-.condiciones-footer small {
-    font-size: inherit;
-}
