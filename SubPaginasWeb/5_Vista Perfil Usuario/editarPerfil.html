@@ -22,7 +22,7 @@
 
         <div class="logo-explorar">
 
-            <a href="../2_Vista home/home.html">
+            <a href="../2_Vista home/home.html" aria-label="GrammaTech, ir al inicio">
 
                 <img
                     class="img-logo"
@@ -38,28 +38,30 @@
 
         <div class="buscador-acceder-language">
 
-            <div class="conteiner-search">
+            <form class="conteiner-search" role="search">
 
                 <input
                     type="search"
                     class="search-class"
                     id="buscador"
+                    name="buscador"
+                    aria-label="Buscar becas, cursos y vocabulario"
                     placeholder="Becas, Cursos, y Vocabulario...">
 
                 <img
                     class="img-search"
                     src="../../images/iconosBlack-svg/search-svgrepo-com.svg"
-                    alt="Icono de búsqueda">
+                    alt="">
 
-            </div>
+            </form>
 
-            <nav class="navegacion">
+            <nav class="navegacion" aria-label="Navegación principal">
 
                 <a href="../2_Vista home/home.html">
                     Cursos
                 </a>
 
-                <a class="pagina-actual" href="perfilUsuario.html">
+                <a class="pagina-actual" href="perfilUsuario.html" aria-current="page">
                     Perfil
                 </a>
 
@@ -75,13 +77,15 @@
 
             <select
                 id="idioma"
-                class="idioma">
+                class="idioma"
+                name="idioma"
+                aria-label="Seleccionar idioma">
 
-                <option value="espanol">
+                <option value="espanol" lang="es">
                     Es
                 </option>
 
-                <option value="english">
+                <option value="english" lang="en">
                     En
                 </option>
 
@@ -94,7 +98,7 @@
 
     <main class="main-perfil editar-perfil">
 
-        <section class="encabezado-perfil">
+        <hgroup class="encabezado-perfil">
 
             <h1>EDITAR PERFIL</h1>
 
@@ -102,17 +106,18 @@
                 Modificá tus datos personales y la configuración de tu cuenta.
             </p>
 
-        </section>
+        </hgroup>
 
 
         <form
             class="formulario-perfil"
             action="cambiosGuardados.html"
-            method="get">
+            method="get"
+            aria-label="Editar perfil">
 
-            <section class="datos-cuenta">
+            <section class="datos-cuenta" aria-labelledby="titulo-datos-cuenta">
 
-                <h2>DATOS DE LA CUENTA</h2>
+                <h2 id="titulo-datos-cuenta">DATOS DE LA CUENTA</h2>
 
 
                 <div class="campo">
@@ -126,6 +131,7 @@
                         id="nombre-completo"
                         name="nombre-completo"
                         value="Juan Pérez"
+                        autocomplete="name"
                         required>
 
                 </div>
@@ -142,6 +148,7 @@
                         id="nombre-usuario"
                         name="nombre-usuario"
                         value="@juanperez_web"
+                        autocomplete="username"
                         required>
 
                 </div>
@@ -158,6 +165,7 @@
                         id="email"
                         name="email"
                         value="juan.perez@alumnos.unlam.edu.ar"
+                        autocomplete="email"
                         required>
 
                 </div>
@@ -165,7 +173,7 @@
 
                 <p>
                     <strong>Miembro desde:</strong>
-                    Marzo de 2025
+                    <time datetime="2025-03">Marzo de 2025</time>
                 </p>
 
 
@@ -202,9 +210,9 @@
             </section>
 
 
-            <section class="seguridad">
+            <section class="seguridad" aria-labelledby="titulo-seguridad">
 
-                <h2>SEGURIDAD</h2>
+                <h2 id="titulo-seguridad">SEGURIDAD</h2>
 
 
                 <div class="campo">
@@ -217,6 +225,7 @@
                         type="password"
                         id="password-actual"
                         name="password-actual"
+                        autocomplete="current-password"
                         required>
 
                 </div>
@@ -232,6 +241,7 @@
                         type="password"
                         id="password-nueva"
                         name="password-nueva"
+                        autocomplete="new-password"
                         required>
 
                 </div>
@@ -247,6 +257,7 @@
                         type="password"
                         id="password-confirmar"
                         name="password-confirmar"
+                        autocomplete="new-password"
                         required>
 
                 </div>
@@ -275,7 +286,7 @@
 
         <div class="logo-footer">
 
-            <a href="../2_Vista home/home.html">
+            <a href="../2_Vista home/home.html" aria-label="GrammaTech, ir al inicio">
 
                 <img
                     class="img-logo-footer"
@@ -290,7 +301,7 @@
         </div>
 
 
-        <div class="condiciones-footer">
+        <nav class="condiciones-footer" aria-label="Información legal y soporte">
 
             <p>
                 <a href="">Condiciones Generales</a> -
@@ -305,13 +316,13 @@
             </p>
 
             <p>
-                © Todos los derechos reservados, 2026, Gramatech.
+                © Todos los derechos reservados, <time datetime="2026">2026</time>, Gramatech.
             </p>
 
-        </div>
+        </nav>
 
 
-        <div class="redes-footer">
+        <nav class="redes-footer" aria-label="Redes sociales">
 
             <a href="#">
                 <img
@@ -331,7 +342,7 @@
                     alt="Twitter">
             </a>
 
-        </div>
+        </nav>
 
     </footer>
 

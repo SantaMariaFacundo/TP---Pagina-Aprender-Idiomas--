@@ -13,24 +13,24 @@
 <body>
     <header>
         <div class="logo-explorar">
-            <a href="../../2_Vista home/home.html"><img class="img-logo" src="../../../images/img-logo/LOGO-BLANCO.png"
+            <a href="../../2_Vista home/home.html" aria-label="GrammaTech, ir al inicio"><img class="img-logo" src="../../../images/img-logo/LOGO-BLANCO.png"
                     alt="imagen logo"><span class="nombre-logo">Gramma</span><span
                     class="nombre-logo-tech">Tech</span></a>
         </div>
         <div class="buscador-acceder-language">
-            <div class="conteiner-search">
-                <input type="search" class="search-class" id="buscador" placeholder="Becas, Cursos, y Vocabulario...">
-                <img class="img-search" src="/images/iconosBlack-svg/search-svgrepo-com.svg" alt="icono lupa">
-            </div>
-            <nav class="navegacion">
+            <form class="conteiner-search" role="search">
+                <input type="search" class="search-class" id="buscador" name="buscador" aria-label="Buscar becas, cursos y vocabulario" placeholder="Becas, Cursos, y Vocabulario...">
+                <img class="img-search" src="/images/iconosBlack-svg/search-svgrepo-com.svg" alt="">
+            </form>
+            <nav class="navegacion" aria-label="Navegación principal">
                 <a href="../../2_Vista home/home.html">Cursos</a>
                 <a href="../../5_Vista Perfil Usuario/perfilUsuario.html">Perfil</a>
                 <a href="../../6_Vista Tabla Clasificación/clasificacion.html">Clasificación</a>
                 <a href="../../7_Vista Racha/tienda.html">Tienda</a>
             </nav>
-            <select id="idioma" class="idioma">
-                <option value="español">Es</option>
-                <option value="english">En</option>
+            <select id="idioma" class="idioma" name="idioma" aria-label="Seleccionar idioma">
+                <option value="español" lang="es">Es</option>
+                <option value="english" lang="en">En</option>
             </select>
         </div>
     </header>
@@ -38,89 +38,89 @@
 
 
     <main>
-        <div class="boton-volver">
+        <nav class="boton-volver" aria-label="Volver al mapa de unidades">
 
 
             <a class="link-volver" href="../../3_Vista Mapa de Unidades/progreso-aleman.html"> <img src="../../../../images/icons-general/icono-volver.svg"
-                    alt="volver">Volver</a>
+                    alt="">Volver</a>
 
-        </div>
+        </nav>
 
         <div class="contenedor">
             <div class="form-caja">
-                <form action="comprobarRespuestas.html" method="get">
+                <form action="comprobarRespuestas.html" method="get" aria-label="Examen de alemán">
 
-                    <div class="completar-datos">
-                        <h2>Vocabulario</h2>
+                    <section class="completar-datos" aria-labelledby="titulo-vocabulario">
+                        <h2 id="titulo-vocabulario">Vocabulario</h2>
                         <div class="frase">
-                            <p lang="de">Auf ___</p>
+                            <p lang="de" id="consigna-vocabulario">Auf ___</p>
                         </div>
-                        <div class="opciones">
+                        <div class="opciones" role="radiogroup" aria-labelledby="titulo-vocabulario consigna-vocabulario">
                             <div>
                                 <input type="radio" name="p1" id="p1-op1" value="wiedersehen" required>
-                                <label for="p1-op1">Wiedersehen</label>
+                                <label for="p1-op1" lang="de">Wiedersehen</label>
                             </div>
                             <div>
                                 <input type="radio" name="p1" id="p1-op2" value="deutsch" required>
-                                <label for="p1-op2">Deutsch</label>
+                                <label for="p1-op2" lang="de">Deutsch</label>
                             </div>
                             <div>
                                 <input type="radio" name="p1" id="p1-op3" value="strasse" required>
-                                <label for="p1-op3">Straße</label>
+                                <label for="p1-op3" lang="de">Straße</label>
                             </div>
                             <div>
                                 <input type="radio" name="p1" id="p1-op4" value="kaffee" required>
-                                <label for="p1-op4">Kaffee</label>
+                                <label for="p1-op4" lang="de">Kaffee</label>
                             </div>
                         </div>
-                    </div>
+                    </section>
 
-                    <div class="completar-datos">
-                        <h2 class="titulo">Gramática</h2>
+                    <section class="completar-datos" aria-labelledby="titulo-gramatica">
+                        <h2 class="titulo" id="titulo-gramatica">Gramática</h2>
                         <div class="frase">
-                            <p>¿Cómo se dice "Yo soy" en alemán?</p>
+                            <p id="consigna-gramatica">¿Cómo se dice "Yo soy" en alemán?</p>
                         </div>
-                        <div class="opciones">
+                        <div class="opciones" role="radiogroup" aria-labelledby="consigna-gramatica">
                             <div>
                                 <input type="radio" name="p2" id="p2-op1" value="ichbin" required>
-                                <label for="p2-op1">Ich bin</label>
+                                <label for="p2-op1" lang="de">Ich bin</label>
                             </div>
                             <div>
                                 <input type="radio" name="p2" id="p2-op2" value="dubist" required>
-                                <label for="p2-op2">Du bist</label>
+                                <label for="p2-op2" lang="de">Du bist</label>
                             </div>
                             <div>
                                 <input type="radio" name="p2" id="p2-op3" value="erist" required>
-                                <label for="p2-op3">Er ist</label>
+                                <label for="p2-op3" lang="de">Er ist</label>
                             </div>
                             <div>
                                 <input type="radio" name="p2" id="p2-op4" value="wirsind" required>
-                                <label for="p2-op4">Wir sind</label>
+                                <label for="p2-op4" lang="de">Wir sind</label>
                             </div>
                         </div>
-                    </div>
+                    </section>
 
-                    <div class="completar-datos">
-                        <h2 class="titulo">Listening</h2>
+                    <section class="completar-datos" aria-labelledby="titulo-listening">
+                        <h2 class="titulo" id="titulo-listening" lang="en">Listening</h2>
                         <div class="frase">
-                            <p class="frase-aleman">"Ich komme aus Argentinien und lerne Deutsch"</p>
-                            <input type="checkbox" id="audio-aleman" class="audio-aleman">
-                            <label for="audio-aleman" class="btn-audio-aleman">🔊</label>
+                            <p class="frase-aleman" lang="de">"Ich komme aus Argentinien und lerne Deutsch"</p>
+                            <input type="checkbox" id="audio-aleman" class="audio-aleman" aria-label="Escuchar la oración en alemán">
+                            <label for="audio-aleman" class="btn-audio-aleman"><span aria-hidden="true">🔊</span></label>
 
                             <div class="conteiner-audio-aleman">
-                                <embed src="../../../audios/audioExamenAleman.mp3" autostart="true" hidden="true">
+                                <embed src="../../../audios/audioExamenAleman.mp3" type="audio/mpeg" autostart="true" hidden="true">
                             </div>
                         </div>
-                        <div class="respuesta">
-                            <button type="button">Vengo <span>x</span></button>
-                            <button type="button">de <span>x</span></button>
-                            <button type="button">Argentina <span>x</span></button>
-                            <button type="button">y <span>x</span></button>
-                            <button type="button">estoy <span>x</span></button>
-                            <button type="button">aprendiendo <span>x</span></button>
-                            <button type="button">alemán <span>x</span></button>
+                        <div class="respuesta" role="group" aria-label="Tu respuesta">
+                            <button type="button" aria-label="Quitar Vengo">Vengo <span aria-hidden="true">x</span></button>
+                            <button type="button" aria-label="Quitar de">de <span aria-hidden="true">x</span></button>
+                            <button type="button" aria-label="Quitar Argentina">Argentina <span aria-hidden="true">x</span></button>
+                            <button type="button" aria-label="Quitar y">y <span aria-hidden="true">x</span></button>
+                            <button type="button" aria-label="Quitar estoy">estoy <span aria-hidden="true">x</span></button>
+                            <button type="button" aria-label="Quitar aprendiendo">aprendiendo <span aria-hidden="true">x</span></button>
+                            <button type="button" aria-label="Quitar alemán">alemán <span aria-hidden="true">x</span></button>
                         </div>
-                        <div class="banco-palabras">
+                        <div class="banco-palabras" role="group" aria-label="Banco de palabras disponibles">
                             <button type="button">Vengo</button>
                             <button type="button">de</button>
                             <button type="button">Argentina</button>
@@ -131,7 +131,7 @@
                             <button type="button">Brasil</button>
                             <button type="button">español</button>
                         </div>
-                    </div>
+                    </section>
                     <div class="container-boton">
                         <button class="comprobar" type="submit">Comprobar</button>
                     </div>
@@ -152,17 +152,17 @@
 
     <footer>
         <div class="logo-footer">
-            <a href="#"><img class="img-logo-footer" src="../../../../images/img-logo/LOGO-BLANCO.png" alt="logo"><span
+            <a href="#" aria-label="GrammaTech, volver arriba"><img class="img-logo-footer" src="../../../../images/img-logo/LOGO-BLANCO.png" alt="logo"><span
                     class="nombre-logo">Gramma</span><span class="nombre-logo-tech">Tech</span></a>
         </div>
-        <div class="condiciones-footer">
+        <nav class="condiciones-footer" aria-label="Información legal y soporte">
             <p> <a href="">Condiciones Generales</a> - <a href="">Aviso Legal</a> - <a href="">Privacidad</a> - <a
                     href="">Cookies</a> - <a href="">Accesibilidad</a>
             </p>
             <p> <a href="">Soporte y Ayuda</a></p>
-            <p>© Todos los derechos reservados, 2026, Gramatech.</p>
-        </div>
-        <div class="redes-footer">
+            <p>© Todos los derechos reservados, <time datetime="2026">2026</time>, Gramatech.</p>
+        </nav>
+        <nav class="redes-footer" aria-label="Redes sociales">
             <a href="#">
                 <img src="../../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg" alt="link redes instagram">
             </a>
@@ -172,7 +172,7 @@
             <a href="#">
                 <img src="../../../images/iconosBlack-svg/twitter-rounded-svg.svg" alt="link redes twitter">
             </a>
-        </div>
+        </nav>
     </footer>
 
 

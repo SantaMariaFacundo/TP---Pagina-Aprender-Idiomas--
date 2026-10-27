@@ -21,7 +21,7 @@
 
         <div class="logo-explorar">
 
-            <a href="../2_Vista home/home.html">
+            <a href="../2_Vista home/home.html" aria-label="GrammaTech, ir al inicio">
 
                 <img
                     class="img-logo"
@@ -37,28 +37,30 @@
 
         <div class="buscador-acceder-language">
 
-            <div class="conteiner-search">
+            <form class="conteiner-search" role="search">
 
                 <input
                     type="search"
                     class="search-class"
                     id="buscador"
+                    name="buscador"
+                    aria-label="Buscar becas, cursos y vocabulario"
                     placeholder="Becas, Cursos, y Vocabulario...">
 
                 <img
                     class="img-search"
                     src="../../images/iconosBlack-svg/search-svgrepo-com.svg"
-                    alt="Icono de búsqueda">
+                    alt="">
 
-            </div>
+            </form>
 
-            <nav class="navegacion">
+            <nav class="navegacion" aria-label="Navegación principal">
 
                 <a href="../2_Vista home/home.html">
                     Cursos
                 </a>
 
-                <a class="pagina-actual" href="perfilUsuario.html">
+                <a class="pagina-actual" href="perfilUsuario.html" aria-current="page">
                     Perfil
                 </a>
 
@@ -72,13 +74,13 @@
 
             </nav>
 
-            <select id="idioma" class="idioma">
+            <select id="idioma" class="idioma" name="idioma" aria-label="Seleccionar idioma">
 
-                <option value="espanol">
+                <option value="espanol" lang="es">
                     Es
                 </option>
 
-                <option value="english">
+                <option value="english" lang="en">
                     En
                 </option>
 
@@ -91,13 +93,13 @@
 
     <main class="main-confirmacion">
 
-        <section class="mensaje-guardado">
+        <article class="mensaje-guardado" aria-labelledby="titulo-confirmacion">
 
-            <img class="img-verificacion" src="../../images/icons-general/verificacion.svg" alt="Icono verificación">
+            <img class="img-verificacion" src="../../images/icons-general/verificacion.svg" alt="">
 
-            <h1 class="titulo-confirmacion">Cambios guardados</h1>
+            <h1 class="titulo-confirmacion" id="titulo-confirmacion">Cambios guardados</h1>
 
-            <p>
+            <p role="status">
                 Tus cambios se guardaron exitosamente.
             </p>
 
@@ -109,7 +111,7 @@
 
             </a>
 
-        </section>
+        </article>
 
     </main>
 
@@ -118,7 +120,7 @@
 
         <div class="logo-footer">
 
-            <a href="../2_Vista home/home.html">
+            <a href="../2_Vista home/home.html" aria-label="GrammaTech, ir al inicio">
 
                 <img
                     class="img-logo-footer"
@@ -132,7 +134,7 @@
 
         </div>
 
-        <div class="condiciones-footer">
+        <nav class="condiciones-footer" aria-label="Información legal y soporte">
 
             <p>
                 <a href="">Condiciones Generales</a> -
@@ -147,12 +149,12 @@
             </p>
 
             <p>
-                © Todos los derechos reservados, 2026, Gramatech.
+                © Todos los derechos reservados, <time datetime="2026">2026</time>, Gramatech.
             </p>
 
-        </div>
+        </nav>
 
-        <div class="redes-footer">
+        <nav class="redes-footer" aria-label="Redes sociales">
 
             <a href="#">
                 <img
@@ -172,7 +174,7 @@
                     alt="Twitter">
             </a>
 
-        </div>
+        </nav>
 
     </footer>
 

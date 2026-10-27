@@ -19,7 +19,7 @@
 
         <div class="logo-explorar">
 
-            <a href="../2_Vista home/home.html">
+            <a href="../2_Vista home/home.html" aria-label="GrammaTech, ir al inicio">
 
                 <img
                     class="img-logo"
@@ -35,22 +35,24 @@
 
         <div class="buscador-acceder-language">
 
-            <div class="conteiner-search">
+            <form class="conteiner-search" role="search">
 
                 <input
                     type="search"
                     class="search-class"
                     id="buscador"
+                    name="buscador"
+                    aria-label="Buscar becas, cursos y vocabulario"
                     placeholder="Becas, Cursos, y Vocabulario...">
 
                 <img
                     class="img-search"
                     src="../../images/iconosBlack-svg/search-svgrepo-com.svg"
-                    alt="Icono de búsqueda">
+                    alt="">
 
-            </div>
+            </form>
 
-            <nav class="navegacion">
+            <nav class="navegacion" aria-label="Navegación principal">
 
                 <a href="../2_Vista home/home.html">
                     Cursos
@@ -64,19 +66,19 @@
                     Clasificación
                 </a>
 
-                <a class="pagina-actual" href="tienda.html">
+                <a class="pagina-actual" href="tienda.html" aria-current="page">
                     Tienda
                 </a>
 
             </nav>
 
-            <select id="idioma" class="idioma">
+            <select id="idioma" class="idioma" name="idioma" aria-label="Seleccionar idioma">
 
-                <option value="espanol">
+                <option value="espanol" lang="es">
                     Es
                 </option>
 
-                <option value="english">
+                <option value="english" lang="en">
                     En
                 </option>
 
@@ -89,14 +91,14 @@
 
     <main class="main-canje">
 
-        <section class="tarjeta-canje">
+        <article class="tarjeta-canje" aria-labelledby="titulo-canje">
 
             <img
                 class="icono-canje"
                 src="../../images/icons-general/chronometer-naranja-svgrepo-com.svg"
-                alt="Doble experiencia">
+                alt="">
 
-            <h1>¡RECOMPENSA CANJEADA!</h1>
+            <h1 id="titulo-canje">¡RECOMPENSA CANJEADA!</h1>
 
             <h2>Doble XP</h2>
 
@@ -104,27 +106,27 @@
                 Duplicá la experiencia obtenida durante tus próximas actividades.
             </p>
 
-            <div class="detalle-canje">
+            <section class="detalle-canje" aria-label="Detalle del canje">
 
                 <p>
                     <strong>Costo de la recompensa:</strong>
-                    300 monedas
+                    <data value="300">300 monedas</data>
                 </p>
 
                 <p>
                     <strong>Saldo anterior:</strong>
-                    650 monedas
+                    <data value="650">650 monedas</data>
                 </p>
 
                 <p class="saldo-nuevo">
                     <strong>Saldo actual:</strong>
-                    🪙 350 monedas
+                    <span aria-hidden="true">🪙</span> <data value="350">350 monedas</data>
                 </p>
 
-            </div>
+            </section>
 
-            <p class="recompensa-activada">
-                ✓ Doble XP activado correctamente.
+            <p class="recompensa-activada" role="status">
+                <span aria-hidden="true">✓</span> Doble XP activado correctamente.
             </p>
 
             <a
@@ -133,7 +135,7 @@
                 Volver a la tienda
             </a>
 
-        </section>
+        </article>
 
     </main>
 
@@ -142,7 +144,7 @@
 
         <div class="logo-footer">
 
-            <a href="../2_Vista home/home.html">
+            <a href="../2_Vista home/home.html" aria-label="GrammaTech, ir al inicio">
 
                 <img
                     class="img-logo-footer"
@@ -156,7 +158,7 @@
 
         </div>
 
-        <div class="condiciones-footer">
+        <nav class="condiciones-footer" aria-label="Información legal y soporte">
 
             <p>
                 <a href="">Condiciones Generales</a> -
@@ -171,12 +173,12 @@
             </p>
 
             <p>
-                © Todos los derechos reservados, 2026, Gramatech.
+                © Todos los derechos reservados, <time datetime="2026">2026</time>, Gramatech.
             </p>
 
-        </div>
+        </nav>
 
-        <div class="redes-footer">
+        <nav class="redes-footer" aria-label="Redes sociales">
 
             <a href="#">
                 <img
@@ -196,7 +198,7 @@
                     alt="Twitter">
             </a>
 
-        </div>
+        </nav>
 
     </footer>
 

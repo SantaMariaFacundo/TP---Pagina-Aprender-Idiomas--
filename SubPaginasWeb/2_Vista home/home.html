@@ -14,59 +14,59 @@
 <body>
     <header>
         <div class="logo-explorar">
-            <a href="#"><img class="img-logo" src="../../images/img-logo/LOGO-BLANCO.png" alt="imagen logo"><span
+            <a href="#" aria-label="GrammaTech, ir al inicio"><img class="img-logo" src="../../images/img-logo/LOGO-BLANCO.png" alt="imagen logo"><span
                     class="nombre-logo">Gramma</span><span class="nombre-logo-tech">Tech</span></a>
         </div>
         <div class="buscador-acceder-language">
-            <div class="conteiner-search">
-                <input type="search" class="search-class" id="buscador" placeholder="Becas, Cursos, y Vocabulario...">
-                <img class="img-search" src="../../images/iconosBlack-svg/search-svgrepo-com.svg" alt="icono lupa">
-            </div>
-            <nav class="navegacion">
-                <a href="#">Cursos</a>
+            <form class="conteiner-search" role="search">
+                <input type="search" class="search-class" id="buscador" name="buscador" aria-label="Buscar becas, cursos y vocabulario" placeholder="Becas, Cursos, y Vocabulario...">
+                <img class="img-search" src="../../images/iconosBlack-svg/search-svgrepo-com.svg" alt="">
+            </form>
+            <nav class="navegacion" aria-label="Navegación principal">
+                <a href="#" aria-current="page">Cursos</a>
                 <a href="../5_Vista Perfil Usuario/perfilUsuario.html">Perfil</a>
                 <a href="../6_Vista Tabla Clasificación/clasificacion.html">Clasificación</a>
                 <a href="../7_Vista Racha/tienda.html">Tienda</a>
             </nav>
-            <select id="idioma" class="idioma">
-                <option value="español">Es</option>
-                <option value="english">En</option>
+            <select id="idioma" class="idioma" name="idioma" aria-label="Seleccionar idioma">
+                <option value="español" lang="es">Es</option>
+                <option value="english" lang="en">En</option>
             </select>
         </div>
     </header>
     <main>
-        <section class="seccion-1 primera-seccion">
+        <section class="seccion-1 primera-seccion" aria-labelledby="titulo-bienvenida">
             <div class="sc1-conteiner">
                 <div class="sc1-titulo">
-                    <h1>Hola bienvenido @usuario. </h1>
+                    <h1 id="titulo-bienvenida">Hola bienvenido @usuario. </h1>
                     <h3>listo para aprender hoy.</h3>
                     <p>El esfuerzo que ponés hoy es la llave que abre las puertas de tu futuro. Cada hora de estudio es
                         un ladrillo más en el camino hacia tus metas.</p>
                 </div>
-                <div class="sc1-conteiner-cards">
-                    <div class="sc1-cards card-1">
+                <section class="sc1-conteiner-cards" aria-label="Tu actividad de hoy">
+                    <article class="sc1-cards card-1">
                         <img class="img-icon-sc1" src="../../images/icons-general/chronometer-naranja-svgrepo-com.svg"
-                            alt="icono cronometro">
-                        <p class="sc1-numeros-card">30</p>
+                            alt="">
+                        <p class="sc1-numeros-card"><data value="30">30</data></p>
                         <p class="sc1-text-card">MINUTOS HOY</p>
-                    </div>
-                    <div class="sc1-cards card-2">
+                    </article>
+                    <article class="sc1-cards card-2">
                         <img class="img-icon-sc1" src="../../images/icons-general/book-svgrepo-com.svg"
-                            alt="icono libro">
-                        <p class="sc1-numeros-card">12</p>
+                            alt="">
+                        <p class="sc1-numeros-card"><data value="12">12</data></p>
                         <p class="sc1-text-card">NUEVAS PALABRAS</p>
-                    </div>
-                    <div class="sc1-cards card-3">
+                    </article>
+                    <article class="sc1-cards card-3">
                         <img class="img-icon-sc1" src="../../images/icons-general/tick-circle-svgrepo-com.svg"
-                            alt="icono tick">
-                        <p class="sc1-numeros-card">92%</p>
+                            alt="">
+                        <p class="sc1-numeros-card"><data value="0.92">92%</data></p>
                         <p class="sc1-text-card">PRECISIÓN</p>
-                    </div>
-                    <div class="card-4">
+                    </article>
+                    <article class="card-4">
                         <p>Ritmo de Aprendizaje</p>
-                        <p>4.2 horas registradas esta semana</p>
-                    </div>
-                </div>
+                        <p><data value="4.2">4.2</data> horas registradas esta semana</p>
+                    </article>
+                </section>
                 <div class="boton-sc1">
                     <a href="../3_Vista Mapa de Unidades/progreso-ingles.html#inglesC1C2">Continuar Leccion: Ingles
                         C1</a>
@@ -74,195 +74,195 @@
             </div>
         </section>
 
-        <section class="seccion-2-extra" id="seccion-2">
-            <h2>CURSOS DISPONIBLES</h2>
+        <section class="seccion-2-extra" id="seccion-2" aria-labelledby="titulo-cursos-disponibles">
+            <h2 id="titulo-cursos-disponibles">CURSOS DISPONIBLES</h2>
             <div class="cards">
-                <div class="cards-idioma card-ingles">
-                    <h3>Aprendé Inglés a tu ritmo </h3>
+                <article class="cards-idioma card-ingles" aria-labelledby="titulo-disponible-ingles">
+                    <h3 id="titulo-disponible-ingles">Aprendé Inglés a tu ritmo </h3>
                     <img class="img-pais" src="../../images/img-paises/londres.avif" alt="">
                     <p>Descubrí todos los cursos disponibles, desde nivel inicial hasta avanzado. Elegí el que mejor se
                         adapte a vos y empezá hoy mismo.</p>
-                    <button>Agregar Curso</button>
-                </div>
-                <div class="cards-idioma card-chino">
-                    <h3>Aprendé el Chino Mandarín</h3>
+                    <button type="button" aria-label="Agregar Curso de Inglés">Agregar Curso</button>
+                </article>
+                <article class="cards-idioma card-chino" aria-labelledby="titulo-disponible-chino">
+                    <h3 id="titulo-disponible-chino">Aprendé el Chino Mandarín</h3>
                     <img class="img-pais" src="../../images/img-paises/china.jpg" alt="">
                     <p>Accedé a cursos para cada nivel, desde principiante hasta avanzado. Iniciá tu camino en el idioma
                         más hablado del mundo y ampliá tus oportunidades.</p>
-                    <button>Agregar Curso</button>
-                </div>
-                <div class="cards-idioma card-aleman">
-                    <h3>Aprendé Alemán paso a paso</h3>
+                    <button type="button" aria-label="Agregar Curso de Chino Mandarín">Agregar Curso</button>
+                </article>
+                <article class="cards-idioma card-aleman" aria-labelledby="titulo-disponible-aleman">
+                    <h3 id="titulo-disponible-aleman">Aprendé Alemán paso a paso</h3>
                     <img class="img-pais" src="../../images/img-paises/alemania.jpg" alt="">
                     <p>Explorá todos los cursos disponibles, desde nivel inicial hasta avanzado. Elegí tu nivel y empezá
                         a dominar el idioma más hablado en Europa.</p>
-                    <button>Agregar Curso</button>
-                </div>
+                    <button type="button" aria-label="Agregar Curso de Alemán">Agregar Curso</button>
+                </article>
             </div>
         </section>
 
-        <section class="seccion-2">
-            <div class="conteiner-cursos">
+        <div class="seccion-2">
+            <section class="conteiner-cursos" aria-labelledby="titulo-cursos-progreso">
                 <div class="titulo">
-                    <h2>Cursos en Progreso</h2>
+                    <h2 id="titulo-cursos-progreso">Cursos en Progreso</h2>
                 </div>
                 <div class="cards-cursos">
-                    <div class="card-curso card-ingles">
-                        <img class="img-paises" src="../../images/img-paises/londres.avif" alt="imagen de Londres">
+                    <article class="card-curso card-ingles" aria-labelledby="titulo-curso-ingles">
+                        <img class="img-paises" src="../../images/img-paises/londres.avif" alt="">
                         <div class="titulo-card-cursos">
                             <div class="unidad">
-                                <p class="curso">Curso: Ingles C1</p>
-                                <span>80%</span>
+                                <h3 class="curso" id="titulo-curso-ingles">Curso: Ingles C1</h3>
+                                <span aria-hidden="true">80%</span>
                             </div>
                             <p>Dominio del vocabulario, listening y gramatica.</p>
-                            <progress value="80" max="100"></progress>
+                            <progress value="80" max="100" aria-labelledby="titulo-curso-ingles">80%</progress>
                         </div>
                         <div class="boton-cards">
-                            <a href="../3_Vista Mapa de Unidades/progreso-ingles.html#inglesC1C2">Reanudar</a>
+                            <a href="../3_Vista Mapa de Unidades/progreso-ingles.html#inglesC1C2" aria-label="Reanudar Curso: Ingles C1">Reanudar</a>
                         </div>
                         <div>
-                            <button class="btn-cerrar-cards">x</button>
+                            <button class="btn-cerrar-cards" type="button" aria-label="Quitar Curso: Ingles C1">x</button>
                         </div>
-                    </div>
-                    <div class="card-curso card-aleman">
-                        <img class="img-paises" src="../../images/img-paises/alemania.jpg" alt="imagen Alemania">
+                    </article>
+                    <article class="card-curso card-aleman" aria-labelledby="titulo-curso-aleman">
+                        <img class="img-paises" src="../../images/img-paises/alemania.jpg" alt="">
                         <div class="titulo-card-cursos">
                             <div class="unidad">
-                                <p class="curso">Curso: Aleman B1</p>
-                                <span>45%</span>
+                                <h3 class="curso" id="titulo-curso-aleman">Curso: Aleman B1</h3>
+                                <span aria-hidden="true">45%</span>
                             </div>
                             <p>Dominio del vocabulario, listening y gramatica.</p>
-                            <progress value="45" max="100"></progress>
+                            <progress value="45" max="100" aria-labelledby="titulo-curso-aleman">45%</progress>
                         </div>
                         <div class="boton-cards">
-                            <a href="../3_Vista Mapa de Unidades/progreso-aleman.html#alemanB1B2">Reanudar</a>
+                            <a href="../3_Vista Mapa de Unidades/progreso-aleman.html#alemanB1B2" aria-label="Reanudar Curso: Aleman B1">Reanudar</a>
                         </div>
                         <div>
-                            <button class="btn-cerrar-cards">x</button>
+                            <button class="btn-cerrar-cards" type="button" aria-label="Quitar Curso: Aleman B1">x</button>
                         </div>
-                    </div>
-                    <div class="card-curso card-chinoMandarin">
-                        <img class="img-paises" src="../../images/img-paises/china.jpg" alt="imagen China">
+                    </article>
+                    <article class="card-curso card-chinoMandarin" aria-labelledby="titulo-curso-chino">
+                        <img class="img-paises" src="../../images/img-paises/china.jpg" alt="">
                         <div class="titulo-card-cursos">
                             <div class="unidad">
-                                <p class="curso">Curso: Chino Mandarin A1</p>
-                                <span>0%</span>
+                                <h3 class="curso" id="titulo-curso-chino">Curso: Chino Mandarin A1</h3>
+                                <span aria-hidden="true">0%</span>
                             </div>
                             <p>Dominio del vocabulario, listening y gramatica.</p>
-                            <progress value="0" max="100"></progress>
+                            <progress value="0" max="100" aria-labelledby="titulo-curso-chino">0%</progress>
                         </div>
                         <div class="boton-cards">
-                            <a href="../3_Vista Mapa de Unidades/progreso-chino.html#chinoA1A2">Empezar</a>
+                            <a href="../3_Vista Mapa de Unidades/progreso-chino.html#chinoA1A2" aria-label="Empezar Curso: Chino Mandarin A1">Empezar</a>
                         </div>
                         <div>
-                            <button class="btn-cerrar-cards">x</button>
+                            <button class="btn-cerrar-cards" type="button" aria-label="Quitar Curso: Chino Mandarin A1">x</button>
                         </div>
-                    </div>
+                    </article>
                 </div>
-            </div>
-            <div class="conteiner-datos">
-                <div class="metaDiaria">
+            </section>
+            <aside class="conteiner-datos" aria-label="Tu progreso">
+                <section class="metaDiaria" aria-labelledby="titulo-meta-diaria">
                     <div class="datos-titulo">
                         <img class="img-icon-datos" src="../../images/icons-general/flag-svgrepo-com.svg"
-                            alt="icono banderin">
-                        <h3>Meta Diaria</h3>
+                            alt="">
+                        <h3 id="titulo-meta-diaria">Meta Diaria</h3>
                         <p>30 / 40 xp</p>
                     </div>
                     <p>¡A solo una lección corta para completar la racha de hoy!</p>
-                    <progress value="75" max="100"></progress>
+                    <progress value="75" max="100" aria-labelledby="titulo-meta-diaria">75%</progress>
                     <div class="datos-progress">
                         <p>Inicio del dia</p>
-                        <span>75%</span>
+                        <span aria-hidden="true">75%</span>
                     </div>
-                </div>
-                <div class="logrosRecientes">
+                </section>
+                <section class="logrosRecientes" aria-labelledby="titulo-logros-recientes">
                     <div class="logros-titulo">
                         <img class="img-icon-logros-titulo"
-                            src="../../images/icons-general/medal-reward-svgrepo-com.svg" alt="icono medalla">
-                        <h3>Logros Recientes</h3>
+                            src="../../images/icons-general/medal-reward-svgrepo-com.svg" alt="">
+                        <h3 id="titulo-logros-recientes">Logros Recientes</h3>
                         <a href="../7_Vista Racha/tienda.html">Ver Racha</a>
                     </div>
-                    <div class="card-logros">
+                    <article class="card-logros" aria-labelledby="titulo-logro-poliglota">
                         <img class="img-icon-logros" src="../../images/icons-general/calendar-days-svgrepo-com.svg"
-                            alt="icono calendario">
+                            alt="">
                         <div>
-                            <h4>Poliglota Constante</h4>
+                            <h4 id="titulo-logro-poliglota">Poliglota Constante</h4>
                             <p>14 días estudiando sin interrupción</p>
                         </div>
-                    </div>
-                    <div class="card-logros">
+                    </article>
+                    <article class="card-logros" aria-labelledby="titulo-logro-listening">
                         <img class="img-icon-logros" src="../../images/icons-general/audio-svgrepo-com.svg"
-                            alt="icono audio">
+                            alt="">
                         <div>
-                            <h4>Listening Implecable</h4>
+                            <h4 id="titulo-logro-listening">Listening Implecable</h4>
                             <p>Acertaste el 90% del dialogo</p>
                         </div>
-                    </div>
-                    <div class="card-logros">
+                    </article>
+                    <article class="card-logros" aria-labelledby="titulo-logro-vocabulario">
                         <img class="img-icon-logros" src="../../images/icons-general/dictionary-2-svgrepo-com.svg"
-                            alt="icono diccionario">
+                            alt="">
                         <div>
-                            <h4>Vocabulario Brillante</h4>
+                            <h4 id="titulo-logro-vocabulario">Vocabulario Brillante</h4>
                             <p>Mas de 100 palabras aprendidas</p>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                    </article>
+                </section>
+            </aside>
+        </div>
 
-        <section class="seccion-3">
+        <section class="seccion-3" aria-labelledby="titulo-repaso-vocabulario">
             <div class="sc3-titulo">
-                <h2>Repaso Diario de Vocabulario</h2>
+                <h2 id="titulo-repaso-vocabulario">Repaso Diario de Vocabulario</h2>
                 <p>Idioma: Ingles</p>
             </div>
 
             <div class="sc3-conteiner-cards-vocabulario">
-                <div class="cards-vocabulario">
+                <article class="cards-vocabulario">
                     <h4>INGLÉS A1 - A2 • VERBO </h4>
-                    <p><strong>Improve</strong></p>
+                    <p><strong lang="en">Improve</strong></p>
                     <p>/Im'pru:v/</p>
                     <p>"Hacer algo mejor o avanzar en una habilidad."</p>
-                </div>
-                <div class="cards-vocabulario">
+                </article>
+                <article class="cards-vocabulario">
                     <h4>INGLÉS A1 - A2 • ADJETIVO</h4>
-                    <p><strong>Tired</strong></p>
+                    <p><strong lang="en">Tired</strong></p>
                     <p>/'taIərd/</p>
                     <p>Sentirse sin energía o con ganas de descansar.</p>
-                </div>
-                <div class="cards-vocabulario">
+                </article>
+                <article class="cards-vocabulario">
                     <h4>INGLÉS A1 - A2 • VERBO</h4>
-                    <p><strong>Forget</strong></p>
+                    <p><strong lang="en">Forget</strong></p>
                     <p>/fər'get/</p>
                     <p>No recordar algo que sabías o que tenías que hacer.</p>
-                </div>
-                <div class="cards-vocabulario">
+                </article>
+                <article class="cards-vocabulario">
                     <h4>INGLÉS A1 - A2 • ADJETIVO</h4>
-                    <p><strong>Busy</strong></p>
+                    <p><strong lang="en">Busy</strong></p>
                     <p>/'bizi/</p>
                     <p>Tener muchas cosas que hacer o poco tiempo libre.</p>
-                </div>
-                <div class="cards-vocabulario">
+                </article>
+                <article class="cards-vocabulario">
                     <h4>INGLÉS A1 - A2 • VERBO</h4>
-                    <p><strong>Learn</strong></p>
-                    <p>/lɜ:rn/<< /p>
-                            <p>Adquirir conocimiento o habilidad mediante estudio o práctica.</p>
-                </div>
+                    <p><strong lang="en">Learn</strong></p>
+                    <p>/lɜ:rn/</p>
+                    <p>Adquirir conocimiento o habilidad mediante estudio o práctica.</p>
+                </article>
             </div>
         </section>
     </main>
     <footer>
         <div class="logo-footer">
-            <a href="#"><img class="img-logo-footer" src="../../images/img-logo/LOGO-BLANCO.png" alt="logo"><span
+            <a href="#" aria-label="GrammaTech, volver arriba"><img class="img-logo-footer" src="../../images/img-logo/LOGO-BLANCO.png" alt="logo"><span
                     class="nombre-logo">Gramma</span><span class="nombre-logo-tech">Tech</span></a>
         </div>
-        <div class="condiciones-footer">
+        <nav class="condiciones-footer" aria-label="Información legal y soporte">
             <p> <a href="">Condiciones Generales</a> - <a href="">Aviso Legal</a> - <a href="">Privacidad</a> - <a
                     href="">Cookies</a> - <a href="">Accesibilidad</a>
             </p>
             <p> <a href="">Soporte y Ayuda</a></p>
-            <p>© Todos los derechos reservados, 2026, Gramatech.</p>
-        </div>
-        <div class="redes-footer">
+            <p>© Todos los derechos reservados, <time datetime="2026">2026</time>, Gramatech.</p>
+        </nav>
+        <nav class="redes-footer" aria-label="Redes sociales">
             <a href="#">
                 <img src="../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg" alt="link redes instagram">
             </a>
@@ -272,7 +272,7 @@
             <a href="#">
                 <img src="../../images/iconosBlack-svg/twitter-rounded-svg.svg" alt="link redes twitter">
             </a>
-        </div>
+        </nav>
     </footer>
 </body>
 
