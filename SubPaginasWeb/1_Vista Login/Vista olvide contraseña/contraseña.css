@@ -182,6 +182,16 @@ li .icono-check {
 
 }
 
+a.boton-cancelar,
+a.boton-cuenta {
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.condiciones-footer small {
+    font-size: inherit;
+}
+
 @media screen and (max-width: 57rem) {
     .boton-volver {
 

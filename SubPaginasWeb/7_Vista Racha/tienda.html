@@ -21,7 +21,8 @@
 
             <a href="../2_Vista home/home.html">
 
-                <img class="img-logo"
+                <img
+                    class="img-logo"
                     src="../../images/img-logo/LOGO-BLANCO.png"
                     alt="Logo de GrammaTech">
 
@@ -34,22 +35,24 @@
 
         <div class="buscador-acceder-language">
 
-            <div class="conteiner-search">
+            <form class="conteiner-search" role="search">
 
                 <input
                     type="search"
                     class="search-class"
                     id="buscador"
+                    name="buscador"
+                    aria-label="Buscar en el sitio"
                     placeholder="Becas, Cursos, y Vocabulario...">
 
                 <img
                     class="img-search"
                     src="../../images/iconosBlack-svg/search-svgrepo-com.svg"
-                    alt="Icono de búsqueda">
+                    alt="">
 
-            </div>
+            </form>
 
-            <nav class="navegacion">
+            <nav class="navegacion" aria-label="Navegación principal">
 
                 <a href="../2_Vista home/home.html">
                     Cursos
@@ -63,13 +66,13 @@
                     Clasificación
                 </a>
 
-                <a class="pagina-actual" href="tienda.html">
+                <a class="pagina-actual" href="tienda.html" aria-current="page">
                     Tienda
                 </a>
 
             </nav>
 
-            <select id="idioma" class="idioma">
+            <select id="idioma" class="idioma" aria-label="Idioma del sitio">
 
                 <option value="espanol">
                     Es
@@ -88,7 +91,7 @@
 
     <main class="main-tienda">
 
-        <section class="encabezado-tienda">
+        <hgroup class="encabezado-tienda">
 
             <h1>TIENDA Y RACHAS</h1>
 
@@ -96,17 +99,17 @@
                 Mantené tu constancia, seguí tu progreso y conseguí recompensas.
             </p>
 
-        </section>
+        </hgroup>
 
 
-        <section class="resumen-racha">
+        <section class="resumen-racha" aria-label="Resumen de tu progreso">
 
             <article class="tarjeta-resumen">
 
                 <img
                     class="icono-resumen"
                     src="../../images/icons-general/calendar-days-svgrepo-com.svg"
-                    alt="Calendario de racha">
+                    alt="">
 
                 <div>
 
@@ -130,7 +133,7 @@
                 <img
                     class="icono-resumen"
                     src="../../images/icons-general/flag-svgrepo-com.svg"
-                    alt="Meta diaria">
+                    alt="">
 
                 <div class="contenido-meta">
 
@@ -140,7 +143,7 @@
                         30 / 40 XP
                     </p>
 
-                    <progress value="30" max="40"></progress>
+                    <progress value="30" max="40" aria-label="Progreso de la meta diaria">30 de 40 XP</progress>
 
                     <p>
                         Te faltan 10 XP para completar tu meta diaria.
@@ -156,7 +159,7 @@
                 <img
                     class="icono-resumen"
                     src="../../images/icons-general/chronometer-naranja-svgrepo-com.svg"
-                    alt="Experiencia acumulada">
+                    alt="">
 
                 <div>
 
@@ -179,7 +182,7 @@
 
         <section class="semana-racha">
 
-            <div class="titulo-seccion">
+            <hgroup class="titulo-seccion">
 
                 <h2>TU RACHA ESTA SEMANA</h2>
 
@@ -187,86 +190,86 @@
                     Completá una actividad por día para mantener tu racha activa.
                 </p>
 
-            </div>
+            </hgroup>
 
-            <div class="dias-semana">
+            <ol class="dias-semana">
 
-                <article class="dia completado">
+                <li class="dia completado">
 
-                    <span>Lun</span>
-
-                    <img
-                        class="estado-dia"
-                        src="../../images/icons-general/check.svg"
-                        alt="Día completado">
-
-                </article>
-
-                <article class="dia completado">
-
-                    <span>Mar</span>
+                    <abbr title="Lunes">Lun</abbr>
 
                     <img
                         class="estado-dia"
                         src="../../images/icons-general/check.svg"
                         alt="Día completado">
 
-                </article>
+                </li>
 
-                <article class="dia completado">
+                <li class="dia completado">
 
-                    <span>Mié</span>
-
-                    <img
-                        class="estado-dia"
-                        src="../../images/icons-general/check.svg"
-                        alt="Día completado">
-
-                </article>
-
-                <article class="dia completado">
-
-                    <span>Jue</span>
+                    <abbr title="Martes">Mar</abbr>
 
                     <img
                         class="estado-dia"
                         src="../../images/icons-general/check.svg"
                         alt="Día completado">
 
-                </article>
+                </li>
 
-                <article class="dia completado">
+                <li class="dia completado">
 
-                    <span>Vie</span>
+                    <abbr title="Miércoles">Mié</abbr>
 
                     <img
                         class="estado-dia"
                         src="../../images/icons-general/check.svg"
                         alt="Día completado">
 
-                </article>
+                </li>
 
-                <article class="dia pendiente">
+                <li class="dia completado">
 
-                    <span>Sáb</span>
+                    <abbr title="Jueves">Jue</abbr>
+
+                    <img
+                        class="estado-dia"
+                        src="../../images/icons-general/check.svg"
+                        alt="Día completado">
+
+                </li>
+
+                <li class="dia completado">
+
+                    <abbr title="Viernes">Vie</abbr>
+
+                    <img
+                        class="estado-dia"
+                        src="../../images/icons-general/check.svg"
+                        alt="Día completado">
+
+                </li>
+
+                <li class="dia pendiente">
+
+                    <abbr title="Sábado">Sáb</abbr>
 
                     <span class="texto-pendiente">
                         Pendiente
                     </span>
 
-                </article>
+                </li>
 
-                <article class="dia pendiente">
+                <li class="dia pendiente">
 
-                    <span>Dom</span>
+                    <abbr title="Domingo">Dom</abbr>
 
                     <span class="texto-pendiente">
                         Pendiente
                     </span>
 
-                </article>
+                </li>
 
-            </div>
+            </ol>
 
         </section>
 
@@ -275,7 +278,7 @@
 
             <div class="titulo-tienda">
 
-                <div>
+                <hgroup>
 
                     <h2>TIENDA DE RECOMPENSAS</h2>
 
@@ -283,10 +286,10 @@
                         Usá tus monedas para conseguir beneficios de estudio.
                     </p>
 
-                </div>
+                </hgroup>
 
                 <p class="saldo">
-                    🪙 650 monedas
+                    <span aria-hidden="true">🪙</span> 650 monedas
                 </p>
 
             </div>
@@ -299,7 +302,7 @@
                     <img
                         class="icono-producto"
                         src="../../images/icons-general/calendar-days-svgrepo-com.svg"
-                        alt="Protector de racha">
+                        alt="">
 
                     <h3>Protector de racha</h3>
 
@@ -307,9 +310,9 @@
                         Protege tu racha durante un día si no podés completar una actividad.
                     </p>
 
-                    <span class="precio">
+                    <data class="precio" value="200">
                         200 monedas
-                    </span>
+                    </data>
 
                     <button
                         class="boton-canjeado"
@@ -326,7 +329,7 @@
                     <img
                         class="icono-producto"
                         src="../../images/icons-general/icono-corazon.svg"
-                        alt="Vida extra">
+                        alt="">
 
                     <h3>Vida extra</h3>
 
@@ -334,9 +337,9 @@
                         Sumá una vida para continuar practicando durante tus lecciones.
                     </p>
 
-                    <span class="precio">
+                    <data class="precio" value="100">
                         100 monedas
-                    </span>
+                    </data>
 
                     <button
                         class="boton-canjeado"
@@ -353,7 +356,7 @@
                     <img
                         class="icono-producto"
                         src="../../images/icons-general/chronometer-naranja-svgrepo-com.svg"
-                        alt="Doble experiencia">
+                        alt="">
 
                     <h3>Doble XP</h3>
 
@@ -361,9 +364,9 @@
                         Duplicá la experiencia obtenida durante tus próximas actividades.
                     </p>
 
-                    <span class="precio">
+                    <data class="precio" value="300">
                         300 monedas
-                    </span>
+                    </data>
 
                     <a
                         class="boton-canjear"
@@ -378,7 +381,7 @@
         </section>
 
 
-        <section class="consejo-racha">
+        <aside class="consejo-racha">
 
             <h2>
                 Consejo para mantener tu racha
@@ -393,7 +396,7 @@
                 Ir a mis cursos
             </a>
 
-        </section>
+        </aside>
 
     </main>
 
@@ -417,28 +420,28 @@
         </div>
 
 
-        <div class="condiciones-footer">
+        <nav class="condiciones-footer" aria-label="Información legal">
 
             <p>
-                <a href="">Condiciones Generales</a> -
-                <a href="">Aviso Legal</a> -
-                <a href="">Privacidad</a> -
-                <a href="">Cookies</a> -
-                <a href="">Accesibilidad</a>
+                <a href="#">Condiciones Generales</a> -
+                <a href="#">Aviso Legal</a> -
+                <a href="#">Privacidad</a> -
+                <a href="#">Cookies</a> -
+                <a href="#">Accesibilidad</a>
             </p>
 
             <p>
-                <a href="">Soporte y Ayuda</a>
+                <a href="#">Soporte y Ayuda</a>
             </p>
 
             <p>
-                © Todos los derechos reservados, 2026, Gramatech.
+                <small>© Todos los derechos reservados, 2026, GrammaTech.</small>
             </p>
 
-        </div>
+        </nav>
 
 
-        <div class="redes-footer">
+        <nav class="redes-footer" aria-label="Redes sociales">
 
             <a href="#">
                 <img
@@ -458,7 +461,7 @@
                     alt="Twitter">
             </a>
 
-        </div>
+        </nav>
 
     </footer>
 

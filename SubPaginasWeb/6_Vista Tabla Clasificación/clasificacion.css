@@ -61,7 +61,7 @@
     margin-bottom: 0.5rem;
 }
 
-.titulo-liga h2 {
+h2.titulo-liga {
     color: #6D2508;
 }
 
@@ -126,6 +126,9 @@ tbody tr {
 }
 
 .datos-posicion {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
@@ -149,6 +152,10 @@ tbody tr {
 
 .dato h3 {
     font-size: 1rem;
+}
+
+.condiciones-footer small {
+    font-size: inherit;
 }
 
 @media screen and (max-width: 76rem) {

@@ -35,22 +35,24 @@
 
         <div class="buscador-acceder-language">
 
-            <div class="conteiner-search">
+            <form class="conteiner-search" role="search">
 
                 <input
                     type="search"
                     class="search-class"
                     id="buscador"
+                    name="buscador"
+                    aria-label="Buscar en el sitio"
                     placeholder="Becas, Cursos, y Vocabulario...">
 
                 <img
                     class="img-search"
                     src="../../images/iconosBlack-svg/search-svgrepo-com.svg"
-                    alt="Icono de búsqueda">
+                    alt="">
 
-            </div>
+            </form>
 
-            <nav class="navegacion">
+            <nav class="navegacion" aria-label="Navegación principal">
 
                 <a href="../2_Vista home/home.html">
                     Cursos
@@ -70,7 +72,7 @@
 
             </nav>
 
-            <select id="idioma" class="idioma">
+            <select id="idioma" class="idioma" aria-label="Idioma del sitio">
 
                 <option value="espanol">
                     Es
@@ -89,12 +91,12 @@
 
     <main class="main-canje">
 
-        <section class="tarjeta-canje">
+        <article class="tarjeta-canje">
 
             <img
                 class="icono-canje"
                 src="../../images/icons-general/chronometer-naranja-svgrepo-com.svg"
-                alt="Doble experiencia">
+                alt="">
 
             <h1>¡RECOMPENSA CANJEADA!</h1>
 
@@ -104,27 +106,27 @@
                 Duplicá la experiencia obtenida durante tus próximas actividades.
             </p>
 
-            <div class="detalle-canje">
+            <dl class="detalle-canje">
 
-                <p>
-                    <strong>Costo de la recompensa:</strong>
-                    300 monedas
-                </p>
+                <div>
+                    <dt>Costo de la recompensa:</dt>
+                    <dd>300 monedas</dd>
+                </div>
 
-                <p>
-                    <strong>Saldo anterior:</strong>
-                    650 monedas
-                </p>
+                <div>
+                    <dt>Saldo anterior:</dt>
+                    <dd>650 monedas</dd>
+                </div>
 
-                <p class="saldo-nuevo">
-                    <strong>Saldo actual:</strong>
-                    🪙 350 monedas
-                </p>
+                <div class="saldo-nuevo">
+                    <dt>Saldo actual:</dt>
+                    <dd><span aria-hidden="true">🪙</span> 350 monedas</dd>
+                </div>
 
-            </div>
+            </dl>
 
-            <p class="recompensa-activada">
-                ✓ Doble XP activado correctamente.
+            <p class="recompensa-activada" role="status">
+                <span aria-hidden="true">✓</span> Doble XP activado correctamente.
             </p>
 
             <a
@@ -133,7 +135,7 @@
                 Volver a la tienda
             </a>
 
-        </section>
+        </article>
 
     </main>
 
@@ -156,27 +158,29 @@
 
         </div>
 
-        <div class="condiciones-footer">
+
+        <nav class="condiciones-footer" aria-label="Información legal">
 
             <p>
-                <a href="">Condiciones Generales</a> -
-                <a href="">Aviso Legal</a> -
-                <a href="">Privacidad</a> -
-                <a href="">Cookies</a> -
-                <a href="">Accesibilidad</a>
+                <a href="#">Condiciones Generales</a> -
+                <a href="#">Aviso Legal</a> -
+                <a href="#">Privacidad</a> -
+                <a href="#">Cookies</a> -
+                <a href="#">Accesibilidad</a>
             </p>
 
             <p>
-                <a href="">Soporte y Ayuda</a>
+                <a href="#">Soporte y Ayuda</a>
             </p>
 
             <p>
-                © Todos los derechos reservados, 2026, Gramatech.
+                <small>© Todos los derechos reservados, 2026, GrammaTech.</small>
             </p>
 
-        </div>
+        </nav>
 
-        <div class="redes-footer">
+
+        <nav class="redes-footer" aria-label="Redes sociales">
 
             <a href="#">
                 <img
@@ -196,7 +200,7 @@
                     alt="Twitter">
             </a>
 
-        </div>
+        </nav>
 
     </footer>
 

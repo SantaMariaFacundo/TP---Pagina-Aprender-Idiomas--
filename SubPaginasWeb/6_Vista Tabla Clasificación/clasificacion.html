@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="../../StyleGeneral.css">
     <link rel="stylesheet" href="clasificacion.css">
 
-    <link rel="icon"
-        href="../../images/img-logo/FAVICON-LOGO-BLANCO.png"
-        type="image/png">
+    <link rel="icon" href="../../images/img-logo/FAVICON-LOGO-BLANCO.png" type="image/png">
 
     <title>Clasificación - GrammaTech</title>
 </head>
@@ -37,22 +35,24 @@
 
         <div class="buscador-acceder-language">
 
-            <div class="conteiner-search">
+            <form class="conteiner-search" role="search">
 
                 <input
                     type="search"
                     class="search-class"
                     id="buscador"
+                    name="buscador"
+                    aria-label="Buscar en el sitio"
                     placeholder="Becas, Cursos, y Vocabulario...">
 
                 <img
                     class="img-search"
                     src="../../images/iconosBlack-svg/search-svgrepo-com.svg"
-                    alt="Icono de búsqueda">
+                    alt="">
 
-            </div>
+            </form>
 
-            <nav class="navegacion">
+            <nav class="navegacion" aria-label="Navegación principal">
 
                 <a href="../2_Vista home/home.html">
                     Cursos
@@ -62,7 +62,7 @@
                     Perfil
                 </a>
 
-                <a class="pagina-actual" href="clasificacion.html">
+                <a class="pagina-actual" href="clasificacion.html" aria-current="page">
                     Clasificación
                 </a>
 
@@ -72,7 +72,7 @@
 
             </nav>
 
-            <select id="idioma" class="idioma">
+            <select id="idioma" class="idioma" aria-label="Idioma del sitio">
 
                 <option value="espanol">
                     Es
@@ -88,9 +88,10 @@
 
     </header>
 
+
     <main class="main-clasificacion">
 
-        <section class="encabezado-clasificacion">
+        <hgroup class="encabezado-clasificacion">
 
             <h1>CLASIFICACIÓN</h1>
 
@@ -99,9 +100,9 @@
                 y seguí tu progreso semanal.
             </p>
 
-        </section>
+        </hgroup>
 
-        <section class="selector-liga">
+        <form class="selector-liga">
 
             <label for="liga">
                 Liga actual
@@ -123,41 +124,41 @@
 
             </select>
 
-        </section>
+        </form>
 
-        <section class="ranking">
+        <section class="ranking" aria-labelledby="titulo-liga">
 
-            <div class="titulo-ranking">
+            <hgroup class="titulo-ranking">
 
-                <div class="titulo-liga">
+                <h2 class="titulo-liga" id="titulo-liga">
 
                     <img
                         class="icono-liga"
                         src="../../images/icons-general/medal-reward-svgrepo-com.svg"
-                        alt="Medalla de liga">
+                        alt="">
 
-                    <h2>LIGA BRONCE</h2>
+                    LIGA BRONCE
 
-                </div>
+                </h2>
 
                 <p>
                     Los 5 primeros ascienden a la Liga de Plata
                     esta semana.
                 </p>
 
-            </div>
+            </hgroup>
 
             <div class="contenedor-tabla">
 
-                <table>
+                <table aria-labelledby="titulo-liga">
 
                     <thead>
 
                         <tr>
-                            <th>Puesto</th>
-                            <th>Avatar</th>
-                            <th>Usuario</th>
-                            <th>XP semanal</th>
+                            <th scope="col">Puesto</th>
+                            <th scope="col">Avatar</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">XP semanal</th>
                         </tr>
 
                     </thead>
@@ -169,7 +170,7 @@
                             <td>1</td>
 
                             <td>
-                                <span class="avatar-ranking">
+                                <span class="avatar-ranking" aria-hidden="true">
                                     MG
                                 </span>
                             </td>
@@ -179,27 +180,27 @@
                             </td>
 
                             <td>
-                                850 XP
+                                <data value="850">850 XP</data>
                             </td>
 
                         </tr>
 
-                        <tr class="usuario-actual">
+                        <tr class="usuario-actual" aria-current="true">
 
                             <td>2</td>
 
                             <td>
-                                <span class="avatar-ranking">
+                                <span class="avatar-ranking" aria-hidden="true">
                                     JP
                                 </span>
                             </td>
 
                             <td>
-                                @juanperez_web 
+                                @juanperez_web
                             </td>
 
                             <td>
-                                720 XP
+                                <data value="720">720 XP</data>
                             </td>
 
                         </tr>
@@ -209,7 +210,7 @@
                             <td>3</td>
 
                             <td>
-                                <span class="avatar-ranking">
+                                <span class="avatar-ranking" aria-hidden="true">
                                     CD
                                 </span>
                             </td>
@@ -219,7 +220,7 @@
                             </td>
 
                             <td>
-                                610 XP
+                                <data value="610">610 XP</data>
                             </td>
 
                         </tr>
@@ -229,7 +230,7 @@
                             <td>4</td>
 
                             <td>
-                                <span class="avatar-ranking">
+                                <span class="avatar-ranking" aria-hidden="true">
                                     MC
                                 </span>
                             </td>
@@ -239,7 +240,7 @@
                             </td>
 
                             <td>
-                                570 XP
+                                <data value="570">570 XP</data>
                             </td>
 
                         </tr>
@@ -249,7 +250,7 @@
                             <td>5</td>
 
                             <td>
-                                <span class="avatar-ranking">
+                                <span class="avatar-ranking" aria-hidden="true">
                                     FW
                                 </span>
                             </td>
@@ -259,7 +260,7 @@
                             </td>
 
                             <td>
-                                520 XP
+                                <data value="520">520 XP</data>
                             </td>
 
                         </tr>
@@ -269,7 +270,7 @@
                             <td>6</td>
 
                             <td>
-                                <span class="avatar-ranking">
+                                <span class="avatar-ranking" aria-hidden="true">
                                     AD
                                 </span>
                             </td>
@@ -279,7 +280,7 @@
                             </td>
 
                             <td>
-                                480 XP
+                                <data value="480">480 XP</data>
                             </td>
 
                         </tr>
@@ -296,39 +297,39 @@
 
             <h2>TU POSICIÓN ESTA SEMANA</h2>
 
-            <div class="datos-posicion">
+            <ul class="datos-posicion">
 
-                <article class="dato">
+                <li class="dato">
 
-                    <span class="numero">
+                    <data class="numero" value="2">
                         #2
-                    </span>
+                    </data>
 
                     <h3>Puesto actual</h3>
 
-                </article>
+                </li>
 
-                <article class="dato">
+                <li class="dato">
 
-                    <span class="numero">
+                    <data class="numero" value="720">
                         720
-                    </span>
+                    </data>
 
                     <h3>XP esta semana</h3>
 
-                </article>
+                </li>
 
-                <article class="dato">
+                <li class="dato">
 
-                    <span class="numero">
+                    <data class="numero" value="131">
                         131
-                    </span>
+                    </data>
 
                     <h3>XP para superar el primer puesto</h3>
 
-                </article>
+                </li>
 
-            </div>
+            </ul>
 
         </section>
 
@@ -352,27 +353,29 @@
 
         </div>
 
-        <div class="condiciones-footer">
+
+        <nav class="condiciones-footer" aria-label="Información legal">
 
             <p>
-                <a href="">Condiciones Generales</a> -
-                <a href="">Aviso Legal</a> -
-                <a href="">Privacidad</a> -
-                <a href="">Cookies</a> -
-                <a href="">Accesibilidad</a>
+                <a href="#">Condiciones Generales</a> -
+                <a href="#">Aviso Legal</a> -
+                <a href="#">Privacidad</a> -
+                <a href="#">Cookies</a> -
+                <a href="#">Accesibilidad</a>
             </p>
 
             <p>
-                <a href="">Soporte y Ayuda</a>
+                <a href="#">Soporte y Ayuda</a>
             </p>
 
             <p>
-                © Todos los derechos reservados, 2026, Gramatech.
+                <small>© Todos los derechos reservados, 2026, GrammaTech.</small>
             </p>
 
-        </div>
+        </nav>
 
-        <div class="redes-footer">
+
+        <nav class="redes-footer" aria-label="Redes sociales">
 
             <a href="#">
                 <img
@@ -392,7 +395,7 @@
                     alt="Twitter">
             </a>
 
-        </div>
+        </nav>
 
     </footer>
 

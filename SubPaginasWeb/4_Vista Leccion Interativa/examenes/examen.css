@@ -59,6 +59,9 @@ header .buscador-acceder-language .acceder {
 }
 
 .completar-datos {
+    border: none;
+    padding: 0;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -67,40 +70,6 @@ header .buscador-acceder-language .acceder {
     margin: 1.5rem 0;
 }
 
-
-
-/* prueba audios*/
-
-
-/* Ocultamos el checkbox */
-.audio-aleman {
-  display: none;
-}
-
-/* Ocultamos el reproductor por defecto */
-.conteiner-audio-aleman {
-  display: none;
-}
-
-/* Cuando se marca el checkbox (al hacer click en el label), mostramos y reproduce el audio */
-.audio-aleman:checked ~ .conteiner-audio-aleman {
-  display: block;
-}
-
-.conteiner-audio-aleman{
-    position: absolute;
-}
-
-/* Estilo del botón */
-.btn-audio-aleman {
-  display: inline-block;
-  padding: 8px 16px;
-  background-color: #5d635d;
-  color: white;
-  border-radius: 1rem;
-  cursor: pointer;
-  user-select: none;
-}
 
 .completar-datos h2 {
     text-align: center;
@@ -111,6 +80,8 @@ header .buscador-acceder-language .acceder {
 
 .frase {
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     gap: 1rem;
     justify-content: center;
 }
@@ -118,6 +89,28 @@ header .buscador-acceder-language .acceder {
 .titulo {
     border-top: .1rem solid #6d250826  ;
     padding: 1rem;
+}
+
+.completar-datos legend {
+    float: left;
+    width: 100%;
+    padding: 0;
+}
+
+.visualmente-oculto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.condiciones-footer small {
+    font-size: inherit;
 }
 
 .respuesta button,
@@ -171,7 +164,6 @@ header .buscador-acceder-language .acceder {
 }
 
 
-
 @media screen and (max-width: 57rem) {
     .boton-volver {
 
@@ -215,7 +207,6 @@ header .buscador-acceder-language .acceder {
         flex-direction: column;
     }
 }
-
 
 
 @media screen and (max-width: 40rem) {

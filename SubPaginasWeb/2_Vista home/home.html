@@ -4,72 +4,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css">
     <link rel="stylesheet" href="../../StyleGeneral.css">
     <link rel="stylesheet" href="home.css">
+
     <link rel="icon" href="../../images/img-logo/FAVICON-LOGO-BLANCO.png" type="image/png">
-    <title>GrammaTech</title>
+
+    <title>Inicio - GrammaTech</title>
 </head>
 
 <body>
+
     <header>
+
         <div class="logo-explorar">
-            <a href="#"><img class="img-logo" src="../../images/img-logo/LOGO-BLANCO.png" alt="imagen logo"><span
-                    class="nombre-logo">Gramma</span><span class="nombre-logo-tech">Tech</span></a>
+
+            <a href="home.html">
+
+                <img
+                    class="img-logo"
+                    src="../../images/img-logo/LOGO-BLANCO.png"
+                    alt="Logo de GrammaTech">
+
+                <span class="nombre-logo">Gramma</span>
+                <span class="nombre-logo-tech">Tech</span>
+
+            </a>
+
         </div>
+
         <div class="buscador-acceder-language">
-            <div class="conteiner-search">
-                <input type="search" class="search-class" id="buscador" placeholder="Becas, Cursos, y Vocabulario...">
-                <img class="img-search" src="../../images/iconosBlack-svg/search-svgrepo-com.svg" alt="icono lupa">
-            </div>
-            <nav class="navegacion">
-                <a href="#">Cursos</a>
-                <a href="../5_Vista Perfil Usuario/perfilUsuario.html">Perfil</a>
-                <a href="../6_Vista Tabla Clasificación/clasificacion.html">Clasificación</a>
-                <a href="../7_Vista Racha/tienda.html">Tienda</a>
+
+            <form class="conteiner-search" role="search">
+
+                <input
+                    type="search"
+                    class="search-class"
+                    id="buscador"
+                    name="buscador"
+                    aria-label="Buscar en el sitio"
+                    placeholder="Becas, Cursos, y Vocabulario...">
+
+                <img
+                    class="img-search"
+                    src="../../images/iconosBlack-svg/search-svgrepo-com.svg"
+                    alt="">
+
+            </form>
+
+            <nav class="navegacion" aria-label="Navegación principal">
+
+                <a class="pagina-actual" href="home.html" aria-current="page">
+                    Cursos
+                </a>
+
+                <a href="../5_Vista Perfil Usuario/perfilUsuario.html">
+                    Perfil
+                </a>
+
+                <a href="../6_Vista Tabla Clasificación/clasificacion.html">
+                    Clasificación
+                </a>
+
+                <a href="../7_Vista Racha/tienda.html">
+                    Tienda
+                </a>
+
             </nav>
-            <select id="idioma" class="idioma">
-                <option value="español">Es</option>
-                <option value="english">En</option>
+
+            <select id="idioma" class="idioma" aria-label="Idioma del sitio">
+
+                <option value="espanol">
+                    Es
+                </option>
+
+                <option value="english">
+                    En
+                </option>
+
             </select>
+
         </div>
+
     </header>
+
+
     <main>
+
         <section class="seccion-1 primera-seccion">
             <div class="sc1-conteiner">
                 <div class="sc1-titulo">
-                    <h1>Hola bienvenido @usuario. </h1>
-                    <h3>listo para aprender hoy.</h3>
+                    <h1>Hola, bienvenido @usuario.</h1>
+                    <p class="subtitulo">¿Listo para aprender hoy?</p>
                     <p>El esfuerzo que ponés hoy es la llave que abre las puertas de tu futuro. Cada hora de estudio es
                         un ladrillo más en el camino hacia tus metas.</p>
                 </div>
-                <div class="sc1-conteiner-cards">
-                    <div class="sc1-cards card-1">
-                        <img class="img-icon-sc1" src="../../images/icons-general/chronometer-naranja-svgrepo-com.svg"
-                            alt="icono cronometro">
+                <ul class="sc1-conteiner-cards">
+
+                    <li class="sc1-cards card-1">
+                        <img class="img-icon-sc1" src="../../images/icons-general/chronometer-naranja-svgrepo-com.svg" alt="">
                         <p class="sc1-numeros-card">30</p>
                         <p class="sc1-text-card">MINUTOS HOY</p>
-                    </div>
-                    <div class="sc1-cards card-2">
-                        <img class="img-icon-sc1" src="../../images/icons-general/book-svgrepo-com.svg"
-                            alt="icono libro">
+                    </li>
+
+                    <li class="sc1-cards card-2">
+                        <img class="img-icon-sc1" src="../../images/icons-general/book-svgrepo-com.svg" alt="">
                         <p class="sc1-numeros-card">12</p>
                         <p class="sc1-text-card">NUEVAS PALABRAS</p>
-                    </div>
-                    <div class="sc1-cards card-3">
-                        <img class="img-icon-sc1" src="../../images/icons-general/tick-circle-svgrepo-com.svg"
-                            alt="icono tick">
+                    </li>
+
+                    <li class="sc1-cards card-3">
+                        <img class="img-icon-sc1" src="../../images/icons-general/tick-circle-svgrepo-com.svg" alt="">
                         <p class="sc1-numeros-card">92%</p>
                         <p class="sc1-text-card">PRECISIÓN</p>
-                    </div>
-                    <div class="card-4">
+                    </li>
+
+                    <li class="card-4">
                         <p>Ritmo de Aprendizaje</p>
                         <p>4.2 horas registradas esta semana</p>
-                    </div>
-                </div>
+                    </li>
+                </ul>
                 <div class="boton-sc1">
-                    <a href="../3_Vista Mapa de Unidades/progreso-ingles.html#inglesC1C2">Continuar Leccion: Ingles
-                        C1</a>
+                    <a href="../3_Vista Mapa de Unidades/progreso-ingles.html#inglesC1C2">Continuar Lección: Inglés C1</a>
                 </div>
             </div>
         </section>
@@ -77,203 +134,250 @@
         <section class="seccion-2-extra" id="seccion-2">
             <h2>CURSOS DISPONIBLES</h2>
             <div class="cards">
-                <div class="cards-idioma card-ingles">
-                    <h3>Aprendé Inglés a tu ritmo </h3>
+
+                <article class="cards-idioma card-ingles">
+                    <h3>Aprendé Inglés a tu ritmo</h3>
                     <img class="img-pais" src="../../images/img-paises/londres.avif" alt="">
                     <p>Descubrí todos los cursos disponibles, desde nivel inicial hasta avanzado. Elegí el que mejor se
                         adapte a vos y empezá hoy mismo.</p>
-                    <button>Agregar Curso</button>
-                </div>
-                <div class="cards-idioma card-chino">
+                    <button type="button">Agregar Curso</button>
+                </article>
+
+                <article class="cards-idioma card-chino">
                     <h3>Aprendé el Chino Mandarín</h3>
                     <img class="img-pais" src="../../images/img-paises/china.jpg" alt="">
                     <p>Accedé a cursos para cada nivel, desde principiante hasta avanzado. Iniciá tu camino en el idioma
                         más hablado del mundo y ampliá tus oportunidades.</p>
-                    <button>Agregar Curso</button>
-                </div>
-                <div class="cards-idioma card-aleman">
+                    <button type="button">Agregar Curso</button>
+                </article>
+
+                <article class="cards-idioma card-aleman">
                     <h3>Aprendé Alemán paso a paso</h3>
                     <img class="img-pais" src="../../images/img-paises/alemania.jpg" alt="">
                     <p>Explorá todos los cursos disponibles, desde nivel inicial hasta avanzado. Elegí tu nivel y empezá
                         a dominar el idioma más hablado en Europa.</p>
-                    <button>Agregar Curso</button>
-                </div>
+                    <button type="button">Agregar Curso</button>
+                </article>
+
             </div>
         </section>
 
         <section class="seccion-2">
-            <div class="conteiner-cursos">
-                <div class="titulo">
-                    <h2>Cursos en Progreso</h2>
-                </div>
-                <div class="cards-cursos">
-                    <div class="card-curso card-ingles">
-                        <img class="img-paises" src="../../images/img-paises/londres.avif" alt="imagen de Londres">
+            <section class="conteiner-cursos">
+                <h2>Cursos en Progreso</h2>
+                <ul class="cards-cursos">
+
+                    <li class="card-curso card-ingles">
+                        <img class="img-paises" src="../../images/img-paises/londres.avif" alt="">
                         <div class="titulo-card-cursos">
                             <div class="unidad">
-                                <p class="curso">Curso: Ingles C1</p>
-                                <span>80%</span>
+                                <h3 class="curso">Curso: Inglés C1</h3>
+                                <span aria-hidden="true">80%</span>
                             </div>
-                            <p>Dominio del vocabulario, listening y gramatica.</p>
-                            <progress value="80" max="100"></progress>
+                            <p>Dominio del vocabulario, listening y gramática.</p>
+                            <progress value="80" max="100" aria-label="Progreso de Inglés C1">80%</progress>
                         </div>
                         <div class="boton-cards">
-                            <a href="../3_Vista Mapa de Unidades/progreso-ingles.html#inglesC1C2">Reanudar</a>
+                            <a href="../3_Vista Mapa de Unidades/progreso-ingles.html#inglesC1C2">Reanudar<span class="visualmente-oculto"> Inglés C1</span></a>
                         </div>
-                        <div>
-                            <button class="btn-cerrar-cards">x</button>
-                        </div>
-                    </div>
-                    <div class="card-curso card-aleman">
-                        <img class="img-paises" src="../../images/img-paises/alemania.jpg" alt="imagen Alemania">
+                        <button class="btn-cerrar-cards" type="button" aria-label="Quitar Inglés C1 de mis cursos">x</button>
+                    </li>
+
+                    <li class="card-curso card-aleman">
+                        <img class="img-paises" src="../../images/img-paises/alemania.jpg" alt="">
                         <div class="titulo-card-cursos">
                             <div class="unidad">
-                                <p class="curso">Curso: Aleman B1</p>
-                                <span>45%</span>
+                                <h3 class="curso">Curso: Alemán B1</h3>
+                                <span aria-hidden="true">45%</span>
                             </div>
-                            <p>Dominio del vocabulario, listening y gramatica.</p>
-                            <progress value="45" max="100"></progress>
+                            <p>Dominio del vocabulario, listening y gramática.</p>
+                            <progress value="45" max="100" aria-label="Progreso de Alemán B1">45%</progress>
                         </div>
                         <div class="boton-cards">
-                            <a href="../3_Vista Mapa de Unidades/progreso-aleman.html#alemanB1B2">Reanudar</a>
+                            <a href="../3_Vista Mapa de Unidades/progreso-aleman.html#alemanB1B2">Reanudar<span class="visualmente-oculto"> Alemán B1</span></a>
                         </div>
-                        <div>
-                            <button class="btn-cerrar-cards">x</button>
-                        </div>
-                    </div>
-                    <div class="card-curso card-chinoMandarin">
-                        <img class="img-paises" src="../../images/img-paises/china.jpg" alt="imagen China">
+                        <button class="btn-cerrar-cards" type="button" aria-label="Quitar Alemán B1 de mis cursos">x</button>
+                    </li>
+
+                    <li class="card-curso card-chinoMandarin">
+                        <img class="img-paises" src="../../images/img-paises/china.jpg" alt="">
                         <div class="titulo-card-cursos">
                             <div class="unidad">
-                                <p class="curso">Curso: Chino Mandarin A1</p>
-                                <span>0%</span>
+                                <h3 class="curso">Curso: Chino Mandarín A1</h3>
+                                <span aria-hidden="true">0%</span>
                             </div>
-                            <p>Dominio del vocabulario, listening y gramatica.</p>
-                            <progress value="0" max="100"></progress>
+                            <p>Dominio del vocabulario, listening y gramática.</p>
+                            <progress value="0" max="100" aria-label="Progreso de Chino Mandarín A1">0%</progress>
                         </div>
                         <div class="boton-cards">
-                            <a href="../3_Vista Mapa de Unidades/progreso-chino.html#chinoA1A2">Empezar</a>
+                            <a href="../3_Vista Mapa de Unidades/progreso-chino.html#chinoA1A2">Empezar<span class="visualmente-oculto"> Chino Mandarín A1</span></a>
                         </div>
-                        <div>
-                            <button class="btn-cerrar-cards">x</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="conteiner-datos">
-                <div class="metaDiaria">
+                        <button class="btn-cerrar-cards" type="button" aria-label="Quitar Chino Mandarín A1 de mis cursos">x</button>
+                    </li>
+
+                </ul>
+            </section>
+            <aside class="conteiner-datos">
+                <section class="metaDiaria">
                     <div class="datos-titulo">
-                        <img class="img-icon-datos" src="../../images/icons-general/flag-svgrepo-com.svg"
-                            alt="icono banderin">
+                        <img class="img-icon-datos" src="../../images/icons-general/flag-svgrepo-com.svg" alt="">
                         <h3>Meta Diaria</h3>
-                        <p>30 / 40 xp</p>
+                        <p>30 / 40 XP</p>
                     </div>
                     <p>¡A solo una lección corta para completar la racha de hoy!</p>
-                    <progress value="75" max="100"></progress>
+                    <progress value="75" max="100" aria-label="Progreso de la meta diaria">75%</progress>
                     <div class="datos-progress">
-                        <p>Inicio del dia</p>
+                        <p>Inicio del día</p>
                         <span>75%</span>
                     </div>
-                </div>
-                <div class="logrosRecientes">
+                </section>
+                <section class="logrosRecientes">
                     <div class="logros-titulo">
-                        <img class="img-icon-logros-titulo"
-                            src="../../images/icons-general/medal-reward-svgrepo-com.svg" alt="icono medalla">
+                        <img class="img-icon-logros-titulo" src="../../images/icons-general/medal-reward-svgrepo-com.svg" alt="">
                         <h3>Logros Recientes</h3>
                         <a href="../7_Vista Racha/tienda.html">Ver Racha</a>
                     </div>
-                    <div class="card-logros">
-                        <img class="img-icon-logros" src="../../images/icons-general/calendar-days-svgrepo-com.svg"
-                            alt="icono calendario">
+
+                    <article class="card-logros">
+                        <img class="img-icon-logros" src="../../images/icons-general/calendar-days-svgrepo-com.svg" alt="">
                         <div>
-                            <h4>Poliglota Constante</h4>
+                            <h4>Políglota Constante</h4>
                             <p>14 días estudiando sin interrupción</p>
                         </div>
-                    </div>
-                    <div class="card-logros">
-                        <img class="img-icon-logros" src="../../images/icons-general/audio-svgrepo-com.svg"
-                            alt="icono audio">
+                    </article>
+
+                    <article class="card-logros">
+                        <img class="img-icon-logros" src="../../images/icons-general/audio-svgrepo-com.svg" alt="">
                         <div>
-                            <h4>Listening Implecable</h4>
-                            <p>Acertaste el 90% del dialogo</p>
+                            <h4>Listening Impecable</h4>
+                            <p>Acertaste el 90% del diálogo</p>
                         </div>
-                    </div>
-                    <div class="card-logros">
-                        <img class="img-icon-logros" src="../../images/icons-general/dictionary-2-svgrepo-com.svg"
-                            alt="icono diccionario">
+                    </article>
+
+                    <article class="card-logros">
+                        <img class="img-icon-logros" src="../../images/icons-general/dictionary-2-svgrepo-com.svg" alt="">
                         <div>
                             <h4>Vocabulario Brillante</h4>
-                            <p>Mas de 100 palabras aprendidas</p>
+                            <p>Más de 100 palabras aprendidas</p>
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </article>
+
+                </section>
+            </aside>
         </section>
 
         <section class="seccion-3">
             <div class="sc3-titulo">
                 <h2>Repaso Diario de Vocabulario</h2>
-                <p>Idioma: Ingles</p>
+                <p>Idioma: Inglés</p>
             </div>
 
-            <div class="sc3-conteiner-cards-vocabulario">
-                <div class="cards-vocabulario">
-                    <h4>INGLÉS A1 - A2 • VERBO </h4>
-                    <p><strong>Improve</strong></p>
-                    <p>/Im'pru:v/</p>
-                    <p>"Hacer algo mejor o avanzar en una habilidad."</p>
-                </div>
-                <div class="cards-vocabulario">
-                    <h4>INGLÉS A1 - A2 • ADJETIVO</h4>
-                    <p><strong>Tired</strong></p>
-                    <p>/'taIərd/</p>
+            <ul class="sc3-conteiner-cards-vocabulario">
+
+                <li class="cards-vocabulario">
+                    <h3>INGLÉS A1 - A2 • VERBO</h3>
+                    <p><strong lang="en">Improve</strong></p>
+                    <p lang="en">/ɪmˈpruːv/</p>
+                    <p>Hacer algo mejor o avanzar en una habilidad.</p>
+                </li>
+
+                <li class="cards-vocabulario">
+                    <h3>INGLÉS A1 - A2 • ADJETIVO</h3>
+                    <p><strong lang="en">Tired</strong></p>
+                    <p lang="en">/ˈtaɪərd/</p>
                     <p>Sentirse sin energía o con ganas de descansar.</p>
-                </div>
-                <div class="cards-vocabulario">
-                    <h4>INGLÉS A1 - A2 • VERBO</h4>
-                    <p><strong>Forget</strong></p>
-                    <p>/fər'get/</p>
+                </li>
+
+                <li class="cards-vocabulario">
+                    <h3>INGLÉS A1 - A2 • VERBO</h3>
+                    <p><strong lang="en">Forget</strong></p>
+                    <p lang="en">/fərˈɡet/</p>
                     <p>No recordar algo que sabías o que tenías que hacer.</p>
-                </div>
-                <div class="cards-vocabulario">
-                    <h4>INGLÉS A1 - A2 • ADJETIVO</h4>
-                    <p><strong>Busy</strong></p>
-                    <p>/'bizi/</p>
+                </li>
+
+                <li class="cards-vocabulario">
+                    <h3>INGLÉS A1 - A2 • ADJETIVO</h3>
+                    <p><strong lang="en">Busy</strong></p>
+                    <p lang="en">/ˈbɪzi/</p>
                     <p>Tener muchas cosas que hacer o poco tiempo libre.</p>
-                </div>
-                <div class="cards-vocabulario">
-                    <h4>INGLÉS A1 - A2 • VERBO</h4>
-                    <p><strong>Learn</strong></p>
-                    <p>/lɜ:rn/<< /p>
-                            <p>Adquirir conocimiento o habilidad mediante estudio o práctica.</p>
-                </div>
-            </div>
+                </li>
+
+                <li class="cards-vocabulario">
+                    <h3>INGLÉS A1 - A2 • VERBO</h3>
+                    <p><strong lang="en">Learn</strong></p>
+                    <p lang="en">/lɜːrn/</p>
+                    <p>Adquirir conocimiento o habilidad mediante estudio o práctica.</p>
+                </li>
+
+            </ul>
         </section>
+
     </main>
+
     <footer>
+
         <div class="logo-footer">
-            <a href="#"><img class="img-logo-footer" src="../../images/img-logo/LOGO-BLANCO.png" alt="logo"><span
-                    class="nombre-logo">Gramma</span><span class="nombre-logo-tech">Tech</span></a>
+
+            <a href="home.html">
+
+                <img
+                    class="img-logo-footer"
+                    src="../../images/img-logo/LOGO-BLANCO.png"
+                    alt="Logo de GrammaTech">
+
+                <span class="nombre-logo">Gramma</span>
+                <span class="nombre-logo-tech">Tech</span>
+
+            </a>
+
         </div>
-        <div class="condiciones-footer">
-            <p> <a href="">Condiciones Generales</a> - <a href="">Aviso Legal</a> - <a href="">Privacidad</a> - <a
-                    href="">Cookies</a> - <a href="">Accesibilidad</a>
+
+
+        <nav class="condiciones-footer" aria-label="Información legal">
+
+            <p>
+                <a href="#">Condiciones Generales</a> -
+                <a href="#">Aviso Legal</a> -
+                <a href="#">Privacidad</a> -
+                <a href="#">Cookies</a> -
+                <a href="#">Accesibilidad</a>
             </p>
-            <p> <a href="">Soporte y Ayuda</a></p>
-            <p>© Todos los derechos reservados, 2026, Gramatech.</p>
-        </div>
-        <div class="redes-footer">
+
+            <p>
+                <a href="#">Soporte y Ayuda</a>
+            </p>
+
+            <p>
+                <small>© Todos los derechos reservados, 2026, GrammaTech.</small>
+            </p>
+
+        </nav>
+
+
+        <nav class="redes-footer" aria-label="Redes sociales">
+
             <a href="#">
-                <img src="../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg" alt="link redes instagram">
+                <img
+                    src="../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg"
+                    alt="Instagram">
             </a>
+
             <a href="#">
-                <img src="../../images/iconosBlack-svg/facebook-rounded-svgr.svg" alt="link redes facebook ">
+                <img
+                    src="../../images/iconosBlack-svg/facebook-rounded-svgr.svg"
+                    alt="Facebook">
             </a>
+
             <a href="#">
-                <img src="../../images/iconosBlack-svg/twitter-rounded-svg.svg" alt="link redes twitter">
+                <img
+                    src="../../images/iconosBlack-svg/twitter-rounded-svg.svg"
+                    alt="Twitter">
             </a>
-        </div>
+
+        </nav>
+
     </footer>
+
 </body>
 
 </html>

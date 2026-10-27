@@ -21,7 +21,10 @@
 
             <a href="../../2_Vista home/home.html">
 
-                <img class="img-logo" src="../../../images/img-logo/LOGO-BLANCO.png" alt="Logo de GrammaTech">
+                <img
+                    class="img-logo"
+                    src="../../../images/img-logo/LOGO-BLANCO.png"
+                    alt="Logo de GrammaTech">
 
                 <span class="nombre-logo">Gramma</span>
                 <span class="nombre-logo-tech">Tech</span>
@@ -32,22 +35,30 @@
 
         <div class="buscador-acceder-language">
 
-            <div class="conteiner-search">
+            <form class="conteiner-search" role="search">
 
-                <input type="search" class="search-class" id="buscador" placeholder="Becas, Cursos, y Vocabulario...">
+                <input
+                    type="search"
+                    class="search-class"
+                    id="buscador"
+                    name="buscador"
+                    aria-label="Buscar en el sitio"
+                    placeholder="Becas, Cursos, y Vocabulario...">
 
-                <img class="img-search" src="../../../images/iconosBlack-svg/search-svgrepo-com.svg"
-                    alt="Icono de búsqueda">
+                <img
+                    class="img-search"
+                    src="../../../images/iconosBlack-svg/search-svgrepo-com.svg"
+                    alt="">
 
-            </div>
+            </form>
 
-            <nav class="navegacion">
+            <nav class="navegacion" aria-label="Navegación principal">
 
                 <a href="../../2_Vista home/home.html">
                     Cursos
                 </a>
 
-                <a class="pagina-actual" href="perfilUsuario.html">
+                <a href="../../5_Vista Perfil Usuario/perfilUsuario.html">
                     Perfil
                 </a>
 
@@ -61,7 +72,7 @@
 
             </nav>
 
-            <select id="idioma" class="idioma">
+            <select id="idioma" class="idioma" aria-label="Idioma del sitio">
 
                 <option value="espanol">
                     Es
@@ -80,12 +91,12 @@
 
     <main class="conteiner-comprobacion">
 
-        <section class="mensaje-comprobacion">
+        <section class="mensaje-comprobacion" role="status">
 
             <h1>Respuestas Comprobadas</h1>
 
             <p>
-                Acertaste el 80% de las respuestas "Aprobado".
+                Acertaste el 80% de las respuestas: <strong>Aprobado</strong>.
             </p>
 
             <a class="volver-cursos" href="../../3_Vista Mapa de Unidades/progreso-ingles.html#inglesC1C2">
@@ -105,7 +116,10 @@
 
             <a href="../../2_Vista home/home.html">
 
-                <img class="img-logo-footer" src="../../../images/img-logo/LOGO-BLANCO.png" alt="Logo de GrammaTech">
+                <img
+                    class="img-logo-footer"
+                    src="../../../images/img-logo/LOGO-BLANCO.png"
+                    alt="Logo de GrammaTech">
 
                 <span class="nombre-logo">Gramma</span>
                 <span class="nombre-logo-tech">Tech</span>
@@ -114,41 +128,49 @@
 
         </div>
 
-        <div class="condiciones-footer">
+
+        <nav class="condiciones-footer" aria-label="Información legal">
 
             <p>
-                <a href="">Condiciones Generales</a> -
-                <a href="">Aviso Legal</a> -
-                <a href="">Privacidad</a> -
-                <a href="">Cookies</a> -
-                <a href="">Accesibilidad</a>
+                <a href="#">Condiciones Generales</a> -
+                <a href="#">Aviso Legal</a> -
+                <a href="#">Privacidad</a> -
+                <a href="#">Cookies</a> -
+                <a href="#">Accesibilidad</a>
             </p>
 
             <p>
-                <a href="">Soporte y Ayuda</a>
+                <a href="#">Soporte y Ayuda</a>
             </p>
 
             <p>
-                © Todos los derechos reservados, 2026, Gramatech.
+                <small>© Todos los derechos reservados, 2026, GrammaTech.</small>
             </p>
 
-        </div>
+        </nav>
 
-        <div class="redes-footer">
+
+        <nav class="redes-footer" aria-label="Redes sociales">
 
             <a href="#">
-                <img src="../../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg" alt="Instagram">
+                <img
+                    src="../../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg"
+                    alt="Instagram">
             </a>
 
             <a href="#">
-                <img src="../../../images/iconosBlack-svg/facebook-rounded-svgr.svg" alt="Facebook">
+                <img
+                    src="../../../images/iconosBlack-svg/facebook-rounded-svgr.svg"
+                    alt="Facebook">
             </a>
 
             <a href="#">
-                <img src="../../../images/iconosBlack-svg/twitter-rounded-svg.svg" alt="Twitter">
+                <img
+                    src="../../../images/iconosBlack-svg/twitter-rounded-svg.svg"
+                    alt="Twitter">
             </a>
 
-        </div>
+        </nav>
 
     </footer>
 

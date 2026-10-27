@@ -30,6 +30,10 @@ main {
     gap: .5rem;
 }
 
+.barra p {
+    margin: 0;
+}
+
 .barra .vidas {
     margin-left: .5rem;
 }
@@ -58,6 +62,8 @@ main {
 .frase {
     align-self: center;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     gap: 1rem;
 }
@@ -129,43 +135,18 @@ hr {
 }
 
 .opciones {
+    border: none;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
 
-/* prueba audios*/
-
-
-/* Ocultamos el checkbox */
-.audio-ingles {
-  display: none;
-}
-
-/* Ocultamos el reproductor por defecto */
-.conteiner-audio-ingles {
-  display: none;
-}
-
-/* Cuando se marca el checkbox (al hacer click en el label), mostramos y reproduce el audio */
-.audio-ingles:checked ~ .conteiner-audio-ingles {
-  display: block;
-}
-
-.conteiner-audio-ingles{
-    position: absolute;
-}
-
-/* Estilo del botón */
-.btn-audio-ingles {
-  display: inline-block;
-  padding: 8px 16px;
-  background-color: #5d635d;
-  color: white;
-  border-radius: 1rem;
-  cursor: pointer;
-  user-select: none;
+.condiciones-footer small {
+    font-size: inherit;
 }
 
 
