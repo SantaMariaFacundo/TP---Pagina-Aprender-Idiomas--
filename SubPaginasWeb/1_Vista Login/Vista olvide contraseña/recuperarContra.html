@@ -4,175 +4,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="../../../StyleGeneral.css">
     <link rel="stylesheet" href="contraseña.css">
-
-    <link rel="icon" href="../../../images/img-logo/FAVICON-LOGO-BLANCO.png" type="image/png">
-
-    <title>Recuperar contraseña - GrammaTech</title>
+    <link rel="icon" href="../../../images/img-logo/FAVICON-LOGO-BLANCO.png" type="image/png" sizes="512x512">
+    <title>GrammaTech</title>
 </head>
 
 <body>
 
+
     <header>
-
         <div class="logo-explorar">
-
-            <a href="../../../index.html">
-
-                <img
-                    class="img-logo"
-                    src="../../../images/img-logo/LOGO-BLANCO.png"
-                    alt="Logo de GrammaTech">
-
-                <span class="nombre-logo">Gramma</span>
-                <span class="nombre-logo-tech">Tech</span>
-
-            </a>
-
+            <a href="../../../index.html"><img class="img-logo" src="../../../images/img-logo/LOGO-BLANCO.png" alt="logo"><span
+                    class="nombre-logo">Gramma</span><span class="nombre-logo-tech">Tech</span></a>
         </div>
-
         <div class="buscador-acceder-language">
-
-            <form class="conteiner-search" role="search">
-
-                <input
-                    type="search"
-                    class="search-class"
-                    id="buscador"
-                    name="buscador"
-                    aria-label="Buscar en el sitio"
-                    placeholder="Becas, Cursos, y Vocabulario...">
-
-                <img
-                    class="img-search"
-                    src="../../../images/iconosBlack-svg/search-svgrepo-com.svg"
-                    alt="">
-
-            </form>
-
+            <div class="conteiner-search">
+                <input type="search" class="search-class" id="buscador" placeholder="Becas, Cursos, y Vocabulario...">
+                <img class="img-search" src="../../../images/iconosBlack-svg/search-svgrepo-com.svg" alt="">
+            </div>
             <p>¿Aún no tenés cuenta?</p>
-
-            <a class="btn-acceder" href="../Vista Registro/registro.html">
-                <span class="span-registrate">Registrate</span>
-            </a>
-
-            <select id="idioma" class="idioma" aria-label="Idioma del sitio">
-
-                <option value="espanol">
-                    Es
-                </option>
-
-                <option value="english">
-                    En
-                </option>
-
+            <a class="btn-acceder" href="../Vista Registro/registro.html"><span class="span-registrate">Registrate</span></a>
+            <select id="idioma" class="idioma">
+                <option value="español">Es</option>
+                <option value="english">En</option>
             </select>
-
         </div>
-
     </header>
+
+
 
 
     <main>
 
-        <section class="contenedor" aria-labelledby="titulo-pagina">
+        <div class="contenedor">
 
-            <h1 id="titulo-pagina">¿Olvidaste tu contraseña?</h1>
+            <h1>¿Olvidaste tu contraseña?</h1>
 
-            <form class="form-mail" action="enviarCodigo.html" method="get">
+            <form class="form-mail" action="../Vista olvide contraseña/enviarCodigo.html" method="get">
 
                 <div class="relleno">
-                    <label class="relleno-label" for="email">Email</label>
-                    <input
-                        type="email"
-                        name="correo"
-                        id="email"
-                        placeholder="tu-nombre@correo.com"
-                        autocomplete="email"
-                        aria-describedby="ayuda-email"
-                        required>
+                    <div class="relleno-label">
+                        <label for="email">Email</label>
+                    </div>
+                    <input type="email" name="correo" id="email" placeholder="tu-nombre@correo.com" required>
                 </div>
 
-                <p id="ayuda-email">Te enviaremos un correo para restablecer tu contraseña.</p>
+                <p>Te enviaremos un correo para restablecer tu contraseña</p>
 
                 <button class="boton-iniciar" type="submit">Recuperar Contraseña</button>
-
             </form>
 
-            <div class="form-cancelar">
-                <a class="boton-cancelar" href="../login.html">Cancelar</a>
-            </div>
-
-        </section>
-
-    </main>
-
-    <footer>
-
-        <div class="logo-footer">
-
-            <a href="../../../index.html">
-
-                <img
-                    class="img-logo-footer"
-                    src="../../../images/img-logo/LOGO-BLANCO.png"
-                    alt="Logo de GrammaTech">
-
-                <span class="nombre-logo">Gramma</span>
-                <span class="nombre-logo-tech">Tech</span>
-
-            </a>
+            <form class="form-cancelar" action="../login.html">
+                <button class="boton-cancelar" type="submit">Cancelar</button>
+            </form>
 
         </div>
 
 
-        <nav class="condiciones-footer" aria-label="Información legal">
 
-            <p>
-                <a href="#">Condiciones Generales</a> -
-                <a href="#">Aviso Legal</a> -
-                <a href="#">Privacidad</a> -
-                <a href="#">Cookies</a> -
-                <a href="#">Accesibilidad</a>
+
+    </main>
+
+
+
+
+    <footer>
+        <div class="logo-footer">
+            <a href="#"><img class="img-logo-footer" src="../../../images/img-logo/LOGO-BLANCO.png" alt="logo"><span
+                    class="nombre-logo">Gramma</span><span class="nombre-logo-tech">Tech</span></a>
+        </div>
+        <div class="condiciones-footer">
+            <p> <a href="#">Condiciones Generales</a> - <a href="#">Aviso Legal</a> - <a href="#">Privacidad</a> - <a
+                    href="#">Cookies</a> - <a href="#">Accesibilidad</a>
             </p>
-
-            <p>
-                <a href="#">Soporte y Ayuda</a>
-            </p>
-
-            <p>
-                <small>© Todos los derechos reservados, 2026, GrammaTech.</small>
-            </p>
-
-        </nav>
-
-
-        <nav class="redes-footer" aria-label="Redes sociales">
-
+            <p> <a href="">Soporte y Ayuda</a></p>
+            <p>© Todos los derechos reservados, 2026, Gramatech.</p>
+        </div>
+        <div class="redes-footer">
             <a href="#">
-                <img
-                    src="../../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg"
-                    alt="Instagram">
+                <img src="../../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg" alt="link redes instagram">
             </a>
-
             <a href="#">
-                <img
-                    src="../../../images/iconosBlack-svg/facebook-rounded-svgr.svg"
-                    alt="Facebook">
+                <img src="../../../images/iconosBlack-svg/facebook-rounded-svgr.svg" alt="link redes facebook ">
             </a>
-
             <a href="#">
-                <img
-                    src="../../../images/iconosBlack-svg/twitter-rounded-svg.svg"
-                    alt="Twitter">
+                <img src="../../../images/iconosBlack-svg/twitter-rounded-svg.svg" alt="link redes twitter">
             </a>
-
-        </nav>
-
+        </div>
     </footer>
-
 </body>
 
 </html>

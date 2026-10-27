@@ -4,389 +4,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="../../StyleGeneral.css">
+    <link rel="stylesheet" href="../../../StyleGeneral.css">
     <link rel="stylesheet" href="progreso.css">
-
     <link rel="icon" href="../../images/img-logo/FAVICON-LOGO-BLANCO.png" type="image/png">
-
-    <title>Unidades de Chino Mandarín - GrammaTech</title>
+    <title>Grammatech - Unidades</title>
 </head>
 
+
 <body>
-
     <header>
-
         <div class="logo-explorar">
-
-            <a href="../2_Vista home/home.html">
-
-                <img
-                    class="img-logo"
-                    src="../../images/img-logo/LOGO-BLANCO.png"
-                    alt="Logo de GrammaTech">
-
-                <span class="nombre-logo">Gramma</span>
-                <span class="nombre-logo-tech">Tech</span>
-
-            </a>
-
+            <a href="../2_Vista home/home.html"><img class="img-logo" src="../../../images/img-logo/LOGO-BLANCO.png" alt="logo"><span
+                    class="nombre-logo">Gramma</span><span class="nombre-logo-tech">Tech</span></a>
         </div>
-
         <div class="buscador-acceder-language">
-
-            <form class="conteiner-search" role="search">
-
-                <input
-                    type="search"
-                    class="search-class"
-                    id="buscador"
-                    name="buscador"
-                    aria-label="Buscar en el sitio"
-                    placeholder="Becas, Cursos, y Vocabulario...">
-
-                <img
-                    class="img-search"
-                    src="../../images/iconosBlack-svg/search-svgrepo-com.svg"
-                    alt="">
-
-            </form>
-
-            <nav class="navegacion" aria-label="Navegación principal">
-
-                <a href="../2_Vista home/home.html">
-                    Cursos
-                </a>
-
-                <a href="../5_Vista Perfil Usuario/perfilUsuario.html">
-                    Perfil
-                </a>
-
-                <a href="../6_Vista Tabla Clasificación/clasificacion.html">
-                    Clasificación
-                </a>
-
-                <a href="../7_Vista Racha/tienda.html">
-                    Tienda
-                </a>
-
+            <div class="conteiner-search">
+                <input type="search" class="search-class" id="buscador" placeholder="Becas, Cursos, y Vocabulario...">
+                <img class="img-search" src="../../../images/iconosBlack-svg/search-svgrepo-com.svg" alt="">
+            </div>
+            <nav class="navegacion">
+                <a href="../2_Vista home/home.html">Cursos</a>
+                <a href="../5_Vista Perfil Usuario/perfilUsuario.html">Perfil</a>
+                <a href="../6_Vista Tabla Clasificación/clasificacion.html">Clasificación</a>
+                <a href="../7_Vista Racha/tienda.html">Tienda</a>
             </nav>
-
-            <select id="idioma" class="idioma" aria-label="Idioma del sitio">
-
-                <option value="espanol">
-                    Es
-                </option>
-
-                <option value="english">
-                    En
-                </option>
-
+            <select id="idioma" class="idioma">
+                <option value="español">Es</option>
+                <option value="english">En</option>
             </select>
-
         </div>
-
     </header>
-
 
     <main>
 
-        <h1 class="visualmente-oculto">Unidades de Chino Mandarín</h1>
-
         <div class="barra">
+            <a class="boton-atras" href="../2_Vista home/home.html">x</a>
+            <div>
+                <progress class="barra-principal" value="0" max="100"></progress>
 
-            <a class="boton-atras" href="../2_Vista home/home.html" aria-label="Volver a los cursos">x</a>
-
-            <progress class="barra-principal" value="0" max="100" aria-label="Progreso general de Chino Mandarín">0%</progress>
+            </div>
 
         </div>
 
         <section class="seccion-unidades" id="chinoA1A2">
+            <h2>Chino Mandarin A1 - A2</h2>
 
-            <h2>Chino Mandarín A1 - A2</h2>
+            <div class="contenedor-cards">
 
-            <ul class="contenedor-cards">
 
-                <li class="cards-a1a2 card-listening">
-
-                    <img src="../../images/img-progreso/persona escuchando dibujo.png" alt="">
-
+                <div class="cards-a1a2 card-listening">
+                    <img src="../../images/img-progreso/persona escuchando dibujo.png" alt="persona escuchando">
                     <h3>Listening</h3>
-
                     <div class="barra-progreso">
-                        <progress value="0" max="100" aria-label="Progreso de Listening">0%</progress>
-                        <span aria-hidden="true">0%</span>
+                        <progress value="0" max="100"></progress>
+                        <span>0%</span>
                     </div>
 
-                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionMandarin.html">Ir al curso<span class="visualmente-oculto"> de Listening</span></a>
+                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionMandarin.html">Ir al curso</a>
 
-                </li>
+                </div>
 
-                <li class="cards-a1a2 card-vocabulario">
 
-                    <img src="../../images/img-progreso/dibujo persona leyendo.png" alt="">
+                <div class="cards-a1a2 card-vocabulario">
 
+                    <img src="../../images/img-progreso/dibujo persona leyendo.png" alt="persona estudiando">
                     <h3>Vocabulario</h3>
-
                     <div class="barra-progreso">
-                        <progress value="0" max="100" aria-label="Progreso de Vocabulario">0%</progress>
-                        <span aria-hidden="true">0%</span>
+                        <progress value="0" max="100"></progress>
+                        <span>0%</span>
                     </div>
+                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionMandarin.html">Ir al curso</a>
 
-                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionMandarin.html">Ir al curso<span class="visualmente-oculto"> de Vocabulario</span></a>
+                </div>
 
-                </li>
 
-                <li class="cards-a1a2 card-gramatica">
+                <div class="cards-a1a2 card-gramatica">
 
-                    <img src="../../images/img-progreso/dibujo persona escribiendo.png" alt="">
-
-                    <h3>Gramática</h3>
-
+                    <img src="../../images/img-progreso/dibujo persona escribiendo.png" alt="persona escribiendo">
+                    <h3>Gramatica</h3>
                     <div class="barra-progreso">
-                        <progress value="0" max="100" aria-label="Progreso de Gramática">0%</progress>
-                        <span aria-hidden="true">0%</span>
+                        <progress value="0" max="100"></progress>
+                        <span>0%</span>
                     </div>
+                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionMandarin.html">Ir al curso</a>
 
-                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionMandarin.html">Ir al curso<span class="visualmente-oculto"> de Gramática</span></a>
+                </div>
 
-                </li>
 
-            </ul>
 
-            <article class="card-examen">
+            </div>
 
-                <img src="../../images/img-progreso/Saly-26.png" alt="">
+
+
+
+            <div class="card-examen">
+
+                <img src="../../../images/img-progreso/Saly-26.png" alt="">
 
                 <h3>Examen</h3>
 
                 <div class="examen">
 
-                    <a class="boton-card" aria-disabled="true">Ir al curso<span class="visualmente-oculto"> de examen</span></a>
+                    <a class="boton-card" href="#">Ir al curso</a>
 
                 </div>
-
 
                 <div class="card-bloqueada">
-                    <img src="../../images/img-progreso/candado.svg" alt="Examen bloqueado">
+                    <img src="../../../images/img-progreso/candado.svg"
+                            alt="candado">
                 </div>
+                
+            </div>
+            
 
-            </article>
+
+
 
         </section>
 
+
+
+
         <section class="seccion-unidades" id="chinoB1B2">
+            <h2>Chino Mandarin B1 - B2</h2>
 
-            <h2>Chino Mandarín B1 - B2</h2>
+            <div class="contenedor-cards">
 
-            <ul class="contenedor-cards">
 
-                <li class="cards-a1a2 card-listening">
-
-                    <img src="../../images/img-progreso/persona escuchando dibujo.png" alt="">
-
+                <div class="cards-a1a2 card-listening">
+                    <img src="../../images/img-progreso/persona escuchando dibujo.png" alt="persona escuchando">
                     <h3>Listening</h3>
-
                     <div class="barra-progreso">
-                        <progress value="0" max="100" aria-label="Progreso de Listening">0%</progress>
-                        <span aria-hidden="true">0%</span>
+                        <progress value="0" max="100"></progress>
+                        <span>0%</span>
                     </div>
 
-                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionMandarin.html">Ir al curso<span class="visualmente-oculto"> de Listening</span></a>
+                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionMandarin.html">Ir al curso</a>
 
-                </li>
+                </div>
 
-                <li class="cards-a1a2 card-vocabulario">
 
-                    <img src="../../images/img-progreso/dibujo persona leyendo.png" alt="">
+                <div class="cards-a1a2 card-vocabulario">
 
+                    <img src="../../images/img-progreso/dibujo persona leyendo.png" alt="persona estudiando">
                     <h3>Vocabulario</h3>
-
                     <div class="barra-progreso">
-                        <progress value="0" max="100" aria-label="Progreso de Vocabulario">0%</progress>
-                        <span aria-hidden="true">0%</span>
+                        <progress value="0" max="100"></progress>
+                        <span>0%</span>
                     </div>
+                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionMandarin.html">Ir al curso</a>
 
-                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionMandarin.html">Ir al curso<span class="visualmente-oculto"> de Vocabulario</span></a>
+                </div>
 
-                </li>
 
-                <li class="cards-a1a2 card-gramatica">
+                <div class="cards-a1a2 card-gramatica">
 
-                    <img src="../../images/img-progreso/dibujo persona escribiendo.png" alt="">
-
-                    <h3>Gramática</h3>
-
+                    <img src="../../images/img-progreso/dibujo persona escribiendo.png" alt="persona escribiendo">
+                    <h3>Gramatica</h3>
                     <div class="barra-progreso">
-                        <progress value="0" max="100" aria-label="Progreso de Gramática">0%</progress>
-                        <span aria-hidden="true">0%</span>
+                        <progress value="0" max="100"></progress>
+                        <span>0%</span>
                     </div>
+                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionMandarin.html">Ir al curso</a>
 
-                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionMandarin.html">Ir al curso<span class="visualmente-oculto"> de Gramática</span></a>
+                </div>
 
-                </li>
 
-            </ul>
 
-            <article class="card-examen">
+            </div>
 
-                <img src="../../images/img-progreso/Saly-26.png" alt="">
+
+
+
+            <div class="card-examen">
+
+                <img src="../../../images/img-progreso/Saly-26.png" alt="">
 
                 <h3>Examen</h3>
 
                 <div class="examen">
 
-                    <a class="boton-card" aria-disabled="true">Ir al curso<span class="visualmente-oculto"> de examen</span></a>
+                    <a class="boton-card" href="#">Ir al curso</a>
 
                 </div>
-
 
                 <div class="card-bloqueada">
-                    <img src="../../images/img-progreso/candado.svg" alt="Examen bloqueado">
+                    <img src="../../../images/img-progreso/candado.svg"
+                            alt="candado">
                 </div>
+                
+            </div>
+            
 
-            </article>
+
+
 
         </section>
 
         <section class="seccion-unidades" id="chinoC1C2">
+            <h2>Chino Mandarin C1 - C2</h2>
 
-            <h2>Chino Mandarín C1 - C2</h2>
+            <div class="contenedor-cards">
 
-            <ul class="contenedor-cards">
 
-                <li class="cards-a1a2 card-listening">
-
-                    <img src="../../images/img-progreso/persona escuchando dibujo.png" alt="">
-
+                <div class="cards-a1a2 card-listening">
+                    <img src="../../images/img-progreso/persona escuchando dibujo.png" alt="persona escuchando">
                     <h3>Listening</h3>
-
                     <div class="barra-progreso">
-                        <progress value="0" max="100" aria-label="Progreso de Listening">0%</progress>
-                        <span aria-hidden="true">0%</span>
+                        <progress value="0" max="100"></progress>
+                        <span>0%</span>
                     </div>
 
-                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionMandarin.html">Ir al curso<span class="visualmente-oculto"> de Listening</span></a>
+                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionMandarin.html">Ir al curso</a>
 
-                </li>
+                </div>
 
-                <li class="cards-a1a2 card-vocabulario">
 
-                    <img src="../../images/img-progreso/dibujo persona leyendo.png" alt="">
+                <div class="cards-a1a2 card-vocabulario">
 
+                    <img src="../../images/img-progreso/dibujo persona leyendo.png" alt="persona estudiando">
                     <h3>Vocabulario</h3>
-
                     <div class="barra-progreso">
-                        <progress value="0" max="100" aria-label="Progreso de Vocabulario">0%</progress>
-                        <span aria-hidden="true">0%</span>
+                        <progress value="0" max="100"></progress>
+                        <span>0%</span>
                     </div>
+                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionMandarin.html">Ir al curso</a>
 
-                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionMandarin.html">Ir al curso<span class="visualmente-oculto"> de Vocabulario</span></a>
+                </div>
 
-                </li>
 
-                <li class="cards-a1a2 card-gramatica">
+                <div class="cards-a1a2 card-gramatica">
 
                     <img src="../../images/img-progreso/dibujo persona escribiendo.png" alt="">
-
-                    <h3>Gramática</h3>
-
+                    <h3>Gramatica</h3>
                     <div class="barra-progreso">
-                        <progress value="0" max="100" aria-label="Progreso de Gramática">0%</progress>
-                        <span aria-hidden="true">0%</span>
+                        <progress value="0" max="100"></progress>
+                        <span>0%</span>
                     </div>
+                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionMandarin.html">Ir al curso</a>
 
-                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionMandarin.html">Ir al curso<span class="visualmente-oculto"> de Gramática</span></a>
+                </div>
 
-                </li>
 
-            </ul>
 
-            <article class="card-examen">
+            </div>
 
-                <img src="../../images/img-progreso/Saly-26.png" alt="">
+
+            <div class="card-examen">
+
+                <img src="../../../images/img-progreso/Saly-26.png" alt="">
 
                 <h3>Examen</h3>
 
                 <div class="examen">
 
-                    <a class="boton-card" aria-disabled="true">Ir al curso<span class="visualmente-oculto"> de examen</span></a>
+                    <a class="boton-card" href="#">Ir al curso</a>
 
                 </div>
-
 
                 <div class="card-bloqueada">
-                    <img src="../../images/img-progreso/candado.svg" alt="Examen bloqueado">
+                    <img src="../../../images/img-progreso/candado.svg"
+                            alt="candado">
                 </div>
+                
+            </div>
+            
 
-            </article>
+
+
 
         </section>
 
+
+
     </main>
 
+
     <footer>
-
         <div class="logo-footer">
-
-            <a href="../2_Vista home/home.html">
-
-                <img
-                    class="img-logo-footer"
-                    src="../../images/img-logo/LOGO-BLANCO.png"
-                    alt="Logo de GrammaTech">
-
-                <span class="nombre-logo">Gramma</span>
-                <span class="nombre-logo-tech">Tech</span>
-
-            </a>
-
+            <a href="#"><img class="img-logo-footer" src="../../../images/img-logo/LOGO-BLANCO.png" alt="logo"><span
+                    class="nombre-logo">Gramma</span><span class="nombre-logo-tech">Tech</span></a>
         </div>
-
-
-        <nav class="condiciones-footer" aria-label="Información legal">
-
-            <p>
-                <a href="#">Condiciones Generales</a> -
-                <a href="#">Aviso Legal</a> -
-                <a href="#">Privacidad</a> -
-                <a href="#">Cookies</a> -
-                <a href="#">Accesibilidad</a>
+        <div class="condiciones-footer">
+            <p> <a href="">Condiciones Generales</a> - <a href="">Aviso Legal</a> - <a href="">Privacidad</a> - <a
+                    href="">Cookies</a> - <a href="">Accesibilidad</a>
             </p>
-
-            <p>
-                <a href="#">Soporte y Ayuda</a>
-            </p>
-
-            <p>
-                <small>© Todos los derechos reservados, 2026, GrammaTech.</small>
-            </p>
-
-        </nav>
-
-
-        <nav class="redes-footer" aria-label="Redes sociales">
-
+            <p> <a href="">Soporte y Ayuda</a></p>
+            <p>© Todos los derechos reservados, 2026, Gramatech.</p>
+        </div>
+        <div class="redes-footer">
             <a href="#">
-                <img
-                    src="../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg"
-                    alt="Instagram">
+                <img src="../../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg" alt="link redes instagram">
             </a>
-
             <a href="#">
-                <img
-                    src="../../images/iconosBlack-svg/facebook-rounded-svgr.svg"
-                    alt="Facebook">
+                <img src="../../../images/iconosBlack-svg/facebook-rounded-svgr.svg" alt="link redes facebook ">
             </a>
-
             <a href="#">
-                <img
-                    src="../../images/iconosBlack-svg/twitter-rounded-svg.svg"
-                    alt="Twitter">
+                <img src="../../../images/iconosBlack-svg/twitter-rounded-svg.svg" alt="link redes twitter">
             </a>
-
-        </nav>
-
+        </div>
     </footer>
 
 </body>

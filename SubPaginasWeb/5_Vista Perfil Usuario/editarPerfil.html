@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="../../StyleGeneral.css">
     <link rel="stylesheet" href="perfilUsuario.css">
 
-    <link rel="icon" href="../../images/img-logo/FAVICON-LOGO-BLANCO.png" type="image/png">
+    <link
+        rel="icon"
+        href="../../images/img-logo/FAVICON-LOGO-BLANCO.png"
+        type="image/png">
 
     <title>Editar Perfil - GrammaTech</title>
 </head>
@@ -35,24 +38,22 @@
 
         <div class="buscador-acceder-language">
 
-            <form class="conteiner-search" role="search">
+            <div class="conteiner-search">
 
                 <input
                     type="search"
                     class="search-class"
                     id="buscador"
-                    name="buscador"
-                    aria-label="Buscar en el sitio"
                     placeholder="Becas, Cursos, y Vocabulario...">
 
                 <img
                     class="img-search"
                     src="../../images/iconosBlack-svg/search-svgrepo-com.svg"
-                    alt="">
+                    alt="Icono de búsqueda">
 
-            </form>
+            </div>
 
-            <nav class="navegacion" aria-label="Navegación principal">
+            <nav class="navegacion">
 
                 <a href="../2_Vista home/home.html">
                     Cursos
@@ -72,7 +73,9 @@
 
             </nav>
 
-            <select id="idioma" class="idioma" aria-label="Idioma del sitio">
+            <select
+                id="idioma"
+                class="idioma">
 
                 <option value="espanol">
                     Es
@@ -91,7 +94,7 @@
 
     <main class="main-perfil editar-perfil">
 
-        <hgroup class="encabezado-perfil">
+        <section class="encabezado-perfil">
 
             <h1>EDITAR PERFIL</h1>
 
@@ -99,7 +102,7 @@
                 Modificá tus datos personales y la configuración de tu cuenta.
             </p>
 
-        </hgroup>
+        </section>
 
 
         <form
@@ -107,11 +110,10 @@
             action="cambiosGuardados.html"
             method="get">
 
-            <fieldset class="datos-cuenta">
+            <section class="datos-cuenta">
 
-                <legend>
-                    <h2>DATOS DE LA CUENTA</h2>
-                </legend>
+                <h2>DATOS DE LA CUENTA</h2>
+
 
                 <div class="campo">
 
@@ -124,10 +126,10 @@
                         id="nombre-completo"
                         name="nombre-completo"
                         value="Juan Pérez"
-                        autocomplete="name"
                         required>
 
                 </div>
+
 
                 <div class="campo">
 
@@ -140,10 +142,10 @@
                         id="nombre-usuario"
                         name="nombre-usuario"
                         value="@juanperez_web"
-                        autocomplete="username"
                         required>
 
                 </div>
+
 
                 <div class="campo">
 
@@ -156,19 +158,16 @@
                         id="email"
                         name="email"
                         value="juan.perez@alumnos.unlam.edu.ar"
-                        autocomplete="email"
                         required>
 
                 </div>
 
-                <dl class="datos-fijos">
 
-                    <div>
-                        <dt>Miembro desde:</dt>
-                        <dd><time datetime="2025-03">Marzo de 2025</time></dd>
-                    </div>
+                <p>
+                    <strong>Miembro desde:</strong>
+                    Marzo de 2025
+                </p>
 
-                </dl>
 
                 <div class="campo">
 
@@ -200,14 +199,13 @@
 
                 </div>
 
-            </fieldset>
+            </section>
 
 
-            <fieldset class="seguridad">
+            <section class="seguridad">
 
-                <legend>
-                    <h2>SEGURIDAD</h2>
-                </legend>
+                <h2>SEGURIDAD</h2>
+
 
                 <div class="campo">
 
@@ -219,10 +217,10 @@
                         type="password"
                         id="password-actual"
                         name="password-actual"
-                        autocomplete="current-password"
                         required>
 
                 </div>
+
 
                 <div class="campo">
 
@@ -234,10 +232,10 @@
                         type="password"
                         id="password-nueva"
                         name="password-nueva"
-                        autocomplete="new-password"
                         required>
 
                 </div>
+
 
                 <div class="campo">
 
@@ -249,12 +247,11 @@
                         type="password"
                         id="password-confirmar"
                         name="password-confirmar"
-                        autocomplete="new-password"
                         required>
 
                 </div>
 
-            </fieldset>
+            </section>
 
 
             <div class="guardar">
@@ -293,28 +290,28 @@
         </div>
 
 
-        <nav class="condiciones-footer" aria-label="Información legal">
+        <div class="condiciones-footer">
 
             <p>
-                <a href="#">Condiciones Generales</a> -
-                <a href="#">Aviso Legal</a> -
-                <a href="#">Privacidad</a> -
-                <a href="#">Cookies</a> -
-                <a href="#">Accesibilidad</a>
+                <a href="">Condiciones Generales</a> -
+                <a href="">Aviso Legal</a> -
+                <a href="">Privacidad</a> -
+                <a href="">Cookies</a> -
+                <a href="">Accesibilidad</a>
             </p>
 
             <p>
-                <a href="#">Soporte y Ayuda</a>
+                <a href="">Soporte y Ayuda</a>
             </p>
 
             <p>
-                <small>© Todos los derechos reservados, 2026, GrammaTech.</small>
+                © Todos los derechos reservados, 2026, Gramatech.
             </p>
 
-        </nav>
+        </div>
 
 
-        <nav class="redes-footer" aria-label="Redes sociales">
+        <div class="redes-footer">
 
             <a href="#">
                 <img
@@ -334,7 +331,7 @@
                     alt="Twitter">
             </a>
 
-        </nav>
+        </div>
 
     </footer>
 

@@ -35,24 +35,22 @@
 
         <div class="buscador-acceder-language">
 
-            <form class="conteiner-search" role="search">
+            <div class="conteiner-search">
 
                 <input
                     type="search"
                     class="search-class"
                     id="buscador"
-                    name="buscador"
-                    aria-label="Buscar en el sitio"
                     placeholder="Becas, Cursos, y Vocabulario...">
 
                 <img
                     class="img-search"
                     src="../../images/iconosBlack-svg/search-svgrepo-com.svg"
-                    alt="">
+                    alt="Icono de búsqueda">
 
-            </form>
+            </div>
 
-            <nav class="navegacion" aria-label="Navegación principal">
+            <nav class="navegacion">
 
                 <a href="../2_Vista home/home.html">
                     Cursos
@@ -66,13 +64,13 @@
                     Clasificación
                 </a>
 
-                <a class="pagina-actual" href="tiendaActualizada.html" aria-current="page">
+                <a class="pagina-actual" href="tiendaActualizada.html">
                     Tienda
                 </a>
 
             </nav>
 
-            <select id="idioma" class="idioma" aria-label="Idioma del sitio">
+            <select id="idioma" class="idioma">
 
                 <option value="espanol">
                     Es
@@ -91,7 +89,7 @@
 
     <main class="main-tienda">
 
-        <hgroup class="encabezado-tienda">
+        <section class="encabezado-tienda">
 
             <h1>TIENDA Y RACHAS</h1>
 
@@ -99,17 +97,17 @@
                 Mantené tu constancia, seguí tu progreso y conseguí recompensas.
             </p>
 
-        </hgroup>
+        </section>
 
 
-        <section class="resumen-racha" aria-label="Resumen de tu progreso">
+        <section class="resumen-racha">
 
             <article class="tarjeta-resumen">
 
                 <img
                     class="icono-resumen"
                     src="../../images/icons-general/calendar-days-svgrepo-com.svg"
-                    alt="">
+                    alt="Calendario de racha">
 
                 <div>
 
@@ -133,7 +131,7 @@
                 <img
                     class="icono-resumen"
                     src="../../images/icons-general/flag-svgrepo-com.svg"
-                    alt="">
+                    alt="Meta diaria">
 
                 <div class="contenido-meta">
 
@@ -143,7 +141,7 @@
                         30 / 40 XP
                     </p>
 
-                    <progress value="30" max="40" aria-label="Progreso de la meta diaria">30 de 40 XP</progress>
+                    <progress value="30" max="40"></progress>
 
                     <p>
                         Te faltan 10 XP para completar tu meta diaria.
@@ -159,7 +157,7 @@
                 <img
                     class="icono-resumen"
                     src="../../images/icons-general/chronometer-naranja-svgrepo-com.svg"
-                    alt="">
+                    alt="Experiencia acumulada">
 
                 <div>
 
@@ -184,7 +182,7 @@
 
             <div class="titulo-tienda">
 
-                <hgroup>
+                <div>
 
                     <h2>TIENDA DE RECOMPENSAS</h2>
 
@@ -192,10 +190,10 @@
                         Usá tus monedas para conseguir beneficios de estudio.
                     </p>
 
-                </hgroup>
+                </div>
 
                 <p class="saldo">
-                    <span aria-hidden="true">🪙</span> 350 monedas
+                    🪙 350 monedas
                 </p>
 
             </div>
@@ -208,7 +206,7 @@
                     <img
                         class="icono-producto"
                         src="../../images/icons-general/calendar-days-svgrepo-com.svg"
-                        alt="">
+                        alt="Protector de racha">
 
                     <h3>Protector de racha</h3>
 
@@ -216,9 +214,9 @@
                         Protege tu racha durante un día si no podés completar una actividad.
                     </p>
 
-                    <data class="precio" value="200">
+                    <span class="precio">
                         200 monedas
-                    </data>
+                    </span>
 
                     <button
                         class="boton-canjeado"
@@ -235,7 +233,7 @@
                     <img
                         class="icono-producto"
                         src="../../images/icons-general/icono-corazon.svg"
-                        alt="">
+                        alt="Vida extra">
 
                     <h3>Vida extra</h3>
 
@@ -243,9 +241,9 @@
                         Sumá una vida para continuar practicando durante tus lecciones.
                     </p>
 
-                    <data class="precio" value="100">
+                    <span class="precio">
                         100 monedas
-                    </data>
+                    </span>
 
                     <button
                         class="boton-canjeado"
@@ -262,7 +260,7 @@
                     <img
                         class="icono-producto"
                         src="../../images/icons-general/chronometer-naranja-svgrepo-com.svg"
-                        alt="">
+                        alt="Doble experiencia">
 
                     <h3>Doble XP</h3>
 
@@ -270,9 +268,9 @@
                         Duplicá la experiencia obtenida durante tus próximas actividades.
                     </p>
 
-                    <data class="precio" value="300">
+                    <span class="precio">
                         300 monedas
-                    </data>
+                    </span>
 
                     <button
                         class="boton-canjeado"
@@ -288,7 +286,7 @@
         </section>
 
 
-        <aside class="consejo-racha">
+        <section class="consejo-racha">
 
             <h2>
                 Consejo para mantener tu racha
@@ -303,7 +301,7 @@
                 Ir a mis cursos
             </a>
 
-        </aside>
+        </section>
 
     </main>
 
@@ -326,29 +324,27 @@
 
         </div>
 
-
-        <nav class="condiciones-footer" aria-label="Información legal">
+        <div class="condiciones-footer">
 
             <p>
-                <a href="#">Condiciones Generales</a> -
-                <a href="#">Aviso Legal</a> -
-                <a href="#">Privacidad</a> -
-                <a href="#">Cookies</a> -
-                <a href="#">Accesibilidad</a>
+                <a href="">Condiciones Generales</a> -
+                <a href="">Aviso Legal</a> -
+                <a href="">Privacidad</a> -
+                <a href="">Cookies</a> -
+                <a href="">Accesibilidad</a>
             </p>
 
             <p>
-                <a href="#">Soporte y Ayuda</a>
+                <a href="">Soporte y Ayuda</a>
             </p>
 
             <p>
-                <small>© Todos los derechos reservados, 2026, GrammaTech.</small>
+                © Todos los derechos reservados, 2026, Gramatech.
             </p>
 
-        </nav>
+        </div>
 
-
-        <nav class="redes-footer" aria-label="Redes sociales">
+        <div class="redes-footer">
 
             <a href="#">
                 <img
@@ -368,7 +364,7 @@
                     alt="Twitter">
             </a>
 
-        </nav>
+        </div>
 
     </footer>
 

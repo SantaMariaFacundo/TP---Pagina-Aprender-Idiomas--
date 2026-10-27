@@ -4,220 +4,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="../../../StyleGeneral.css">
     <link rel="stylesheet" href="leccion.css">
-
-    <link rel="icon" href="../../../images/img-logo/FAVICON-LOGO-BLANCO.png" type="image/png">
-
-    <title>Lección de Inglés - GrammaTech</title>
+    <link rel="icon" href="../../../images/img-logo/FAVICON-LOGO-BLANCO.png" type="image/png" sizes="512x512">
+    <title>GrammaTech - Ingles</title>
 </head>
 
 <body>
-
     <header>
-
         <div class="logo-explorar">
-
-            <a href="../../2_Vista home/home.html">
-
-                <img
-                    class="img-logo"
-                    src="../../../images/img-logo/LOGO-BLANCO.png"
-                    alt="Logo de GrammaTech">
-
-                <span class="nombre-logo">Gramma</span>
-                <span class="nombre-logo-tech">Tech</span>
-
-            </a>
-
+            <a href="../../2_Vista home/home.html"><img class="img-logo" src="../../../images/img-logo/LOGO-BLANCO.png"
+                    alt="imagen logo"><span class="nombre-logo">Gramma</span><span
+                    class="nombre-logo-tech">Tech</span></a>
         </div>
-
         <div class="buscador-acceder-language">
-
-            <form class="conteiner-search" role="search">
-
-                <input
-                    type="search"
-                    class="search-class"
-                    id="buscador"
-                    name="buscador"
-                    aria-label="Buscar en el sitio"
-                    placeholder="Becas, Cursos, y Vocabulario...">
-
-                <img
-                    class="img-search"
-                    src="../../../images/iconosBlack-svg/search-svgrepo-com.svg"
-                    alt="">
-
-            </form>
-
-            <nav class="navegacion" aria-label="Navegación principal">
-
-                <a href="../../2_Vista home/home.html">
-                    Cursos
-                </a>
-
-                <a href="../../5_Vista Perfil Usuario/perfilUsuario.html">
-                    Perfil
-                </a>
-
-                <a href="../../6_Vista Tabla Clasificación/clasificacion.html">
-                    Clasificación
-                </a>
-
-                <a href="../../7_Vista Racha/tienda.html">
-                    Tienda
-                </a>
-
-            </nav>
-
-            <select id="idioma" class="idioma" aria-label="Idioma del sitio">
-
-                <option value="espanol">
-                    Es
-                </option>
-
-                <option value="english">
-                    En
-                </option>
-
-            </select>
-
-        </div>
-
-    </header>
-
-
-    <main>
-
-        <section aria-labelledby="consigna">
-
-            <div class="barra">
-
-                <a class="boton-atras" href="../../3_Vista Mapa de Unidades/progreso-ingles.html" aria-label="Salir de la lección">x</a>
-
-                <progress value="100" max="100" aria-label="Progreso de la lección">100%</progress>
-
-                <p>
-                    <img src="../../../images/icons-general/icono-corazon.svg" alt="">
-                    <img src="../../../images/icons-general/icono-corazon.svg" alt="">
-                    <img src="../../../images/icons-general/icono-corazon.svg" alt="">
-                    <span class="vidas">Vidas: 3</span>
-                </p>
-
+            <div class="conteiner-search">
+                <input type="search" class="search-class" id="buscador" placeholder="Becas, Cursos, y Vocabulario...">
+                <img class="img-search" src="../../../images/iconosBlack-svg/search-svgrepo-com.svg" alt="icono lupa">
             </div>
-
-            <form class="card">
-
-                <h1 id="consigna">Elegí la traducción correcta:</h1>
-
-                <div class="frase">
-
-                    <p lang="en">"I would like to order a coffee, please"</p>
-
-                    <audio controls src="../../../audios/audio-ingles-tp.mp3">
-                        Tu navegador no puede reproducir este audio.
-                    </audio>
+            <nav class="navegacion">
+                <a href="../../2_Vista home/home.html">Cursos</a>
+                <a href="../../5_Vista Perfil Usuario/perfilUsuario.html">Perfil</a>
+                <a href="../../6_Vista Tabla Clasificación/clasificacion.html">Clasificación</a>
+                <a href="../../7_Vista Racha/tienda.html">Tienda</a>
+            </nav>
+            <select id="idioma" class="idioma">
+                <option value="español">Es</option>
+                <option value="english">En</option>
+            </select>
+        </div>
+    </header>
+    <main>
+        <section>
+            <div class="barra">
+                <a class="boton-atras" href="../../3_Vista Mapa de Unidades/progreso-ingles.html">x</a>
+                <div>
+                    <progress value="100" max="100"></progress>
 
                 </div>
+                <div>
+                    <img src="../../../images/icons-general/icono-corazon.svg" alt="vida">
+                    <img src="../../../images/icons-general/icono-corazon.svg" alt="vida">
+                    <img src="../../../images/icons-general/icono-corazon.svg" alt="vida">
+                    <span class="vidas">Vidas: 3</span>
+                </div>
+            </div>
+            <div class="card">
+                <h1>Elegí la traduccion correcta:</h1>
+                <div class="frase">
+                    <p lang="en">"I would like to order a coffee, please"</p>
+                    <input type="checkbox" id="audio-ingles" class="audio-ingles">
+                    <label for="audio-ingles" class="btn-audio-ingles">🔊</label>
 
-                <fieldset class="opciones" aria-labelledby="consigna">
+                    <div class="conteiner-audio-ingles">
+                        <embed src="../../../audios/audio-ingles-tp.mp3" autostart="true" hidden="true">
+                    </div>
 
-                    <label>
-                        <input type="radio" name="respuesta" value="te">
-                        Me gustaría pedir un té, por favor
-                    </label>
-
-                    <label>
-                        <input type="radio" name="respuesta" value="cafe">
-                        Quisiera pedir un café, por favor
-                    </label>
-
-                    <label>
-                        <input type="radio" name="respuesta" value="mesa">
-                        Necesito una mesa para dos, por favor
-                    </label>
-
-                    <label>
-                        <input type="radio" name="respuesta" value="cuenta">
-                        ¿Podría traerme la cuenta, por favor?
-                    </label>
-
-                </fieldset>
-
-                <button class="comprobar" type="button">Comprobar</button>
-
-            </form>
-
+                </div>
+                <div class="opciones">
+                    <div>
+                        <input type="radio" name="respuesta" id="op1" value="te">
+                        <label for="op1">Me gustaría pedir un té, por favor</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="respuesta" id="op2" value="cafe">
+                        <label for="op2">Quisiera pedir un café, por favor</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="respuesta" id="op3" value="mesa">
+                        <label for="op3">Necesito una mesa para dos, por favor</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="respuesta" id="op4" value="cuenta">
+                        <label for="op4">¿Podría traerme la cuenta, por favor?</label>
+                    </div>
+                </div>
+                <button type="button" class="comprobar">Comprobar</button>
+            </div>
         </section>
-
     </main>
-
     <footer>
-
         <div class="logo-footer">
-
-            <a href="../../2_Vista home/home.html">
-
-                <img
-                    class="img-logo-footer"
-                    src="../../../images/img-logo/LOGO-BLANCO.png"
-                    alt="Logo de GrammaTech">
-
-                <span class="nombre-logo">Gramma</span>
-                <span class="nombre-logo-tech">Tech</span>
-
-            </a>
-
+            <a href="#"><img class="img-logo-footer" src="../../../images/img-logo/LOGO-BLANCO.png" alt="logo"><span
+                    class="nombre-logo">Gramma</span><span class="nombre-logo-tech">Tech</span></a>
         </div>
-
-
-        <nav class="condiciones-footer" aria-label="Información legal">
-
-            <p>
-                <a href="#">Condiciones Generales</a> -
-                <a href="#">Aviso Legal</a> -
-                <a href="#">Privacidad</a> -
-                <a href="#">Cookies</a> -
-                <a href="#">Accesibilidad</a>
+        <div class="condiciones-footer">
+            <p> <a href="">Condiciones Generales</a> - <a href="">Aviso Legal</a> - <a href="">Privacidad</a> - <a
+                    href="">Cookies</a> - <a href="">Accesibilidad</a>
             </p>
-
-            <p>
-                <a href="#">Soporte y Ayuda</a>
-            </p>
-
-            <p>
-                <small>© Todos los derechos reservados, 2026, GrammaTech.</small>
-            </p>
-
-        </nav>
-
-
-        <nav class="redes-footer" aria-label="Redes sociales">
-
+            <p> <a href="">Soporte y Ayuda</a></p>
+            <p>© Todos los derechos reservados, 2026, Gramatech.</p>
+        </div>
+        <div class="redes-footer">
             <a href="#">
-                <img
-                    src="../../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg"
-                    alt="Instagram">
+                <img src="../../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg" alt="link redes instagram">
             </a>
-
             <a href="#">
-                <img
-                    src="../../../images/iconosBlack-svg/facebook-rounded-svgr.svg"
-                    alt="Facebook">
+                <img src="../../../images/iconosBlack-svg/facebook-rounded-svgr.svg" alt="link redes facebook ">
             </a>
-
             <a href="#">
-                <img
-                    src="../../../images/iconosBlack-svg/twitter-rounded-svg.svg"
-                    alt="Twitter">
+                <img src="../../../images/iconosBlack-svg/twitter-rounded-svg.svg" alt="link redes twitter">
             </a>
-
-        </nav>
-
+        </div>
     </footer>
-
 </body>
 
 </html>
