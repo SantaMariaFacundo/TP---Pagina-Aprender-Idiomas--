@@ -1,0 +1,134 @@
+footer {
+    width: 100%;
+    height: 10rem;
+    background-color: #f8e9db;
+    border-top: .1rem solid #6d25082e ;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+}
+
+footer .logo-footer{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+footer .logo-footer a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.5rem;
+    cursor: default;
+}
+
+footer .logo-footer .nombre-logo{
+    margin-left: .15rem;
+}
+
+footer .img-logo-footer{
+    width: 2.5rem;
+    height: 3rem;
+    object-fit: cover;
+
+}
+
+footer .condiciones-footer{
+    display: flex;
+    justify-content: center;
+    row-gap: .5rem;
+    text-align: left;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+footer .condiciones-footer a{
+    text-decoration: none;
+    color: inherit;
+}
+
+footer .redes-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .redes-footer img{
+    width: 100%;
+    height: 3rem;
+    object-fit: contain;
+}
+
+footer .redes-footer a{
+    text-decoration: none;
+    margin: 0 .5rem;
+    border-radius: .9rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+footer .redes-footer a:hover{
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 76rem) {
+
+    footer{
+        height: auto;
+        padding: 1rem;
+        grid-template-columns: 70% 30%;
+        grid-template-rows: 35% 65%;
+    }
+
+    footer .logo-footer{
+        justify-content: center;
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+
+    footer .condiciones-footer{
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+
+    footer .redes-footer{
+        gap: .5rem;
+        grid-column: 2/3;
+        grid-row: 1/3;
+    }
+}
+
+@media screen and (max-width: 50rem){
+
+
+    footer{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    footer .logo-footer{
+        justify-content: center;
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    footer .condiciones-footer{
+        grid-column: 1;
+        grid-row: 3;
+        text-align: center;
+    }
+
+    footer .redes-footer{
+        padding-bottom: .7rem;
+        gap: .5rem;
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    footer .redes-footer img{
+    width: 100%;
+    height: 2.5rem;
+    object-fit: contain;
+    }
+
+}
