@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -21,10 +22,10 @@
 
         <div class="logo-explorar">
 
-            <a href="../2_Vista home/home.html" aria-label="GrammaTech, ir al inicio">
+            <a href="../2_Vista home/home.html"
+                aria-label="GrammaTech, ir al inicio">
 
-                <img
-                    class="img-logo"
+                <img class="img-logo"
                     src="../../images/img-logo/LOGO-BLANCO.png"
                     alt="Logo de GrammaTech">
 
@@ -39,16 +40,14 @@
 
             <form class="conteiner-search" role="search">
 
-                <input
-                    type="search"
+                <input type="search"
                     class="search-class"
                     id="buscador"
                     name="buscador"
                     aria-label="Buscar becas, cursos y vocabulario"
                     placeholder="Becas, Cursos, y Vocabulario...">
 
-                <img
-                    class="img-search"
+                <img class="img-search"
                     src="../../images/iconosBlack-svg/search-svgrepo-com.svg"
                     alt="">
 
@@ -64,7 +63,9 @@
                     Perfil
                 </a>
 
-                <a class="pagina-actual" href="clasificacion.html" aria-current="page">
+                <a class="pagina-actual"
+                    href="clasificacion.html"
+                    aria-current="page">
                     Clasificación
                 </a>
 
@@ -74,7 +75,10 @@
 
             </nav>
 
-            <select id="idioma" class="idioma" name="idioma" aria-label="Seleccionar idioma">
+            <select id="idioma"
+                class="idioma"
+                name="idioma"
+                aria-label="Seleccionar idioma">
 
                 <option value="espanol" lang="es">
                     Es
@@ -90,6 +94,7 @@
 
     </header>
 
+
     <main class="main-clasificacion">
 
         <hgroup class="encabezado-clasificacion">
@@ -102,6 +107,7 @@
             </p>
 
         </hgroup>
+
 
         <form class="selector-liga" aria-label="Seleccionar liga">
 
@@ -127,18 +133,21 @@
 
         </form>
 
-        <section class="ranking" aria-labelledby="titulo-liga-actual">
+
+        <section class="ranking"
+            aria-labelledby="titulo-liga-actual">
 
             <div class="titulo-ranking">
 
                 <div class="titulo-liga">
 
-                    <img
-                        class="icono-liga"
+                    <img class="icono-liga"
                         src="../../images/icons-general/medal-reward-svgrepo-com.svg"
                         alt="">
 
-                    <h2 id="titulo-liga-actual">LIGA BRONCE</h2>
+                    <h2 id="titulo-liga-actual">
+                        LIGA BRONCE
+                    </h2>
 
                 </div>
 
@@ -149,9 +158,12 @@
 
             </div>
 
+
             <div class="contenedor-tabla">
 
-                <table aria-labelledby="titulo-liga-actual" aria-describedby="descripcion-liga">
+                <table
+                    aria-labelledby="titulo-liga-actual"
+                    aria-describedby="descripcion-liga">
 
                     <thead>
 
@@ -160,132 +172,13 @@
                             <th scope="col">Avatar</th>
                             <th scope="col">Usuario</th>
                             <th scope="col">XP semanal</th>
+                            <th scope="col">Estado</th>
                         </tr>
 
                     </thead>
 
-                    <tbody>
-
-                        <tr>
-
-                            <td>1</td>
-
-                            <td>
-                                <span class="avatar-ranking">
-                                    MG
-                                </span>
-                            </td>
-
-                            <td>
-                                @MelG_29
-                            </td>
-
-                            <td>
-                                <data value="850">850 XP</data>
-                            </td>
-
-                        </tr>
-
-                        <tr class="usuario-actual" aria-current="true">
-
-                            <td>2</td>
-
-                            <td>
-                                <span class="avatar-ranking">
-                                    JP
-                                </span>
-                            </td>
-
-                            <td>
-                                @juanperez_web
-                            </td>
-
-                            <td>
-                                <data value="720">720 XP</data>
-                            </td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td>3</td>
-
-                            <td>
-                                <span class="avatar-ranking">
-                                    CD
-                                </span>
-                            </td>
-
-                            <td>
-                                @Carlos_Dev
-                            </td>
-
-                            <td>
-                                <data value="610">610 XP</data>
-                            </td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td>4</td>
-
-                            <td>
-                                <span class="avatar-ranking">
-                                    MC
-                                </span>
-                            </td>
-
-                            <td>
-                                @MaiCoder
-                            </td>
-
-                            <td>
-                                <data value="570">570 XP</data>
-                            </td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td>5</td>
-
-                            <td>
-                                <span class="avatar-ranking">
-                                    FW
-                                </span>
-                            </td>
-
-                            <td>
-                                @FacuWeb
-                            </td>
-
-                            <td>
-                                <data value="520">520 XP</data>
-                            </td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td>6</td>
-
-                            <td>
-                                <span class="avatar-ranking">
-                                    AD
-                                </span>
-                            </td>
-
-                            <td>
-                                @AgusDev
-                            </td>
-
-                            <td>
-                                <data value="480">480 XP</data>
-                            </td>
-
-                        </tr>
-
+                    <tbody id="tabla-clasificacion">
+                        <!-- JavaScript genera las filas -->
                     </tbody>
 
                 </table>
@@ -294,39 +187,54 @@
 
         </section>
 
-        <section class="resumen-posicion" aria-labelledby="titulo-tu-posicion">
 
-            <h2 id="titulo-tu-posicion">TU POSICIÓN ESTA SEMANA</h2>
+        <section class="resumen-posicion"
+            aria-labelledby="titulo-tu-posicion">
+
+            <h2 id="titulo-tu-posicion">
+                TU POSICIÓN ESTA SEMANA
+            </h2>
 
             <div class="datos-posicion">
 
-                <article class="dato" aria-labelledby="titulo-puesto-actual">
+                <article class="dato"
+                    aria-labelledby="titulo-puesto-actual">
 
-                    <data class="numero" value="2">
-                        #2
+                    <data class="numero" value="0" id="puesto-actual">
+                        —
                     </data>
 
-                    <h3 id="titulo-puesto-actual">Puesto actual</h3>
+                    <h3 id="titulo-puesto-actual">
+                        Puesto actual
+                    </h3>
 
                 </article>
 
-                <article class="dato" aria-labelledby="titulo-xp-semana">
 
-                    <data class="numero" value="720">
-                        720
+                <article class="dato"
+                    aria-labelledby="titulo-xp-semana">
+
+                    <data class="numero" value="0" id="xp-semana">
+                        0
                     </data>
 
-                    <h3 id="titulo-xp-semana">XP esta semana</h3>
+                    <h3 id="titulo-xp-semana">
+                        XP esta semana
+                    </h3>
 
                 </article>
 
-                <article class="dato" aria-labelledby="titulo-xp-primer-puesto">
 
-                    <data class="numero" value="131">
-                        131
+                <article class="dato"
+                    aria-labelledby="titulo-xp-primer-puesto">
+
+                    <data class="numero" value="0" id="xp-primer-puesto">
+                        —
                     </data>
 
-                    <h3 id="titulo-xp-primer-puesto">XP para superar el primer puesto</h3>
+                    <h3 id="titulo-xp-primer-puesto">
+                        XP para superar el primer puesto
+                    </h3>
 
                 </article>
 
@@ -336,14 +244,15 @@
 
     </main>
 
+
     <footer>
 
         <div class="logo-footer">
 
-            <a href="../2_Vista home/home.html" aria-label="GrammaTech, ir al inicio">
+            <a href="../2_Vista home/home.html"
+                aria-label="GrammaTech, ir al inicio">
 
-                <img
-                    class="img-logo-footer"
+                <img class="img-logo-footer"
                     src="../../images/img-logo/LOGO-BLANCO.png"
                     alt="Logo de GrammaTech">
 
@@ -354,7 +263,9 @@
 
         </div>
 
-        <nav class="condiciones-footer" aria-label="Información legal y soporte">
+
+        <nav class="condiciones-footer"
+            aria-label="Información legal y soporte">
 
             <p>
                 <a href="">Condiciones Generales</a> -
@@ -369,10 +280,12 @@
             </p>
 
             <p>
-                © Todos los derechos reservados, <time datetime="2026">2026</time>, Gramatech.
+                © Todos los derechos reservados,
+                <time datetime="2026">2026</time>, Gramatech.
             </p>
 
         </nav>
+
 
         <nav class="redes-footer" aria-label="Redes sociales">
 
@@ -397,6 +310,8 @@
         </nav>
 
     </footer>
+
+    <script src="./clasificacionFunciones.js"></script>
 
 </body>
 
