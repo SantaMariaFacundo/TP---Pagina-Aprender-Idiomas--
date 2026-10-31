@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -8,8 +9,7 @@
     <link rel="stylesheet" href="../../StyleGeneral.css">
     <link rel="stylesheet" href="perfilUsuario.css">
 
-    <link
-        rel="icon"
+    <link rel="icon"
         href="../../images/img-logo/FAVICON-LOGO-BLANCO.png"
         type="image/png">
 
@@ -22,10 +22,10 @@
 
         <div class="logo-explorar">
 
-            <a href="../2_Vista home/home.html" aria-label="GrammaTech, ir al inicio">
+            <a href="../2_Vista home/home.html"
+                aria-label="GrammaTech, ir al inicio">
 
-                <img
-                    class="img-logo"
+                <img class="img-logo"
                     src="../../images/img-logo/LOGO-BLANCO.png"
                     alt="Logo de GrammaTech">
 
@@ -40,16 +40,14 @@
 
             <form class="conteiner-search" role="search">
 
-                <input
-                    type="search"
+                <input type="search"
                     class="search-class"
                     id="buscador"
                     name="buscador"
                     aria-label="Buscar becas, cursos y vocabulario"
                     placeholder="Becas, Cursos, y Vocabulario...">
 
-                <img
-                    class="img-search"
+                <img class="img-search"
                     src="../../images/iconosBlack-svg/search-svgrepo-com.svg"
                     alt="">
 
@@ -61,7 +59,9 @@
                     Cursos
                 </a>
 
-                <a class="pagina-actual" href="perfilUsuario.html" aria-current="page">
+                <a class="pagina-actual"
+                    href="perfilUsuario.html"
+                    aria-current="page">
                     Perfil
                 </a>
 
@@ -75,8 +75,7 @@
 
             </nav>
 
-            <select
-                id="idioma"
+            <select id="idioma"
                 class="idioma"
                 name="idioma"
                 aria-label="Seleccionar idioma">
@@ -109,15 +108,16 @@
         </hgroup>
 
 
-        <form
-            class="formulario-perfil"
-            action="cambiosGuardados.html"
-            method="get"
-            aria-label="Editar perfil">
+        <form class="formulario-perfil"
+            aria-label="Editar perfil"
+            onsubmit="return false;">
 
-            <section class="datos-cuenta" aria-labelledby="titulo-datos-cuenta">
+            <section class="datos-cuenta"
+                aria-labelledby="titulo-datos-cuenta">
 
-                <h2 id="titulo-datos-cuenta">DATOS DE LA CUENTA</h2>
+                <h2 id="titulo-datos-cuenta">
+                    DATOS DE LA CUENTA
+                </h2>
 
 
                 <div class="campo">
@@ -126,8 +126,7 @@
                         Nombre completo
                     </label>
 
-                    <input
-                        type="text"
+                    <input type="text"
                         id="nombre-completo"
                         name="nombre-completo"
                         value="Juan Pérez"
@@ -143,8 +142,7 @@
                         Nombre de usuario
                     </label>
 
-                    <input
-                        type="text"
+                    <input type="text"
                         id="nombre-usuario"
                         name="nombre-usuario"
                         value="@juanperez_web"
@@ -160,8 +158,7 @@
                         Correo electrónico
                     </label>
 
-                    <input
-                        type="email"
+                    <input type="email"
                         id="email"
                         name="email"
                         value="juan.perez@alumnos.unlam.edu.ar"
@@ -183,8 +180,7 @@
                         Idioma principal de la interfaz
                     </label>
 
-                    <select
-                        id="idioma-interfaz"
+                    <select id="idioma-interfaz"
                         name="idioma-interfaz">
 
                         <option value="espanol" selected>
@@ -210,9 +206,12 @@
             </section>
 
 
-            <section class="seguridad" aria-labelledby="titulo-seguridad">
+            <section class="seguridad"
+                aria-labelledby="titulo-seguridad">
 
-                <h2 id="titulo-seguridad">SEGURIDAD</h2>
+                <h2 id="titulo-seguridad">
+                    SEGURIDAD
+                </h2>
 
 
                 <div class="campo">
@@ -221,12 +220,10 @@
                         Contraseña actual
                     </label>
 
-                    <input
-                        type="password"
+                    <input type="password"
                         id="password-actual"
                         name="password-actual"
-                        autocomplete="current-password"
-                        required>
+                        autocomplete="current-password">
 
                 </div>
 
@@ -237,12 +234,10 @@
                         Nueva contraseña
                     </label>
 
-                    <input
-                        type="password"
+                    <input type="password"
                         id="password-nueva"
                         name="password-nueva"
-                        autocomplete="new-password"
-                        required>
+                        autocomplete="new-password">
 
                 </div>
 
@@ -253,12 +248,10 @@
                         Confirmar nueva contraseña
                     </label>
 
-                    <input
-                        type="password"
+                    <input type="password"
                         id="password-confirmar"
                         name="password-confirmar"
-                        autocomplete="new-password"
-                        required>
+                        autocomplete="new-password">
 
                 </div>
 
@@ -267,12 +260,9 @@
 
             <div class="guardar">
 
-                <button
-                    class="guardar-cambios"
+                <button class="guardar-cambios"
                     type="submit">
-
                     Guardar cambios
-
                 </button>
 
             </div>
@@ -286,10 +276,10 @@
 
         <div class="logo-footer">
 
-            <a href="../2_Vista home/home.html" aria-label="GrammaTech, ir al inicio">
+            <a href="../2_Vista home/home.html"
+                aria-label="GrammaTech, ir al inicio">
 
-                <img
-                    class="img-logo-footer"
+                <img class="img-logo-footer"
                     src="../../images/img-logo/LOGO-BLANCO.png"
                     alt="Logo de GrammaTech">
 
@@ -301,7 +291,8 @@
         </div>
 
 
-        <nav class="condiciones-footer" aria-label="Información legal y soporte">
+        <nav class="condiciones-footer"
+            aria-label="Información legal y soporte">
 
             <p>
                 <a href="">Condiciones Generales</a> -
@@ -316,13 +307,15 @@
             </p>
 
             <p>
-                © Todos los derechos reservados, <time datetime="2026">2026</time>, Gramatech.
+                © Todos los derechos reservados,
+                <time datetime="2026">2026</time>, Gramatech.
             </p>
 
         </nav>
 
 
-        <nav class="redes-footer" aria-label="Redes sociales">
+        <nav class="redes-footer"
+            aria-label="Redes sociales">
 
             <a href="#">
                 <img
@@ -345,6 +338,8 @@
         </nav>
 
     </footer>
+
+    <script src="./editarPerfilFunciones.js"></script>
 
 </body>
 
