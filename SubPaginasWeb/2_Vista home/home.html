@@ -77,26 +77,26 @@
         <section class="seccion-2-extra" id="seccion-2" aria-labelledby="titulo-cursos-disponibles">
             <h2 id="titulo-cursos-disponibles">CURSOS DISPONIBLES</h2>
             <div class="cards">
-                <article class="cards-idioma card-ingles" aria-labelledby="titulo-disponible-ingles">
+                <article class="cards-idioma card-ingles" id="card-ingles" aria-labelledby="titulo-disponible-ingles">
                     <h3 id="titulo-disponible-ingles">Aprendé Inglés a tu ritmo </h3>
                     <img class="img-pais" src="../../images/img-paises/londres.avif" alt="">
                     <p>Descubrí todos los cursos disponibles, desde nivel inicial hasta avanzado. Elegí el que mejor se
                         adapte a vos y empezá hoy mismo.</p>
-                    <button type="button" aria-label="Agregar Curso de Inglés">Agregar Curso</button>
+                    <button id="btnCursoIngles" class="btnAgregarCard" data-curso="ingles" type="button" aria-label="Agregar Curso de Inglés">Agregar Curso</button>
                 </article>
                 <article class="cards-idioma card-chino" aria-labelledby="titulo-disponible-chino">
                     <h3 id="titulo-disponible-chino">Aprendé el Chino Mandarín</h3>
                     <img class="img-pais" src="../../images/img-paises/china.jpg" alt="">
                     <p>Accedé a cursos para cada nivel, desde principiante hasta avanzado. Iniciá tu camino en el idioma
                         más hablado del mundo y ampliá tus oportunidades.</p>
-                    <button type="button" aria-label="Agregar Curso de Chino Mandarín">Agregar Curso</button>
+                    <button type="button" class="btnAgregarCard" id="btnCursoChino" data-curso="chino" aria-label="Agregar Curso de Chino Mandarín">Agregar Curso</button>
                 </article>
                 <article class="cards-idioma card-aleman" aria-labelledby="titulo-disponible-aleman">
                     <h3 id="titulo-disponible-aleman">Aprendé Alemán paso a paso</h3>
                     <img class="img-pais" src="../../images/img-paises/alemania.jpg" alt="">
                     <p>Explorá todos los cursos disponibles, desde nivel inicial hasta avanzado. Elegí tu nivel y empezá
                         a dominar el idioma más hablado en Europa.</p>
-                    <button type="button" aria-label="Agregar Curso de Alemán">Agregar Curso</button>
+                    <button type="button" class="btnAgregarCard" id="btnCursoAleman" data-curso="aleman" aria-label="Agregar Curso de Alemán">Agregar Curso</button>
                 </article>
             </div>
         </section>
@@ -106,8 +106,15 @@
                 <div class="titulo">
                     <h2 id="titulo-cursos-progreso">Cursos en Progreso</h2>
                 </div>
+                <article class="mensajeSinCursos MensajeSinCursosDisponible" id="mensajeSinCursos">
+                        <img class="imgMsjNoCursos" src="../../images/icons-general/msj para estudiar_sin_fondo png.png" alt="">
+                        <h4>¡Todavia no tenés cursos en progreso!</h4>
+                        <p class="parrafoNoCursos" >Eligí un idioma y empezá a aprender algo nuevo hoy.</p>
+                        <a href="#seccion-2" class="btnMsjNoCursos" >Explorar Cursos</a>
+
+                </article>
                 <div class="cards-cursos">
-                    <article class="card-curso card-ingles" aria-labelledby="titulo-curso-ingles">
+                    <article class="card-curso card-ingles-progreso" id="card-ingles-progreso" aria-labelledby="titulo-curso-ingles">
                         <img class="img-paises" src="../../images/img-paises/londres.avif" alt="">
                         <div class="titulo-card-cursos">
                             <div class="unidad">
@@ -121,10 +128,10 @@
                             <a href="../3_Vista Mapa de Unidades/progreso-ingles.html#inglesC1C2" aria-label="Reanudar Curso: Ingles C1">Reanudar</a>
                         </div>
                         <div>
-                            <button class="btn-cerrar-cards" type="button" aria-label="Quitar Curso: Ingles C1">x</button>
+                            <button class="btn-cerrar-cards" id="btn-cerrar-card-ingles" data-cerrar="ingles" type="button" aria-label="Quitar Curso: Ingles C1">x</button>
                         </div>
                     </article>
-                    <article class="card-curso card-aleman" aria-labelledby="titulo-curso-aleman">
+                    <article class="card-curso card-aleman-progreso" id="card-aleman-progreso" aria-labelledby="titulo-curso-aleman">
                         <img class="img-paises" src="../../images/img-paises/alemania.jpg" alt="">
                         <div class="titulo-card-cursos">
                             <div class="unidad">
@@ -138,10 +145,10 @@
                             <a href="../3_Vista Mapa de Unidades/progreso-aleman.html#alemanB1B2" aria-label="Reanudar Curso: Aleman B1">Reanudar</a>
                         </div>
                         <div>
-                            <button class="btn-cerrar-cards" type="button" aria-label="Quitar Curso: Aleman B1">x</button>
+                            <button class="btn-cerrar-cards" id="btn-cerrar-card-aleman" data-cerrar="aleman" type="button" aria-label="Quitar Curso: Aleman B1">x</button>
                         </div>
                     </article>
-                    <article class="card-curso card-chinoMandarin" aria-labelledby="titulo-curso-chino">
+                    <article class="card-curso card-chinoMandarin-progreso" id="card-chino-progreso" aria-labelledby="titulo-curso-chino">
                         <img class="img-paises" src="../../images/img-paises/china.jpg" alt="">
                         <div class="titulo-card-cursos">
                             <div class="unidad">
@@ -155,10 +162,11 @@
                             <a href="../3_Vista Mapa de Unidades/progreso-chino.html#chinoA1A2" aria-label="Empezar Curso: Chino Mandarin A1">Empezar</a>
                         </div>
                         <div>
-                            <button class="btn-cerrar-cards" type="button" aria-label="Quitar Curso: Chino Mandarin A1">x</button>
+                            <button class="btn-cerrar-cards" id="btn-cerrar-card-chino" data-cerrar="chino" type="button" aria-label="Quitar Curso: Chino Mandarin A1">x</button>
                         </div>
                     </article>
                 </div>
+                
             </section>
             <aside class="conteiner-datos" aria-label="Tu progreso">
                 <section class="metaDiaria" aria-labelledby="titulo-meta-diaria">
@@ -274,6 +282,7 @@
             </a>
         </nav>
     </footer>
+    <script type="module" src="home.js"></script>
 </body>
 
 </html>
