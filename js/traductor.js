@@ -1,10 +1,11 @@
 
+
 (function () {
 
     // Diccionario compartido de GrammaTech.
     const traducciones = {
 
-        // HEADER GENERAL
+        // HEADER
         "Acceder": "Log in",
         "Registrate": "Sign up",
         "Cursos": "Courses",
@@ -17,7 +18,7 @@
         "¿Ya tenés cuenta?": "Already have an account?",
         "Iniciá sesión": "Log in",
 
-        // FOOTER GENERAL
+        // FOOTER
         "Condiciones Generales": "Terms and Conditions",
         "Aviso Legal": "Legal Notice",
         "Privacidad": "Privacy",
@@ -32,10 +33,8 @@
         // INDEX
         "APRENDE CON CLASES PARA TI PROGRESA DE VERDAD.":
             "LEARN WITH CLASSES MADE FOR YOU. MAKE REAL PROGRESS.",
-
         "Inscribirte al curso de idiomas GrammaTech revolucionará tu aprendizaje mediante tecnología adaptativa de vanguardia. Diseñado para optimizar tu fluidez en tiempo récord, combinarás gramática práctica, tutoría interactiva constante y ejercicios inmersivos para comunicarte con total seguridad y abrir nuevas oportunidades.":
             "Joining GrammaTech will transform the way you learn languages through adaptive technology. Improve your fluency with practical grammar, interactive guidance and immersive exercises to communicate confidently and discover new opportunities.",
-
         "COMENZAR A EXPLORAR": "START EXPLORING",
         "CURSOS DISPONIBLES": "AVAILABLE COURSES",
         "Aprendé Inglés a tu ritmo": "Learn English at your own pace",
@@ -69,6 +68,19 @@
             "Don't have a GrammaTech account? Sign up",
         "¿No tenes cuenta en GrammaTech? Registrate":
             "Don't have a GrammaTech account? Sign up",
+
+        // RECUPERACIÓN
+        "¿Olvidaste tu contraseña?": "Forgot your password?",
+        "Recuperar contraseña": "Recover password",
+        "Ingresá el correo electrónico asociado a tu cuenta.":
+            "Enter the email address associated with your account.",
+        "Recuperar": "Recover",
+        "Volver a iniciar sesión": "Back to login",
+        "Ingresá tu correo electrónico.": "Enter your email address.",
+        "No encontramos una cuenta registrada con ese correo.":
+            "We couldn't find an account with that email address.",
+        "Encontramos tu cuenta. La recuperación se completó como simulación: no se envió ningún correo y tu contraseña sigue siendo la misma.":
+            "We found your account. This was a simulated recovery: no email was sent and your password remains unchanged.",
 
         // REGISTRO
         "Registrate con:": "Sign up with:",
@@ -150,7 +162,7 @@
         "Tener muchas cosas que hacer o poco tiempo libre.":
             "Having many things to do or little free time.",
 
-        // MAPAS DE UNIDADES
+        // MAPAS
         "Inglés A1 - A2": "English A1 - A2",
         "Inglés B1 - B2": "English B1 - B2",
         "Inglés C1 - C2": "English C1 - C2",
@@ -191,10 +203,10 @@
             "Your progress couldn't be saved.",
 
         // EXÁMENES
-        "¿Cómo se dice \"Yo soy\" en inglés?":
-            "How do you say \"I am\" in English?",
-        "¿Cómo se dice \"Yo soy\" en alemán?":
-            "How do you say \"I am\" in German?",
+        '¿Cómo se dice "Yo soy" en inglés?':
+            'How do you say "I am" in English?',
+        '¿Cómo se dice "Yo soy" en alemán?':
+            'How do you say "I am" in German?',
         "Completá también el ejercicio de Listening.":
             "Complete the Listening exercise too.",
         "Ordená las palabras para traducir la frase.":
@@ -210,7 +222,7 @@
         "Este examen todavía no está configurado.":
             "This exam isn't configured yet.",
 
-        // PERFIL DE USUARIO
+        // PERFIL
         "MI PERFIL": "MY PROFILE",
         "Gestioná tus datos personales y tu progreso en GrammaTech.":
             "Manage your personal information and progress on GrammaTech.",
@@ -224,13 +236,12 @@
         "Miembro desde:": "Member since:",
         "Idioma principal de la interfaz": "Main interface language",
         "Español": "Spanish",
-        "Inglés": "English",
-        "Alemán": "German",
-        "Chino Mandarín": "Mandarin Chinese",
         "SEGURIDAD": "SECURITY",
         "Contraseña actual": "Current password",
         "Nueva contraseña": "New password",
         "Confirmar nueva contraseña": "Confirm new password",
+        "Cambiar contraseña": "Change password",
+        "Guardar nueva contraseña": "Save new password",
         "Guardar cambios": "Save changes",
         "MIS LOGROS": "MY ACHIEVEMENTS",
         "Liga Bronce": "Bronze League",
@@ -246,8 +257,18 @@
         "EDITAR PERFIL": "EDIT PROFILE",
         "Modificá tus datos personales y la configuración de tu cuenta.":
             "Update your personal information and account settings.",
+        "¡Cambios guardados correctamente!":
+            "Changes saved successfully!",
+        "¡Contraseña actualizada correctamente!":
+            "Password updated successfully!",
+        "Completá los tres campos de contraseña.":
+            "Complete all three password fields.",
+        "La nueva contraseña debe ser diferente de la actual.":
+            "The new password must be different from the current one.",
+        "No se pudo cambiar la contraseña.":
+            "The password could not be changed.",
 
-        // CONFIRMACIÓN DE CAMBIOS
+        // CONFIRMACIÓN
         "Cambios guardados": "Changes saved",
         "Tus cambios se guardaron exitosamente.":
             "Your changes were saved successfully.",
@@ -283,7 +304,7 @@
         "Zona de ascenso": "Promotion zone",
         "Participando": "Competing",
 
-        // TIENDA Y RACHAS
+        // TIENDA
         "TIENDA Y RACHAS": "SHOP AND STREAKS",
         "Mantené tu constancia, seguí tu progreso y conseguí recompensas.":
             "Stay consistent, track your progress and earn rewards.",
@@ -340,7 +361,7 @@
         "No se pudo guardar el canje. Intentá nuevamente.":
             "The redemption couldn't be saved. Try again.",
 
-        // MENSAJES GENERALES DE PERFIL
+        // MENSAJES DE PERFIL
         "No realizaste ningún cambio en tu perfil.":
             "You haven't made any changes to your profile.",
         "La contraseña actual es incorrecta.":
@@ -375,26 +396,65 @@
         "Becas, Cursos, y Vocabulario...": "Search for a language..."
     };
 
-    // Guardar los textos originales sin modificar las respuestas.
+    // Conservar los textos originales del HTML.
     const originales = new WeakMap();
 
-    // Obtener el idioma elegido por el usuario.
+    // Obtener el usuario activo, si lo hay.
+    function usuarioActual() {
+
+        if (typeof obtenerUsuarioActivo !== "function") {
+            return null;
+        }
+
+        return obtenerUsuarioActivo();
+
+    }
+
+    // Convertir la preferencia del usuario a es o en.
+    function normalizarIdioma(valor) {
+
+        return ["en", "ingles", "english"].includes(valor)
+            ? "en"
+            : "es";
+
+    }
+
+    // Obtener el idioma de la cuenta activa.
     function idiomaActual() {
 
+        const usuario = usuarioActual();
+
+        if (usuario) {
+
+            return normalizarIdioma(usuario.idioma);
+
+        }
+
+        // Si todavía no hay sesión, usar la preferencia del navegador.
         return localStorage.getItem("grammatech_idioma") === "en"
             ? "en"
             : "es";
 
     }
 
-    // Eliminar espacios repetidos.
+    // Sincronizar la clave que utilizan los otros JavaScript.
+    function sincronizarIdioma() {
+
+        const idioma = idiomaActual();
+
+        localStorage.setItem("grammatech_idioma", idioma);
+
+        return idioma;
+
+    }
+
     function limpiarTexto(texto) {
 
         return texto.replace(/\s+/g, " ").trim();
 
     }
 
-    // Traducir textos que contienen números variables.
+    // Traducir mensajes que incluyen cantidades variables.
     function traducirTextoVariable(texto) {
 
         let coincidencia;
@@ -402,31 +462,41 @@
         coincidencia = texto.match(/^Racha de (\d+) días?$/);
 
         if (coincidencia) {
+
             const dias = Number(coincidencia[1]);
 
             return "Streak of " + dias +
                 (dias === 1 ? " day" : " days");
+
         }
 
         coincidencia = texto.match(/^(\d+) días?$/);
 
         if (coincidencia) {
+
             const dias = Number(coincidencia[1]);
 
             return dias + (dias === 1 ? " day" : " days");
+
         }
 
-        coincidencia = texto.match(/^Te faltan (\d+) XP para alcanzar tu meta diaria\.$/);
+        coincidencia = texto.match(
+            /^Te faltan (\d+) XP para alcanzar tu meta diaria\.$/
+        );
 
         if (coincidencia) {
+
             return "You need " + coincidencia[1] +
                 " more XP to reach your daily goal.";
+
         }
 
         coincidencia = texto.match(/^(\d+) monedas$/);
 
         if (coincidencia) {
+
             return coincidencia[1] + " coins";
+
         }
 
         coincidencia = texto.match(/^Liga (bronce|plata|oro)$/i);
@@ -454,7 +524,7 @@
                 coincidencia[1] + " XP and " +
                 coincidencia[2] + " coins.";
 
-            return coincidencia[3]
+            return coincidencia[3].trim()
                 ? mensaje + " You used your Double XP reward!"
                 : mensaje;
 
@@ -464,7 +534,7 @@
 
     }
 
-    // Buscar una traducción en el diccionario.
+    // Buscar traducciones exactas o variables.
     function buscarTraduccion(texto) {
 
         if (Object.hasOwn(traducciones, texto)) {
@@ -475,7 +545,7 @@
 
     }
 
-    // Evitar modificar preguntas y respuestas evaluadas.
+    // No modificar las respuestas evaluadas.
     function esContenidoDeEjercicio(elemento) {
 
         return Boolean(elemento.closest(
@@ -486,7 +556,7 @@
 
     }
 
-    // Traducir los textos visibles del documento.
+    // Traducir los textos visibles de la página.
     function traducirPagina() {
 
         const idioma = idiomaActual();
@@ -508,7 +578,7 @@
             const actual = nodo.textContent;
             const anterior = originales.get(nodo);
 
-            // Detectar textos nuevos generados por JavaScript.
+            // Reconocer textos nuevos agregados por otros JavaScript.
             if (!anterior ||
                 (actual !== anterior.es && actual !== anterior.en)) {
 
@@ -549,7 +619,7 @@
 
         }
 
-        // Traducir los placeholders de los formularios.
+        // Traducir los placeholders sin tocar lo escrito en los campos.
         document.querySelectorAll("[placeholder]").forEach(function(campo) {
 
             if (!campo.dataset.placeholderOriginal) {
@@ -568,7 +638,7 @@
 
     }
 
-    // Función compartida para otros archivos JavaScript.
+    // Función que utilizan Home y otros JavaScript.
     window.traducirTexto = function(texto) {
 
         if (idiomaActual() !== "en") {
@@ -579,9 +649,34 @@
 
     };
 
-    // Cambiar idioma y avisar a las otras vistas.
+    // Guardar el idioma de la cuenta que inició sesión.
     function cambiarIdioma(idioma) {
 
+        const usuario = usuarioActual();
+
+        if (usuario) {
+
+            const valorUsuario = idioma === "en"
+                ? "ingles"
+                : "espanol";
+
+            // Guardar la preferencia en la cuenta activa.
+            if (typeof actualizarUsuario === "function") {
+
+                const guardado = actualizarUsuario({
+                    idioma: valorUsuario
+                });
+
+                if (!guardado) {
+                    console.error("No se pudo guardar el idioma.");
+                    return;
+                }
+
+            }
+
+        }
+
+        // Mantener la clave compartida para el resto de las vistas.
         localStorage.setItem("grammatech_idioma", idioma);
 
         traducirPagina();
@@ -589,6 +684,9 @@
         window.dispatchEvent(new Event("idiomaActualizado"));
 
     }
+
+    // Al abrir una página, recuperar la preferencia de la cuenta.
+    const idiomaGuardado = sincronizarIdioma();
 
     // Buscar el selector Es / En del encabezado.
     const selector = document.getElementById("idioma");
@@ -609,16 +707,20 @@
 
         });
 
-        // Recuperar el idioma seleccionado anteriormente.
-        if (idiomaActual() === "en" && opcionIngles) {
+        // Mostrar en el header el idioma de la cuenta.
+        if (idiomaGuardado === "en" && opcionIngles) {
+
             selector.value = opcionIngles.value;
+
         }
 
-        if (idiomaActual() === "es" && opcionEspanol) {
+        if (idiomaGuardado === "es" && opcionEspanol) {
+
             selector.value = opcionEspanol.value;
+
         }
 
-        // Detectar cuando cambia el selector.
+        // Guardar el idioma cuando el usuario cambia el selector.
         selector.addEventListener("change", function() {
 
             const idioma = ["ingles", "english", "en"].includes(
@@ -631,10 +733,10 @@
 
     }
 
-    // Traducir al cargar la página.
+    // Traducir la página al cargar.
     traducirPagina();
 
-    // Detectar textos nuevos creados por JavaScript.
+    // Traducir textos agregados después por otros JavaScript.
     const observador = new MutationObserver(function() {
 
         traducirPagina();

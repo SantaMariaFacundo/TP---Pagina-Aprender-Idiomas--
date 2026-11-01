@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Clasificación - GrammaTech</title>
+
     <link rel="stylesheet" href="../../StyleGeneral.css">
     <link rel="stylesheet" href="../../Styles Generales/headerGeneral.css">
     <link rel="stylesheet" href="clasificacion.css">
@@ -13,8 +15,6 @@
     <link rel="icon"
         href="../../images/img-logo/FAVICON-LOGO-BLANCO.png"
         type="image/png">
-
-    <title>Clasificación - GrammaTech</title>
 </head>
 
 <body>
@@ -91,8 +91,6 @@
 
             </select>
 
-            <!-- Menú desplegable del usuario -->
-
             <details class="menu-usuario">
 
                 <summary aria-label="Abrir menú de usuario">
@@ -131,8 +129,6 @@
 
         </hgroup>
 
-        <!-- Seleccionar la liga que queremos consultar -->
-
         <form class="selector-liga"
             aria-label="Seleccionar liga">
 
@@ -158,8 +154,6 @@
 
         </form>
 
-        <!-- Tabla de clasificación -->
-
         <section class="ranking"
             aria-labelledby="titulo-liga-actual">
 
@@ -178,8 +172,7 @@
                 </div>
 
                 <p id="descripcion-liga">
-                    Los 5 primeros ascienden a la Liga de Plata
-                    esta semana.
+                    Los 5 primeros están en zona de ascenso a Plata.
                 </p>
 
             </div>
@@ -191,6 +184,7 @@
                     aria-describedby="descripcion-liga">
 
                     <thead>
+
                         <tr>
                             <th scope="col">Puesto</th>
                             <th scope="col">Avatar</th>
@@ -198,10 +192,11 @@
                             <th scope="col">XP semanal</th>
                             <th scope="col">Estado</th>
                         </tr>
+
                     </thead>
 
                     <tbody id="tabla-clasificacion">
-                        <!-- Filas generadas por JavaScript -->
+                        <!-- Filas agregadas por clasificacionFunciones.js -->
                     </tbody>
 
                 </table>
@@ -209,8 +204,6 @@
             </div>
 
         </section>
-
-        <!-- Resumen de la posición del usuario activo -->
 
         <section class="resumen-posicion"
             aria-labelledby="titulo-tu-posicion">
@@ -225,8 +218,8 @@
                     aria-labelledby="titulo-puesto-actual">
 
                     <data class="numero"
-                        value="0"
-                        id="puesto-actual">
+                        id="puesto-actual"
+                        value="0">
                         —
                     </data>
 
@@ -236,12 +229,13 @@
 
                 </article>
 
+                
                 <article class="dato"
                     aria-labelledby="titulo-xp-semana">
 
                     <data class="numero"
-                        value="0"
-                        id="xp-semana">
+                        id="xp-semana"
+                        value="0">
                         0
                     </data>
 
@@ -255,8 +249,8 @@
                     aria-labelledby="titulo-xp-primer-puesto">
 
                     <data class="numero"
-                        value="0"
-                        id="xp-primer-puesto">
+                        id="xp-primer-puesto"
+                        value="0">
                         —
                     </data>
 
@@ -338,12 +332,11 @@
 
     </footer>
 
-
-<script src="../../js/usuarios.js"></script>
-<script src="../../js/header.js"></script>
-<script src="../../js/buscador.js"></script>
-<script src="clasificacionFunciones.js"></script>
-<script src="../../js/traductor.js"></script>
+    <script src="../../js/usuarios.js"></script>
+    <script src="../../js/header.js"></script>
+    <script src="../../js/buscador.js"></script>
+    <script src="clasificacionFunciones.js"></script>
+    <script src="../../js/traductor.js"></script>
 
 </body>
 

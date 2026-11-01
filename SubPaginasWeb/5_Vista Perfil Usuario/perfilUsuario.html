@@ -6,14 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="../../StyleGeneral.css">
-<link rel="stylesheet" href="../../Styles Generales/headerGeneral.css">
-<link rel="stylesheet" href="perfilUsuario.css">
+    <link rel="stylesheet" href="../../StyleGeneral.css">
+    <link rel="stylesheet" href="../../Styles Generales/headerGeneral.css">
+    <link rel="stylesheet" href="perfilUsuario.css">
 
-
-    <link rel="icon"
-        href="../../images/img-logo/FAVICON-LOGO-BLANCO.png"
-        type="image/png">
+    <link rel="icon" href="../../images/img-logo/FAVICON-LOGO-BLANCO.png" type="image/png">
 
     <title>Mi Perfil - GrammaTech</title>
 </head>
@@ -23,89 +20,45 @@
     <header>
 
         <div class="logo-explorar">
-
             <a href="../2_Vista home/home.html" aria-label="GrammaTech, ir al inicio">
-                <img class="img-logo"
-                    src="../../images/img-logo/LOGO-BLANCO.png"
-                    alt="Logo de GrammaTech">
-
+                <img class="img-logo" src="../../images/img-logo/LOGO-BLANCO.png" alt="Logo de GrammaTech">
                 <span class="nombre-logo">Gramma</span>
                 <span class="nombre-logo-tech">Tech</span>
             </a>
-
         </div>
 
         <div class="buscador-acceder-language">
 
             <form class="conteiner-search" role="search">
-
-                <input type="search"
-                    class="search-class"
-                    id="buscador"
-                    name="buscador"
+                <input type="search" class="search-class" id="buscador" name="buscador"
                     aria-label="Buscar becas, cursos y vocabulario"
                     placeholder="Becas, Cursos, y Vocabulario...">
 
                 <img class="img-search"
                     src="../../images/iconosBlack-svg/search-svgrepo-com.svg"
                     alt="">
-
             </form>
 
             <nav class="navegacion" aria-label="Navegación principal">
-
-                <a href="../2_Vista home/home.html">
-                    Cursos
-                </a>
-
-                <a class="pagina-actual"
-                    href="perfilUsuario.html"
-                    aria-current="page">
-                    Perfil
-                </a>
-
-                <a href="../6_Vista Tabla Clasificación/clasificacion.html">
-                    Clasificación
-                </a>
-
-                <a href="../7_Vista Racha/tienda.html">
-                    Tienda
-                </a>
-
+                <a href="../2_Vista home/home.html">Cursos</a>
+                <a class="pagina-actual" href="perfilUsuario.html" aria-current="page">Perfil</a>
+                <a href="../6_Vista Tabla Clasificación/clasificacion.html">Clasificación</a>
+                <a href="../7_Vista Racha/tienda.html">Tienda</a>
             </nav>
 
-            <select id="idioma"
-                class="idioma"
-                name="idioma"
-                aria-label="Seleccionar idioma">
-
-                <option value="espanol" lang="es">
-                    Es
-                </option>
-
-                <option value="english" lang="en">
-                    En
-                </option>
-
+            <select id="idioma" class="idioma" name="idioma" aria-label="Seleccionar idioma">
+                <option value="espanol" lang="es">Es</option>
+                <option value="english" lang="en">En</option>
             </select>
 
-            <!-- Menú desplegable del usuario -->
-
             <details class="menu-usuario">
-
                 <summary aria-label="Abrir menú de usuario">
-                    <img
-                        src="../../images/img-index/usuario.png"
-                        alt=""
-                        class="icono-usuario">
+                    <img src="../../images/img-index/usuario.png" alt="" class="icono-usuario">
                 </summary>
 
                 <div class="opciones-usuario">
-                    <a href="#" id="btn-cerrar-sesion">
-                        Cerrar sesión
-                    </a>
+                    <a href="#" id="btn-cerrar-sesion">Cerrar sesión</a>
                 </div>
-
             </details>
 
         </div>
@@ -115,44 +68,26 @@
     <main class="main-perfil">
 
         <hgroup class="encabezado-perfil">
-
             <h1>MI PERFIL</h1>
-
-            <p>
-                Gestioná tus datos personales y tu progreso en GrammaTech.
-            </p>
-
+            <p>Gestioná tus datos personales y tu progreso en GrammaTech.</p>
         </hgroup>
 
-        <!-- Resumen de la cuenta -->
-
-        <section class="resumen-usuario"
-            aria-labelledby="titulo-nombre-usuario">
+        <section class="resumen-usuario" aria-labelledby="titulo-nombre-usuario">
 
             <div class="usuario">
 
-                <div class="avatar" aria-hidden="true">
-                    JP
-                </div>
+                <div class="avatar" aria-hidden="true">JP</div>
 
                 <div class="informacion-usuario">
 
-                    <h2 id="titulo-nombre-usuario">
-                        Juan Pérez
-                    </h2>
+                    <h2 id="titulo-nombre-usuario">Juan Pérez</h2>
 
-                    <p class="nombre-usuario">
-                        @juanperez_web
-                    </p>
+                    <p class="nombre-usuario">@juanperez_web</p>
 
                     <p>
                         juan.perez@alumnos.unlam.edu.ar
-
-                        <a class="boton-editar"
-                            href="editarPerfil.html"
-                            aria-label="Editar correo electrónico">
-                            Editar
-                        </a>
+                        <a class="boton-editar" href="editarPerfil.html"
+                            aria-label="Editar correo electrónico">Editar</a>
                     </p>
 
                 </div>
@@ -161,199 +96,74 @@
 
         </section>
 
-        <!-- Datos de la cuenta -->
+        <div class="formulario-perfil">
 
-        <form class="formulario-perfil"
-            action="cambiosGuardados.html"
-            method="get">
+            <section class="datos-cuenta" aria-labelledby="titulo-datos-cuenta">
 
-            <section class="datos-cuenta"
-                aria-labelledby="titulo-datos-cuenta">
-
-                <h2 id="titulo-datos-cuenta">
-                    DATOS DE LA CUENTA
-                </h2>
+                <h2 id="titulo-datos-cuenta">DATOS DE LA CUENTA</h2>
 
                 <p>
                     <strong>Nombre completo:</strong>
                     Juan Pérez
-
-                    <a class="boton-editar"
-                        href="editarPerfil.html"
-                        aria-label="Editar nombre completo">
-                        Editar
-                    </a>
+                    <a class="boton-editar" href="editarPerfil.html"
+                        aria-label="Editar nombre completo">Editar</a>
                 </p>
 
                 <p>
                     <strong>Nombre de usuario:</strong>
                     @juanperez_web
-
-                    <a class="boton-editar"
-                        href="editarPerfil.html"
-                        aria-label="Editar nombre de usuario">
-                        Editar
-                    </a>
+                    <a class="boton-editar" href="editarPerfil.html"
+                        aria-label="Editar nombre de usuario">Editar</a>
                 </p>
 
                 <p>
                     <strong>Miembro desde:</strong>
-                    <time datetime="2025-03">
-                        Marzo de 2025
-                    </time>
+                    <time datetime="2025-03">Marzo de 2025</time>
                 </p>
 
-                <div class="campo">
-
-                    <label for="idioma-interfaz">
-                        Idioma principal de la interfaz
-                    </label>
-
-                    <select id="idioma-interfaz"
-                        name="idioma-interfaz">
-
-                        <option value="espanol" selected>
-                            Español
-                        </option>
-
-                        <option value="ingles">
-                            Inglés
-                        </option>
-
-                        <option value="aleman">
-                            Alemán
-                        </option>
-
-                        <option value="chino">
-                            Chino Mandarín
-                        </option>
-
-                    </select>
-
-                </div>
-
             </section>
 
-            <!-- Seguridad -->
+        </div>
 
-            <section class="seguridad"
-                aria-labelledby="titulo-seguridad">
+        <section class="logros" aria-labelledby="titulo-logros">
 
-                <h2 id="titulo-seguridad">
-                    SEGURIDAD
-                </h2>
-
-                <div class="campo">
-
-                    <label for="password-actual">
-                        Contraseña actual
-                    </label>
-
-                    <input type="password"
-                        id="password-actual"
-                        name="password-actual"
-                        autocomplete="current-password">
-
-                </div>
-
-                <div class="campo">
-
-                    <label for="password-nueva">
-                        Nueva contraseña
-                    </label>
-
-                    <input type="password"
-                        id="password-nueva"
-                        name="password-nueva"
-                        autocomplete="new-password">
-
-                </div>
-
-                <div class="campo">
-
-                    <label for="password-confirmar">
-                        Confirmar nueva contraseña
-                    </label>
-
-                    <input type="password"
-                        id="password-confirmar"
-                        name="password-confirmar"
-                        autocomplete="new-password">
-
-                </div>
-
-            </section>
-
-            <div class="guardar">
-
-                <button class="guardar-cambios"
-                    type="submit">
-                    Guardar cambios
-                </button>
-
-            </div>
-
-        </form>
-
-        <!-- Logros del usuario -->
-
-        <section class="logros"
-            aria-labelledby="titulo-logros">
-
-            <h2 id="titulo-logros">
-                MIS LOGROS
-            </h2>
+            <h2 id="titulo-logros">MIS LOGROS</h2>
 
             <div class="contenedor-logros">
 
-                <article class="logro"
-                    aria-labelledby="titulo-logro-liga">
+                <article class="logro" aria-labelledby="titulo-logro-liga">
 
                     <img class="icono-logro"
                         src="../../images/icons-general/medal-reward-svgrepo-com.svg"
                         alt="">
 
-                    <h3 id="titulo-logro-liga">
-                        Liga Bronce
-                    </h3>
+                    <h3 id="titulo-logro-liga">Liga Bronce</h3>
 
-                    <p>
-                        Posición actual en la clasificación.
-                    </p>
+                    <p>Posición actual en la clasificación.</p>
 
                 </article>
 
-                <article class="logro"
-                    aria-labelledby="titulo-logro-racha">
+                <article class="logro" aria-labelledby="titulo-logro-racha">
 
                     <img class="icono-logro"
                         src="../../images/icons-general/calendar-days-svgrepo-com.svg"
                         alt="">
 
-                    <h3 id="titulo-logro-racha">
-                        Racha de 5 días
-                    </h3>
+                    <h3 id="titulo-logro-racha">Racha de 5 días</h3>
 
-                    <p>
-                        Cinco días consecutivos aprendiendo.
-                    </p>
+                    <p>Cinco días consecutivos aprendiendo.</p>
 
                 </article>
 
-                <article class="logro"
-                    aria-labelledby="titulo-logro-xp">
+                <article class="logro" aria-labelledby="titulo-logro-xp">
 
                     <img class="icono-logro"
                         src="../../images/icons-general/chronometer-naranja-svgrepo-com.svg"
                         alt="">
 
-                    <h3 id="titulo-logro-xp">
-                        1.850 XP
-                    </h3>
+                    <h3 id="titulo-logro-xp">1.850 XP</h3>
 
-                    <p>
-                        Experiencia acumulada.
-                    </p>
+                    <p>Experiencia acumulada.</p>
 
                 </article>
 
@@ -366,23 +176,17 @@
     <footer>
 
         <div class="logo-footer">
-
-            <a href="../2_Vista home/home.html"
-                aria-label="GrammaTech, ir al inicio">
-
+            <a href="../2_Vista home/home.html" aria-label="GrammaTech, ir al inicio">
                 <img class="img-logo-footer"
                     src="../../images/img-logo/LOGO-BLANCO.png"
                     alt="Logo de GrammaTech">
 
                 <span class="nombre-logo">Gramma</span>
                 <span class="nombre-logo-tech">Tech</span>
-
             </a>
-
         </div>
 
-        <nav class="condiciones-footer"
-            aria-label="Información legal y soporte">
+        <nav class="condiciones-footer" aria-label="Información legal y soporte">
 
             <p>
                 <a href="">Condiciones Generales</a> -
@@ -392,36 +196,30 @@
                 <a href="">Accesibilidad</a>
             </p>
 
-            <p>
-                <a href="">Soporte y Ayuda</a>
-            </p>
+            <p><a href="">Soporte y Ayuda</a></p>
 
             <p>
                 © Todos los derechos reservados,
                 <time datetime="2026">2026</time>,
-                Gramatech.
+                GrammaTech.
             </p>
 
         </nav>
 
-        <nav class="redes-footer"
-            aria-label="Redes sociales">
+        <nav class="redes-footer" aria-label="Redes sociales">
 
             <a href="#">
-                <img
-                    src="../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg"
+                <img src="../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg"
                     alt="Instagram">
             </a>
 
             <a href="#">
-                <img
-                    src="../../images/iconosBlack-svg/facebook-rounded-svgr.svg"
+                <img src="../../images/iconosBlack-svg/facebook-rounded-svgr.svg"
                     alt="Facebook">
             </a>
 
             <a href="#">
-                <img
-                    src="../../images/iconosBlack-svg/twitter-rounded-svg.svg"
+                <img src="../../images/iconosBlack-svg/twitter-rounded-svg.svg"
                     alt="Twitter">
             </a>
 
@@ -429,11 +227,11 @@
 
     </footer>
 
-<script src="../../js/usuarios.js"></script>
-<script src="../../js/header.js"></script>
-<script src="../../js/buscador.js"></script>
-<script src="perfilUsuario.js"></script>
-<script src="../../js/traductor.js"></script>
+    <script src="../../js/usuarios.js"></script>
+    <script src="../../js/header.js"></script>
+    <script src="../../js/buscador.js"></script>
+    <script src="perfilUsuario.js"></script>
+    <script src="../../js/traductor.js"></script>
 
 </body>
 

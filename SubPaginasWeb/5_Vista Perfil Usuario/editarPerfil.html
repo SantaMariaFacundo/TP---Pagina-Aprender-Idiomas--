@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -7,10 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="../../StyleGeneral.css">
-<link rel="stylesheet" href="../../Styles Generales/headerGeneral.css">
-<link rel="stylesheet" href="perfilUsuario.css">
-
+    <link rel="stylesheet" href="../../StyleGeneral.css">
+    <link rel="stylesheet" href="../../Styles Generales/headerGeneral.css">
+    <link rel="stylesheet" href="perfilUsuario.css">
 
     <link rel="icon"
         href="../../images/img-logo/FAVICON-LOGO-BLANCO.png"
@@ -25,16 +23,13 @@
 
         <div class="logo-explorar">
 
-            <a href="../2_Vista home/home.html"
-                aria-label="GrammaTech, ir al inicio">
-
+            <a href="../2_Vista home/home.html" aria-label="GrammaTech, ir al inicio">
                 <img class="img-logo"
                     src="../../images/img-logo/LOGO-BLANCO.png"
                     alt="Logo de GrammaTech">
 
                 <span class="nombre-logo">Gramma</span>
                 <span class="nombre-logo-tech">Tech</span>
-
             </a>
 
         </div>
@@ -58,9 +53,7 @@
 
             <nav class="navegacion" aria-label="Navegación principal">
 
-                <a href="../2_Vista home/home.html">
-                    Cursos
-                </a>
+                <a href="../2_Vista home/home.html">Cursos</a>
 
                 <a class="pagina-actual"
                     href="perfilUsuario.html"
@@ -83,27 +76,18 @@
                 name="idioma"
                 aria-label="Seleccionar idioma">
 
-                <option value="espanol" lang="es">
-                    Es
-                </option>
-
-                <option value="english" lang="en">
-                    En
-                </option>
+                <option value="espanol" lang="es">Es</option>
+                <option value="english" lang="en">En</option>
 
             </select>
-
-            <!-- Menú desplegable del usuario -->
 
             <details class="menu-usuario">
 
                 <summary aria-label="Abrir menú de usuario">
-
                     <img
                         src="../../images/img-index/usuario.png"
                         alt=""
                         class="icono-usuario">
-
                 </summary>
 
                 <div class="opciones-usuario">
@@ -131,8 +115,6 @@
             </p>
 
         </hgroup>
-
-        <!-- Formulario para modificar los datos de la cuenta -->
 
         <form class="formulario-perfil"
             aria-label="Editar perfil">
@@ -191,49 +173,42 @@
 
                 <p>
                     <strong>Miembro desde:</strong>
-                    <time id="fecha-registro" datetime="">
-                    </time>
+                    <time id="fecha-registro" datetime=""></time>
                 </p>
-
-                <div class="campo">
-
-                    <label for="idioma-interfaz">
-                        Idioma principal de la interfaz
-                    </label>
-
-                    <select id="idioma-interfaz"
-                        name="idioma-interfaz">
-
-                        <option value="espanol">
-                            Español
-                        </option>
-
-                        <option value="ingles">
-                            Inglés
-                        </option>
-
-                        <option value="aleman">
-                            Alemán
-                        </option>
-
-                        <option value="chino">
-                            Chino Mandarín
-                        </option>
-
-                    </select>
-
-                </div>
 
             </section>
 
-            <!-- Seguridad de la cuenta -->
+            <div class="guardar">
 
-            <section class="seguridad"
-                aria-labelledby="titulo-seguridad">
+                <button class="guardar-cambios" type="submit">
+                    Guardar cambios
+                </button>
 
-                <h2 id="titulo-seguridad">
-                    SEGURIDAD
-                </h2>
+                <p id="mensaje-datos"
+                    role="status"
+                    aria-live="polite">
+                </p>
+
+            </div>
+
+        </form>
+
+        <section class="seguridad seguridad-edicion"
+            aria-labelledby="titulo-seguridad">
+
+            <h2 id="titulo-seguridad">
+                SEGURIDAD
+            </h2>
+
+            <button type="button"
+                id="btn-mostrar-password"
+                class="guardar-cambios"
+                aria-expanded="false"
+                aria-controls="panel-password">
+                Cambiar contraseña
+            </button>
+
+            <form id="panel-password" hidden>
 
                 <div class="campo">
 
@@ -243,8 +218,8 @@
 
                     <input type="password"
                         id="password-actual"
-                        name="password-actual"
-                        autocomplete="current-password">
+                        autocomplete="current-password"
+                        required>
 
                 </div>
 
@@ -256,8 +231,9 @@
 
                     <input type="password"
                         id="password-nueva"
-                        name="password-nueva"
-                        autocomplete="new-password">
+                        autocomplete="new-password"
+                        minlength="10"
+                        required>
 
                 </div>
 
@@ -269,23 +245,24 @@
 
                     <input type="password"
                         id="password-confirmar"
-                        name="password-confirmar"
-                        autocomplete="new-password">
+                        autocomplete="new-password"
+                        minlength="10"
+                        required>
 
                 </div>
 
-            </section>
-
-            <div class="guardar">
-
-                <button class="guardar-cambios"
-                    type="submit">
-                    Guardar cambios
+                <button type="submit" class="guardar-cambios">
+                    Guardar nueva contraseña
                 </button>
 
-            </div>
+            </form>
 
-        </form>
+            <p id="mensaje-password"
+                role="status"
+                aria-live="polite">
+            </p>
+
+        </section>
 
     </main>
 
@@ -355,11 +332,11 @@
 
     </footer>
 
-<script src="../../js/usuarios.js"></script>
-<script src="../../js/header.js"></script>
-<script src="../../js/buscador.js"></script>
-<script src="editarPerfilFunciones.js"></script>
-<script src="../../js/traductor.js"></script>
+    <script src="../../js/usuarios.js"></script>
+    <script src="../../js/header.js"></script>
+    <script src="../../js/buscador.js"></script>
+    <script src="editarPerfilFunciones.js"></script>
+    <script src="../../js/traductor.js"></script>
 
 </body>
 
