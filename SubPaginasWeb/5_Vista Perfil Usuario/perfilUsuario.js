@@ -1,146 +1,225 @@
 
-const formulario = document.querySelector(".formulario-perfil");
+console.log("Perfil de usuario conectado correctamente");
+
+// Obtener los elementos del HTML
+
+const formularioPerfil = document.querySelector(".formulario-perfil");
+
 const selectorIdioma = document.getElementById("idioma-interfaz");
 
 const passwordActual = document.getElementById("password-actual");
 const passwordNueva = document.getElementById("password-nueva");
 const passwordConfirmar = document.getElementById("password-confirmar");
 
-const CLAVE_PERFIL = "grammatech_perfil_demo";
-const CLAVE_SESION = "grammatech_usuario_activo";
+const tituloNombre = document.getElementById("titulo-nombre-usuario");
+const nombreUsuario = document.querySelector(".nombre-usuario");
+const avatar = document.querySelector(".avatar");
 
-const datosIniciales = {
-    nombre: "Juan Pérez",
-    usuario: "@juanperez_web",
-    correo: "juan.perez@alumnos.unlam.edu.ar",
-    idioma: "espanol",
-    password: "Demo1234!"
-};
-
-function obtenerPerfil() {
-    const datos = localStorage.getItem(CLAVE_PERFIL);
-
-    if (datos) {
-        try {
-            const guardado = JSON.parse(datos);
-
-            if (guardado && typeof guardado === "object") {
-                return { ...datosIniciales, ...guardado };
-            }
-        } catch (error) {
-            console.error("Error al recuperar el perfil:", error);
-        }
-    }
-
-    return { ...datosIniciales };
-}
-
-let perfil = obtenerPerfil();
-
-// Actualizar texto sin eliminar enlaces ni etiquetas HTML
-function actualizarTexto(contenedor, texto) {
-    if (!contenedor) {
-        return;
-    }
-
-    const nodo = Array.from(contenedor.childNodes).find(
-        elemento => elemento.nodeType === Node.TEXT_NODE &&
-                    elemento.textContent.trim() !== ""
-    );
-
-    if (nodo) {
-        nodo.textContent = " " + texto + " ";
-    }
-}
-
-// Mostrar nombre
-document.getElementById("titulo-nombre-usuario").textContent =
-    perfil.nombre;
-
-// Mostrar nombre de usuario
-document.querySelector(".nombre-usuario").textContent =
-    perfil.usuario;
-
-// Mostrar correo sin borrar el botón Editar
 const correoVisible = document.querySelector(
     ".informacion-usuario p:not(.nombre-usuario)"
 );
 
-actualizarTexto(correoVisible, perfil.correo);
-
-// Mostrar datos de la cuenta
 const datosCuenta = document.querySelectorAll(".datos-cuenta p");
 
-actualizarTexto(datosCuenta[0], perfil.nombre);
-actualizarTexto(datosCuenta[1], perfil.usuario);
+const fechaRegistro = document.querySelector(".datos-cuenta time");
 
-// Actualizar avatar con iniciales
-const iniciales = perfil.nombre
-    .trim()
-    .split(/\s+/)
-    .slice(0, 2)
-    .map(palabra => palabra[0])
-    .join("")
-    .toUpperCase();
+const tituloLiga = document.getElementById("titulo-logro-liga");
+const tituloRacha = document.getElementById("titulo-logro-racha");
+const tituloXp = document.getElementById("titulo-logro-xp");
 
-document.querySelector(".avatar").textContent = iniciales;
+// Recuperar la cuenta que inició sesión
 
-// Recuperar el idioma seleccionado
-selectorIdioma.value = perfil.idioma;
+const usuarioActivo = obtenerUsuarioActivo();
 
-// Guardar cambios desde la vista principal
-formulario.addEventListener("submit", function(event) {
+// Verificar que haya una sesión activa
 
-    event.preventDefault();
+if (!usuarioActivo) {
 
-    const actual = passwordActual.value;
-    const nueva = passwordNueva.value;
-    const confirmar = passwordConfirmar.value;
+    window.location.replace("../1_Vista Login/login.html");
 
-    if (actual !== "" || nueva !== "" || confirmar !== "") {
+} else {
 
-        if (actual !== perfil.password) {
-            alert("La contraseña actual es incorrecta.");
+    // Actualizar un texto sin eliminar los enlaces Editar
+
+    function actualizarTexto(contenedor, texto) {
+
+        if (!contenedor) {
             return;
         }
 
-        if (nueva.length < 8) {
-            alert("La nueva contraseña debe tener al menos 8 caracteres.");
-            return;
-        }
-
-        if (nueva !== confirmar) {
-            alert("Las contraseñas nuevas no coinciden.");
-            return;
-        }
-
-        perfil.password = nueva;
-    }
-
-    perfil.idioma = selectorIdioma.value;
-
-    try {
-        localStorage.setItem(
-            CLAVE_PERFIL,
-            JSON.stringify(perfil)
+        const nodoTexto = Array.from(contenedor.childNodes).find(
+            nodo =>
+                nodo.nodeType === Node.TEXT_NODE &&
+                nodo.textContent.trim() !== ""
         );
-    } catch (error) {
-        alert("No se pudieron guardar los cambios.");
-        return;
+
+        if (nodoTexto) {
+            nodoTexto.textContent = " " + texto + " ";
+        }
     }
 
-    window.location.href = "cambiosGuardados.html";
-});
+    // Mostrar los datos personales
 
-// Cerrar sesión
-const cerrarSesion = document.querySelector(".cerrar-sesion a");
+    tituloNombre.textContent = usuarioActivo.nombre;
 
-cerrarSesion.addEventListener("click", function(event) {
+    nombreUsuario.textContent = usuarioActivo.usuario;
 
-    event.preventDefault();
+    actualizarTexto(correoVisible, usuarioActivo.correo);
 
-    localStorage.removeItem(CLAVE_SESION);
+    actualizarTexto(datosCuenta[0], usuarioActivo.nombre);
 
-    window.location.href = "../../index.html";
-});
+    actualizarTexto(datosCuenta[1], usuarioActivo.usuario);
 
+    // Mostrar iniciales del nombre en el avatar
+
+    const iniciales = usuarioActivo.nombre
+        .trim()
+        .split(/\s+/)
+        .slice(0, 2)
+        .map(palabra => palabra.charAt(0))
+        .join("")
+        .toUpperCase();
+
+    avatar.textContent = iniciales;
+
+    // Mostrar la fecha de registro
+
+    if (fechaRegistro && usuarioActivo.fechaRegistro) {
+
+        const fecha = new Date(usuarioActivo.fechaRegistro);
+
+        if (!Number.isNaN(fecha.getTime())) {
+
+            fechaRegistro.dateTime = fecha.toISOString().slice(0, 10);
+
+            fechaRegistro.textContent = fecha.toLocaleDateString(
+                "es-AR",
+                {
+                    month: "long",
+                    year: "numeric"
+                }
+            );
+
+        }
+    }
+
+    // Cargar el idioma guardado
+
+    selectorIdioma.value = usuarioActivo.idioma || "espanol";
+
+    // Mostrar los logros de la cuenta
+
+    const liga = usuarioActivo.liga || "bronce";
+
+    tituloLiga.textContent =
+        "Liga " + liga.charAt(0).toUpperCase() + liga.slice(1);
+
+    const diasRacha = Number(usuarioActivo.racha) || 0;
+
+    tituloRacha.textContent =
+        "Racha de " + diasRacha +
+        (diasRacha === 1 ? " día" : " días");
+
+    const experiencia = Number(usuarioActivo.xp) || 0;
+
+    tituloXp.textContent =
+        experiencia.toLocaleString("es-AR") + " XP";
+
+    // Detectar el botón Guardar cambios
+
+    formularioPerfil.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const idioma = selectorIdioma.value;
+
+        const actual = passwordActual.value;
+        const nueva = passwordNueva.value;
+        const confirmar = passwordConfirmar.value;
+
+        // Comprobar si el idioma fue modificado
+
+        const modificoIdioma =
+            idioma !== (usuarioActivo.idioma || "espanol");
+
+        // Comprobar si se intenta cambiar la contraseña
+
+        const intentaCambiarContrasena =
+            actual !== "" ||
+            nueva !== "" ||
+            confirmar !== "";
+
+        // Evitar guardar cuando no hay modificaciones
+
+        if (!modificoIdioma && !intentaCambiarContrasena) {
+            alert("No realizaste ningún cambio en tu perfil.");
+            return;
+        }
+
+        // Preparar los datos que se van a guardar
+
+        const cambios = {
+            idioma: idioma
+        };
+
+        // Validar el cambio de contraseña
+
+        if (intentaCambiarContrasena) {
+
+            if (actual !== usuarioActivo.contrasena) {
+                alert("La contraseña actual es incorrecta.");
+                return;
+            }
+
+            const contrasenaValida =
+                nueva.length >= 10 &&
+                /[A-Z]/.test(nueva) &&
+                /[a-z]/.test(nueva) &&
+                /[0-9]/.test(nueva);
+
+            if (!contrasenaValida) {
+                alert(
+                    "La nueva contraseña debe tener al menos 10 caracteres, una mayúscula, una minúscula y un número."
+                );
+                return;
+            }
+
+            if (nueva !== confirmar) {
+                alert("Las contraseñas nuevas no coinciden.");
+                return;
+            }
+
+            cambios.contrasena = nueva;
+        }
+
+        // Guardar los cambios en la cuenta activa
+
+        try {
+
+            const guardado = actualizarUsuario(cambios);
+
+            if (!guardado) {
+                alert("No se pudieron guardar los cambios.");
+                return;
+            }
+
+            // Limpiar los campos de contraseña
+
+            passwordActual.value = "";
+            passwordNueva.value = "";
+            passwordConfirmar.value = "";
+
+            // Mostrar la pantalla de confirmación
+
+            window.location.href = "cambiosGuardados.html";
+
+        } catch (error) {
+
+            console.error("Error al guardar el perfil:", error);
+            alert("No se pudieron guardar los cambios.");
+
+        }
+
+    });
+
+}

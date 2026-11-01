@@ -1,6 +1,8 @@
 
 console.log("Clasificación conectada correctamente");
 
+// Obtener los elementos del HTML
+
 const selectorLiga = document.getElementById("liga");
 const tituloLiga = document.getElementById("titulo-liga-actual");
 const descripcionLiga = document.getElementById("descripcion-liga");
@@ -10,10 +12,8 @@ const puestoActual = document.getElementById("puesto-actual");
 const xpSemana = document.getElementById("xp-semana");
 const xpPrimerPuesto = document.getElementById("xp-primer-puesto");
 
-const CLAVE_PERFIL = "grammatech_perfil_demo";
-const CLAVE_RANKING = "grammatech_ranking_demo";
-
 // Información de las ligas
+
 const ligas = {
     bronce: {
         nombre: "LIGA BRONCE",
@@ -31,6 +31,318 @@ const ligas = {
         puestosAscenso: 0
     }
 };
+
+// Obtener el usuario que inició sesión
+
+const usuarioActivoClasificacion = obtenerUsuarioActivo();
+
+// Verificar que exista una sesión activa
+
+if (!usuarioActivoClasificacion) {
+
+    window.location.replace("../1_Vista Login/login.html");
+
+} else {
+
+    // Mostrar inicialmente la liga del usuario
+
+    const ligaUsuario = usuarioActivoClasificacion.liga || "bronce";
+
+    selectorLiga.value = ligas[ligaUsuario] ? ligaUsuario : "bronce";
+
+    // Obtener las iniciales para el avatar
+
+    function obtenerIniciales(nombre) {
+
+        return String(nombre || "")
+            .trim()
+            .split(/\s+/)
+            .slice(0, 2)
+            .map(function(palabra) {
+                return palabra.charAt(0);
+            })
+            .join("")
+            .toUpperCase();
+
+    }
+
+    // Obtener los XP semanales como número
+
+    function obtenerXpSemanal(usuario) {
+
+        const xp = Number(usuario.xpSemanal);
+
+        if (!Number.isFinite(xp)) {
+            return 0;
+        }
+
+        return Math.max(0, xp);
+    }
+
+    // Crear una celda de la tabla
+
+    function crearCelda(fila, contenido) {
+
+        const celda = document.createElement("td");
+
+        celda.textContent = contenido;
+
+        fila.appendChild(celda);
+
+        return celda;
+    }
+
+    // Actualizar un número del resumen
+
+    function actualizarNumero(elemento, numero) {
+
+        elemento.value = numero;
+        elemento.textContent = numero.toLocaleString("es-AR");
+
+    }
+
+    // Generar la tabla con usuarios registrados
+
+    function mostrarClasificacion() {
+
+        const ligaSeleccionada = selectorLiga.value;
+
+        const informacionLiga = ligas[ligaSeleccionada];
+
+        if (!informacionLiga) {
+            return;
+        }
+
+        // Actualizar título y descripción
+
+        tituloLiga.textContent = informacionLiga.nombre;
+
+        descripcionLiga.textContent = informacionLiga.descripcion;
+
+        // Obtener los usuarios reales registrados
+
+        const usuarios = obtenerUsuarios();
+
+        // Filtrar solamente los usuarios de la liga elegida
+
+        const usuariosLiga = usuarios.filter(function(usuario) {
+
+            return (usuario.liga || "bronce") === ligaSeleccionada;
+
+        });
+
+        // Ordenar de mayor a menor XP semanal
+
+        usuariosLiga.sort(function(a, b) {
+
+            const diferencia = obtenerXpSemanal(b) - obtenerXpSemanal(a);
+
+            if (diferencia !== 0) {
+                return diferencia;
+            }
+
+            // Si tienen los mismos XP, desempatar por usuario
+
+            return String(a.usuario || "").localeCompare(
+                String(b.usuario || ""),
+                "es"
+            );
+
+        });
+
+        // Limpiar las filas anteriores
+
+        tabla.innerHTML = "";
+
+        // Mostrar un mensaje cuando la liga está vacía
+
+        if (usuariosLiga.length === 0) {
+
+            const fila = document.createElement("tr");
+
+            const celda = document.createElement("td");
+
+            celda.colSpan = 5;
+            celda.className = "mensaje-sin-usuarios";
+            celda.textContent = "Todavía no hay usuarios en esta liga.";
+
+            fila.appendChild(celda);
+            tabla.appendChild(fila);
+
+        }
+
+        // Crear una fila para cada usuario
+
+        usuariosLiga.forEach(function(usuario, indice) {
+
+            const posicion = indice + 1;
+
+            const fila = document.createElement("tr");
+
+            const esUsuarioActivo =
+                usuario.id === usuarioActivoClasificacion.id;
+
+            // Resaltar nuestra propia cuenta
+
+            if (esUsuarioActivo) {
+                fila.classList.add("usuario-actual");
+            }
+
+            // Columna: puesto
+
+            crearCelda(fila, posicion);
+
+            // Columna: avatar
+
+            const celdaAvatar = document.createElement("td");
+
+            const avatar = document.createElement("div");
+
+            avatar.className = "avatar-ranking";
+            avatar.textContent = obtenerIniciales(usuario.nombre);
+
+            celdaAvatar.appendChild(avatar);
+            fila.appendChild(celdaAvatar);
+
+            // Columna: usuario
+
+            const nombreVisible = usuario.usuario || usuario.nombre || "Usuario";
+
+            crearCelda(fila, nombreVisible);
+
+            // Columna: XP semanal
+
+            const xp = obtenerXpSemanal(usuario);
+
+            crearCelda(fila, xp.toLocaleString("es-AR"));
+
+            // Columna: estado
+
+            let estado = "Participando";
+
+            if (
+                informacionLiga.puestosAscenso > 0 &&
+                posicion <= informacionLiga.puestosAscenso
+            ) {
+                estado = "Zona de ascenso";
+            }
+
+            crearCelda(fila, estado);
+
+            tabla.appendChild(fila);
+
+        });
+
+        // Actualizar las tarjetas de nuestra posición
+
+        mostrarPosicionPersonal(usuariosLiga, ligaSeleccionada);
+
+    }
+
+    // Mostrar la posición del usuario activo
+
+    function mostrarPosicionPersonal(usuariosLiga, ligaSeleccionada) {
+
+        const ligaActual = usuarioActivoClasificacion.liga || "bronce";
+
+        // Si estamos viendo otra liga, no tenemos puesto allí
+
+        if (ligaSeleccionada !== ligaActual) {
+
+            puestoActual.textContent = "—";
+            puestoActual.value = 0;
+
+            actualizarNumero(
+                xpSemana,
+                obtenerXpSemanal(usuarioActivoClasificacion)
+            );
+
+            xpPrimerPuesto.textContent = "—";
+            xpPrimerPuesto.value = 0;
+
+            return;
+        }
+
+        // Buscar nuestra posición en el ranking
+
+        const indiceUsuario = usuariosLiga.findIndex(function(usuario) {
+
+            return usuario.id === usuarioActivoClasificacion.id;
+
+        });
+
+        if (indiceUsuario === -1) {
+
+            puestoActual.textContent = "—";
+            puestoActual.value = 0;
+
+            actualizarNumero(
+                xpSemana,
+                obtenerXpSemanal(usuarioActivoClasificacion)
+            );
+
+            xpPrimerPuesto.textContent = "—";
+            xpPrimerPuesto.value = 0;
+
+            return;
+        }
+
+        // Mostrar el puesto que ocupamos
+
+        const posicion = indiceUsuario + 1;
+
+        actualizarNumero(puestoActual, posicion);
+
+        // Mostrar nuestros XP semanales
+
+        const misXp = obtenerXpSemanal(usuarioActivoClasificacion);
+
+        actualizarNumero(xpSemana, misXp);
+
+        // Calcular cuántos XP faltan para superar al primero
+
+        if (posicion === 1) {
+
+            actualizarNumero(xpPrimerPuesto, 0);
+
+        } else {
+
+            const primerUsuario = usuariosLiga[0];
+
+            const xpLider = obtenerXpSemanal(primerUsuario);
+
+            const xpNecesarios = Math.max(0, xpLider - misXp + 1);
+
+            actualizarNumero(xpPrimerPuesto, xpNecesarios);
+
+        }
+
+    }
+
+    // Evitar que el formulario del selector recargue la página
+
+    const formularioLiga = document.querySelector(".selector-liga");
+
+    formularioLiga.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+    });
+
+    // Actualizar la tabla cuando cambiamos de liga
+
+    selectorLiga.addEventListener("change", function() {
+
+        mostrarClasificacion();
+
+    });
+
+    // Mostrar la clasificación al entrar
+
+    mostrarClasificacion();
+
+}
+
 
 // Participantes de demostración
 const participantesIniciales = [
