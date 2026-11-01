@@ -1,5 +1,11 @@
+// Importamos los módulos compartidos necesarios para esta página.
+import "../../js/header.js";
+import "../../js/buscador.js";
+import "../../js/traductor.js";
 
-console.log("Home conectado correctamente");
+// Importamos las funciones de usuarios utilizadas en esta vista.
+import { obtenerUsuarioActivo, actualizarUsuario } from "../../js/usuarios.js";
+
 
 // Botones para agregar y quitar cursos.
 const botonesAgregar = document.querySelectorAll("[data-curso]");

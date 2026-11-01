@@ -1,5 +1,11 @@
+// Importamos los módulos compartidos necesarios para esta página.
+import "../../js/header.js";
+import "../../js/buscador.js";
+import "../../js/traductor.js";
 
-console.log("Perfil de usuario conectado correctamente");
+// Importamos las funciones de usuarios utilizadas en esta vista.
+import { obtenerUsuarioActivo } from "../../js/usuarios.js";
+
 
 const tituloNombre = document.getElementById("titulo-nombre-usuario");
 const nombreUsuario = document.querySelector(".nombre-usuario");

@@ -1,3 +1,15 @@
+// Importamos los ejercicios y las funciones de progreso de cada lección.
+import { ejerciciosLecciones } from "./datosLecciones.js";
+import { leccionCompletada, nivelDisponible, guardarProgresoLeccion } from "./progresoLecciones.js";
+
+// Importamos los módulos compartidos necesarios para esta página.
+import "../../js/header.js";
+import "../../js/buscador.js";
+import "../../js/traductor.js";
+
+// Importamos las funciones de usuarios utilizadas en esta vista.
+import { obtenerUsuarioActivo } from "../../js/usuarios.js";
+
 
 const actividad = document.querySelector("main[data-idioma][data-leccion]");
 

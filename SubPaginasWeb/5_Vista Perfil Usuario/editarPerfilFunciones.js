@@ -1,5 +1,11 @@
+// Importamos los módulos compartidos necesarios para esta página.
+import "../../js/header.js";
+import "../../js/buscador.js";
+import "../../js/traductor.js";
 
-console.log("Editar perfil conectado correctamente");
+// Importamos las funciones de usuarios utilizadas en esta vista.
+import { obtenerUsuarios, obtenerUsuarioActivo, actualizarUsuario } from "../../js/usuarios.js";
+
 
 const formularioEditar = document.querySelector(".formulario-perfil");
 

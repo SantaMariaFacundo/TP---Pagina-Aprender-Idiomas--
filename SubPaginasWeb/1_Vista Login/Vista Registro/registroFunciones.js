@@ -1,4 +1,8 @@
-console.log("Registro conectado correctamente");
+// Importamos los módulos compartidos necesarios para esta página.
+import "../../../js/traductor.js";
+
+// Importamos las funciones de usuarios utilizadas en esta vista.
+import { obtenerUsuarios, guardarUsuarios, registrarUsuario } from "../../../js/usuarios.js";
 
 const formularioRegistro = document.getElementById("formulario-registro");
 

@@ -1,8 +1,11 @@
+// Importamos las funciones de usuarios utilizadas en esta vista.
+import { obtenerUsuarioActivo, actualizarUsuario } from "../../js/usuarios.js";
+
 
  // Este archivo controla el progreso y las recompensas.
 
  // Consultar si una lección ya fue completada.
-function leccionCompletada(usuario, idioma, idLeccion) {
+export function leccionCompletada(usuario, idioma, idLeccion) {
 
     const curso = usuario.cursos?.[idioma];
 
@@ -24,7 +27,7 @@ function examenAprobado(usuario, idioma, nivel) {
 }
 
 // Comprobar si el nivel está desbloqueado.
-function nivelDisponible(usuario, idioma, nivel) {
+export function nivelDisponible(usuario, idioma, nivel) {
 
     if (nivel === "a") {
         return true;
@@ -55,7 +58,7 @@ function fechaLocal(fecha = new Date()) {
 }
 
 // Guardar una actividad completada y sus recompensas.
-function guardarProgresoLeccion(idioma, idLeccion) {
+export function guardarProgresoLeccion(idioma, idLeccion) {
 
     const usuario = obtenerUsuarioActivo();
 

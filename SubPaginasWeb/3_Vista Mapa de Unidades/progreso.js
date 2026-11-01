@@ -1,5 +1,12 @@
+// Importamos los módulos compartidos necesarios para esta página.
+import "../../js/header.js";
+import "../../js/buscador.js";
+import "../../js/traductor.js";
+import "./opiniones.js";
 
-console.log("Mapa de unidades conectado correctamente");
+// Importamos las funciones de usuarios utilizadas en esta vista.
+import { obtenerUsuarioActivo } from "../../js/usuarios.js";
+
 
 // Buscar el mapa del idioma que está abierto
 

@@ -1,5 +1,9 @@
+// Importamos los módulos compartidos necesarios para esta página.
+import "../../js/traductor.js";
 
-console.log("Recuperación de contraseña conectada correctamente");
+// Importamos las funciones de usuarios utilizadas en esta vista.
+import { obtenerUsuarios } from "../../js/usuarios.js";
+
 
 const formularioRecuperacion = document.getElementById("formulario-recuperacion");
 const campoRecuperacion = document.getElementById("correo-recuperacion");

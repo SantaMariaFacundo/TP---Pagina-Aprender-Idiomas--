@@ -1,44 +1,31 @@
+// Importamos las funciones compartidas para consultar y cerrar la sesión.
+import { obtenerUsuarioActivo, cerrarSesion } from "./usuarios.js";
 
-const rutaHeaderSesion = document.currentScript.src;
+// import.meta.url reemplaza a document.currentScript en los módulos.
+const rutaLogin = new URL(
+    "../SubPaginasWeb/1_Vista Login/login.html",
+    import.meta.url
+);
 
-document.addEventListener("DOMContentLoaded", function() {
+const menuUsuario = document.querySelector(".menu-usuario");
+const botonCerrarSesion = document.getElementById("btn-cerrar-sesion");
+const usuarioActivo = obtenerUsuarioActivo();
 
-    const menuUsuario = document.querySelector(".menu-usuario");
-    const botonCerrarSesion = document.getElementById("btn-cerrar-sesion");
-
-    // Obtener el usuario que inició sesión
-    const usuarioActivo = obtenerUsuarioActivo();
-
-    // Construir la ruta al Login
-    const rutaLogin = new URL(
-        "../SubPaginasWeb/1_Vista Login/login.html",
-        rutaHeaderSesion
-    );
-
-    // Impedir el acceso a las páginas privadas sin sesión
-    if (!usuarioActivo) {
-        window.location.replace(rutaLogin.href);
-        return;
-    }
-
-    // Mostrar el menú del usuario
+// Impedimos entrar a una vista privada cuando no hay sesión.
+if (!usuarioActivo) {
+    window.location.replace(rutaLogin.href);
+} else {
+    // Mostramos las opciones de la cuenta al usuario identificado.
     if (menuUsuario) {
         menuUsuario.style.display = "block";
     }
 
-    // Cerrar sesión cuando se presiona la opción
+    // Asociamos el cierre de sesión con el botón del encabezado.
     if (botonCerrarSesion) {
-
         botonCerrarSesion.addEventListener("click", function(event) {
-
             event.preventDefault();
-
             cerrarSesion();
-
             window.location.replace(rutaLogin.href);
-
         });
-
     }
-
-});
+}

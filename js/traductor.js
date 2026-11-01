@@ -1,3 +1,5 @@
+// El traductor utiliza los datos de la sesión desde el módulo de usuarios.
+import { obtenerUsuarioActivo, actualizarUsuario } from "./usuarios.js";
 
 
 (function () {

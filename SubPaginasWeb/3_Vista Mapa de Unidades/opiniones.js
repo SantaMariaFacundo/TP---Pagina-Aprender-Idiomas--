@@ -1,5 +1,6 @@
+// Importamos las funciones de usuarios utilizadas en esta vista.
+import { obtenerUsuarioActivo } from "../../js/usuarios.js";
 
-console.log("Opiniones de cursos conectadas correctamente");
 
 (function () {
 

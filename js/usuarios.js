@@ -2,7 +2,7 @@ const CLAVE_USUARIOS = "grammatech_usuarios";
 const CLAVE_SESION = "grammatech_usuario_activo";
 
 // Obtener el lunes de la semana actual.
-function obtenerSemanaActual() {
+export function obtenerSemanaActual() {
     const fecha = new Date();
     const dia = fecha.getDay();
 
@@ -18,7 +18,7 @@ function obtenerSemanaActual() {
 
 // Obtener los usuarios guardados.
 
-function obtenerUsuarios() {
+export function obtenerUsuarios() {
 
     try {
 
@@ -119,7 +119,7 @@ function obtenerUsuarios() {
 }
 
 // Guardar todos los usuarios.
-function guardarUsuarios(usuarios) {
+export function guardarUsuarios(usuarios) {
     localStorage.setItem(
         CLAVE_USUARIOS,
         JSON.stringify(usuarios)
@@ -127,7 +127,7 @@ function guardarUsuarios(usuarios) {
 }
 
 // Obtener la cuenta que inició sesión.
-function obtenerUsuarioActivo() {
+export function obtenerUsuarioActivo() {
     const idActivo = localStorage.getItem(CLAVE_SESION);
 
     if (!idActivo) {
@@ -140,7 +140,7 @@ function obtenerUsuarioActivo() {
 }
 
 // Registrar una cuenta nueva.
-function registrarUsuario(nombre, usuario, correo, contrasena) {
+export function registrarUsuario(nombre, usuario, correo, contrasena) {
     const usuarios = obtenerUsuarios();
 
     const usuarioOcupado = usuarios.some(
@@ -221,7 +221,7 @@ function registrarUsuario(nombre, usuario, correo, contrasena) {
 }
 
 // Iniciar sesión.
-function iniciarSesion(identificador, contrasena) {
+export function iniciarSesion(identificador, contrasena) {
     const usuarios = obtenerUsuarios();
 
     const usuario = usuarios.find(
@@ -250,12 +250,12 @@ function iniciarSesion(identificador, contrasena) {
 }
 
 // Cerrar sesión.
-function cerrarSesion() {
+export function cerrarSesion() {
     localStorage.removeItem(CLAVE_SESION);
 }
 
 // Actualizar los datos del usuario activo.
-function actualizarUsuario(datosActualizados) {
+export function actualizarUsuario(datosActualizados) {
     const usuarios = obtenerUsuarios();
     const usuarioActivo = obtenerUsuarioActivo();
 
@@ -283,7 +283,7 @@ function actualizarUsuario(datosActualizados) {
 }
 
 // Sumar experiencia al usuario activo.
-function sumarExperiencia(cantidad) {
+export function sumarExperiencia(cantidad) {
     const usuario = obtenerUsuarioActivo();
 
     if (!usuario || cantidad <= 0) {

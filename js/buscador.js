@@ -1,8 +1,11 @@
+// Importamos la consulta de sesión que necesita el buscador.
+import { obtenerUsuarioActivo } from "./usuarios.js";
+
 
  // Buscador compartido por todas las páginas de GrammaTech.
 
 // Obtener la ubicación del archivo JavaScript.
-const rutaBuscador = document.currentScript.src;
+const rutaBuscador = import.meta.url;
 
 // Calcular la carpeta principal del proyecto.
 const rutaPrincipal = new URL("../", rutaBuscador);

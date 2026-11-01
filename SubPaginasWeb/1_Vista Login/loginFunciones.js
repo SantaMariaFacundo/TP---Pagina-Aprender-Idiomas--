@@ -1,5 +1,10 @@
+// Importamos los módulos compartidos necesarios para esta página.
+import "../../js/buscador.js";
+import "../../js/traductor.js";
 
-console.log("Login conectado correctamente");
+// Importamos las funciones de usuarios utilizadas en esta vista.
+import { iniciarSesion } from "../../js/usuarios.js";
+
 
 const formularioLogin = document.querySelector(
     'form[aria-label="Iniciar sesión"]'

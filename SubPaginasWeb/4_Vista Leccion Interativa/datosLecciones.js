@@ -2,7 +2,7 @@
  // Preguntas y respuestas de Inglés, Alemán y Chino.
  // Los niveles A, B y C reutilizan estos ejercicios.
 
-const ejerciciosLecciones = {
+export const ejerciciosLecciones = {
 
     ingles: {
 
