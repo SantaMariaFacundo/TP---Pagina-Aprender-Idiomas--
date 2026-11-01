@@ -77,9 +77,9 @@ header .buscador-acceder-language .conteiner-search .img-search {
     position: absolute;
     width: auto;
     right: 0.5rem;
-    pointer-events: none;
+    pointer-events: auto;
+    cursor: pointer;
 }
-
 header .buscador-acceder-language .search-class {
     width: 15rem;
     background-color: #F8E9DB;
