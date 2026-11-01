@@ -23,7 +23,7 @@ campoFecha.max = `${anio}-${mes}-${dia}`;
 
 // Detectar cuando el usuario presiona Registrarme
 
-formularioRegistro.addEventListener("submit", function(event) {
+formularioRegistro.addEventListener("submit", function (event) {
 
     event.preventDefault();
 
@@ -117,18 +117,13 @@ formularioRegistro.addEventListener("submit", function(event) {
     const usuarioBase = nombreUsuario;
     let numero = 1;
 
-    // Evitar nombres de usuario repetidos
+    while (usuariosRegistrados.find(usuario =>
+        usuario.usuario.toLowerCase() === nombreUsuario.toLowerCase()
+    )) {
 
-    while (
-        usuariosRegistrados.some(
-            usuario =>
-                usuario.usuario.toLowerCase() === nombreUsuario.toLowerCase()
-        )
-    ) {
-        nombreUsuario = usuarioBase.substring(
-            0,
-            21 - String(numero).length
-        ) + numero;
+        const sufijo = String(numero);
+
+        nombreUsuario = usuarioBase.substring(0, 21 - sufijo.length) + sufijo;
 
         numero++;
     }
