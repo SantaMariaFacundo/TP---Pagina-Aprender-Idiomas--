@@ -1,21 +1,18 @@
 
 console.log("Home conectado correctamente");
 
-// Obtener los botones para agregar y quitar cursos
-
+// Botones para agregar y quitar cursos.
 const botonesAgregar = document.querySelectorAll("[data-curso]");
 const botonesQuitar = document.querySelectorAll("[data-cerrar]");
 
-// Guardar las tarjetas de los tres cursos
-
+// Tarjetas de los cursos.
 const tarjetas = {
     ingles: document.getElementById("card-ingles-progreso"),
     aleman: document.getElementById("card-aleman-progreso"),
     chino: document.getElementById("card-chino-progreso")
 };
 
-// Guardar los nombres y archivos de cada idioma
-
+// Nombres y archivos de los idiomas.
 const nombres = {
     ingles: "Inglés",
     aleman: "Alemán",
@@ -28,28 +25,56 @@ const archivos = {
     chino: "progreso-chino.html"
 };
 
-// Obtener los elementos de Home
-
+// Elementos de Home.
 const saludo = document.getElementById("titulo-bienvenida");
 const aviso = document.getElementById("mensajeSinCursos");
 const continuar = document.querySelector(".boton-sc1 a");
 
-// Recuperar el usuario que inició sesión
-
+// Obtener el usuario activo.
 const usuario = obtenerUsuarioActivo();
 
-// Recuperar los cursos agregados por el usuario
-
+// Obtener sus cursos seleccionados.
 let seleccionados = usuario && Array.isArray(usuario.cursosSeleccionados)
     ? [...usuario.cursosSeleccionados]
     : [];
 
-// Calcular el progreso de un curso
+// Usar las traducciones del archivo general.
+function textoHome(texto) {
 
+    if (typeof window.traducirTexto === "function") {
+        return window.traducirTexto(texto);
+    }
+
+    return texto;
+
+}
+
+// Mostrar el nombre del idioma traducido.
+function nombreCurso(id) {
+    return textoHome(nombres[id]);
+}
+
+// Mostrar el saludo del usuario.
+function mostrarSaludo() {
+
+    if (!usuario || !saludo) {
+        return;
+    }
+
+    const idioma = localStorage.getItem("grammatech_idioma");
+
+    if (idioma === "en") {
+        saludo.textContent = "Hello, welcome " + usuario.usuario + ".";
+    } else {
+        saludo.textContent = "Hola bienvenido " + usuario.usuario + ".";
+    }
+
+}
+
+// Calcular el progreso de cada curso.
 function progresoDe(id) {
 
     const actual = obtenerUsuarioActivo();
-
     const curso = (((actual || {}).cursos || {})[id]) || {};
 
     const completadas = curso.leccionesCompletadas || [];
@@ -57,8 +82,7 @@ function progresoDe(id) {
 
     let cantidad = 0;
 
-    // Contar las actividades completadas de cada nivel
-
+    // Contar las actividades y exámenes completados.
     for (const nivel of ["a", "b", "c"]) {
 
         for (const tipo of ["listening", "vocabulario", "gramatica"]) {
@@ -73,16 +97,13 @@ function progresoDe(id) {
 
         }
 
-        // Contar los exámenes aprobados
-
         if (aprobados.includes(nivel)) {
             cantidad++;
         }
 
     }
 
-    // Determinar qué nivel puede realizar el usuario
-
+    // Obtener el nivel desbloqueado.
     const nivelActual = aprobados.includes("b")
         ? "c"
         : aprobados.includes("a")
@@ -101,15 +122,8 @@ function progresoDe(id) {
             ? "B1B2"
             : "C1C2";
 
-    // Construir el enlace al nivel correspondiente
-
     const url = "../3_Vista Mapa de Unidades/" +
-        archivos[id] +
-        "#" +
-        id +
-        suffix;
-
-    // El curso tiene 9 actividades y 3 exámenes
+        archivos[id] + "#" + id + suffix;
 
     return {
         porcentaje: Math.round(cantidad / 12 * 100),
@@ -119,8 +133,7 @@ function progresoDe(id) {
 
 }
 
-// Actualizar el título, porcentaje y botón de cada curso
-
+// Actualizar cada tarjeta.
 function refrescarTarjeta(id) {
 
     const tarjeta = tarjetas[id];
@@ -137,7 +150,9 @@ function refrescarTarjeta(id) {
     const enlace = tarjeta.querySelector(".boton-cards a");
 
     if (titulo) {
-        titulo.textContent = "Curso: " + nombres[id] + " " + datos.titulo;
+        titulo.textContent =
+            textoHome("Curso:") + " " +
+            nombreCurso(id) + " " + datos.titulo;
     }
 
     if (porcentaje) {
@@ -154,20 +169,20 @@ function refrescarTarjeta(id) {
         enlace.href = datos.url;
 
         enlace.textContent = datos.porcentaje
-            ? "Reanudar"
-            : "Empezar";
+            ? textoHome("Reanudar")
+            : textoHome("Empezar");
 
         enlace.setAttribute(
             "aria-label",
-            "Continuar curso de " + nombres[id] + " " + datos.titulo
+            textoHome("Continuar curso de") + " " +
+            nombreCurso(id) + " " + datos.titulo
         );
 
     }
 
 }
 
-// Mostrar solamente los cursos seleccionados
-
+// Mostrar los cursos seleccionados.
 function mostrarCursos() {
 
     Object.keys(tarjetas).forEach(function(id) {
@@ -186,14 +201,12 @@ function mostrarCursos() {
 
     });
 
-    // Mostrar un aviso si no hay cursos seleccionados
-
+    // Mostrar aviso si no hay cursos.
     if (aviso) {
         aviso.style.display = seleccionados.length ? "none" : "flex";
     }
 
-    // Actualizar el botón principal de bienvenida
-
+    // Actualizar el botón principal.
     if (continuar) {
 
         const primero = seleccionados.find(function(id) {
@@ -207,15 +220,14 @@ function mostrarCursos() {
             continuar.href = datos.url;
 
             continuar.textContent =
-                "Continuar lección: " +
-                nombres[primero] +
-                " " +
+                textoHome("Continuar lección:") + " " +
+                nombreCurso(primero) + " " +
                 datos.titulo;
 
         } else {
 
             continuar.href = "#seccion-2";
-            continuar.textContent = "Explorar cursos";
+            continuar.textContent = textoHome("Explorar cursos");
 
         }
 
@@ -223,8 +235,7 @@ function mostrarCursos() {
 
 }
 
-// Guardar los cursos seleccionados en la cuenta
-
+// Guardar los cursos en la cuenta.
 function guardarCursos() {
 
     return !!usuario && actualizarUsuario({
@@ -233,8 +244,7 @@ function guardarCursos() {
 
 }
 
-// Agregar un curso
-
+// Agregar un curso.
 function agregarCurso(id) {
 
     if (!tarjetas[id] || seleccionados.includes(id)) {
@@ -257,8 +267,7 @@ function agregarCurso(id) {
 
 }
 
-// Quitar un curso
-
+// Quitar un curso.
 function quitarCurso(id) {
 
     if (!seleccionados.includes(id)) {
@@ -274,7 +283,6 @@ function quitarCurso(id) {
     if (!guardarCursos()) {
 
         seleccionados = anterior;
-
         alert("No se pudo quitar el curso.");
 
     }
@@ -283,39 +291,33 @@ function quitarCurso(id) {
 
 }
 
-// Conectar los botones Agregar Curso
-
+// Detectar clics en Agregar Curso.
 botonesAgregar.forEach(function(boton) {
 
     boton.addEventListener("click", function() {
-
         agregarCurso(boton.dataset.curso);
-
     });
 
 });
 
-// Conectar los botones para quitar cursos
-
+// Detectar clics en Quitar Curso.
 botonesQuitar.forEach(function(boton) {
 
     boton.addEventListener("click", function() {
-
         quitarCurso(boton.dataset.cerrar);
-
     });
 
 });
 
-// Mostrar la bienvenida personalizada
+// Actualizar Home al cambiar el idioma.
+window.addEventListener("idiomaActualizado", function() {
 
-if (usuario && saludo) {
+    mostrarSaludo();
+    mostrarCursos();
 
-    saludo.textContent =
-        "Hola bienvenido " + usuario.usuario + ".";
+});
 
-}
-
-// Inicializar Home
-
+// Mostrar los datos al abrir Home.
+mostrarSaludo();
 mostrarCursos();
+

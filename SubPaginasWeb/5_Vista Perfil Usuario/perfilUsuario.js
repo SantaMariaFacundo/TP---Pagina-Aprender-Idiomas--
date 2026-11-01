@@ -1,8 +1,7 @@
 
 console.log("Perfil de usuario conectado correctamente");
 
-// Obtener los elementos del HTML
-
+// Obtener los elementos del HTML.
 const formularioPerfil = document.querySelector(".formulario-perfil");
 
 const selectorIdioma = document.getElementById("idioma-interfaz");
@@ -20,18 +19,14 @@ const correoVisible = document.querySelector(
 );
 
 const datosCuenta = document.querySelectorAll(".datos-cuenta p");
-
 const fechaRegistro = document.querySelector(".datos-cuenta time");
 
 const tituloLiga = document.getElementById("titulo-logro-liga");
 const tituloRacha = document.getElementById("titulo-logro-racha");
 const tituloXp = document.getElementById("titulo-logro-xp");
 
-// Recuperar la cuenta que inició sesión
-
-const usuarioActivo = obtenerUsuarioActivo();
-
-// Verificar que haya una sesión activa
+// Obtener el usuario activo.
+let usuarioActivo = obtenerUsuarioActivo();
 
 if (!usuarioActivo) {
 
@@ -39,8 +34,7 @@ if (!usuarioActivo) {
 
 } else {
 
-    // Actualizar un texto sin eliminar los enlaces Editar
-
+    // Actualizar textos sin borrar los enlaces Editar.
     function actualizarTexto(contenedor, texto) {
 
         if (!contenedor) {
@@ -56,80 +50,109 @@ if (!usuarioActivo) {
         if (nodoTexto) {
             nodoTexto.textContent = " " + texto + " ";
         }
+
     }
 
-    // Mostrar los datos personales
+    // Mostrar los datos del usuario.
+    function mostrarPerfil() {
 
-    tituloNombre.textContent = usuarioActivo.nombre;
+        usuarioActivo = obtenerUsuarioActivo();
 
-    nombreUsuario.textContent = usuarioActivo.usuario;
+        if (!usuarioActivo) {
+            return;
+        }
 
-    actualizarTexto(correoVisible, usuarioActivo.correo);
+        tituloNombre.textContent = usuarioActivo.nombre;
+        nombreUsuario.textContent = usuarioActivo.usuario;
 
-    actualizarTexto(datosCuenta[0], usuarioActivo.nombre);
+        actualizarTexto(correoVisible, usuarioActivo.correo);
+        actualizarTexto(datosCuenta[0], usuarioActivo.nombre);
+        actualizarTexto(datosCuenta[1], usuarioActivo.usuario);
 
-    actualizarTexto(datosCuenta[1], usuarioActivo.usuario);
+        // Obtener las iniciales del nombre.
+        const iniciales = usuarioActivo.nombre
+            .trim()
+            .split(/\s+/)
+            .slice(0, 2)
+            .map(palabra => palabra.charAt(0))
+            .join("")
+            .toUpperCase();
 
-    // Mostrar iniciales del nombre en el avatar
+        avatar.textContent = iniciales;
 
-    const iniciales = usuarioActivo.nombre
-        .trim()
-        .split(/\s+/)
-        .slice(0, 2)
-        .map(palabra => palabra.charAt(0))
-        .join("")
-        .toUpperCase();
+        // Mostrar la fecha de registro.
+        if (fechaRegistro && usuarioActivo.fechaRegistro) {
 
-    avatar.textContent = iniciales;
+            const fecha = new Date(usuarioActivo.fechaRegistro);
 
-    // Mostrar la fecha de registro
+            if (!Number.isNaN(fecha.getTime())) {
 
-    if (fechaRegistro && usuarioActivo.fechaRegistro) {
+                fechaRegistro.dateTime = fecha.toISOString().slice(0, 10);
 
-        const fecha = new Date(usuarioActivo.fechaRegistro);
+                fechaRegistro.textContent = fecha.toLocaleDateString(
+                    "es-AR",
+                    {
+                        month: "long",
+                        year: "numeric"
+                    }
+                );
 
-        if (!Number.isNaN(fecha.getTime())) {
-
-            fechaRegistro.dateTime = fecha.toISOString().slice(0, 10);
-
-            fechaRegistro.textContent = fecha.toLocaleDateString(
-                "es-AR",
-                {
-                    month: "long",
-                    year: "numeric"
-                }
-            );
+            }
 
         }
+
+        selectorIdioma.value = usuarioActivo.idioma || "espanol";
+
+        // Mostrar la liga.
+        const liga = usuarioActivo.liga || "bronce";
+
+        tituloLiga.textContent =
+            "Liga " + liga.charAt(0).toUpperCase() + liga.slice(1);
+
+        // Mostrar la racha.
+        const diasRacha = Number(usuarioActivo.racha) || 0;
+
+        tituloRacha.textContent =
+            "Racha de " + diasRacha +
+            (diasRacha === 1 ? " día" : " días");
+
+        // Mostrar los XP totales.
+        const experiencia = Number(usuarioActivo.xp) || 0;
+
+        tituloXp.textContent =
+            experiencia.toLocaleString("es-AR") + " XP";
+
     }
 
-    // Cargar el idioma guardado
+    // Crear un mensaje debajo del botón Guardar cambios.
+    const mensaje = document.createElement("p");
 
-    selectorIdioma.value = usuarioActivo.idioma || "espanol";
+    mensaje.setAttribute("role", "status");
+    mensaje.style.textAlign = "center";
+    mensaje.style.marginTop = "1rem";
+    mensaje.style.fontWeight = "bold";
 
-    // Mostrar los logros de la cuenta
+    formularioPerfil.appendChild(mensaje);
 
-    const liga = usuarioActivo.liga || "bronce";
+    function mostrarMensaje(texto, correcto = false) {
 
-    tituloLiga.textContent =
-        "Liga " + liga.charAt(0).toUpperCase() + liga.slice(1);
+        mensaje.textContent = texto;
+        mensaje.style.color = correcto ? "#2A9C8D" : "#c0392b";
 
-    const diasRacha = Number(usuarioActivo.racha) || 0;
+    }
 
-    tituloRacha.textContent =
-        "Racha de " + diasRacha +
-        (diasRacha === 1 ? " día" : " días");
+    // Evitar navegar a la maqueta antigua.
+    formularioPerfil.removeAttribute("action");
 
-    const experiencia = Number(usuarioActivo.xp) || 0;
+    // Guardar los cambios del formulario.
+    formularioPerfil.addEventListener("submit", function(evento) {
 
-    tituloXp.textContent =
-        experiencia.toLocaleString("es-AR") + " XP";
+        evento.preventDefault();
 
-    // Detectar el botón Guardar cambios
+        mostrarMensaje("");
 
-    formularioPerfil.addEventListener("submit", function(event) {
-
-        event.preventDefault();
+        // Recuperar el estado actual de la cuenta.
+        usuarioActivo = obtenerUsuarioActivo();
 
         const idioma = selectorIdioma.value;
 
@@ -137,37 +160,33 @@ if (!usuarioActivo) {
         const nueva = passwordNueva.value;
         const confirmar = passwordConfirmar.value;
 
-        // Comprobar si el idioma fue modificado
-
+        // Comprobar si cambió el idioma.
         const modificoIdioma =
             idioma !== (usuarioActivo.idioma || "espanol");
 
-        // Comprobar si se intenta cambiar la contraseña
-
+        // Comprobar si se desea cambiar la contraseña.
         const intentaCambiarContrasena =
             actual !== "" ||
             nueva !== "" ||
             confirmar !== "";
 
-        // Evitar guardar cuando no hay modificaciones
-
         if (!modificoIdioma && !intentaCambiarContrasena) {
-            alert("No realizaste ningún cambio en tu perfil.");
+
+            mostrarMensaje("No realizaste ningún cambio en tu perfil.");
             return;
+
         }
 
-        // Preparar los datos que se van a guardar
-
+        // Preparar los datos para guardar.
         const cambios = {
             idioma: idioma
         };
 
-        // Validar el cambio de contraseña
-
+        // Validar la contraseña.
         if (intentaCambiarContrasena) {
 
             if (actual !== usuarioActivo.contrasena) {
-                alert("La contraseña actual es incorrecta.");
+                mostrarMensaje("La contraseña actual es incorrecta.");
                 return;
             }
 
@@ -178,48 +197,58 @@ if (!usuarioActivo) {
                 /[0-9]/.test(nueva);
 
             if (!contrasenaValida) {
-                alert(
+
+                mostrarMensaje(
                     "La nueva contraseña debe tener al menos 10 caracteres, una mayúscula, una minúscula y un número."
                 );
+
                 return;
+
             }
 
             if (nueva !== confirmar) {
-                alert("Las contraseñas nuevas no coinciden.");
+                mostrarMensaje("Las contraseñas nuevas no coinciden.");
                 return;
             }
 
             cambios.contrasena = nueva;
+
         }
 
-        // Guardar los cambios en la cuenta activa
-
+        // Guardar el perfil.
         try {
 
             const guardado = actualizarUsuario(cambios);
 
             if (!guardado) {
-                alert("No se pudieron guardar los cambios.");
+                mostrarMensaje("No se pudieron guardar los cambios.");
                 return;
             }
 
-            // Limpiar los campos de contraseña
-
+            // Limpiar los campos de contraseña.
             passwordActual.value = "";
             passwordNueva.value = "";
             passwordConfirmar.value = "";
 
-            // Mostrar la pantalla de confirmación
+            // Actualizar los datos visibles.
+            mostrarPerfil();
 
-            window.location.href = "cambiosGuardados.html";
+            // Confirmar sin abandonar la página.
+            mostrarMensaje(
+                "¡Cambios guardados correctamente!",
+                true
+            );
 
         } catch (error) {
 
             console.error("Error al guardar el perfil:", error);
-            alert("No se pudieron guardar los cambios.");
+            mostrarMensaje("No se pudieron guardar los cambios.");
 
         }
 
     });
+
+    // Mostrar los datos al entrar.
+    mostrarPerfil();
 
 }
