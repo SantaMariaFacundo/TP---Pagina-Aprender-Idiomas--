@@ -6,15 +6,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../../StyleGeneral.css">
+    <title>Clasificación - GrammaTech</title>
+
+    <link rel="stylesheet" href="../../Styles Generales/StyleGeneral.css">
+    <link rel="stylesheet" href="../../Styles Generales/headerGeneral.css">
     <link rel="stylesheet" href="../../Styles Generales/footerGeneral.css">
     <link rel="stylesheet" href="clasificacion.css">
 
     <link rel="icon"
         href="../../images/img-logo/FAVICON-LOGO-BLANCO.png"
         type="image/png">
-
-    <title>Clasificación - GrammaTech</title>
 </head>
 
 <body>
@@ -91,10 +92,30 @@
 
             </select>
 
+            <details class="menu-usuario">
+
+                <summary aria-label="Abrir menú de usuario">
+
+                    <img
+                        src="../../images/img-index/usuario.png"
+                        alt=""
+                        class="icono-usuario">
+
+                </summary>
+
+                <div class="opciones-usuario">
+
+                    <a href="#" id="btn-cerrar-sesion">
+                        Cerrar sesión
+                    </a>
+
+                </div>
+
+            </details>
+
         </div>
 
     </header>
-
 
     <main class="main-clasificacion">
 
@@ -109,8 +130,8 @@
 
         </hgroup>
 
-
-        <form class="selector-liga" aria-label="Seleccionar liga">
+        <form class="selector-liga"
+            aria-label="Seleccionar liga">
 
             <label for="liga">
                 Liga actual
@@ -118,7 +139,7 @@
 
             <select id="liga" name="liga">
 
-                <option value="bronce" selected>
+                <option value="bronce">
                     Liga Bronce
                 </option>
 
@@ -133,7 +154,6 @@
             </select>
 
         </form>
-
 
         <section class="ranking"
             aria-labelledby="titulo-liga-actual">
@@ -153,12 +173,10 @@
                 </div>
 
                 <p id="descripcion-liga">
-                    Los 5 primeros ascienden a la Liga de Plata
-                    esta semana.
+                    Los 5 primeros están en zona de ascenso a Plata.
                 </p>
 
             </div>
-
 
             <div class="contenedor-tabla">
 
@@ -179,7 +197,7 @@
                     </thead>
 
                     <tbody id="tabla-clasificacion">
-                        <!-- JavaScript genera las filas -->
+                        <!-- Filas agregadas por clasificacionFunciones.js -->
                     </tbody>
 
                 </table>
@@ -187,7 +205,6 @@
             </div>
 
         </section>
-
 
         <section class="resumen-posicion"
             aria-labelledby="titulo-tu-posicion">
@@ -201,7 +218,9 @@
                 <article class="dato"
                     aria-labelledby="titulo-puesto-actual">
 
-                    <data class="numero" value="0" id="puesto-actual">
+                    <data class="numero"
+                        id="puesto-actual"
+                        value="0">
                         —
                     </data>
 
@@ -211,11 +230,13 @@
 
                 </article>
 
-
+                
                 <article class="dato"
                     aria-labelledby="titulo-xp-semana">
 
-                    <data class="numero" value="0" id="xp-semana">
+                    <data class="numero"
+                        id="xp-semana"
+                        value="0">
                         0
                     </data>
 
@@ -225,11 +246,12 @@
 
                 </article>
 
-
                 <article class="dato"
                     aria-labelledby="titulo-xp-primer-puesto">
 
-                    <data class="numero" value="0" id="xp-primer-puesto">
+                    <data class="numero"
+                        id="xp-primer-puesto"
+                        value="0">
                         —
                     </data>
 
@@ -244,7 +266,6 @@
         </section>
 
     </main>
-
 
     <footer>
 
@@ -264,7 +285,6 @@
 
         </div>
 
-
         <nav class="condiciones-footer"
             aria-label="Información legal y soporte">
 
@@ -282,13 +302,14 @@
 
             <p>
                 © Todos los derechos reservados,
-                <time datetime="2026">2026</time>, Gramatech.
+                <time datetime="2026">2026</time>,
+                GrammaTech.
             </p>
 
         </nav>
 
-
-        <nav class="redes-footer" aria-label="Redes sociales">
+        <nav class="redes-footer"
+            aria-label="Redes sociales">
 
             <a href="#">
                 <img
@@ -311,9 +332,9 @@
         </nav>
 
     </footer>
-
-    <script src="./clasificacionFunciones.js"></script>
-
+<script src="../../js/header.js"></script>
+<script src="clasificacionFunciones.js"></script>
+    <script type="module" src="./clasificacionFunciones.js"></script>
 </body>
 
 </html>

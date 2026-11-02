@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css">
-    <link rel="stylesheet" href="../../StyleGeneral.css">
+    <link rel="stylesheet" href="../../Styles Generales/headerGeneral.css">
+    <link rel="stylesheet" href="../../Styles Generales/footerGeneral.css">
+    <link rel="stylesheet" href="../../Styles Generales/StyleGeneral.css">
     <link rel="stylesheet" href="home.css">
     <link rel="icon" href="../../images/img-logo/FAVICON-LOGO-BLANCO.png" type="image/png">
     <title>GrammaTech</title>
@@ -32,6 +34,17 @@
                 <option value="español" lang="es">Es</option>
                 <option value="english" lang="en">En</option>
             </select>
+
+            <!-- Menú desplegable del usuario -->
+            <details class="menu-usuario">
+                <summary aria-label="Abrir menú de usuario">
+                    <img src="../../images/img-index/usuario.png" alt="" class="icono-usuario">
+                </summary>
+                <div class="opciones-usuario">
+                    <a href="#" id="btn-cerrar-sesion">Cerrar sesión</a>
+                </div>
+            </details>
+
         </div>
     </header>
     <main>
@@ -107,12 +120,12 @@
                     <h2 id="titulo-cursos-progreso">Cursos en Progreso</h2>
                 </div>
                 <article class="mensajeSinCursos MensajeSinCursosDisponible" id="mensajeSinCursos">
-                        <img class="imgMsjNoCursos" src="../../images/icons-general/msj para estudiar_sin_fondo png.png" alt="">
-                        <h4>¡Todavia no tenés cursos en progreso!</h4>
-                        <p class="parrafoNoCursos" >Eligí un idioma y empezá a aprender algo nuevo hoy.</p>
-                        <a href="#seccion-2" class="btnMsjNoCursos" >Explorar Cursos</a>
-
+                    <img class="imgMsjNoCursos" src="../../images/icons-general/msj para estudiar_sin_fondo png.png" alt="">
+                    <h4>¡Todavia no tenés cursos en progreso!</h4>
+                    <p class="parrafoNoCursos">Eligí un idioma y empezá a aprender algo nuevo hoy.</p>
+                    <a href="#seccion-2" class="btnMsjNoCursos">Explorar Cursos</a>
                 </article>
+
                 <div class="cards-cursos">
                     <article class="card-curso card-ingles-progreso" id="card-ingles-progreso" aria-labelledby="titulo-curso-ingles">
                         <img class="img-paises" src="../../images/img-paises/londres.avif" alt="">
@@ -131,6 +144,7 @@
                             <button class="btn-cerrar-cards" id="btn-cerrar-card-ingles" data-cerrar="ingles" type="button" aria-label="Quitar Curso: Ingles C1">x</button>
                         </div>
                     </article>
+
                     <article class="card-curso card-aleman-progreso" id="card-aleman-progreso" aria-labelledby="titulo-curso-aleman">
                         <img class="img-paises" src="../../images/img-paises/alemania.jpg" alt="">
                         <div class="titulo-card-cursos">
@@ -148,6 +162,7 @@
                             <button class="btn-cerrar-cards" id="btn-cerrar-card-aleman" data-cerrar="aleman" type="button" aria-label="Quitar Curso: Aleman B1">x</button>
                         </div>
                     </article>
+
                     <article class="card-curso card-chinoMandarin-progreso" id="card-chino-progreso" aria-labelledby="titulo-curso-chino">
                         <img class="img-paises" src="../../images/img-paises/china.jpg" alt="">
                         <div class="titulo-card-cursos">
@@ -166,8 +181,8 @@
                         </div>
                     </article>
                 </div>
-                
             </section>
+
             <aside class="conteiner-datos" aria-label="Tu progreso">
                 <section class="metaDiaria" aria-labelledby="titulo-meta-diaria">
                     <div class="datos-titulo">
@@ -258,6 +273,7 @@
             </div>
         </section>
     </main>
+
     <footer>
         <div class="logo-footer">
             <a href="#" aria-label="GrammaTech, volver arriba"><img class="img-logo-footer" src="../../images/img-logo/LOGO-BLANCO.png" alt="logo"><span
@@ -282,7 +298,8 @@
             </a>
         </nav>
     </footer>
-    <script type="module" src="home.js"></script>
+    <script type="module" src="./home.js"></script>
 </body>
 
 </html>
+

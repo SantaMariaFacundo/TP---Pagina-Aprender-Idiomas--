@@ -1,146 +1,339 @@
+// Importamos los módulos compartidos necesarios para esta página.
+import "../../js/header.js";
+import "../../js/buscador.js";
+import "../../js/traductor.js";
 
-console.log("Editar Perfil conectado correctamente");
+// Importamos las funciones de usuarios utilizadas en esta vista.
+import { obtenerUsuarios, obtenerUsuarioActivo, actualizarUsuario } from "../../js/usuarios.js";
 
-const formulario = document.querySelector(".formulario-perfil");
+
+const formularioEditar = document.querySelector(".formulario-perfil");
 
 const campoNombre = document.getElementById("nombre-completo");
 const campoUsuario = document.getElementById("nombre-usuario");
 const campoCorreo = document.getElementById("email");
-const campoIdioma = document.getElementById("idioma-interfaz");
+const mensajeDatos = document.getElementById("mensaje-datos");
+
+const botonMostrarPassword = document.getElementById("btn-mostrar-password");
+const formularioPassword = document.getElementById("panel-password");
 
 const campoActual = document.getElementById("password-actual");
 const campoNueva = document.getElementById("password-nueva");
 const campoConfirmar = document.getElementById("password-confirmar");
+const mensajePassword = document.getElementById("mensaje-password");
 
-const CLAVE_PERFIL = "grammatech_perfil_demo";
+let usuarioEditar = obtenerUsuarioActivo();
 
-// Datos iniciales de demostración
-const datosIniciales = {
-    nombre: "Juan Pérez",
-    usuario: "@juanperez_web",
-    correo: "juan.perez@alumnos.unlam.edu.ar",
-    idioma: "espanol",
-    password: "Demo1234!"
-};
+if (!usuarioEditar) {
 
-// Recuperar perfil desde localStorage
-function obtenerPerfil() {
+    window.location.replace("../1_Vista Login/login.html");
 
-    const datos = localStorage.getItem(CLAVE_PERFIL);
+} else {
 
-    if (datos !== null) {
+    // Cargar los datos actuales.
+    campoNombre.value = usuarioEditar.nombre;
+    campoUsuario.value = usuarioEditar.usuario;
+    campoCorreo.value = usuarioEditar.correo;
 
+    // Mostrar la fecha de registro.
+    const fechaRegistro = document.getElementById("fecha-registro");
+
+    if (fechaRegistro && usuarioEditar.fechaRegistro) {
+
+        const fecha = new Date(usuarioEditar.fechaRegistro);
+
+        if (!Number.isNaN(fecha.getTime())) {
+
+            fechaRegistro.dateTime =
+                fecha.toISOString().slice(0, 10);
+
+            fechaRegistro.textContent = fecha.toLocaleDateString(
+                "es-AR",
+                {
+                    month: "long",
+                    year: "numeric"
+                }
+            );
+
+        }
+
+    }
+
+    // Mostrar errores y confirmaciones.
+    function mostrarMensaje(elemento, texto, correcto = false) {
+
+        elemento.textContent = texto;
+
+        elemento.style.color = correcto
+            ? "#2A9C8D"
+            : "#c0392b";
+
+    }
+
+    // Guardar los datos personales.
+    formularioEditar.addEventListener("submit", function(evento) {
+
+        evento.preventDefault();
+
+        mostrarMensaje(mensajeDatos, "");
+
+        const nombre = campoNombre.value.trim();
+        const usuario = campoUsuario.value.trim();
+        const correo = campoCorreo.value.trim().toLowerCase();
+
+        // Validar el nombre.
+        if (nombre.length < 3) {
+
+            mostrarMensaje(
+                mensajeDatos,
+                "El nombre debe tener al menos 3 caracteres."
+            );
+
+            return;
+        }
+
+        // Validar el nombre de usuario.
+        if (!/^@?[a-zA-Z0-9_.]{3,20}$/.test(usuario)) {
+
+            mostrarMensaje(
+                mensajeDatos,
+                "El usuario debe tener entre 3 y 20 caracteres, sin espacios."
+            );
+
+            return;
+        }
+
+        // Validar el correo.
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) {
+
+            mostrarMensaje(
+                mensajeDatos,
+                "Ingresá un correo electrónico válido."
+            );
+
+            return;
+        }
+
+        // Comprobar que no exista otro usuario igual.
+        const usuarios = obtenerUsuarios();
+
+        const usuarioRepetido = usuarios.some(function(u) {
+
+            return u.id !== usuarioEditar.id &&
+                u.usuario.toLowerCase() === usuario.toLowerCase();
+
+        });
+
+        if (usuarioRepetido) {
+
+            mostrarMensaje(
+                mensajeDatos,
+                "Ese nombre de usuario ya está registrado."
+            );
+
+            return;
+        }
+
+        // Comprobar que el correo no esté registrado.
+        const correoRepetido = usuarios.some(function(u) {
+
+            return u.id !== usuarioEditar.id &&
+                u.correo.toLowerCase() === correo;
+
+        });
+
+        if (correoRepetido) {
+
+            mostrarMensaje(
+                mensajeDatos,
+                "Ese correo electrónico ya está registrado."
+            );
+
+            return;
+        }
+
+        // Comprobar si hubo algún cambio.
+        if (
+            nombre === usuarioEditar.nombre &&
+            usuario === usuarioEditar.usuario &&
+            correo === usuarioEditar.correo
+        ) {
+
+            mostrarMensaje(
+                mensajeDatos,
+                "No realizaste ningún cambio en tu perfil."
+            );
+
+            return;
+        }
+
+        // Guardar los datos personales.
         try {
-            const perfilGuardado = JSON.parse(datos);
 
-            if (perfilGuardado && typeof perfilGuardado === "object") {
-                return { ...datosIniciales, ...perfilGuardado };
+            const guardado = actualizarUsuario({
+                nombre: nombre,
+                usuario: usuario,
+                correo: correo
+            });
+
+            if (!guardado) {
+
+                mostrarMensaje(
+                    mensajeDatos,
+                    "No se pudieron guardar los cambios."
+                );
+
+                return;
             }
 
+            usuarioEditar = obtenerUsuarioActivo();
+
+            mostrarMensaje(
+                mensajeDatos,
+                "¡Cambios guardados correctamente!",
+                true
+            );
+
         } catch (error) {
-            console.error("Error al recuperar el perfil:", error);
+
+            console.error("Error al guardar los datos:", error);
+
+            mostrarMensaje(
+                mensajeDatos,
+                "No se pudieron guardar los cambios."
+            );
+
         }
 
-    }
+    });
 
-    return { ...datosIniciales };
-}
+    // Mostrar u ocultar el cambio de contraseña.
+    botonMostrarPassword.addEventListener("click", function() {
 
-// Obtener perfil actual
-let perfil = obtenerPerfil();
+        formularioPassword.hidden = !formularioPassword.hidden;
 
-// Mostrar los datos guardados
-campoNombre.value = perfil.nombre;
-campoUsuario.value = perfil.usuario;
-campoCorreo.value = perfil.correo;
-campoIdioma.value = perfil.idioma;
-
-// Guardar cambios
-formulario.addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    const nombre = campoNombre.value.trim();
-    const usuario = campoUsuario.value.trim();
-    const correo = campoCorreo.value.trim();
-    const idioma = campoIdioma.value;
-
-    const actual = campoActual.value;
-    const nueva = campoNueva.value;
-    const confirmar = campoConfirmar.value;
-
-    // Validar nombre
-    if (nombre.length < 3) {
-        alert("El nombre debe tener al menos 3 caracteres.");
-        return;
-    }
-
-    // Validar usuario
-    const usuarioValido = /^@?[a-zA-Z0-9_.]{3,20}$/;
-
-    if (!usuarioValido.test(usuario)) {
-        alert("El usuario debe tener entre 3 y 20 caracteres, sin espacios.");
-        return;
-    }
-
-    // Validar correo electrónico
-    const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!correoValido.test(correo)) {
-        alert("Ingresá un correo electrónico válido.");
-        return;
-    }
-
-    // Cambio de contraseña opcional
-    if (actual !== "" || nueva !== "" || confirmar !== "") {
-
-        if (actual !== perfil.password) {
-            alert("La contraseña actual es incorrecta.");
-            return;
-        }
-
-        if (nueva.length < 8) {
-            alert("La nueva contraseña debe tener al menos 8 caracteres.");
-            return;
-        }
-
-        if (nueva !== confirmar) {
-            alert("Las contraseñas nuevas no coinciden.");
-            return;
-        }
-
-        perfil.password = nueva;
-    }
-
-    // Actualizar los datos
-    perfil.nombre = nombre;
-    perfil.usuario = usuario;
-    perfil.correo = correo;
-    perfil.idioma = idioma;
-
-    // Guardar en localStorage
-    try {
-
-        localStorage.setItem(
-            CLAVE_PERFIL,
-            JSON.stringify(perfil)
+        botonMostrarPassword.setAttribute(
+            "aria-expanded",
+            String(!formularioPassword.hidden)
         );
 
-        console.log("Perfil guardado correctamente");
+        formularioPassword.reset();
 
-        // Limpiar campos de contraseña
-        campoActual.value = "";
-        campoNueva.value = "";
-        campoConfirmar.value = "";
+        mostrarMensaje(mensajePassword, "");
 
-        // Ir a la página de confirmación
-        window.location.href = "cambiosGuardados.html";
+        if (!formularioPassword.hidden) {
+            campoActual.focus();
+        }
 
-    } catch (error) {
+    });
 
-        console.error("Error al guardar:", error);
-        alert("No se pudieron guardar los cambios.");
+    // Guardar una nueva contraseña.
+    formularioPassword.addEventListener("submit", function(evento) {
 
-    }
+        evento.preventDefault();
 
-});
+        mostrarMensaje(mensajePassword, "");
+
+        usuarioEditar = obtenerUsuarioActivo();
+
+        const actual = campoActual.value;
+        const nueva = campoNueva.value;
+        const confirmar = campoConfirmar.value;
+
+        // Comprobar la contraseña actual.
+        if (actual !== usuarioEditar.contrasena) {
+
+            mostrarMensaje(
+                mensajePassword,
+                "La contraseña actual es incorrecta."
+            );
+
+            return;
+        }
+
+        // Validar la nueva contraseña.
+        const contrasenaValida =
+            nueva.length >= 10 &&
+            /[A-Z]/.test(nueva) &&
+            /[a-z]/.test(nueva) &&
+            /[0-9]/.test(nueva);
+
+        if (!contrasenaValida) {
+
+            mostrarMensaje(
+                mensajePassword,
+                "La nueva contraseña debe tener al menos 10 caracteres, una mayúscula, una minúscula y un número."
+            );
+
+            return;
+        }
+
+        // Comprobar que coincidan.
+        if (nueva !== confirmar) {
+
+            mostrarMensaje(
+                mensajePassword,
+                "Las contraseñas nuevas no coinciden."
+            );
+
+            return;
+        }
+
+        // Evitar repetir la contraseña anterior.
+        if (actual === nueva) {
+
+            mostrarMensaje(
+                mensajePassword,
+                "La nueva contraseña debe ser diferente de la actual."
+            );
+
+            return;
+        }
+
+        // Guardar la nueva contraseña.
+        try {
+
+            const guardado = actualizarUsuario({
+                contrasena: nueva
+            });
+
+            if (!guardado) {
+
+                mostrarMensaje(
+                    mensajePassword,
+                    "No se pudo cambiar la contraseña."
+                );
+
+                return;
+            }
+
+            usuarioEditar = obtenerUsuarioActivo();
+
+            formularioPassword.reset();
+            formularioPassword.hidden = true;
+
+            botonMostrarPassword.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            mostrarMensaje(
+                mensajePassword,
+                "¡Contraseña actualizada correctamente!",
+                true
+            );
+
+        } catch (error) {
+
+            console.error("Error al cambiar la contraseña:", error);
+
+            mostrarMensaje(
+                mensajePassword,
+                "No se pudo cambiar la contraseña."
+            );
+
+        }
+
+    });
+
+}

@@ -1,0 +1,414 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../../StyleGeneral.css">
+    <link rel="stylesheet" href="../../../Styles Generales/headerGeneral.css">
+    <link rel="stylesheet" href="../../../Styles Generales/footerGeneral.css">
+    <link rel="stylesheet" href="examen.css">
+
+    <link rel="icon"
+        href="../../../images/img-logo/FAVICON-LOGO-BLANCO.png"
+        type="image/png">
+
+    <title>GrammaTech - Examen de Mandarín</title>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo-explorar">
+
+            <a href="../../2_Vista home/home.html"
+                aria-label="GrammaTech, ir al inicio">
+
+                <img class="img-logo"
+                    src="../../../images/img-logo/LOGO-BLANCO.png"
+                    alt="Logo de GrammaTech">
+
+                <span class="nombre-logo">Gramma</span>
+                <span class="nombre-logo-tech">Tech</span>
+
+            </a>
+
+        </div>
+
+        <div class="buscador-acceder-language">
+
+            <form class="conteiner-search" role="search">
+
+                <input type="search"
+                    class="search-class"
+                    id="buscador"
+                    name="buscador"
+                    aria-label="Buscar becas, cursos y vocabulario"
+                    placeholder="Becas, Cursos, y Vocabulario...">
+
+                <img class="img-search"
+                    src="../../../images/iconosBlack-svg/search-svgrepo-com.svg"
+                    alt="">
+
+            </form>
+
+            <nav class="navegacion" aria-label="Navegación principal">
+
+                <a href="../../2_Vista home/home.html">
+                    Cursos
+                </a>
+
+                <a href="../../5_Vista Perfil Usuario/perfilUsuario.html">
+                    Perfil
+                </a>
+
+                <a href="../../6_Vista Tabla Clasificación/clasificacion.html">
+                    Clasificación
+                </a>
+
+                <a href="../../7_Vista Racha/tienda.html">
+                    Tienda
+                </a>
+
+            </nav>
+
+            <select id="idioma"
+                class="idioma"
+                name="idioma"
+                aria-label="Seleccionar idioma">
+
+                <option value="espanol" lang="es">Es</option>
+                <option value="english" lang="en">En</option>
+
+            </select>
+
+            <details class="menu-usuario">
+
+                <summary aria-label="Abrir menú de usuario">
+
+                    <img
+                        src="../../../images/img-index/usuario.png"
+                        alt=""
+                        class="icono-usuario">
+
+                </summary>
+
+                <div class="opciones-usuario">
+
+                    <a href="#" id="btn-cerrar-sesion">
+                        Cerrar sesión
+                    </a>
+
+                </div>
+
+            </details>
+
+        </div>
+
+    </header>
+
+    <main data-idioma="chino">
+
+        <nav class="boton-volver"
+            aria-label="Volver al mapa de unidades">
+
+            <a class="link-volver"
+                href="../../3_Vista Mapa de Unidades/progreso-chino.html">
+
+                <span aria-hidden="true">←</span>
+                Volver
+
+            </a>
+
+        </nav>
+
+        <div class="contenedor">
+
+            <div class="form-caja">
+
+                <form aria-label="Examen de chino mandarín">
+
+                    <section class="completar-datos"
+                        aria-labelledby="titulo-vocabulario">
+
+                        <h2 id="titulo-vocabulario">
+                            Vocabulario
+                        </h2>
+
+                        <div class="frase">
+
+                            <p id="consigna-vocabulario">
+                                ¿Qué significa <span lang="zh">谢谢</span>?
+                            </p>
+
+                        </div>
+
+                        <div class="opciones"
+                            role="radiogroup"
+                            aria-labelledby="titulo-vocabulario consigna-vocabulario">
+
+                            <div>
+
+                                <input type="radio"
+                                    name="p1"
+                                    id="p1-op1"
+                                    value="hola">
+
+                                <label for="p1-op1">
+                                    Hola
+                                </label>
+
+                            </div>
+
+                            <div>
+
+                                <input type="radio"
+                                    name="p1"
+                                    id="p1-op2"
+                                    value="gracias">
+
+                                <label for="p1-op2">
+                                    Gracias
+                                </label>
+
+                            </div>
+
+                            <div>
+
+                                <input type="radio"
+                                    name="p1"
+                                    id="p1-op3"
+                                    value="adios">
+
+                                <label for="p1-op3">
+                                    Adiós
+                                </label>
+
+                            </div>
+
+                            <div>
+
+                                <input type="radio"
+                                    name="p1"
+                                    id="p1-op4"
+                                    value="agua">
+
+                                <label for="p1-op4">
+                                    Agua
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <section class="completar-datos"
+                        aria-labelledby="titulo-gramatica">
+
+                        <h2 id="titulo-gramatica">
+                            Gramática
+                        </h2>
+
+                        <div class="frase">
+
+                            <p id="consigna-gramatica">
+                                Completá la oración:
+                                <span lang="zh">我 ___ 学生。</span>
+                            </p>
+
+                        </div>
+
+                        <div class="opciones"
+                            role="radiogroup"
+                            aria-labelledby="titulo-gramatica consigna-gramatica">
+
+                            <div>
+
+                                <input type="radio"
+                                    name="p2"
+                                    id="p2-op1"
+                                    value="hao">
+
+                                <label for="p2-op1">
+                                    <span lang="zh">好</span> (bien)
+                                </label>
+
+                            </div>
+
+                            <div>
+
+                                <input type="radio"
+                                    name="p2"
+                                    id="p2-op2"
+                                    value="shi">
+
+                                <label for="p2-op2">
+                                    <span lang="zh">是</span> (ser)
+                                </label>
+
+                            </div>
+
+                            <div>
+
+                                <input type="radio"
+                                    name="p2"
+                                    id="p2-op3"
+                                    value="xiexie">
+
+                                <label for="p2-op3">
+                                    <span lang="zh">谢谢</span> (gracias)
+                                </label>
+
+                            </div>
+
+                            <div>
+
+                                <input type="radio"
+                                    name="p2"
+                                    id="p2-op4"
+                                    value="ma">
+
+                                <label for="p2-op4">
+                                    <span lang="zh">吗</span> (partícula interrogativa)
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <section class="completar-datos"
+                        aria-labelledby="titulo-listening">
+
+                        <h2 id="titulo-listening" lang="en">
+                            Listening
+                        </h2>
+
+                        <div class="frase">
+
+                            <p class="frase-aleman" lang="zh">
+                                你好吗？
+                            </p>
+
+                        </div>
+
+                        <p>
+                            Ordená las palabras para traducir la frase.
+                        </p>
+
+                        <div class="respuesta"
+                            role="group"
+                            aria-label="Tu respuesta">
+                        </div>
+
+                        <div class="banco-palabras"
+                            role="group"
+                            aria-label="Banco de palabras disponibles">
+
+                            <button type="button">¿Cómo</button>
+                            <button type="button">estás?</button>
+                            <button type="button">Gracias</button>
+                            <button type="button">Adiós</button>
+                            <button type="button">Buenos</button>
+                            <button type="button">días</button>
+
+                        </div>
+
+                    </section>
+
+                    <div class="container-boton">
+
+                        <button class="comprobar" type="submit">
+                            Comprobar
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+
+        <div class="logo-footer">
+
+            <a href="../../2_Vista home/home.html"
+                aria-label="GrammaTech, ir al inicio">
+
+                <img class="img-logo-footer"
+                    src="../../../images/img-logo/LOGO-BLANCO.png"
+                    alt="Logo de GrammaTech">
+
+                <span class="nombre-logo">Gramma</span>
+                <span class="nombre-logo-tech">Tech</span>
+
+            </a>
+
+        </div>
+
+        <nav class="condiciones-footer"
+            aria-label="Información legal y soporte">
+
+            <p>
+                <a href="">Condiciones Generales</a> -
+                <a href="">Aviso Legal</a> -
+                <a href="">Privacidad</a> -
+                <a href="">Cookies</a> -
+                <a href="">Accesibilidad</a>
+            </p>
+
+            <p>
+                <a href="">Soporte y Ayuda</a>
+            </p>
+
+            <p>
+                © Todos los derechos reservados,
+                <time datetime="2026">2026</time>,
+                GrammaTech.
+            </p>
+
+        </nav>
+
+        <nav class="redes-footer"
+            aria-label="Redes sociales">
+
+            <a href="#">
+
+                <img
+                    src="../../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg"
+                    alt="Instagram">
+
+            </a>
+
+            <a href="#">
+
+                <img
+                    src="../../../images/iconosBlack-svg/facebook-rounded-svgr.svg"
+                    alt="Facebook">
+
+            </a>
+
+            <a href="#">
+
+                <img
+                    src="../../../images/iconosBlack-svg/twitter-rounded-svg.svg"
+                    alt="Twitter">
+
+            </a>
+
+        </nav>
+
+    </footer>
+    <script type="module" src="./examenes.js"></script>
+</body>
+
+</html>

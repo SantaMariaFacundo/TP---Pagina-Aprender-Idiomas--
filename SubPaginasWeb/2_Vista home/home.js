@@ -1,89 +1,329 @@
-/*const btnAgregarCursoIngles = document.getElementById("btnCursoIngles");
-const cursoInglesProgreso = document.getElementById("card-ingles-progreso");
-const btnCerrarProgresoIngles = document.getElementById("btn-cerrar-card-ingles");
+// Importamos los módulos compartidos necesarios para esta página.
+import "../../js/header.js";
+import "../../js/buscador.js";
+import "../../js/traductor.js";
 
-const btnAgregarCursoAleman = document.getElementById("btnCursoAleman");
-const cursoAlemanProgreso = document.getElementById("card-aleman-progreso");
-const btnCerrarProgresoAleman = document.getElementById("btn-cerrar-card-aleman");
-
-const btnAgregarCursoChino = document.getElementById("btnCursoChino");
-const cursoChinoProgreso = document.getElementById("card-chino-progreso");
-const btnCerrarProgresoChino = document.getElementById("btn-cerrar-card-chino");
+// Importamos las funciones de usuarios utilizadas en esta vista.
+import { obtenerUsuarioActivo, actualizarUsuario } from "../../js/usuarios.js";
 
 
-btnAgregarCursoIngles.addEventListener("click", () => {
+// Botones para agregar y quitar cursos.
+const botonesAgregar = document.querySelectorAll("[data-curso]");
+const botonesQuitar = document.querySelectorAll("[data-cerrar]");
 
-   cursoInglesProgreso.style.display = "grid";
-    
-});
+// Tarjetas de los cursos.
+const tarjetas = {
+    ingles: document.getElementById("card-ingles-progreso"),
+    aleman: document.getElementById("card-aleman-progreso"),
+    chino: document.getElementById("card-chino-progreso")
+};
 
-btnCerrarProgresoIngles.addEventListener("click", () => {
+// Nombres y archivos de los idiomas.
+const nombres = {
+    ingles: "Inglés",
+    aleman: "Alemán",
+    chino: "Chino Mandarín"
+};
 
-    cursoInglesProgreso.style.display = "none";
-    
-});
+const archivos = {
+    ingles: "progreso-ingles.html",
+    aleman: "progreso-aleman.html",
+    chino: "progreso-chino.html"
+};
 
-btnAgregarCursoAleman.addEventListener("click", () => {
+// Elementos de Home.
+const saludo = document.getElementById("titulo-bienvenida");
+const aviso = document.getElementById("mensajeSinCursos");
+const continuar = document.querySelector(".boton-sc1 a");
 
-   cursoAlemanProgreso.style.display = "grid";
-    
-});
+// Obtener el usuario activo.
+const usuario = obtenerUsuarioActivo();
 
-btnCerrarProgresoAleman.addEventListener("click", () => {
+// Obtener sus cursos seleccionados.
+let seleccionados = usuario && Array.isArray(usuario.cursosSeleccionados)
+    ? [...usuario.cursosSeleccionados]
+    : [];
 
-    cursoAlemanProgreso.style.display = "none";
-    
-});
+// Usar las traducciones del archivo general.
+function textoHome(texto) {
 
-btnAgregarCursoChino.addEventListener("click", () => {
-
-   cursoChinoProgreso.style.display = "grid";
-    
-});
-
-btnCerrarProgresoChino.addEventListener("click", () => {
-
-    cursoChinoProgreso.style.display = "none";
-    
-});*/
-
-const btnAgregar = document.querySelectorAll("[data-curso]");
-const btnCerrar = document.querySelectorAll("[data-cerrar]");
-
-const cursoInglesProgreso = document.getElementById("card-ingles-progreso");
-const cursoAlemanProgreso = document.getElementById("card-aleman-progreso");
-const cursoChinoProgreso = document.getElementById("card-chino-progreso");
-const mensajeSinCursos = document.getElementById("mensajeSinCursos");
-
-btnAgregar.forEach((boton) => {
-    boton.addEventListener("click", () => {
-        const curso = boton.dataset.curso;
-        const card = document.getElementById(`card-${curso}-progreso`);
-
-        card.style.display = "grid";
-        actualizarMensaje();
-    });
-});
-
-btnCerrar.forEach((boton) => {
-    boton.addEventListener("click", () => {
-        const curso = boton.dataset.cerrar;
-        const card = document.getElementById(`card-${curso}-progreso`);
-
-        card.style.display = "none";
-        actualizarMensaje();
-    });
-});
-
-function actualizarMensaje() {
-    const todosOcultos =
-        cursoInglesProgreso.style.display === "none" &&
-        cursoAlemanProgreso.style.display === "none" &&
-        cursoChinoProgreso.style.display === "none";
-
-    if (todosOcultos) {
-        mensajeSinCursos.style.display = "flex";
-    } else {
-        mensajeSinCursos.style.display = "none";
+    if (typeof window.traducirTexto === "function") {
+        return window.traducirTexto(texto);
     }
+
+    return texto;
+
 }
+
+// Mostrar el nombre del idioma traducido.
+function nombreCurso(id) {
+    return textoHome(nombres[id]);
+}
+
+// Mostrar el saludo del usuario.
+function mostrarSaludo() {
+
+    if (!usuario || !saludo) {
+        return;
+    }
+
+    const idioma = localStorage.getItem("grammatech_idioma");
+
+    if (idioma === "en") {
+        saludo.textContent = "Hello, welcome " + usuario.usuario + ".";
+    } else {
+        saludo.textContent = "Hola bienvenido " + usuario.usuario + ".";
+    }
+
+}
+
+// Calcular el progreso de cada curso.
+function progresoDe(id) {
+
+    const actual = obtenerUsuarioActivo();
+    const curso = (((actual || {}).cursos || {})[id]) || {};
+
+    const completadas = curso.leccionesCompletadas || [];
+    const aprobados = curso.examenesAprobados || [];
+
+    let cantidad = 0;
+
+    // Contar las actividades y exámenes completados.
+    for (const nivel of ["a", "b", "c"]) {
+
+        for (const tipo of ["listening", "vocabulario", "gramatica"]) {
+
+            const clave = nivel === "a" && tipo === "listening"
+                ? id + "-1"
+                : id + "-" + nivel + "-" + tipo;
+
+            if (completadas.includes(clave)) {
+                cantidad++;
+            }
+
+        }
+
+        if (aprobados.includes(nivel)) {
+            cantidad++;
+        }
+
+    }
+
+    // Obtener el nivel desbloqueado.
+    const nivelActual = aprobados.includes("b")
+        ? "c"
+        : aprobados.includes("a")
+            ? "b"
+            : "a";
+
+    const titulo = nivelActual === "a"
+        ? "A1 - A2"
+        : nivelActual === "b"
+            ? "B1 - B2"
+            : "C1 - C2";
+
+    const suffix = nivelActual === "a"
+        ? "A1A2"
+        : nivelActual === "b"
+            ? "B1B2"
+            : "C1C2";
+
+    const url = "../3_Vista Mapa de Unidades/" +
+        archivos[id] + "#" + id + suffix;
+
+    return {
+        porcentaje: Math.round(cantidad / 12 * 100),
+        titulo: titulo,
+        url: url
+    };
+
+}
+
+// Actualizar cada tarjeta.
+function refrescarTarjeta(id) {
+
+    const tarjeta = tarjetas[id];
+
+    if (!tarjeta) {
+        return;
+    }
+
+    const datos = progresoDe(id);
+
+    const titulo = tarjeta.querySelector(".curso");
+    const porcentaje = tarjeta.querySelector(".unidad span");
+    const barra = tarjeta.querySelector("progress");
+    const enlace = tarjeta.querySelector(".boton-cards a");
+
+    if (titulo) {
+        titulo.textContent =
+            textoHome("Curso:") + " " +
+            nombreCurso(id) + " " + datos.titulo;
+    }
+
+    if (porcentaje) {
+        porcentaje.textContent = datos.porcentaje + "%";
+    }
+
+    if (barra) {
+        barra.value = datos.porcentaje;
+        barra.textContent = datos.porcentaje + "%";
+    }
+
+    if (enlace) {
+
+        enlace.href = datos.url;
+
+        enlace.textContent = datos.porcentaje
+            ? textoHome("Reanudar")
+            : textoHome("Empezar");
+
+        enlace.setAttribute(
+            "aria-label",
+            textoHome("Continuar curso de") + " " +
+            nombreCurso(id) + " " + datos.titulo
+        );
+
+    }
+
+}
+
+// Mostrar los cursos seleccionados.
+function mostrarCursos() {
+
+    Object.keys(tarjetas).forEach(function(id) {
+
+        if (!tarjetas[id]) {
+            return;
+        }
+
+        tarjetas[id].style.display = seleccionados.includes(id)
+            ? "grid"
+            : "none";
+
+        if (seleccionados.includes(id)) {
+            refrescarTarjeta(id);
+        }
+
+    });
+
+    // Mostrar aviso si no hay cursos.
+    if (aviso) {
+        aviso.style.display = seleccionados.length ? "none" : "flex";
+    }
+
+    // Actualizar el botón principal.
+    if (continuar) {
+
+        const primero = seleccionados.find(function(id) {
+            return archivos[id];
+        });
+
+        if (primero) {
+
+            const datos = progresoDe(primero);
+
+            continuar.href = datos.url;
+
+            continuar.textContent =
+                textoHome("Continuar lección:") + " " +
+                nombreCurso(primero) + " " +
+                datos.titulo;
+
+        } else {
+
+            continuar.href = "#seccion-2";
+            continuar.textContent = textoHome("Explorar cursos");
+
+        }
+
+    }
+
+}
+
+// Guardar los cursos en la cuenta.
+function guardarCursos() {
+
+    return !!usuario && actualizarUsuario({
+        cursosSeleccionados: [...seleccionados]
+    });
+
+}
+
+// Agregar un curso.
+function agregarCurso(id) {
+
+    if (!tarjetas[id] || seleccionados.includes(id)) {
+        return;
+    }
+
+    seleccionados.push(id);
+
+    if (!guardarCursos()) {
+
+        seleccionados = seleccionados.filter(function(curso) {
+            return curso !== id;
+        });
+
+        alert("No se pudo guardar el curso.");
+
+    }
+
+    mostrarCursos();
+
+}
+
+// Quitar un curso.
+function quitarCurso(id) {
+
+    if (!seleccionados.includes(id)) {
+        return;
+    }
+
+    const anterior = [...seleccionados];
+
+    seleccionados = seleccionados.filter(function(curso) {
+        return curso !== id;
+    });
+
+    if (!guardarCursos()) {
+
+        seleccionados = anterior;
+        alert("No se pudo quitar el curso.");
+
+    }
+
+    mostrarCursos();
+
+}
+
+// Detectar clics en Agregar Curso.
+botonesAgregar.forEach(function(boton) {
+
+    boton.addEventListener("click", function() {
+        agregarCurso(boton.dataset.curso);
+    });
+
+});
+
+// Detectar clics en Quitar Curso.
+botonesQuitar.forEach(function(boton) {
+
+    boton.addEventListener("click", function() {
+        quitarCurso(boton.dataset.cerrar);
+    });
+
+});
+
+// Actualizar Home al cambiar el idioma.
+window.addEventListener("idiomaActualizado", function() {
+
+    mostrarSaludo();
+    mostrarCursos();
+
+});
+
+// Mostrar los datos al abrir Home.
+mostrarSaludo();
+mostrarCursos();
+

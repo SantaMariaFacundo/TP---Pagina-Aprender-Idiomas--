@@ -1,3 +1,6 @@
+
+/* CONTENIDO PRINCIPAL */
+
 .main-clasificacion {
     padding: 6rem 8% 4rem;
     color: #2B2B2B;
@@ -16,6 +19,7 @@
 .encabezado-clasificacion p {
     font-size: 1rem;
 }
+
 
 .selector-liga {
     max-width: 75%;
@@ -38,6 +42,8 @@
     font-family: inherit;
     font-size: 1rem;
 }
+
+
 
 .ranking {
     max-width: 75%;
@@ -115,6 +121,14 @@ tbody tr {
     font-weight: bold;
 }
 
+
+.mensaje-sin-usuarios {
+    padding: 1.5rem;
+    color: #555555;
+    text-align: center;
+}
+
+
 .resumen-posicion {
     max-width: 75%;
     margin: 0 auto 3rem;
@@ -151,54 +165,8 @@ tbody tr {
     font-size: 1rem;
 }
 
-@media screen and (max-width: 76rem) {
-
-    .navegacion {
-        gap: 0.6rem;
-    }
-
-}
 
 @media screen and (max-width: 50rem) {
-
-    header {
-        height: auto;
-        grid-template-columns: 1fr;
-    }
-
-    header .logo-explorar {
-        grid-column: 1;
-        justify-content: center;
-        margin-left: 0;
-        padding-top: 0.5rem;
-    }
-
-    header .buscador-acceder-language {
-        grid-column: 1;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 0.8rem;
-        padding: 0.5rem 1rem 0.8rem;
-    }
-
-    header .buscador-acceder-language .search-class {
-        width: 12rem;
-    }
-
-    header .buscador-acceder-language .conteiner-search input::placeholder {
-        color: #2B2B2B;
-    }
-
-    .navegacion {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.8rem;
-    }
-
-    header .buscador-acceder-language .navegacion a {
-        font-size: 0.85rem;
-    }
 
     .main-clasificacion {
         padding-top: 10rem;
@@ -227,27 +195,9 @@ tbody tr {
     td {
         padding: 0.7rem;
     }
-
 }
 
 @media screen and (max-width: 34rem) {
-
-    header .logo-explorar .nombre-logo,
-    header .logo-explorar .nombre-logo-tech {
-        font-size: 1.5rem;
-    }
-
-    header .buscador-acceder-language .search-class {
-        width: 10rem;
-    }
-
-    header .buscador-acceder-language .navegacion a {
-        font-size: 0.75rem;
-    }
-
-    .navegacion {
-        gap: 0.6rem;
-    }
 
     .main-clasificacion {
         padding-top: 11rem;
@@ -278,5 +228,4 @@ tbody tr {
         height: 2rem;
         font-size: 0.8rem;
     }
-
 }

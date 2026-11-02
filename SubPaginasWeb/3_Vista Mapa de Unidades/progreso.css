@@ -257,4 +257,17 @@ progress::-webkit-progress-value {
     .primera-seccion{
         margin-top: 1rem;
     }
+    @media screen and (max-width: 76rem) {
+    .navegacion {
+        gap: 0.6rem;
+    }
+}
+
+.boton-card[aria-disabled="true"] {
+    background-color: #858484;
+    color: #ffffff;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
 }

@@ -1,3 +1,4 @@
+
 main {
     padding: 3rem;
     padding-top: 5.5rem;
@@ -23,17 +24,17 @@ main {
     gap: 1rem;
 }
 
-.sc1-titulo{
+.sc1-titulo {
     display: grid;
     grid-template-rows: repeat(3, auto);
     gap: 1rem;
 }
 
-.sc1-titulo h1{
+.sc1-titulo h1 {
     font-size: 2.5rem;
 }
 
-.sc1-titulo h3{
+.sc1-titulo h3 {
     font-size: 1.8rem;
     font-family: 'Crimson Pro', serif;
     font-style: italic;
@@ -60,7 +61,7 @@ main {
     text-align: center;
 }
 
-.sc1-cards p{
+.sc1-cards p {
     font-size: 1.1rem;
 }
 
@@ -76,11 +77,11 @@ main {
     padding: 1rem;
 }
 
-.card-4 p{
+.card-4 p {
     font-size: 1.1rem;
 }
 
-.seccion-1 .img-icon-sc1{
+.seccion-1 .img-icon-sc1 {
     width: auto;
     height: 1.8rem;
     object-fit: contain;
@@ -92,7 +93,7 @@ main {
     width: 100%;
 }
 
-.boton-sc1 a{
+.boton-sc1 a {
     display: inline-block;
     text-decoration: none;
     color: #ffffff;
@@ -102,7 +103,7 @@ main {
     transition: .3s;
 }
 
-.boton-sc1 a:hover{
+.boton-sc1 a:hover {
     background-color: #cc3a01;
     transform: scale(1.1);
 }
@@ -121,7 +122,6 @@ main {
     padding: 3rem 0 5rem;
     font-size: 2rem;
 }
-
 
 .cards {
     display: grid;
@@ -142,11 +142,11 @@ main {
     box-shadow: 0 0.0625rem 0.375rem 0 rgba(68, 68, 68, 0.5);
 }
 
-.cards-idioma p{
+.cards-idioma p {
     padding-top: 2rem;
 }
 
-.cards-idioma h3{
+.cards-idioma h3 {
     font-size: 1.5rem;
     padding: 0 .8rem 1.5rem;
     text-align: center;
@@ -164,7 +164,7 @@ main {
     transition: .3s;
 }
 
-.cards-idioma button:hover{
+.cards-idioma button:hover {
     transform: scale(1.1);
 }
 
@@ -184,24 +184,24 @@ main {
     gap: 1rem;
 }
 
-.conteiner-cursos{
+.conteiner-cursos {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
-.conteiner-cursos .titulo h2{
+.conteiner-cursos .titulo h2 {
     text-align: center;
     font-size: 2rem;
 }
 
-.cards-cursos{
+.cards-cursos {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     gap: 1.5rem;
 }
 
-.card-curso{
+.card-curso {
     display: grid;
     grid-template-columns: 4fr 13fr 3fr auto;
     background-color: #ffffff;
@@ -211,37 +211,36 @@ main {
     gap: 1rem;
 }
 
-.card-curso .img-paises{
+.card-curso .img-paises {
     width: auto;
     height: 7rem;
     object-fit: contain;
     border-radius: .8rem;
 }
 
-.titulo-card-cursos{
+.titulo-card-cursos {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     align-items: center;
 }
 
-.titulo-card-cursos .curso{
+.titulo-card-cursos .curso {
     font-size: 1.5rem;
 }
- 
-.unidad{
+
+.unidad {
     display: flex;
     justify-content: space-between;
 }
 
-.unidad span{
+.unidad span {
     color: #CA6035;
     font-weight: 600;
 }
 
-.titulo-card-cursos progress{
+.titulo-card-cursos progress {
     width: 100%;
 }
-
 
 progress {
     -webkit-appearance: none;
@@ -250,13 +249,11 @@ progress {
     border-radius: 1rem;
     border: none;
     overflow: hidden;
-
 }
 
 progress::-webkit-progress-bar {
     background-color: #bdbdbd;
     border-radius: 1rem;
-
 }
 
 progress::-webkit-progress-value {
@@ -264,13 +261,13 @@ progress::-webkit-progress-value {
     border-radius: 1rem;
 }
 
-.boton-cards{
+.boton-cards {
     display: grid;
     align-items: center;
     justify-content: center;
 }
 
-.boton-cards a{
+.boton-cards a {
     text-decoration: none;
     background-color: #CA6035;
     color: white;
@@ -279,25 +276,25 @@ progress::-webkit-progress-value {
     transition: transform .3s, background-color .3s;
 }
 
-.boton-cards a:hover{
+.boton-cards a:hover {
     background-color: #cc3a01;
     transform: scale(1.1);
 }
 
-.btn-cerrar-cards{
+.btn-cerrar-cards {
     all: unset;
     color: #af9595;
     font-size: 1.2rem;
     cursor: pointer;
 }
 
-.conteiner-datos{
+.conteiner-datos {
     display: grid;
     grid-template-rows: 4fr 7fr;
     gap: 1rem;
 }
 
-.metaDiaria{
+.metaDiaria {
     display: grid;
     grid-template-rows: 2fr 2fr 1fr 2fr;
     align-items: center;
@@ -307,20 +304,20 @@ progress::-webkit-progress-value {
     background-color: #ffffff;
 }
 
-.metaDiaria .img-icon-datos{
+.metaDiaria .img-icon-datos {
     width: auto;
     height: 1.5rem;
     object-fit: contain;
 }
 
-.metaDiaria .datos-progress{
+.metaDiaria .datos-progress {
     padding-top: .5rem;
     display: flex;
     justify-content: space-between;
     border-top: .1rem solid #3333333d;
 }
 
-.metaDiaria progress{
+.metaDiaria progress {
     width: 100%;
 }
 
@@ -329,16 +326,16 @@ progress::-webkit-progress-value {
     grid-template-columns: 1fr 8fr 3fr;
 }
 
-.datos-titulo h3{
+.datos-titulo h3 {
     text-align: start;
     padding-left: .5rem;
 }
 
-.datos-titulo p{
+.datos-titulo p {
     text-align: end;
 }
 
-.logrosRecientes{
+.logrosRecientes {
     padding: 1rem;
     border-radius: 1rem;
     background-color: #ffffff;
@@ -354,25 +351,25 @@ progress::-webkit-progress-value {
     align-items: center;
 }
 
-.logros-titulo h3{
+.logros-titulo h3 {
     margin-left: .1rem;
 }
 
-.logros-titulo a{
+.logros-titulo a {
     text-align: end;
     text-decoration: none;
     cursor: pointer;
     color: #682910;
 }
 
-.logros-titulo a:hover{
+.logros-titulo a:hover {
     text-decoration: underline;
 }
 
-.card-logros{
+.card-logros {
     display: grid;
     grid-template-columns: auto 1fr;
-    box-shadow: 0 0.0625rem 0.375rem 0 rgba(68, 68, 68, 0.5);
+    box-shadow: 0 0.0625rem 0.375rem 0 rgba(68, 68, 68, 68, 0.5);
     align-items: center;
     padding: .5rem;
     border-radius: .7rem;
@@ -380,17 +377,17 @@ progress::-webkit-progress-value {
     gap: .5rem;
 }
 
-.card-logros h4{
+.card-logros h4 {
     padding-bottom: .3rem;
 }
 
-.img-icon-logros-titulo{
+.img-icon-logros-titulo {
     width: auto;
     height: 1.7rem;
     object-fit: contain;
 }
 
-.img-icon-logros{
+.img-icon-logros {
     width: auto;
     height: 2.5rem;
     object-fit: contain;
@@ -399,7 +396,7 @@ progress::-webkit-progress-value {
     border-radius: 50%;
 }
 
-.seccion-3{
+.seccion-3 {
     display: grid;
     background-color: #ffffff;
     padding: 2rem;
@@ -410,22 +407,22 @@ progress::-webkit-progress-value {
     margin: 0 auto;
 }
 
-.seccion-3 .sc3-titulo{
+.seccion-3 .sc3-titulo {
     display: flex;
     justify-content: space-between;
 }
 
-.seccion-3 .sc3-titulo h2{
+.seccion-3 .sc3-titulo h2 {
     font-size: 2rem;
 }
 
-.sc3-conteiner-cards-vocabulario{
+.sc3-conteiner-cards-vocabulario {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
     gap: 2rem;
 }
 
-.cards-vocabulario{
+.cards-vocabulario {
     background-color: #F8E9DB;
     box-shadow: 0 0.0625rem 0.375rem 0 rgba(68, 68, 68, 0.5);
     padding: 1rem;
@@ -435,11 +432,11 @@ progress::-webkit-progress-value {
     gap: 1rem;
 }
 
-.cards-vocabulario h4{
+.cards-vocabulario h4 {
     text-align: center;
 }
 
-.mensajeSinCursos{
+.mensajeSinCursos {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -452,17 +449,17 @@ progress::-webkit-progress-value {
     gap: 2rem;
 }
 
-.MensajeSinCursosDisponible{
+.MensajeSinCursosDisponible {
     display: none;
 }
 
-.imgMsjNoCursos{
+.imgMsjNoCursos {
     width: 100%;
-  height: 14rem;
-  object-fit: contain;
+    height: 14rem;
+    object-fit: contain;
 }
 
-.btnMsjNoCursos{
+.btnMsjNoCursos {
     text-decoration: none;
     background-color: #CA6035;
     color: white;
@@ -471,113 +468,113 @@ progress::-webkit-progress-value {
     transition: transform .3s, background-color .3s;
 }
 
-.btnMsjNoCursos:hover{
+.btnMsjNoCursos:hover {
     background-color: #cc3a01;
     transform: scale(1.1);
 }
 
-.parrafoNoCursos{
+.parrafoNoCursos {
     color: #585656;
 }
 
-@media screen and (max-width: 70.75rem){
+@media screen and (max-width: 70.75rem) {
 
-    .seccion-1, .seccion-2, .seccion-3{
+    .seccion-1,
+    .seccion-2,
+    .seccion-3 {
         width: 95%;
     }
-    
 }
 
-@media screen and (max-width: 64.5rem){
-    
-    .img-paises{
+@media screen and (max-width: 64.5rem) {
+
+    .img-paises {
         margin: 0 auto;
     }
-    
-    .card-curso{
+
+    .card-curso {
         grid-template-columns: 1fr;
     }
 }
 
-@media screen and (max-width: 56.5rem){
+@media screen and (max-width: 56.5rem) {
 
     .sc1-conteiner {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, auto);
-    gap: 0;
-    row-gap: 1rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+        gap: 0;
+        row-gap: 1rem;
     }
-    .sc1-titulo{
+
+    .sc1-titulo {
         grid-row: 1;
     }
 
-    .sc1-conteiner-cards{
+    .sc1-conteiner-cards {
         margin-top: 0;
         grid-row: 3;
     }
 }
 
-@media screen and (max-width: 40rem){
+@media screen and (max-width: 40rem) {
 
-    .seccion-1, .seccion-2, .seccion-3{
+    .seccion-1,
+    .seccion-2,
+    .seccion-3 {
         width: 100%;
     }
-    
-    .sc1-conteiner-cards{
-    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-    grid-template-rows: auto;
-    gap: 1.5rem;
-    
+
+    .sc1-conteiner-cards {
+        grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+        grid-template-rows: auto;
+        gap: 1.5rem;
     }
 
-    .card-4{
-    width: 100%;
-    height: 100%;
-    grid-row: auto;
-    grid-column: auto;
-    flex-direction: column;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
+    .card-4 {
+        width: 100%;
+        height: 100%;
+        grid-row: auto;
+        grid-column: auto;
+        flex-direction: column;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
     }
-
 }
 
-@media screen and (max-width: 35.625rem){
+@media screen and (max-width: 35.625rem) {
 
-    .seccion-2{
+    .seccion-2 {
         grid-template-columns: auto;
     }
 }
 
-@media screen and (max-width: 58.125rem){
+@media screen and (max-width: 58.125rem) {
 
-    .seccion-1{
+    .seccion-1 {
         margin-top: 5rem;
     }
 }
 
 @media screen and (max-width: 64.3rem) {
-    
-    .seccion-2-extra{
+
+    .seccion-2-extra {
         padding-bottom: 9rem;
     }
 
-    .cards{
+    .cards {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(3, 1fr);
     }
 
-    .card-ingles{
+    .card-ingles {
         grid-row: 1;
     }
 
-    .card-chino{
+    .card-chino {
         grid-row: 2;
     }
 
-    .card-aleman{
+    .card-aleman {
         grid-row: 3;
     }
-
-
 }

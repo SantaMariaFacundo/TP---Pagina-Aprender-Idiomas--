@@ -1,0 +1,257 @@
+
+header {
+    width: 100%;
+    height: 3.5rem;
+    background-color: #CA6035;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+
+header .logo-explorar {
+    grid-column: 1 / 2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 1rem;
+    gap: 4rem;
+}
+
+header .logo-explorar a,
+header .logo-explorar button {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+header .logo-explorar .nombre-logo {
+    margin-left: 0.15rem;
+    font-size: 2rem;
+}
+
+header .logo-explorar .nombre-logo-tech {
+    font-size: 2rem;
+    color: white;
+}
+
+.img-logo {
+    width: 2.5rem;
+    height: 3rem;
+    object-fit: cover;
+}
+
+header .buscador-acceder-language {
+    grid-column: 2 / 3;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+    padding-right: 1.5rem;
+}
+
+header .buscador-acceder-language a {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+header .buscador-acceder-language img {
+    width: 100%;
+    height: 1.5rem;
+    object-fit: contain;
+}
+
+header .buscador-acceder-language .conteiner-search {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+header .buscador-acceder-language .conteiner-search .img-search {
+    position: absolute;
+    width: auto;
+    right: 0.5rem;
+    pointer-events: auto;
+    cursor: pointer;
+}
+header .buscador-acceder-language .search-class {
+    width: 15rem;
+    background-color: #F8E9DB;
+    height: 2.2rem;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+}
+
+header .buscador-acceder-language .btn-acceder {
+    background-color: #F8E9DB;
+    padding: 0.3rem 0.6rem 0.3rem 0.8rem;
+    border-radius: 1.5rem;
+    transition: 0.3s;
+}
+
+header .buscador-acceder-language .btn-acceder:hover {
+    background-color: #D40000;
+    color: white;
+}
+
+header .buscador-acceder-language .idioma {
+    background: transparent;
+    border: none;
+    padding: 0.3rem;
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+}
+
+
+.navegacion {
+    display: flex;
+    gap: 0.7rem;
+}
+
+header .buscador-acceder-language .navegacion a {
+    color: #F8E9DB;
+    font-size: 1.1rem;
+}
+
+header .buscador-acceder-language .navegacion a:hover {
+    color: #222222;
+}
+
+
+header .buscador-acceder-language .menu-usuario {
+    position: relative;
+    flex-shrink: 0;
+}
+
+header .buscador-acceder-language .menu-usuario summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    cursor: pointer;
+}
+
+header .buscador-acceder-language .menu-usuario summary::marker {
+    content: "";
+}
+
+header .buscador-acceder-language .menu-usuario summary::-webkit-details-marker {
+    display: none;
+}
+
+
+header .buscador-acceder-language .menu-usuario .icono-usuario {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+
+header .buscador-acceder-language .menu-usuario:not([open]) .opciones-usuario {
+    display: none;
+}
+
+
+header .buscador-acceder-language .menu-usuario[open] .opciones-usuario {
+    display: block;
+}
+
+
+header .buscador-acceder-language .menu-usuario .opciones-usuario {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    min-width: 150px;
+    padding: 0.5rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 110;
+}
+
+header .buscador-acceder-language .menu-usuario .opciones-usuario a {
+    display: block;
+    color: #222222;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+header .buscador-acceder-language .menu-usuario .opciones-usuario a:hover {
+    background-color: #F8E9DB;
+    border-radius: 5px;
+}
+
+
+@media screen and (max-width: 58.125rem) {
+
+    header {
+        height: auto;
+        grid-template-columns: 1fr;
+    }
+
+    header .logo-explorar {
+        grid-column: 1;
+        justify-content: center;
+        margin-left: 0;
+        padding-top: 0.5rem;
+    }
+
+    header .buscador-acceder-language {
+        grid-column: 1;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        padding: 0.5rem 1rem 0.8rem;
+    }
+
+    header .buscador-acceder-language .search-class {
+        width: 15rem;
+    }
+
+    header .buscador-acceder-language .conteiner-search input::placeholder {
+        color: #181616;
+    }
+
+    .navegacion {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+
+    header .buscador-acceder-language .navegacion a {
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 34rem) {
+
+    header .buscador-acceder-language .conteiner-search input::placeholder {
+        color: #F8E9DB;
+    }
+
+    header .logo-explorar .nombre-logo,
+    header .logo-explorar .nombre-logo-tech {
+        font-size: 1.5rem;
+    }
+
+    header .buscador-acceder-language .search-class {
+        width: 10rem;
+    }
+
+    header .buscador-acceder-language .navegacion a {
+        font-size: 0.75rem;
+    }
+}

@@ -1,146 +1,111 @@
+// Importamos los módulos compartidos necesarios para esta página.
+import "../../js/header.js";
+import "../../js/buscador.js";
+import "../../js/traductor.js";
 
-const formulario = document.querySelector(".formulario-perfil");
-const selectorIdioma = document.getElementById("idioma-interfaz");
+// Importamos las funciones de usuarios utilizadas en esta vista.
+import { obtenerUsuarioActivo } from "../../js/usuarios.js";
 
-const passwordActual = document.getElementById("password-actual");
-const passwordNueva = document.getElementById("password-nueva");
-const passwordConfirmar = document.getElementById("password-confirmar");
 
-const CLAVE_PERFIL = "grammatech_perfil_demo";
-const CLAVE_SESION = "grammatech_usuario_activo";
+const tituloNombre = document.getElementById("titulo-nombre-usuario");
+const nombreUsuario = document.querySelector(".nombre-usuario");
+const avatar = document.querySelector(".avatar");
 
-const datosIniciales = {
-    nombre: "Juan Pérez",
-    usuario: "@juanperez_web",
-    correo: "juan.perez@alumnos.unlam.edu.ar",
-    idioma: "espanol",
-    password: "Demo1234!"
-};
-
-function obtenerPerfil() {
-    const datos = localStorage.getItem(CLAVE_PERFIL);
-
-    if (datos) {
-        try {
-            const guardado = JSON.parse(datos);
-
-            if (guardado && typeof guardado === "object") {
-                return { ...datosIniciales, ...guardado };
-            }
-        } catch (error) {
-            console.error("Error al recuperar el perfil:", error);
-        }
-    }
-
-    return { ...datosIniciales };
-}
-
-let perfil = obtenerPerfil();
-
-// Actualizar texto sin eliminar enlaces ni etiquetas HTML
-function actualizarTexto(contenedor, texto) {
-    if (!contenedor) {
-        return;
-    }
-
-    const nodo = Array.from(contenedor.childNodes).find(
-        elemento => elemento.nodeType === Node.TEXT_NODE &&
-                    elemento.textContent.trim() !== ""
-    );
-
-    if (nodo) {
-        nodo.textContent = " " + texto + " ";
-    }
-}
-
-// Mostrar nombre
-document.getElementById("titulo-nombre-usuario").textContent =
-    perfil.nombre;
-
-// Mostrar nombre de usuario
-document.querySelector(".nombre-usuario").textContent =
-    perfil.usuario;
-
-// Mostrar correo sin borrar el botón Editar
 const correoVisible = document.querySelector(
     ".informacion-usuario p:not(.nombre-usuario)"
 );
 
-actualizarTexto(correoVisible, perfil.correo);
-
-// Mostrar datos de la cuenta
 const datosCuenta = document.querySelectorAll(".datos-cuenta p");
+const fechaRegistro = document.querySelector(".datos-cuenta time");
 
-actualizarTexto(datosCuenta[0], perfil.nombre);
-actualizarTexto(datosCuenta[1], perfil.usuario);
+const tituloLiga = document.getElementById("titulo-logro-liga");
+const tituloRacha = document.getElementById("titulo-logro-racha");
+const tituloXp = document.getElementById("titulo-logro-xp");
 
-// Actualizar avatar con iniciales
-const iniciales = perfil.nombre
-    .trim()
-    .split(/\s+/)
-    .slice(0, 2)
-    .map(palabra => palabra[0])
-    .join("")
-    .toUpperCase();
+const usuarioActivo = obtenerUsuarioActivo();
 
-document.querySelector(".avatar").textContent = iniciales;
+if (!usuarioActivo) {
 
-// Recuperar el idioma seleccionado
-selectorIdioma.value = perfil.idioma;
+    window.location.replace("../1_Vista Login/login.html");
 
-// Guardar cambios desde la vista principal
-formulario.addEventListener("submit", function(event) {
+} else {
 
-    event.preventDefault();
+    // Cambiar textos sin eliminar los botones Editar.
+    function actualizarTexto(contenedor, texto) {
 
-    const actual = passwordActual.value;
-    const nueva = passwordNueva.value;
-    const confirmar = passwordConfirmar.value;
-
-    if (actual !== "" || nueva !== "" || confirmar !== "") {
-
-        if (actual !== perfil.password) {
-            alert("La contraseña actual es incorrecta.");
+        if (!contenedor) {
             return;
         }
 
-        if (nueva.length < 8) {
-            alert("La nueva contraseña debe tener al menos 8 caracteres.");
-            return;
-        }
-
-        if (nueva !== confirmar) {
-            alert("Las contraseñas nuevas no coinciden.");
-            return;
-        }
-
-        perfil.password = nueva;
-    }
-
-    perfil.idioma = selectorIdioma.value;
-
-    try {
-        localStorage.setItem(
-            CLAVE_PERFIL,
-            JSON.stringify(perfil)
+        const nodo = Array.from(contenedor.childNodes).find(
+            n => n.nodeType === Node.TEXT_NODE &&
+                n.textContent.trim() !== ""
         );
-    } catch (error) {
-        alert("No se pudieron guardar los cambios.");
-        return;
+
+        if (nodo) {
+            nodo.textContent = " " + texto + " ";
+        }
+
     }
 
-    window.location.href = "cambiosGuardados.html";
-});
+    // Mostrar los datos de la cuenta.
+    tituloNombre.textContent = usuarioActivo.nombre;
+    nombreUsuario.textContent = usuarioActivo.usuario;
 
-// Cerrar sesión
-const cerrarSesion = document.querySelector(".cerrar-sesion a");
+    actualizarTexto(correoVisible, usuarioActivo.correo);
+    actualizarTexto(datosCuenta[0], usuarioActivo.nombre);
+    actualizarTexto(datosCuenta[1], usuarioActivo.usuario);
 
-cerrarSesion.addEventListener("click", function(event) {
+    // Iniciales para el avatar.
+    avatar.textContent = usuarioActivo.nombre
+        .trim()
+        .split(/\s+/)
+        .slice(0, 2)
+        .map(palabra => palabra.charAt(0))
+        .join("")
+        .toUpperCase();
 
-    event.preventDefault();
+    // Fecha de incorporación.
+    if (fechaRegistro && usuarioActivo.fechaRegistro) {
 
-    localStorage.removeItem(CLAVE_SESION);
+        const fecha = new Date(usuarioActivo.fechaRegistro);
 
-    window.location.href = "../../index.html";
-});
+        if (!Number.isNaN(fecha.getTime())) {
 
+            fechaRegistro.dateTime = fecha.toISOString().slice(0, 10);
+
+            fechaRegistro.textContent = fecha.toLocaleDateString(
+                "es-AR",
+                {
+                    month: "long",
+                    year: "numeric"
+                }
+            );
+
+        }
+
+    }
+
+    // Liga actual.
+    const liga = usuarioActivo.liga || "bronce";
+
+    tituloLiga.textContent =
+        "Liga " +
+        liga.charAt(0).toUpperCase() +
+        liga.slice(1);
+
+    // Racha.
+    const dias = Number(usuarioActivo.racha) || 0;
+
+    tituloRacha.textContent =
+        "Racha de " +
+        dias +
+        (dias === 1 ? " día" : " días");
+
+    // Experiencia.
+    const xp = Number(usuarioActivo.xp) || 0;
+
+    tituloXp.textContent =
+        xp.toLocaleString("es-AR") + " XP";
+
+}

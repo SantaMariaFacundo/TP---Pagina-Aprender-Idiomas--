@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../Styles Generales/StyleGeneral.css">
+    <link rel="stylesheet" href="../../Styles Generales/headerGeneral.css">
+    <link rel="stylesheet" href="../../Styles Generales/footerGeneral.css">
+    <link rel="stylesheet" href="login.css">
+
+    <link rel="icon" href="../../images/img-logo/FAVICON-LOGO-BLANCO.png" type="image/png">
+
+    <title>Recuperar contraseña - GrammaTech</title>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo-explorar">
+            <a href="../../index.html" aria-label="GrammaTech, ir al inicio">
+                <img class="img-logo" src="../../images/img-logo/LOGO-BLANCO.png" alt="Logo de GrammaTech">
+                <span class="nombre-logo">Gramma</span>
+                <span class="nombre-logo-tech">Tech</span>
+            </a>
+        </div>
+
+        <div class="buscador-acceder-language">
+
+            <p id="texto-sin-cuenta">¿Aún no tenés cuenta?</p>
+
+            <a class="btn-acceder" href="Vista Registro/registro.html">
+                <span class="span-registrate">Registrate</span>
+            </a>
+
+            <select id="idioma" class="idioma" name="idioma" aria-label="Seleccionar idioma">
+                <option value="español" lang="es">Es</option>
+                <option value="english" lang="en">En</option>
+            </select>
+
+        </div>
+
+    </header>
+
+    <main>
+
+        <nav class="boton-volver" aria-label="Volver al inicio de sesión">
+            <a class="link-volver" href="login.html">
+                <img src="../../images/icons-general/icono-volver.svg" alt="">
+                Volver
+            </a>
+        </nav>
+
+        <div class="contenedor">
+
+            <div class="form-caja">
+
+                <form id="formulario-recuperacion" aria-label="Recuperar contraseña">
+
+                    <section class="completar-datos" aria-labelledby="titulo-recuperacion">
+
+                        <h2 id="titulo-recuperacion">
+                            Recuperar contraseña
+                        </h2>
+
+                        <p>
+                            Ingresá el correo electrónico asociado a tu cuenta.
+                        </p>
+
+                        <div class="relleno">
+
+                            <div class="relleno-label">
+                                <label for="correo-recuperacion">
+                                    Correo electrónico
+                                </label>
+                            </div>
+
+                            <input
+                                type="email"
+                                id="correo-recuperacion"
+                                name="correo"
+                                placeholder="tu-nombre@correo.com"
+                                autocomplete="email"
+                                required>
+
+                        </div>
+
+                        <button class="boton-iniciar" type="submit">
+                            Recuperar
+                        </button>
+
+                        <p id="mensaje-recuperacion"
+                            role="status"
+                            aria-live="polite">
+                        </p>
+
+                    </section>
+
+                    <nav class="links-login" aria-label="Regresar al inicio de sesión">
+
+                        <div class="registrarse">
+                            <a href="login.html">
+                                Volver a iniciar sesión
+                            </a>
+                        </div>
+
+                    </nav>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+
+        <div class="logo-footer">
+
+            <a href="../../index.html" aria-label="GrammaTech, ir al inicio">
+                <img class="img-logo-footer"
+                    src="../../images/img-logo/LOGO-BLANCO.png"
+                    alt="Logo de GrammaTech">
+                <span class="nombre-logo">Gramma</span>
+                <span class="nombre-logo-tech">Tech</span>
+            </a>
+
+        </div>
+
+        <nav class="condiciones-footer" aria-label="Información legal y soporte">
+
+            <p>
+                <a href="">Condiciones Generales</a> -
+                <a href="">Aviso Legal</a> -
+                <a href="">Privacidad</a> -
+                <a href="">Cookies</a> -
+                <a href="">Accesibilidad</a>
+            </p>
+
+            <p><a href="">Soporte y Ayuda</a></p>
+
+            <p>
+                © Todos los derechos reservados,
+                <time datetime="2026">2026</time>,
+                GrammaTech.
+            </p>
+
+        </nav>
+
+        <nav class="redes-footer" aria-label="Redes sociales">
+
+            <a href="#">
+                <img src="../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg" alt="Instagram">
+            </a>
+
+            <a href="#">
+                <img src="../../images/iconosBlack-svg/facebook-rounded-svgr.svg" alt="Facebook">
+            </a>
+
+            <a href="#">
+                <img src="../../images/iconosBlack-svg/twitter-rounded-svg.svg" alt="Twitter">
+            </a>
+
+        </nav>
+
+    </footer>
+<script src="recuperarContrasena.js"></script>
+    <script type="module" src="./recuperarContrasena.js"></script>
+</body>
+
+</html>

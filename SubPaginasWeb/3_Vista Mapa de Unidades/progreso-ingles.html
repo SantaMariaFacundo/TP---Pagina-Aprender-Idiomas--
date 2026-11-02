@@ -4,101 +4,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../StyleGeneral.css">
+
+    <link rel="stylesheet" href="../../Styles Generales/StyleGeneral.css">
+    <link rel="stylesheet" href="../../Styles Generales/headerGeneral.css">
+    <link rel="stylesheet" href="../../Styles Generales/footerGeneral.css">
     <link rel="stylesheet" href="progreso.css">
+
     <link rel="icon" href="../../images/img-logo/FAVICON-LOGO-BLANCO.png" type="image/png">
-    <title>Grammatech - Unidades</title>
+    <title>GrammaTech - Unidades de Inglés</title>
 </head>
 
-
 <body>
+
     <header>
         <div class="logo-explorar">
-            <a href="../2_Vista home/home.html" aria-label="GrammaTech, ir al inicio"><img class="img-logo" src="../../../images/img-logo/LOGO-BLANCO.png" alt="logo"><span
-                    class="nombre-logo">Gramma</span><span class="nombre-logo-tech">Tech</span></a>
+            <a href="../2_Vista home/home.html" aria-label="GrammaTech, ir al inicio">
+                <img class="img-logo" src="../../images/img-logo/LOGO-BLANCO.png" alt="Logo de GrammaTech">
+                <span class="nombre-logo">Gramma</span>
+                <span class="nombre-logo-tech">Tech</span>
+            </a>
         </div>
+
         <div class="buscador-acceder-language">
             <form class="conteiner-search" role="search">
                 <input type="search" class="search-class" id="buscador" name="buscador" aria-label="Buscar becas, cursos y vocabulario" placeholder="Becas, Cursos, y Vocabulario...">
-                <img class="img-search" src="../../../images/iconosBlack-svg/search-svgrepo-com.svg" alt="">
+                <img class="img-search" src="../../images/iconosBlack-svg/search-svgrepo-com.svg" alt="">
             </form>
+
             <nav class="navegacion" aria-label="Navegación principal">
                 <a href="../2_Vista home/home.html">Cursos</a>
                 <a href="../5_Vista Perfil Usuario/perfilUsuario.html">Perfil</a>
                 <a href="../6_Vista Tabla Clasificación/clasificacion.html">Clasificación</a>
                 <a href="../7_Vista Racha/tienda.html">Tienda</a>
             </nav>
+
             <select id="idioma" class="idioma" name="idioma" aria-label="Seleccionar idioma">
-                <option value="español" lang="es">Es</option>
+                <option value="espanol" lang="es">Es</option>
                 <option value="english" lang="en">En</option>
             </select>
+
+            <details class="menu-usuario">
+                <summary aria-label="Abrir menú de usuario">
+                    <img src="../../images/img-index/usuario.png" alt="" class="icono-usuario">
+                </summary>
+                <div class="opciones-usuario">
+                    <a href="#" id="btn-cerrar-sesion">Cerrar sesión</a>
+                </div>
+            </details>
         </div>
     </header>
 
-    <main>
+    <main data-curso="ingles">
 
         <div class="barra">
             <a class="boton-atras" href="../2_Vista home/home.html" aria-label="Volver a cursos">x</a>
             <div>
-                <progress class="barra-principal" value="80" max="100" aria-label="Progreso total del curso de Inglés">80%</progress>
+                <progress class="barra-principal" value="0" max="100" aria-label="Progreso del curso de Inglés">0%</progress>
             </div>
         </div>
 
         <section class="seccion-unidades primera-seccion" id="inglesA1A2" aria-labelledby="titulo-inglesA1A2">
-            <h2 id="titulo-inglesA1A2">Ingles A1 - A2</h2>
+
+            <h2 id="titulo-inglesA1A2">Inglés A1 - A2</h2>
 
             <div class="contenedor-cards">
 
-                <article class="cards-a1a2 card-listening" aria-labelledby="titulo-inglesA1A2-listening">
+                <article class="cards-a1a2 card-listening" data-leccion="ingles-1" aria-labelledby="titulo-inglesA1A2-listening">
                     <img src="../../images/img-progreso/persona escuchando dibujo.png" alt="">
                     <h3 id="titulo-inglesA1A2-listening" lang="en">Listening</h3>
                     <div class="barra-progreso">
-                        <progress value="100" max="100" aria-labelledby="titulo-inglesA1A2-listening">100%</progress>
-                        <span aria-hidden="true">100%</span>
+                        <progress value="0" max="100" aria-labelledby="titulo-inglesA1A2-listening">0%</progress>
+                        <span aria-hidden="true">0%</span>
                     </div>
-                    <a class="boton-card" href="../4_Vista Leccion Interativa/lecciones100por100/leccionIngles100.html" aria-label="Ir al curso: Listening, Inglés A1 - A2">Ir al curso</a>
+                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionIngles.html" aria-label="Ir a la primera lección de Inglés">Ir al curso</a>
                 </article>
 
                 <article class="cards-a1a2 card-vocabulario" aria-labelledby="titulo-inglesA1A2-vocabulario">
                     <img src="../../images/img-progreso/dibujo persona leyendo.png" alt="">
                     <h3 id="titulo-inglesA1A2-vocabulario">Vocabulario</h3>
                     <div class="barra-progreso">
-                        <progress value="100" max="100" aria-labelledby="titulo-inglesA1A2-vocabulario">100%</progress>
-                        <span aria-hidden="true">100%</span>
+                        <progress value="0" max="100" aria-labelledby="titulo-inglesA1A2-vocabulario">0%</progress>
+                        <span aria-hidden="true">0%</span>
                     </div>
-                    <a class="boton-card" href="../4_Vista Leccion Interativa/lecciones100por100/leccionIngles100.html" aria-label="Ir al curso: Vocabulario, Inglés A1 - A2">Ir al curso</a>
+                    <a class="boton-card" href="#" aria-label="Vocabulario de Inglés">Ir al curso</a>
                 </article>
 
                 <article class="cards-a1a2 card-gramatica" aria-labelledby="titulo-inglesA1A2-gramatica">
                     <img src="../../images/img-progreso/dibujo persona escribiendo.png" alt="">
-                    <h3 id="titulo-inglesA1A2-gramatica">Gramatica</h3>
+                    <h3 id="titulo-inglesA1A2-gramatica">Gramática</h3>
                     <div class="barra-progreso">
-                        <progress value="100" max="100" aria-labelledby="titulo-inglesA1A2-gramatica">100%</progress>
-                        <span aria-hidden="true">100%</span>
+                        <progress value="0" max="100" aria-labelledby="titulo-inglesA1A2-gramatica">0%</progress>
+                        <span aria-hidden="true">0%</span>
                     </div>
-                    <a class="boton-card" href="../4_Vista Leccion Interativa/lecciones100por100/leccionIngles100.html" aria-label="Ir al curso: Gramatica, Inglés A1 - A2">Ir al curso</a>
+                    <a class="boton-card" href="#" aria-label="Gramática de Inglés">Ir al curso</a>
                 </article>
 
             </div>
 
             <article class="card-examen" aria-labelledby="titulo-inglesA1A2-examen">
-
-                <img src="../../../images/img-progreso/Saly-26.png" alt="">
-
+                <img src="../../images/img-progreso/Saly-26.png" alt="">
                 <h3 id="titulo-inglesA1A2-examen">Examen</h3>
-
                 <div class="examen">
-
-                    <a class="boton-card" href="../4_Vista Leccion Interativa/examenes/examenIngles.html" aria-label="Ir al curso: Examen, Inglés A1 - A2">Ir al curso</a>
-
+                    <a class="boton-card" href="../4_Vista Leccion Interativa/examenes/examenIngles.html" aria-label="Ir al examen de Inglés A1-A2">Ir al curso</a>
                 </div>
-
             </article>
 
         </section>
 
         <section class="seccion-unidades" id="inglesB1B2" aria-labelledby="titulo-inglesB1B2">
-            <h2 id="titulo-inglesB1B2">Ingles B1 - B2</h2>
+
+            <h2 id="titulo-inglesB1B2">Inglés B1 - B2</h2>
 
             <div class="contenedor-cards">
 
@@ -106,52 +121,47 @@
                     <img src="../../images/img-progreso/persona escuchando dibujo.png" alt="">
                     <h3 id="titulo-inglesB1B2-listening" lang="en">Listening</h3>
                     <div class="barra-progreso">
-                        <progress value="100" max="100" aria-labelledby="titulo-inglesB1B2-listening">100%</progress>
-                        <span aria-hidden="true">100%</span>
+                        <progress value="0" max="100" aria-labelledby="titulo-inglesB1B2-listening">0%</progress>
+                        <span aria-hidden="true">0%</span>
                     </div>
-                    <a class="boton-card" href="../4_Vista Leccion Interativa/lecciones100por100/leccionIngles100.html" aria-label="Ir al curso: Listening, Inglés B1 - B2">Ir al curso</a>
+                    <a class="boton-card" aria-disabled="true">Próximamente</a>
                 </article>
 
                 <article class="cards-a1a2 card-vocabulario" aria-labelledby="titulo-inglesB1B2-vocabulario">
                     <img src="../../images/img-progreso/dibujo persona leyendo.png" alt="">
                     <h3 id="titulo-inglesB1B2-vocabulario">Vocabulario</h3>
                     <div class="barra-progreso">
-                        <progress value="100" max="100" aria-labelledby="titulo-inglesB1B2-vocabulario">100%</progress>
-                        <span aria-hidden="true">100%</span>
+                        <progress value="0" max="100" aria-labelledby="titulo-inglesB1B2-vocabulario">0%</progress>
+                        <span aria-hidden="true">0%</span>
                     </div>
-                    <a class="boton-card" href="../4_Vista Leccion Interativa/lecciones100por100/leccionIngles100.html" aria-label="Ir al curso: Vocabulario, Inglés B1 - B2">Ir al curso</a>
+                    <a class="boton-card" aria-disabled="true">Próximamente</a>
                 </article>
 
                 <article class="cards-a1a2 card-gramatica" aria-labelledby="titulo-inglesB1B2-gramatica">
                     <img src="../../images/img-progreso/dibujo persona escribiendo.png" alt="">
-                    <h3 id="titulo-inglesB1B2-gramatica">Gramatica</h3>
+                    <h3 id="titulo-inglesB1B2-gramatica">Gramática</h3>
                     <div class="barra-progreso">
-                        <progress value="100" max="100" aria-labelledby="titulo-inglesB1B2-gramatica">100%</progress>
-                        <span aria-hidden="true">100%</span>
+                        <progress value="0" max="100" aria-labelledby="titulo-inglesB1B2-gramatica">0%</progress>
+                        <span aria-hidden="true">0%</span>
                     </div>
-                    <a class="boton-card" href="../4_Vista Leccion Interativa/lecciones100por100/leccionIngles100.html" aria-label="Ir al curso: Gramatica, Inglés B1 - B2">Ir al curso</a>
+                    <a class="boton-card" aria-disabled="true">Próximamente</a>
                 </article>
 
             </div>
 
             <article class="card-examen" aria-labelledby="titulo-inglesB1B2-examen">
-
-                <img src="../../../images/img-progreso/Saly-26.png" alt="">
-
+                <img src="../../images/img-progreso/Saly-26.png" alt="">
                 <h3 id="titulo-inglesB1B2-examen">Examen</h3>
-
                 <div class="examen">
-
-                    <a class="boton-card" href="../4_Vista Leccion Interativa/examenes/examenIngles.html" aria-label="Ir al curso: Examen, Inglés B1 - B2">Ir al curso</a>
-
+                    <a class="boton-card" aria-disabled="true">Próximamente</a>
                 </div>
-
             </article>
 
         </section>
 
         <section class="seccion-unidades" id="inglesC1C2" aria-labelledby="titulo-inglesC1C2">
-            <h2 id="titulo-inglesC1C2">Ingles C1 - C2</h2>
+
+            <h2 id="titulo-inglesC1C2">Inglés C1 - C2</h2>
 
             <div class="contenedor-cards">
 
@@ -162,7 +172,7 @@
                         <progress value="0" max="100" aria-labelledby="titulo-inglesC1C2-listening">0%</progress>
                         <span aria-hidden="true">0%</span>
                     </div>
-                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionIngles.html" aria-label="Ir al curso: Listening, Inglés C1 - C2">Ir al curso</a>
+                    <a class="boton-card" aria-disabled="true">Próximamente</a>
                 </article>
 
                 <article class="cards-a1a2 card-vocabulario" aria-labelledby="titulo-inglesC1C2-vocabulario">
@@ -172,69 +182,70 @@
                         <progress value="0" max="100" aria-labelledby="titulo-inglesC1C2-vocabulario">0%</progress>
                         <span aria-hidden="true">0%</span>
                     </div>
-                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionIngles.html" aria-label="Ir al curso: Vocabulario, Inglés C1 - C2">Ir al curso</a>
+                    <a class="boton-card" aria-disabled="true">Próximamente</a>
                 </article>
 
                 <article class="cards-a1a2 card-gramatica" aria-labelledby="titulo-inglesC1C2-gramatica">
                     <img src="../../images/img-progreso/dibujo persona escribiendo.png" alt="">
-                    <h3 id="titulo-inglesC1C2-gramatica">Gramatica</h3>
+                    <h3 id="titulo-inglesC1C2-gramatica">Gramática</h3>
                     <div class="barra-progreso">
                         <progress value="0" max="100" aria-labelledby="titulo-inglesC1C2-gramatica">0%</progress>
                         <span aria-hidden="true">0%</span>
                     </div>
-                    <a class="boton-card" href="../4_Vista Leccion Interativa/leccionIngles.html" aria-label="Ir al curso: Gramatica, Inglés C1 - C2">Ir al curso</a>
+                    <a class="boton-card" aria-disabled="true">Próximamente</a>
                 </article>
 
             </div>
 
             <article class="card-examen" aria-labelledby="titulo-inglesC1C2-examen">
-
-                <img src="../../../images/img-progreso/Saly-26.png" alt="">
-
+                <img src="../../images/img-progreso/Saly-26.png" alt="">
                 <h3 id="titulo-inglesC1C2-examen">Examen</h3>
-
                 <div class="examen">
-
-                    <a class="boton-card" href="../4_Vista Leccion Interativa/examenes/examenIngles.html" aria-label="Ir al curso: Examen, Inglés C1 - C2" aria-disabled="true" tabindex="-1">Ir al curso</a>
-
+                    <a class="boton-card" aria-disabled="true">Próximamente</a>
                 </div>
-
                 <div class="card-bloqueada">
-                    <img src="../../../images/img-progreso/candado.svg" alt="Examen bloqueado">
+                    <img src="../../images/img-progreso/candado.svg" alt="Examen bloqueado">
                 </div>
-
             </article>
 
         </section>
 
     </main>
 
-
     <footer>
         <div class="logo-footer">
-            <a href="#" aria-label="GrammaTech, volver arriba"><img class="img-logo-footer" src="../../../images/img-logo/LOGO-BLANCO.png" alt="logo"><span
-                    class="nombre-logo">Gramma</span><span class="nombre-logo-tech">Tech</span></a>
+            <a href="../2_Vista home/home.html" aria-label="GrammaTech, ir al inicio">
+                <img class="img-logo-footer" src="../../images/img-logo/LOGO-BLANCO.png" alt="Logo de GrammaTech">
+                <span class="nombre-logo">Gramma</span>
+                <span class="nombre-logo-tech">Tech</span>
+            </a>
         </div>
+
         <nav class="condiciones-footer" aria-label="Información legal y soporte">
-            <p> <a href="">Condiciones Generales</a> - <a href="">Aviso Legal</a> - <a href="">Privacidad</a> - <a
-                    href="">Cookies</a> - <a href="">Accesibilidad</a>
+            <p>
+                <a href="">Condiciones Generales</a> -
+                <a href="">Aviso Legal</a> -
+                <a href="">Privacidad</a> -
+                <a href="">Cookies</a> -
+                <a href="">Accesibilidad</a>
             </p>
-            <p> <a href="">Soporte y Ayuda</a></p>
-            <p>© Todos los derechos reservados, <time datetime="2026">2026</time>, Gramatech.</p>
+            <p><a href="">Soporte y Ayuda</a></p>
+            <p>© Todos los derechos reservados, <time datetime="2026">2026</time>, GrammaTech.</p>
         </nav>
+
         <nav class="redes-footer" aria-label="Redes sociales">
             <a href="#">
-                <img src="../../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg" alt="link redes instagram">
+                <img src="../../images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg" alt="Instagram">
             </a>
             <a href="#">
-                <img src="../../../images/iconosBlack-svg/facebook-rounded-svgr.svg" alt="link redes facebook ">
+                <img src="../../images/iconosBlack-svg/facebook-rounded-svgr.svg" alt="Facebook">
             </a>
             <a href="#">
-                <img src="../../../images/iconosBlack-svg/twitter-rounded-svg.svg" alt="link redes twitter">
+                <img src="../../images/iconosBlack-svg/twitter-rounded-svg.svg" alt="Twitter">
             </a>
         </nav>
     </footer>
-
+    <script type="module" src="./progreso.js"></script>
 </body>
 
 </html>

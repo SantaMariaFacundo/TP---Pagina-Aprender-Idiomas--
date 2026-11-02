@@ -1,279 +1,280 @@
+// Importamos los módulos compartidos necesarios para esta página.
+import "../../js/header.js";
+import "../../js/buscador.js";
+import "../../js/traductor.js";
 
-console.log("Clasificación conectada correctamente");
+// Importamos las funciones de usuarios utilizadas en esta vista.
+import { obtenerUsuarios, obtenerUsuarioActivo } from "../../js/usuarios.js";
 
-const selectorLiga = document.getElementById("liga");
-const tituloLiga = document.getElementById("titulo-liga-actual");
-const descripcionLiga = document.getElementById("descripcion-liga");
-const tabla = document.getElementById("tabla-clasificacion");
 
-const puestoActual = document.getElementById("puesto-actual");
-const xpSemana = document.getElementById("xp-semana");
-const xpPrimerPuesto = document.getElementById("xp-primer-puesto");
+(function () {
 
-const CLAVE_PERFIL = "grammatech_perfil_demo";
-const CLAVE_RANKING = "grammatech_ranking_demo";
+    // Elementos del HTML.
+    const selectorLiga = document.getElementById("liga");
+    const tituloLiga = document.getElementById("titulo-liga-actual");
+    const descripcionLiga = document.getElementById("descripcion-liga");
+    const tabla = document.getElementById("tabla-clasificacion");
 
-// Información de las ligas
-const ligas = {
-    bronce: {
-        nombre: "LIGA BRONCE",
-        descripcion: "Los 5 primeros ascienden a la Liga de Plata esta semana.",
-        puestosAscenso: 5
-    },
-    plata: {
-        nombre: "LIGA PLATA",
-        descripcion: "Los 3 primeros ascienden a la Liga de Oro esta semana.",
-        puestosAscenso: 3
-    },
-    oro: {
-        nombre: "LIGA ORO",
-        descripcion: "Competí por los primeros puestos de la clasificación.",
-        puestosAscenso: 0
+    const puestoActual = document.getElementById("puesto-actual");
+    const xpSemana = document.getElementById("xp-semana");
+    const xpPrimerPuesto = document.getElementById("xp-primer-puesto");
+
+    // Verificar que el HTML tenga los elementos necesarios.
+    if (
+        !selectorLiga ||
+        !tituloLiga ||
+        !descripcionLiga ||
+        !tabla ||
+        !puestoActual ||
+        !xpSemana ||
+        !xpPrimerPuesto
+    ) {
+        console.error("Faltan elementos de la vista Clasificación.");
+        return;
     }
-};
 
-// Participantes de demostración
-const participantesIniciales = [
-    { id: "mel", usuario: "@MelG_29", xp: 850, liga: "bronce" },
-    { id: "juan-demo", usuario: "@juanperez_web", xp: 720, liga: "bronce" },
-    { id: "carlos", usuario: "@Carlos_Dev", xp: 610, liga: "bronce" },
-    { id: "mai", usuario: "@MaiCoder", xp: 570, liga: "bronce" },
-    { id: "facu", usuario: "@FacuWeb", xp: 520, liga: "bronce" },
-    { id: "agus", usuario: "@AgusDev", xp: 480, liga: "bronce" },
+    // Las funciones de usuarios vienen de js/usuarios.js.
+    if (
+        typeof obtenerUsuarioActivo !== "function" ||
+        typeof obtenerUsuarios !== "function"
+    ) {
+        console.error("Debe cargarse usuarios.js antes de clasificacion.js.");
+        return;
+    }
 
-    { id: "lucia", usuario: "@LuciaCode", xp: 1250, liga: "plata" },
-    { id: "tomas", usuario: "@TomiWeb", xp: 1100, liga: "plata" },
-    { id: "sofia", usuario: "@SofiDev", xp: 980, liga: "plata" },
-    { id: "nico", usuario: "@NicoJS", xp: 860, liga: "plata" },
-
-    { id: "ana", usuario: "@AnaTech", xp: 2100, liga: "oro" },
-    { id: "fede", usuario: "@FedeCode", xp: 1900, liga: "oro" },
-    { id: "valen", usuario: "@ValenDev", xp: 1700, liga: "oro" }
-];
-
-// Recuperar participantes
-function obtenerParticipantes() {
-    try {
-        const datos = localStorage.getItem(CLAVE_RANKING);
-
-        if (datos !== null) {
-            const guardados = JSON.parse(datos);
-
-            if (Array.isArray(guardados)) {
-                return guardados;
-            }
+    // Información de las ligas.
+    const ligas = {
+        bronce: {
+            nombre: "LIGA BRONCE",
+            descripcion: "Los 5 primeros están en zona de ascenso a Plata.",
+            puestosAscenso: 5
+        },
+        plata: {
+            nombre: "LIGA PLATA",
+            descripcion: "Los 3 primeros están en zona de ascenso a Oro.",
+            puestosAscenso: 3
+        },
+        oro: {
+            nombre: "LIGA ORO",
+            descripcion: "Competí por los primeros puestos.",
+            puestosAscenso: 0
         }
-    } catch (error) {
-        console.error("Error al recuperar ranking:", error);
-    }
-
-    return participantesIniciales.map(participante => ({
-        ...participante
-    }));
-}
-
-// Recuperar el usuario de demostración
-function obtenerUsuarioActual() {
-    let usuario = "@juanperez_web";
-
-    try {
-        const datos = localStorage.getItem(CLAVE_PERFIL);
-
-        if (datos !== null) {
-            const perfil = JSON.parse(datos);
-
-            if (perfil && perfil.usuario) {
-                usuario = perfil.usuario;
-            }
-        }
-    } catch (error) {
-        console.error("Error al recuperar usuario:", error);
-    }
-
-    return {
-        id: "juan-demo",
-        usuario: usuario
     };
-}
 
-// Obtener iniciales
-function obtenerIniciales(usuario) {
-    const nombre = usuario.replace("@", "");
-
-    return nombre.substring(0, 2).toUpperCase();
-}
-
-// Crear una celda
-function crearCelda(texto) {
-    const celda = document.createElement("td");
-
-    celda.textContent = texto;
-
-    return celda;
-}
-
-// Crear una fila del ranking
-function crearFila(participante, posicion, usuarioActual, liga) {
-    const fila = document.createElement("tr");
-
-    // Resaltar usuario actual
-    if (participante.id === usuarioActual.id) {
-        fila.classList.add("usuario-actual");
-        fila.setAttribute("aria-current", "true");
+    // Crear una celda de la tabla.
+    function crearCelda(fila, texto) {
+        const celda = document.createElement("td");
+        celda.textContent = texto;
+        fila.appendChild(celda);
+        return celda;
     }
 
-    // Puesto
-    fila.appendChild(crearCelda(posicion));
-
-    // Avatar
-    const celdaAvatar = document.createElement("td");
-    const avatar = document.createElement("span");
-
-    avatar.classList.add("avatar-ranking");
-    avatar.textContent = obtenerIniciales(participante.usuario);
-
-    celdaAvatar.appendChild(avatar);
-    fila.appendChild(celdaAvatar);
-
-    // Nombre de usuario
-    fila.appendChild(crearCelda(participante.usuario));
-
-    // Experiencia semanal
-    const celdaXp = document.createElement("td");
-    const datoXp = document.createElement("data");
-
-    datoXp.value = participante.xp;
-    datoXp.textContent = `${participante.xp.toLocaleString("es-AR")} XP`;
-
-    celdaXp.appendChild(datoXp);
-    fila.appendChild(celdaXp);
-
-    // Estado según posición y liga
-    let estado = "Permanece";
-
-    if (liga !== "oro" && posicion <= ligas[liga].puestosAscenso) {
-        estado = "Asciende";
+    // Obtener las iniciales del usuario.
+    function obtenerIniciales(nombre) {
+        return String(nombre || "")
+            .trim()
+            .split(/\s+/)
+            .slice(0, 2)
+            .map(palabra => palabra.charAt(0))
+            .join("")
+            .toUpperCase();
     }
 
-    if (liga === "oro" && posicion === 1) {
-        estado = "Primer puesto";
+    // Obtener los XP semanales.
+    function obtenerXpSemanal(usuario) {
+        return Math.max(0, Number(usuario.xpSemanal) || 0);
     }
 
-    fila.appendChild(crearCelda(estado));
-
-    return fila;
-}
-
-// Actualizar tarjetas del resumen
-function actualizarResumen(participantes, usuarioActual) {
-    const indice = participantes.findIndex(
-        participante => participante.id === usuarioActual.id
-    );
-
-    if (indice === -1) {
-        puestoActual.textContent = "—";
-        xpSemana.textContent = "—";
-        xpPrimerPuesto.textContent = "—";
-
-        puestoActual.value = 0;
-        xpSemana.value = 0;
-        xpPrimerPuesto.value = 0;
-
-        return;
+    // Mostrar un número en el resumen.
+    function mostrarNumero(elemento, numero) {
+        elemento.textContent = numero.toLocaleString("es-AR");
     }
 
-    const posicion = indice + 1;
-    const experiencia = participantes[indice].xp;
-    const primero = participantes[0].xp;
+    // Mostrar la posición del usuario activo.
+    function mostrarResumen(usuariosLiga, usuarioActivo, ligaSeleccionada) {
 
-    const diferencia = posicion === 1
-        ? 0
-        : primero - experiencia + 1;
+        const misXp = obtenerXpSemanal(usuarioActivo);
 
-    puestoActual.textContent = `#${posicion}`;
-    xpSemana.textContent = experiencia.toLocaleString("es-AR");
-    xpPrimerPuesto.textContent = diferencia.toLocaleString("es-AR");
+        mostrarNumero(xpSemana, misXp);
 
-    puestoActual.value = posicion;
-    xpSemana.value = experiencia;
-    xpPrimerPuesto.value = diferencia;
-}
-
-// Mostrar la clasificación seleccionada
-function mostrarClasificacion() {
-    const ligaSeleccionada = selectorLiga.value;
-    const informacion = ligas[ligaSeleccionada];
-
-    if (!informacion) {
-        return;
-    }
-
-    // Actualizar título y descripción
-    tituloLiga.textContent = informacion.nombre;
-    descripcionLiga.textContent = informacion.descripcion;
-
-    const usuarioActual = obtenerUsuarioActual();
-    const participantes = obtenerParticipantes();
-
-    // Reflejar nombre actualizado desde Perfil
-    const participanteActual = participantes.find(
-        participante => participante.id === usuarioActual.id
-    );
-
-    if (participanteActual) {
-        participanteActual.usuario = usuarioActual.usuario;
-    }
-
-    // Filtrar y ordenar según XP semanal
-    const participantesLiga = participantes
-        .filter(participante => participante.liga === ligaSeleccionada)
-        .sort((a, b) => b.xp - a.xp);
-
-    // Eliminar las filas anteriores
-    tabla.replaceChildren();
-
-    // Si no hay participantes
-    if (participantesLiga.length === 0) {
-        const fila = document.createElement("tr");
-        const celda = crearCelda(
-            "Todavía no hay participantes en esta liga."
+        const posicion = usuariosLiga.findIndex(
+            usuario => usuario.id === usuarioActivo.id
         );
 
-        celda.colSpan = 5;
+        // Si estamos consultando otra liga, no tenemos puesto allí.
+        if (
+            ligaSeleccionada !== (usuarioActivo.liga || "bronce") ||
+            posicion === -1
+        ) {
+            puestoActual.textContent = "—";
+            xpPrimerPuesto.textContent = "—";
+            return;
+        }
 
-        fila.appendChild(celda);
-        tabla.appendChild(fila);
+        // Mostrar nuestra posición.
+        mostrarNumero(puestoActual, posicion + 1);
 
-        actualizarResumen(participantesLiga, usuarioActual);
-        return;
+        // XP necesarios para superar al primer puesto.
+        const xpLider = obtenerXpSemanal(usuariosLiga[0]);
+
+        const diferencia = posicion === 0
+            ? 0
+            : xpLider - misXp + 1;
+
+        mostrarNumero(xpPrimerPuesto, diferencia);
     }
 
-    // Crear las nuevas filas
-    participantesLiga.forEach(function(participante, indice) {
-        const fila = crearFila(
-            participante,
-            indice + 1,
-            usuarioActual,
+    // Mostrar la clasificación de la liga seleccionada.
+    function mostrarClasificacion() {
+
+        const usuarioActivo = obtenerUsuarioActivo();
+
+        if (!usuarioActivo) {
+            window.location.replace("../1_Vista Login/login.html");
+            return;
+        }
+
+        const ligaSeleccionada = selectorLiga.value;
+        const informacion = ligas[ligaSeleccionada];
+
+        if (!informacion) {
+            return;
+        }
+
+        // Actualizar encabezado.
+        tituloLiga.textContent = informacion.nombre;
+        descripcionLiga.textContent = informacion.descripcion;
+
+        // Obtener los usuarios de la liga seleccionada.
+        const usuariosLiga = obtenerUsuarios()
+            .filter(function(usuario) {
+                return (usuario.liga || "bronce") === ligaSeleccionada;
+            })
+            .sort(function(a, b) {
+
+                const diferencia =
+                    obtenerXpSemanal(b) - obtenerXpSemanal(a);
+
+                if (diferencia !== 0) {
+                    return diferencia;
+                }
+
+                // Desempatar alfabéticamente.
+                return String(a.usuario || "").localeCompare(
+                    String(b.usuario || ""),
+                    "es"
+                );
+            });
+
+        // Limpiar la tabla.
+        tabla.replaceChildren();
+
+        if (usuariosLiga.length === 0) {
+
+            const fila = document.createElement("tr");
+
+            const celda = crearCelda(
+                fila,
+                "Todavía no hay usuarios en esta liga."
+            );
+
+            celda.colSpan = 5;
+
+            tabla.appendChild(fila);
+        }
+
+        // Crear una fila por cada usuario.
+        usuariosLiga.forEach(function(usuario, indice) {
+
+            const fila = document.createElement("tr");
+            const posicion = indice + 1;
+
+            // Destacar la cuenta activa.
+            if (usuario.id === usuarioActivo.id) {
+                fila.classList.add("usuario-actual");
+            }
+
+            // Puesto.
+            crearCelda(fila, posicion);
+
+            // Avatar.
+            const celdaAvatar = document.createElement("td");
+            const avatar = document.createElement("div");
+
+            avatar.className = "avatar-ranking";
+            avatar.textContent = obtenerIniciales(usuario.nombre);
+
+            celdaAvatar.appendChild(avatar);
+            fila.appendChild(celdaAvatar);
+
+            // Nombre de usuario.
+            crearCelda(
+                fila,
+                usuario.usuario || usuario.nombre || "Usuario"
+            );
+
+            // XP semanales.
+            const xp = obtenerXpSemanal(usuario);
+
+            crearCelda(
+                fila,
+                xp.toLocaleString("es-AR")
+            );
+
+            // Estado en la liga.
+            let estado = "Participando";
+
+            if (
+                informacion.puestosAscenso > 0 &&
+                posicion <= informacion.puestosAscenso
+            ) {
+                estado = "Zona de ascenso";
+            }
+
+            crearCelda(fila, estado);
+
+            tabla.appendChild(fila);
+        });
+
+        // Actualizar resumen personal.
+        mostrarResumen(
+            usuariosLiga,
+            usuarioActivo,
             ligaSeleccionada
         );
-
-        tabla.appendChild(fila);
-    });
-
-    // Actualizar las tarjetas inferiores
-    actualizarResumen(participantesLiga, usuarioActual);
-}
-
-// Evitar que el formulario del selector navegue
-document.querySelector(".selector-liga").addEventListener(
-    "submit",
-    function(event) {
-        event.preventDefault();
     }
-);
 
-// Detectar cambio de liga
-selectorLiga.addEventListener("change", mostrarClasificacion);
+    // Comprobar si hay una sesión activa.
+    const usuarioActivo = obtenerUsuarioActivo();
 
-// Mostrar clasificación inicial
-mostrarClasificacion();
+    if (!usuarioActivo) {
+
+        window.location.replace("../1_Vista Login/login.html");
+
+    } else {
+
+        // Seleccionar inicialmente la liga propia.
+        selectorLiga.value = ligas[usuarioActivo.liga]
+            ? usuarioActivo.liga
+            : "bronce";
+
+        // Evitar recargas innecesarias del formulario.
+        const formularioLiga = document.querySelector(".selector-liga");
+
+        if (formularioLiga) {
+            formularioLiga.addEventListener("submit", function(evento) {
+                evento.preventDefault();
+            });
+        }
+
+        // Cambiar la liga mostrada.
+        selectorLiga.addEventListener(
+            "change",
+            mostrarClasificacion
+        );
+
+        // Cargar la tabla inicial.
+        mostrarClasificacion();
+    }
+
+})();
