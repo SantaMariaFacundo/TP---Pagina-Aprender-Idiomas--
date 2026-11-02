@@ -1,21 +1,20 @@
-// Importamos los ejercicios y las funciones de progreso de cada lección.
-import { ejerciciosLecciones } from "./datosLecciones.js";
-import { leccionCompletada, nivelDisponible, guardarProgresoLeccion } from "./progresoLecciones.js";
 
-// Importamos los módulos compartidos necesarios para esta página.
+import { ejerciciosLecciones } from "./datosLecciones.js";
+import {
+    leccionCompletada,
+    nivelDisponible,
+    guardarProgresoLeccion
+} from "./progresoLecciones.js";
+
 import "../../js/header.js";
 import "../../js/buscador.js";
-import "../../js/traductor.js";
 
-// Importamos las funciones de usuarios utilizadas en esta vista.
 import { obtenerUsuarioActivo } from "../../js/usuarios.js";
-
 
 const actividad = document.querySelector("main[data-idioma][data-leccion]");
 
 if (actividad) {
 
-    // Obtener el idioma y los datos de la URL.
     const idioma = actividad.dataset.idioma;
     const parametros = new URLSearchParams(window.location.search);
 
@@ -31,15 +30,17 @@ if (actividad) {
         ? tipoSolicitado
         : "listening";
 
-    // Buscar el ejercicio en datosLecciones.js.
     const ejercicio = ejerciciosLecciones[idioma]?.[tipoActividad];
 
-    // Obtener los elementos del HTML.
     const formulario = actividad.querySelector(".card");
     const titulo = formulario.querySelector("h1");
     const frase = formulario.querySelector(".frase p");
     const botonComprobar = formulario.querySelector(".comprobar");
     const barraProgreso = actividad.querySelector("progress");
+    const barraSuperior = actividad.querySelector(".barra");
+
+    let vidas = 3;
+    let leccionFinalizada = false;
 
     const mensaje = document.createElement("p");
     mensaje.className = "mensaje-leccion";
@@ -47,19 +48,75 @@ if (actividad) {
 
     formulario.insertBefore(mensaje, botonComprobar);
 
-    // Mostrar mensajes al usuario.
+    const contenedorVidas = document.createElement("div");
+    contenedorVidas.className = "contenedor-vidas";
+    contenedorVidas.setAttribute("aria-label", "Vidas disponibles");
+
+    const corazones = [];
+
+    const corazonLleno = new URL(
+        "../../images/icons-general/icono-corazon.svg",
+        import.meta.url
+    ).href;
+
+    const corazonVacio = new URL(
+        "../../images/icons-general/icono-corazonvacio.svg",
+        import.meta.url
+    ).href;
+
+    for (let i = 0; i < 3; i++) {
+
+        const corazon = document.createElement("img");
+
+        corazon.src = corazonLleno;
+        corazon.alt = "";
+
+        contenedorVidas.appendChild(corazon);
+        corazones.push(corazon);
+    }
+
+    const textoVidas = document.createElement("span");
+    textoVidas.className = "vidas";
+
+    contenedorVidas.appendChild(textoVidas);
+
+    if (barraSuperior) {
+        barraSuperior.appendChild(contenedorVidas);
+    }
+
+    function actualizarVidas() {
+
+        corazones.forEach(function(corazon, indice) {
+
+            if (indice < vidas) {
+                corazon.src = corazonLleno;
+            } else {
+                corazon.src = corazonVacio;
+            }
+        });
+
+        textoVidas.textContent = vidas + "/3";
+        contenedorVidas.setAttribute(
+            "aria-label",
+            "Vidas disponibles: " + vidas + " de 3"
+        );
+    }
+
+    actualizarVidas();
+
     function mostrarMensaje(texto, correcto = false) {
 
         mensaje.textContent = texto;
         mensaje.style.color = correcto ? "#2A9C8D" : "#c0392b";
-
     }
 
     function limpiarMensaje() {
-        mensaje.textContent = "";
+
+        if (!leccionFinalizada && vidas > 0) {
+            mensaje.textContent = "";
+        }
     }
 
-    // Crear el identificador único de la lección.
     function obtenerIdLeccion() {
 
         if (nivel === "a" && tipoActividad === "listening") {
@@ -67,12 +124,10 @@ if (actividad) {
         }
 
         return idioma + "-" + nivel + "-" + tipoActividad;
-
     }
 
     const idLeccion = obtenerIdLeccion();
 
-    // Archivos de los mapas de cada idioma.
     const mapas = {
         ingles: "progreso-ingles.html",
         aleman: "progreso-aleman.html",
@@ -83,10 +138,8 @@ if (actividad) {
 
         window.location.href =
             "../3_Vista Mapa de Unidades/" + mapas[idioma];
-
     }
 
-    // Crear las opciones de respuesta.
     function configurarOpciones() {
 
         const contenedor = formulario.querySelector(".opciones");
@@ -114,14 +167,11 @@ if (actividad) {
             grupo.appendChild(input);
             grupo.appendChild(label);
             contenedor.appendChild(grupo);
-
         });
 
         contenedor.addEventListener("change", limpiarMensaje);
-
     }
 
-    // Crear las palabras para ordenar.
     function configurarPalabras() {
 
         const banco = formulario.querySelector(".banco-palabras");
@@ -143,11 +193,13 @@ if (actividad) {
             boton.dataset.palabra = palabra;
 
             banco.appendChild(boton);
-
         });
 
-        // Mover palabras a la respuesta.
         banco.addEventListener("click", function(evento) {
+
+            if (leccionFinalizada || vidas === 0) {
+                return;
+            }
 
             const boton = evento.target.closest("button");
 
@@ -163,11 +215,13 @@ if (actividad) {
 
             respuesta.appendChild(boton);
             limpiarMensaje();
-
         });
 
-        // Devolver palabras al banco.
         respuesta.addEventListener("click", function(evento) {
+
+            if (leccionFinalizada || vidas === 0) {
+                return;
+            }
 
             const boton = evento.target.closest("button");
 
@@ -180,12 +234,9 @@ if (actividad) {
 
             banco.appendChild(boton);
             limpiarMensaje();
-
         });
-
     }
 
-    // Obtener la respuesta elegida por el usuario.
     function obtenerRespuesta() {
 
         if (ejercicio.tipo === "opciones") {
@@ -195,7 +246,6 @@ if (actividad) {
             );
 
             return seleccionada ? seleccionada.value : "";
-
         }
 
         if (ejercicio.tipo === "palabras") {
@@ -209,44 +259,113 @@ if (actividad) {
             });
 
             return palabras.join(" ");
-
         }
 
         return "";
-
     }
 
-    // Marcar la actividad como completada.
+    const volverCompletada = document.createElement("a");
+    volverCompletada.textContent = "Volver al mapa de unidades";
+    volverCompletada.className = "volver-leccion-completa";
+
+    volverCompletada.href =
+        "../3_Vista Mapa de Unidades/" + mapas[idioma];
+
+    volverCompletada.hidden = true;
+
+    formulario.appendChild(volverCompletada);
+
+    const botonReintentar = document.createElement("button");
+
+    botonReintentar.type = "button";
+    botonReintentar.className = "comprobar boton-reintentar";
+    botonReintentar.textContent = "Reintentar lección";
+    botonReintentar.hidden = true;
+
+    botonReintentar.addEventListener("click", function() {
+        window.location.reload();
+    });
+
+    formulario.appendChild(botonReintentar);
+
     function completarBarra() {
+
+        leccionFinalizada = true;
+        volverCompletada.hidden = false;
+        botonComprobar.disabled = true;
 
         if (barraProgreso) {
             barraProgreso.value = 100;
             barraProgreso.textContent = "100%";
         }
-
     }
 
-    // Comprobar si la respuesta es correcta.
+    function perderVida() {
+
+        vidas--;
+        actualizarVidas();
+
+        if (vidas === 0) {
+
+            mostrarMensaje(
+                "Te quedaste sin vidas. Reintentá la lección."
+            );
+
+            botonComprobar.disabled = true;
+            botonReintentar.hidden = false;
+
+            const opciones = formulario.querySelectorAll(
+                'input[name="respuesta"]'
+            );
+
+            opciones.forEach(function(opcion) {
+                opcion.disabled = true;
+            });
+
+            const botonesPalabras = formulario.querySelectorAll(
+                ".banco-palabras button, .respuesta button"
+            );
+
+            botonesPalabras.forEach(function(boton) {
+                boton.disabled = true;
+            });
+
+        } else {
+
+            mostrarMensaje(
+                "Respuesta incorrecta. Te quedan " +
+                vidas + " vidas."
+            );
+        }
+    }
+
     function comprobarRespuesta() {
+
+        if (vidas === 0 || leccionFinalizada || !ejercicio) {
+            return;
+        }
 
         const respuesta = obtenerRespuesta();
 
         if (!respuesta) {
 
-            mostrarMensaje("Seleccioná una respuesta antes de comprobar.");
-            return;
+            mostrarMensaje(
+                "Seleccioná una respuesta antes de comprobar."
+            );
 
+            return;
         }
 
         if (respuesta !== ejercicio.correcta) {
 
-            mostrarMensaje("Respuesta incorrecta. ¡Intentá otra vez!");
+            perderVida();
             return;
-
         }
 
-        // Guardar el progreso usando progresoLecciones.js.
-        const resultado = guardarProgresoLeccion(idioma, idLeccion);
+        const resultado = guardarProgresoLeccion(
+            idioma,
+            idLeccion
+        );
 
         if (resultado.estado === "repetida") {
 
@@ -271,25 +390,30 @@ if (actividad) {
 
         } else {
 
-            mostrarMensaje("No se pudo guardar el progreso.");
-            return;
+            mostrarMensaje(
+                "No se pudo guardar el progreso."
+            );
 
+            return;
         }
 
         completarBarra();
-
     }
 
-    // Iniciar la actividad.
     const usuario = obtenerUsuarioActivo();
 
     if (!usuario) {
 
-        window.location.replace("../1_Vista Login/login.html");
+        window.location.replace(
+            "../1_Vista Login/login.html"
+        );
 
     } else if (!ejercicio) {
 
-        mostrarMensaje("Esta lección todavía no está configurada.");
+        mostrarMensaje(
+            "Esta lección todavía no está configurada."
+        );
+
         botonComprobar.disabled = true;
 
     } else if (!nivelDisponible(usuario, idioma, nivel)) {
@@ -301,11 +425,16 @@ if (actividad) {
         titulo.textContent = ejercicio.titulo;
         frase.textContent = ejercicio.frase;
 
-        // Ocultar los controles de audio fuera de Listening.
         if (tipoActividad !== "listening") {
 
-            const audio = formulario.querySelector(".audio-ingles");
-            const botonAudio = formulario.querySelector(".btn-audio-ingles");
+            const audio = formulario.querySelector(
+                ".audio-ingles"
+            );
+
+            const botonAudio = formulario.querySelector(
+                ".btn-audio-ingles"
+            );
+
             const contenedorAudio = formulario.querySelector(
                 ".conteiner-audio-ingles"
             );
@@ -322,7 +451,6 @@ if (actividad) {
             if (contenedorAudio) {
                 contenedorAudio.style.display = "none";
             }
-
         }
 
         if (ejercicio.tipo === "opciones") {
@@ -333,18 +461,17 @@ if (actividad) {
             configurarPalabras();
         }
 
-        // Evitar que el formulario recargue la página.
         formulario.addEventListener("submit", function(evento) {
             evento.preventDefault();
         });
 
-        botonComprobar.addEventListener("click", comprobarRespuesta);
+        botonComprobar.addEventListener(
+            "click",
+            comprobarRespuesta
+        );
 
-        // Recuperar el progreso si ya completó esta actividad.
         if (leccionCompletada(usuario, idioma, idLeccion)) {
             completarBarra();
         }
-
     }
-
 }

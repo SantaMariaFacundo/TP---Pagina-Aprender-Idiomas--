@@ -1,6 +1,5 @@
 // Importamos los módulos compartidos necesarios para esta página.
 import "../../js/buscador.js";
-import "../../js/traductor.js";
 
 // Importamos las funciones de usuarios utilizadas en esta vista.
 import { iniciarSesion } from "../../js/usuarios.js";

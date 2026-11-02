@@ -1,7 +1,6 @@
 // Importamos los módulos compartidos necesarios para esta página.
 import "../../js/header.js";
 import "../../js/buscador.js";
-import "../../js/traductor.js";
 
 // Importamos las funciones de usuarios utilizadas en esta vista.
 import { obtenerUsuarioActivo, actualizarUsuario } from "../../js/usuarios.js";
@@ -44,16 +43,7 @@ let seleccionados = usuario && Array.isArray(usuario.cursosSeleccionados)
     ? [...usuario.cursosSeleccionados]
     : [];
 
-// Usar las traducciones del archivo general.
-function textoHome(texto) {
-
-    if (typeof window.traducirTexto === "function") {
-        return window.traducirTexto(texto);
-    }
-
-    return texto;
-
-}
+function textoHome(texto) { return texto; }
 
 // Mostrar el nombre del idioma traducido.
 function nombreCurso(id) {
@@ -66,14 +56,7 @@ function mostrarSaludo() {
     if (!usuario || !saludo) {
         return;
     }
-
-    const idioma = localStorage.getItem("grammatech_idioma");
-
-    if (idioma === "en") {
-        saludo.textContent = "Hello, welcome " + usuario.usuario + ".";
-    } else {
-        saludo.textContent = "Hola bienvenido " + usuario.usuario + ".";
-    }
+    saludo.textContent = "Hola, bienvenido " + usuario.usuario + ".";
 
 }
 
@@ -315,15 +298,56 @@ botonesQuitar.forEach(function(boton) {
 
 });
 
-// Actualizar Home al cambiar el idioma.
-window.addEventListener("idiomaActualizado", function() {
 
-    mostrarSaludo();
-    mostrarCursos();
-
-});
 
 // Mostrar los datos al abrir Home.
 mostrarSaludo();
 mostrarCursos();
 
+
+// Meta diaria compartida con Tienda: XP del día actual, no valores de ejemplo.
+function actualizarMetaDiariaHome() {
+    const usuarioActual = obtenerUsuarioActivo();
+    if (!usuarioActual) return;
+    const fecha = new Date();
+    const hoy = fecha.getFullYear() + "-" +
+        String(fecha.getMonth() + 1).padStart(2, "0") + "-" +
+        String(fecha.getDate()).padStart(2, "0");
+    const meta = 40;
+    const xpHoy = usuarioActual.fechaXpDiario === hoy ? Number(usuarioActual.xpDiario) || 0 : 0;
+    const porcentaje = Math.min(Math.round(xpHoy / meta * 100), 100);
+    const seccion = document.querySelector(".metaDiaria");
+    if (!seccion) return;
+    const cantidad = seccion.querySelector(".datos-titulo p");
+    const mensaje = seccion.querySelector(".mensaje-meta-home");
+    const barra = seccion.querySelector("progress");
+    const indicador = seccion.querySelector(".datos-progress span");
+    if (cantidad) cantidad.textContent = xpHoy + " / " + meta + " XP";
+    if (barra) { barra.max = meta; barra.value = Math.min(xpHoy, meta); barra.textContent = porcentaje + "%"; }
+    if (indicador) indicador.textContent = porcentaje + "%";
+    if (mensaje) mensaje.textContent = xpHoy >= meta
+        ? "¡Felicitaciones! Alcanzaste tu meta diaria."
+        : "Te faltan " + (meta - xpHoy) + " XP para alcanzar tu meta diaria.";
+}
+actualizarMetaDiariaHome();
+window.addEventListener("pageshow", actualizarMetaDiariaHome);
+
+// Ventana informativa de los cursos. Se usa un solo diálogo para las tres tarjetas.
+const dialogoCurso = document.getElementById("dialogo-info-curso");
+const detalleCurso = {
+    ingles: { nombre: "Inglés", descripcion: "Practicá comprensión auditiva, vocabulario y gramática con actividades y exámenes." },
+    aleman: { nombre: "Alemán", descripcion: "Aprendé expresiones, vocabulario y estructuras de alemán con actividades interactivas." },
+    chino: { nombre: "Chino mandarín", descripcion: "Conocé palabras y expresiones de chino mandarín mientras avanzás por niveles." }
+};
+
+document.querySelectorAll("[data-info-curso]").forEach(function(boton) {
+    boton.addEventListener("click", function() {
+        const datos = detalleCurso[boton.dataset.infoCurso];
+        if (!datos || !dialogoCurso) return;
+        dialogoCurso.querySelector("h2").textContent = "Curso de " + datos.nombre;
+        dialogoCurso.querySelector(".descripcion-curso-popup").textContent = datos.descripcion;
+        dialogoCurso.showModal();
+    });
+});
+const cerrarInfoCurso = document.getElementById("cerrar-info-curso");
+if (cerrarInfoCurso) cerrarInfoCurso.addEventListener("click", function() { dialogoCurso.close(); });

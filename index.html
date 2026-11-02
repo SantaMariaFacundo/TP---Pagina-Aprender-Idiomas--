@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrammaTech | Aprendé idiomas a tu ritmo</title>
 
     <link rel="stylesheet" href="Styles Generales/StyleGeneral.css">
     <link rel="stylesheet" href="Styles Generales/headerGeneral.css">
@@ -11,132 +12,277 @@
     <link rel="stylesheet" href="style.css">
 
     <link rel="icon" href="images/img-logo/FAVICON-LOGO-BLANCO.png" type="image/png">
-
-    <title>GrammaTech</title>
 </head>
 
 <body>
+
     <header>
         <div class="logo-explorar">
-            <a href="index.html" aria-label="GrammaTech, ir al inicio"><img class="img-logo"
-                    src="images/img-logo/LOGO-BLANCO.png" alt="logo"><span class="nombre-logo">Gramma</span><span
-                    class="nombre-logo-tech">Tech</span></a>
+            <a href="index.html" aria-label="GrammaTech, ir al inicio">
+                <img class="img-logo" src="images/img-logo/LOGO-BLANCO.png" alt="Logo de GrammaTech">
+                <span class="nombre-logo">Gramma</span>
+                <span class="nombre-logo-tech">Tech</span>
+            </a>
         </div>
+
         <div class="buscador-acceder-language">
             <form class="conteiner-search" role="search">
-                <input type="search" class="search-class" id="buscador" name="buscador"
-                    aria-label="Buscar becas, cursos y vocabulario" placeholder="Becas, Cursos, y Vocabulario...">
+                <input type="search" class="search-class" id="buscador" name="buscador" aria-label="Buscar cursos"
+                    placeholder="Buscar cursos...">
+
                 <img class="img-search" src="images/iconosBlack-svg/search-svgrepo-com.svg" alt="">
             </form>
-            <a class="btn-acceder" href="SubPaginasWeb/1_Vista Login/login.html"><span
-                    class="span-acceder">Acceder</span>
-                <img class="img-user" src="images/iconosBlack-svg/user-avatar-filled-svgrepo-com.svg" alt=""></a>
-            <select id="idioma" class="idioma" name="idioma" aria-label="Seleccionar idioma">
-                <option value="español" lang="es">Es</option>
-                <option value="english" lang="en">En</option>
-            </select>
+
+            <a class="btn-acceder" href="SubPaginasWeb/1_Vista Login/login.html">
+                <span class="span-acceder">Acceder</span>
+                <img class="img-user" src="images/iconosBlack-svg/user-avatar-filled-svgrepo-com.svg" alt="">
+            </a>
         </div>
     </header>
+
     <main>
+
         <section class="seccion-1 primera-seccion" aria-labelledby="titulo-principal">
+
             <div class="titulo">
-                <h1 id="titulo-principal">APRENDE CON CLASES PARA TI PROGRESA DE VERDAD.</h1>
-                <p>Inscribirte al curso de idiomas GrammaTech revolucionará tu aprendizaje mediante tecnología
-                    adaptativa de vanguardia. Diseñado para optimizar tu fluidez en tiempo récord, combinarás gramática
-                    práctica, tutoría interactiva constante y ejercicios inmersivos para comunicarte con total seguridad
-                    y abrir nuevas oportunidades.</p>
-                <a href="#seccion-2">COMENZAR A EXPLORAR</a>
+                <span class="etiqueta-inicio">TU PRÓXIMO IDIOMA EMPIEZA ACÁ</span>
+
+                <h1 id="titulo-principal">
+                    Aprendé idiomas a tu ritmo.
+                </h1>
+
+                <p>
+                    Descubrí nuevas culturas, sumá conocimientos y avanzá
+                    con actividades interactivas de Inglés, Alemán
+                    y Chino Mandarín.
+                </p>
+
+                <a href="#seccion-2">EXPLORAR CURSOS</a>
             </div>
+
             <img class="img-sc1" src="images/img-index/ILUSTRACION-INICIO.png"
-                alt="ilustracion de un chico sentado con una notebook">
+                alt="Ilustración de una persona estudiando con una computadora">
         </section>
+
         <section class="seccion-2" id="seccion-2" aria-labelledby="titulo-cursos">
-            <h2 id="titulo-cursos">CURSOS DISPONIBLES</h2>
+
+            <div class="encabezado-cursos">
+                <span class="etiqueta-seccion">NUESTROS CURSOS</span>
+
+                <h2 id="titulo-cursos">Elegí tu próximo idioma</h2>
+
+                <p>
+                    Tres idiomas para descubrir. Conocé cada curso
+                    y elegí por dónde empezar.
+                </p>
+            </div>
+
             <div class="cards">
+
                 <article class="cards-idioma card-ingles">
-                    <h3>Aprendé Inglés a tu ritmo </h3>
-                    <img class="img-pais" src="images/img-paises/londres.avif" alt="">
-                    <p>Descubrí todos los cursos disponibles, desde nivel inicial hasta avanzado. Elegí el que mejor se
-                        adapte a vos y empezá hoy mismo.</p>
-                    <a href="SubPaginasWeb/1_Vista Login/Vista Registro/registro.html"
-                        aria-label="Ver curso de Inglés">Ver curso</a>
+
+                    <img class="img-pais" src="images/img-paises/londres.avif" alt="Londres, Inglaterra">
+
+                    <div class="contenido-card">
+                        <h3>Inglés</h3>
+
+                        <p class="subtitulo-idioma">Conectate con el mundo.</p>
+
+                        <p class="descripcion-card">
+                            Un idioma para viajar, estudiar, trabajar
+                            y descubrir nuevas oportunidades.
+                        </p>
+
+                        <button type="button" class="boton-info-index" data-info-index="ingles">
+                            Conocer el curso
+                        </button>
+                    </div>
                 </article>
+
                 <article class="cards-idioma card-chino">
-                    <h3>Descubrí el Chino Mandarín</h3>
-                    <img class="img-pais" src="images/img-paises/china.jpg" alt="">
-                    <p>Accedé a cursos para cada nivel, desde principiante hasta avanzado. Iniciá tu camino en el idioma
-                        más hablado del mundo y ampliá tus oportunidades.</p>
-                    <a href="SubPaginasWeb/1_Vista Login/Vista Registro/registro.html"
-                        aria-label="Ver curso de Chino Mandarín">Ver curso</a>
+
+                    <img class="img-pais" src="images/img-paises/china.jpg" alt="Paisaje de China">
+
+                    <div class="contenido-card">
+                        <h3>Chino Mandarín</h3>
+
+                        <p class="subtitulo-idioma">Descubrí algo diferente.</p>
+
+                        <p class="descripcion-card">
+                            Explorá una lengua fascinante y acercate
+                            a una cultura llena de historia.
+                        </p>
+
+                        <button type="button" class="boton-info-index" data-info-index="chino">
+                            Conocer el curso
+                        </button>
+                    </div>
                 </article>
+
                 <article class="cards-idioma card-aleman">
-                    <h3>Aprendé Alemán paso a paso</h3>
-                    <img class="img-pais" src="images/img-paises/alemania.jpg" alt="">
-                    <p>Explorá todos los cursos disponibles, desde nivel inicial hasta avanzado. Elegí tu nivel y empezá
-                        a dominar el idioma más hablado en Europa.</p>
-                    <a href="SubPaginasWeb/1_Vista Login/Vista Registro/registro.html"
-                        aria-label="Ver curso de Alemán">Ver curso</a>
+
+                    <img class="img-pais" src="images/img-paises/alemania.jpg" alt="Bandera de Alemania">
+
+                    <div class="contenido-card">
+                        <h3>Alemán</h3>
+
+                        <p class="subtitulo-idioma">Ampliá tus horizontes.</p>
+
+                        <p class="descripcion-card">
+                            Sumá un idioma con valor cultural,
+                            académico y profesional.
+                        </p>
+
+                        <button type="button" class="boton-info-index" data-info-index="aleman">
+                            Conocer el curso
+                        </button>
+                    </div>
                 </article>
+
             </div>
         </section>
 
         <section class="seccion-3" aria-labelledby="titulo-sobre-nosotros">
-            <div class="sc3-texto">
-                <h2 class="subtitulo-sc3" id="titulo-sobre-nosotros">Mucho mas cursos y becas: impacto en la vida de las
-                    personas</h2>
-                <p class="parrafo-sc3">Gramatech es la plataforma de aprendizaje de idiomas numero uno del mundo, cuenta
-                    con los mejores profesores y cursos.</p>
 
-                <img class="img-sc3" src="images/img-index/SOBRENOSOTROS2.jpg" alt="">
+            <div class="sc3-texto">
+
+                <span class="etiqueta-seccion">APRENDÉ CON GRAMMATECH</span>
+
+                <h2 class="subtitulo-sc3" id="titulo-sobre-nosotros">
+                    Un paso a la vez, cada día un poco más.
+                </h2>
+
+                <p class="parrafo-sc3">
+                    Aprender un idioma es un proceso. Por eso, en GrammaTech
+                    podés completar actividades, poner a prueba tus
+                    conocimientos y avanzar a nuevos niveles.
+                </p>
+
+                <img class="img-sc3" src="images/img-index/SOBRENOSOTROS2.jpg"
+                    alt="Personas compartiendo una experiencia de aprendizaje">
             </div>
-            <aside class="cards-mas-info" aria-label="Datos destacados">
+
+            <aside class="cards-mas-info" aria-label="Beneficios de la plataforma">
+
                 <article class="mas-info">
-                    <img src="images/iconosBlack-svg/graduation-cap-svgrepo-com.svg"
-                        alt="ilustracion gorro de graduacion">
-                    <p><strong>4 años</strong></p>
-                    <p>Apoyando la educación, La empleabilidad y el emprendimiento.</p>
+                    <h3>Aprendé practicando</h3>
+                    <p>
+                        Resolvé ejercicios de vocabulario,
+                        gramática y comprensión auditiva.
+                    </p>
                 </article>
+
                 <article class="mas-info">
-                    <img src="images/iconosBlack-svg/people-sharp-svgrepo-com.svg" alt="ilustracion dos personas">
-                    <p><strong>+4000</strong></p>
-                    <p>Personas y empresas ayudadas desde entonces.</p>
+                    <h3>Avanzá por niveles</h3>
+                    <p>
+                        Completá actividades y aprobá exámenes
+                        para desbloquear nuevos desafíos.
+                    </p>
                 </article>
+
                 <article class="mas-info">
-                    <img src="images/iconosBlack-svg/graduate-diploma-svgrepo-com.svg"
-                        alt="ilustracion certificado de graduacion">
-                    <p>Al finalizar tu curso, obtené un certificado para sumar a tu CV y LinkedIn y demostrar tus nuevos
-                        conocimientos.</p>
+                    <h3>Seguí tu progreso</h3>
+                    <p>
+                        Consultá tus avances, acumulá XP
+                        y mantené tu motivación para seguir.
+                    </p>
                 </article>
+
             </aside>
         </section>
-    </main>
-    <footer>
-        <div class="logo-footer">
-            <a href="#" aria-label="GrammaTech, volver arriba"><img class="img-logo-footer"
-                    src="images/img-logo/LOGO-BLANCO.png" alt="logo"><span class="nombre-logo">Gramma</span><span
-                    class="nombre-logo-tech">Tech</span></a>
-        </div>
-        <nav class="condiciones-footer" aria-label="Información legal y soporte">
-            <p> <a href="">Condiciones Generales</a> - <a href="">Aviso Legal</a> - <a href="">Privacidad</a> - <a
-                    href="">Cookies</a> - <a href="">Accesibilidad</a>
+
+        <section class="seccion-invitacion">
+            <h2>¿Listo para empezar?</h2>
+
+            <p>
+                Elegí tu idioma y comenzá a aprender a tu manera.
             </p>
-            <p> <a href="">Soporte y Ayuda</a></p>
-            <p>© Todos los derechos reservados, <time datetime="2026">2026</time>, Gramatech.</p>
+
+            <a href="SubPaginasWeb/1_Vista Login/Vista Registro/registro.html">
+                CREAR MI CUENTA
+            </a>
+        </section>
+
+        <dialog id="dialogo-curso" class="dialogo-curso-index" aria-labelledby="titulo-dialogo-curso">
+
+            <div class="contenido-dialogo">
+
+                <button type="button" id="cerrar-dialogo-curso" class="cerrar-dialogo" aria-label="Cerrar información">
+                    ×
+                </button>
+
+                <span class="etiqueta-seccion">DESCUBRÍ TU PRÓXIMO IDIOMA</span>
+
+                <h2 id="titulo-dialogo-curso"></h2>
+
+                <p id="introduccion-curso"></p>
+
+                <h3>¿Qué vas a aprender?</h3>
+                <ul id="contenidos-curso"></ul>
+
+                <h3>¿Cómo funciona el curso?</h3>
+                <p id="estructura-curso"></p>
+
+                <a class="enlace-registro-dialogo" href="SubPaginasWeb/1_Vista Login/Vista Registro/registro.html">
+                    QUIERO EMPEZAR
+                </a>
+
+            </div>
+        </dialog>
+
+    </main>
+
+    <footer>
+
+        <div class="logo-footer">
+            <a href="#" aria-label="GrammaTech, volver arriba">
+                <img class="img-logo-footer" src="images/img-logo/LOGO-BLANCO.png" alt="Logo de GrammaTech">
+                <span class="nombre-logo">Gramma</span>
+                <span class="nombre-logo-tech">Tech</span>
+            </a>
+        </div>
+
+        <nav class="condiciones-footer" aria-label="Información legal y soporte">
+            <p>
+                <a href="">Condiciones Generales</a> -
+                <a href="">Aviso Legal</a> -
+                <a href="">Privacidad</a> -
+                <a href="">Cookies</a> -
+                <a href="">Accesibilidad</a>
+            </p>
+
+            <p><a href="">Soporte y Ayuda</a></p>
+
+            <p>
+                © Todos los derechos reservados,
+                <time datetime="2026">2026</time>, GrammaTech.
+            </p>
         </nav>
-        <nav class="redes-footer" aria-label="Redes sociales">
-            <a href="#">
-                <img src="images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg" alt="link redes instagram">
+
+
+        <nav class="redes-footer" aria-label="Enlaces al proyecto">
+
+            <a href="https://github.com/SantaMariaFacundo/TP---Pagina-Aprender-Idiomas--" target="_blank"
+                rel="noopener noreferrer" aria-label="Ver repositorio de GrammaTech en GitHub">
+                <img src="images/iconosBlack-svg/instagram-rounded-svgrepo-com.svg" alt="Instagram">
             </a>
-            <a href="#">
-                <img src="images/iconosBlack-svg/facebook-rounded-svgr.svg" alt="link redes facebook ">
+
+            <a href="https://github.com/SantaMariaFacundo/TP---Pagina-Aprender-Idiomas--" target="_blank"
+                rel="noopener noreferrer" aria-label="Ver repositorio de GrammaTech en GitHub">
+                <img src="images/iconosBlack-svg/facebook-rounded-svgr.svg" alt="Facebook">
             </a>
-            <a href="#">
-                <img src="images/iconosBlack-svg/twitter-rounded-svg.svg" alt="link redes twitter">
+
+            <a href="https://github.com/SantaMariaFacundo/TP---Pagina-Aprender-Idiomas--" target="_blank"
+                rel="noopener noreferrer" aria-label="Ver repositorio de GrammaTech en GitHub">
+                <img src="images/iconosBlack-svg/twitter-rounded-svg.svg" alt="Twitter">
             </a>
+
         </nav>
+
     </footer>
-    <script src="js/buscador.js"></script>
+
     <script type="module" src="./js/index.js"></script>
+
 </body>
 
 </html>

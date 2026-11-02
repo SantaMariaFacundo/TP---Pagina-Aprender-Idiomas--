@@ -578,3 +578,12 @@ progress::-webkit-progress-value {
         grid-row: 3;
     }
 }
+
+/* Botón de información y ventana emergente de cursos. */
+.btn-info-curso { border: 1px solid #CA6035; border-radius: 0.7rem; color: #843C22; padding: 0.5rem 0.8rem; background: #fff9f2; cursor: pointer; margin: 0.5rem 0.3rem 0.5rem 0; }
+.btn-info-curso:hover { background: #F8E9DB; }
+.dialogo-info-curso { border: none; border-radius: 1rem; padding: 1.8rem; max-width: min(28rem, 90vw); margin: auto; box-shadow: 0 0.5rem 2rem #0004; }
+.dialogo-info-curso::backdrop { background: #0008; }
+.dialogo-info-curso h2 { margin-bottom: 1rem; }
+.dialogo-info-curso p { margin-bottom: 1rem; line-height: 1.5; }
+.dialogo-info-curso button { background: #CA6035; color: white; border: 0; border-radius: 0.6rem; padding: 0.6rem 1rem; cursor: pointer; }

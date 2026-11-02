@@ -271,3 +271,5 @@ progress::-webkit-progress-value {
 }
 
 }
+.volver-curso-completo { display: block; width: fit-content; margin: 2rem auto; padding: 0.85rem 1.3rem; border-radius: 0.75rem; background: #CA6035; color: #fff; text-decoration: none; font-weight: bold; }
+.volver-curso-completo:hover { background: #a94d2a; }

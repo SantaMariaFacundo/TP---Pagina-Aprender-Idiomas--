@@ -1,8 +1,6 @@
 // Importamos los módulos compartidos necesarios para esta página.
 import "../../js/header.js";
 import "../../js/buscador.js";
-import "../../js/traductor.js";
-import "./opiniones.js";
 
 // Importamos las funciones de usuarios utilizadas en esta vista.
 import { obtenerUsuarioActivo } from "../../js/usuarios.js";
@@ -183,7 +181,7 @@ if (mapaUnidades) {
 
                 enlace.removeAttribute("href");
 
-                enlace.textContent = "Próximamente";
+                enlace.textContent = "Bloqueado";
 
                 enlace.setAttribute("aria-disabled", "true");
                 enlace.setAttribute("tabindex", "-1");
@@ -352,4 +350,17 @@ if (mapaUnidades) {
 
     }
 
+}
+
+// Mostrar la opción de volver al Home cuando se completaron todas las actividades del curso.
+const mapaCompleto = document.querySelector("main[data-curso]");
+if (mapaCompleto) {
+    const barra = mapaCompleto.querySelector(".barra-principal");
+    if (barra && Number(barra.value) >= 100) {
+        const enlace = document.createElement("a");
+        enlace.href = "../2_Vista home/home.html";
+        enlace.className = "volver-curso-completo";
+        enlace.textContent = "¡Curso completado! Volver a mis cursos";
+        mapaCompleto.appendChild(enlace);
+    }
 }

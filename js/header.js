@@ -2,8 +2,8 @@
 import { obtenerUsuarioActivo, cerrarSesion } from "./usuarios.js";
 
 // import.meta.url reemplaza a document.currentScript en los módulos.
-const rutaLogin = new URL(
-    "../SubPaginasWeb/1_Vista Login/login.html",
+const rutaInicio = new URL(
+    "../index.html",
     import.meta.url
 );
 
@@ -13,7 +13,7 @@ const usuarioActivo = obtenerUsuarioActivo();
 
 // Impedimos entrar a una vista privada cuando no hay sesión.
 if (!usuarioActivo) {
-    window.location.replace(rutaLogin.href);
+    window.location.replace(new URL("../SubPaginasWeb/1_Vista Login/login.html", import.meta.url).href);
 } else {
     // Mostramos las opciones de la cuenta al usuario identificado.
     if (menuUsuario) {
@@ -25,7 +25,7 @@ if (!usuarioActivo) {
         botonCerrarSesion.addEventListener("click", function(event) {
             event.preventDefault();
             cerrarSesion();
-            window.location.replace(rutaLogin.href);
+            window.location.replace(rutaInicio.href);
         });
     }
 }

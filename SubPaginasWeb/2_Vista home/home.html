@@ -30,12 +30,7 @@
                 <a href="../6_Vista Tabla Clasificación/clasificacion.html">Clasificación</a>
                 <a href="../7_Vista Racha/tienda.html">Tienda</a>
             </nav>
-            <select id="idioma" class="idioma" name="idioma" aria-label="Seleccionar idioma">
-                <option value="español" lang="es">Es</option>
-                <option value="english" lang="en">En</option>
-            </select>
-
-            <!-- Menú desplegable del usuario -->
+<!-- Menú desplegable del usuario -->
             <details class="menu-usuario">
                 <summary aria-label="Abrir menú de usuario">
                     <img src="../../images/img-index/usuario.png" alt="" class="icono-usuario">
@@ -95,6 +90,7 @@
                     <img class="img-pais" src="../../images/img-paises/londres.avif" alt="">
                     <p>Descubrí todos los cursos disponibles, desde nivel inicial hasta avanzado. Elegí el que mejor se
                         adapte a vos y empezá hoy mismo.</p>
+                    <button type="button" class="btn-info-curso" data-info-curso="ingles" aria-label="Ver información del curso">Más información</button>
                     <button id="btnCursoIngles" class="btnAgregarCard" data-curso="ingles" type="button" aria-label="Agregar Curso de Inglés">Agregar Curso</button>
                 </article>
                 <article class="cards-idioma card-chino" aria-labelledby="titulo-disponible-chino">
@@ -102,6 +98,7 @@
                     <img class="img-pais" src="../../images/img-paises/china.jpg" alt="">
                     <p>Accedé a cursos para cada nivel, desde principiante hasta avanzado. Iniciá tu camino en el idioma
                         más hablado del mundo y ampliá tus oportunidades.</p>
+                    <button type="button" class="btn-info-curso" data-info-curso="chino" aria-label="Ver información del curso">Más información</button>
                     <button type="button" class="btnAgregarCard" id="btnCursoChino" data-curso="chino" aria-label="Agregar Curso de Chino Mandarín">Agregar Curso</button>
                 </article>
                 <article class="cards-idioma card-aleman" aria-labelledby="titulo-disponible-aleman">
@@ -109,6 +106,7 @@
                     <img class="img-pais" src="../../images/img-paises/alemania.jpg" alt="">
                     <p>Explorá todos los cursos disponibles, desde nivel inicial hasta avanzado. Elegí tu nivel y empezá
                         a dominar el idioma más hablado en Europa.</p>
+                    <button type="button" class="btn-info-curso" data-info-curso="aleman" aria-label="Ver información del curso">Más información</button>
                     <button type="button" class="btnAgregarCard" id="btnCursoAleman" data-curso="aleman" aria-label="Agregar Curso de Alemán">Agregar Curso</button>
                 </article>
             </div>
@@ -189,13 +187,13 @@
                         <img class="img-icon-datos" src="../../images/icons-general/flag-svgrepo-com.svg"
                             alt="">
                         <h3 id="titulo-meta-diaria">Meta Diaria</h3>
-                        <p>30 / 40 xp</p>
+                        <p>0 / 40 XP</p>
                     </div>
-                    <p>¡A solo una lección corta para completar la racha de hoy!</p>
-                    <progress value="75" max="100" aria-labelledby="titulo-meta-diaria">75%</progress>
+                    <p class="mensaje-meta-home">Completá actividades para alcanzar tu meta diaria.</p>
+                    <progress value="0" max="40" aria-labelledby="titulo-meta-diaria">0%</progress>
                     <div class="datos-progress">
                         <p>Inicio del dia</p>
-                        <span aria-hidden="true">75%</span>
+                        <span aria-hidden="true">0%</span>
                     </div>
                 </section>
                 <section class="logrosRecientes" aria-labelledby="titulo-logros-recientes">
@@ -272,7 +270,14 @@
                 </article>
             </div>
         </section>
-    </main>
+    
+        <dialog id="dialogo-info-curso" class="dialogo-info-curso" aria-labelledby="titulo-info-curso">
+            <h2 id="titulo-info-curso">Información del curso</h2>
+            <p class="descripcion-curso-popup"></p>
+            <p>Incluye 3 niveles (A1-A2, B1-B2 y C1-C2), 9 actividades y 3 exámenes. Desbloqueás los niveles al aprobar los anteriores.</p>
+            <button id="cerrar-info-curso" type="button">Cerrar</button>
+        </dialog>
+</main>
 
     <footer>
         <div class="logo-footer">
