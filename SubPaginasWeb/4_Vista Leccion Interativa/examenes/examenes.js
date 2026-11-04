@@ -5,6 +5,13 @@ import "../../../js/buscador.js";
 // Importamos las funciones de usuarios utilizadas en esta vista.
 import { obtenerUsuarioActivo, actualizarUsuario } from "../../../js/usuarios.js";
 
+// Importamos el cálculo de recompensas que también usan las lecciones.
+import { calcularRecompensa } from "../progresoLecciones.js";
+
+// Recompensa por aprobar un examen por primera vez.
+const XP_EXAMEN = 30;
+const MONEDAS_EXAMEN = 50;
+
 
 // Buscar el examen actual
 
@@ -218,6 +225,9 @@ if (examen) {
 
     // Guardar el examen aprobado en la cuenta
 
+    // Recompensa del último examen aprobado (para mostrarla en el mensaje)
+    let recompensaExamen = null;
+
     function guardarExamenAprobado() {
 
         const usuario = obtenerUsuarioActivo();
@@ -255,26 +265,17 @@ if (examen) {
             }
         };
 
-        // Guardar el progreso actualizado
+        // Calcular la experiencia, las monedas y la racha ganadas
+        recompensaExamen = calcularRecompensa(usuario, XP_EXAMEN, MONEDAS_EXAMEN);
 
-        actualizarUsuario({
+        // Guardar el examen aprobado junto con la recompensa
+
+        const guardado = actualizarUsuario({
+            ...recompensaExamen.cambios,
             cursos: cursosActualizados
         });
 
-        // Verificar que la aprobación se haya guardado
-
-        const usuarioActualizado = obtenerUsuarioActivo();
-
-        if (
-            usuarioActualizado &&
-            examenAprobado(usuarioActualizado, nivel)
-        ) {
-
-            return "guardado";
-
-        }
-
-        return false;
+        return guardado ? "guardado" : false;
 
     }
 
@@ -403,7 +404,9 @@ if (examen) {
         } else if (resultado === "guardado") {
 
             mostrarMensaje(
-                "¡Felicitaciones! Aprobaste el examen y guardamos tu progreso.",
+                "¡Felicitaciones! Aprobaste el examen. Ganaste " +
+                recompensaExamen.xpGanados + " XP y " +
+                recompensaExamen.monedasGanadas + " monedas.",
                 true
             );
 

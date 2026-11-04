@@ -71,6 +71,7 @@
                         <progress value="0" max="100" aria-labelledby="titulo-chinoA1A2-listening">0%</progress>
                         <span aria-hidden="true">0%</span>
                     </div>
+                    <p class="estado-leccion"></p>
                     <a class="boton-card" href="../4_Vista Leccion Interativa/leccionMandarin.html" aria-label="Ir a la primera lección de Mandarín">Ir al curso</a>
                 </article>
 
@@ -81,6 +82,7 @@
                         <progress value="0" max="100" aria-labelledby="titulo-chinoA1A2-vocabulario">0%</progress>
                         <span aria-hidden="true">0%</span>
                     </div>
+                    <p class="estado-leccion"></p>
                     <a class="boton-card" aria-disabled="true">Bloqueado</a>
                 </article>
 
@@ -91,6 +93,7 @@
                         <progress value="0" max="100" aria-labelledby="titulo-chinoA1A2-gramatica">0%</progress>
                         <span aria-hidden="true">0%</span>
                     </div>
+                    <p class="estado-leccion"></p>
                     <a class="boton-card" aria-disabled="true">Bloqueado</a>
                 </article>
 
@@ -99,6 +102,7 @@
             <article class="card-examen" aria-labelledby="titulo-chinoA1A2-examen">
                 <img src="../../images/img-progreso/Saly-26.png" alt="">
                 <h3 id="titulo-chinoA1A2-examen">Examen</h3>
+                <p class="estado-leccion"></p>
                 <div class="examen">
                     <a class="boton-card" aria-disabled="true">Bloqueado</a>
                 </div>
@@ -119,6 +123,7 @@
                         <progress value="0" max="100" aria-labelledby="titulo-chinoB1B2-listening">0%</progress>
                         <span aria-hidden="true">0%</span>
                     </div>
+                    <p class="estado-leccion"></p>
                     <a class="boton-card" aria-disabled="true">Bloqueado</a>
                 </article>
 
@@ -129,6 +134,7 @@
                         <progress value="0" max="100" aria-labelledby="titulo-chinoB1B2-vocabulario">0%</progress>
                         <span aria-hidden="true">0%</span>
                     </div>
+                    <p class="estado-leccion"></p>
                     <a class="boton-card" aria-disabled="true">Bloqueado</a>
                 </article>
 
@@ -139,6 +145,7 @@
                         <progress value="0" max="100" aria-labelledby="titulo-chinoB1B2-gramatica">0%</progress>
                         <span aria-hidden="true">0%</span>
                     </div>
+                    <p class="estado-leccion"></p>
                     <a class="boton-card" aria-disabled="true">Bloqueado</a>
                 </article>
 
@@ -147,6 +154,7 @@
             <article class="card-examen" aria-labelledby="titulo-chinoB1B2-examen">
                 <img src="../../images/img-progreso/Saly-26.png" alt="">
                 <h3 id="titulo-chinoB1B2-examen">Examen</h3>
+                <p class="estado-leccion"></p>
                 <div class="examen">
                     <a class="boton-card" aria-disabled="true">Bloqueado</a>
                 </div>
@@ -167,6 +175,7 @@
                         <progress value="0" max="100" aria-labelledby="titulo-chinoC1C2-listening">0%</progress>
                         <span aria-hidden="true">0%</span>
                     </div>
+                    <p class="estado-leccion"></p>
                     <a class="boton-card" aria-disabled="true">Bloqueado</a>
                 </article>
 
@@ -177,6 +186,7 @@
                         <progress value="0" max="100" aria-labelledby="titulo-chinoC1C2-vocabulario">0%</progress>
                         <span aria-hidden="true">0%</span>
                     </div>
+                    <p class="estado-leccion"></p>
                     <a class="boton-card" aria-disabled="true">Bloqueado</a>
                 </article>
 
@@ -187,6 +197,7 @@
                         <progress value="0" max="100" aria-labelledby="titulo-chinoC1C2-gramatica">0%</progress>
                         <span aria-hidden="true">0%</span>
                     </div>
+                    <p class="estado-leccion"></p>
                     <a class="boton-card" aria-disabled="true">Bloqueado</a>
                 </article>
 
@@ -195,6 +206,7 @@
             <article class="card-examen" aria-labelledby="titulo-chinoC1C2-examen">
                 <img src="../../images/img-progreso/Saly-26.png" alt="">
                 <h3 id="titulo-chinoC1C2-examen">Examen</h3>
+                <p class="estado-leccion"></p>
                 <div class="examen">
                     <a class="boton-card" aria-disabled="true">Bloqueado</a>
                 </div>
@@ -202,6 +214,45 @@
                     <img src="../../images/img-progreso/candado.svg" alt="Examen bloqueado">
                 </div>
             </article>
+
+        </section>
+
+        <section class="seccion-opiniones" id="opiniones" aria-labelledby="titulo-opiniones">
+
+            <h2 id="titulo-opiniones">Opiniones del curso</h2>
+            <p id="promedio-opiniones" class="promedio-opiniones"></p>
+
+            <form id="formulario-opinion" class="formulario-opinion" novalidate>
+
+                <h3>Valorá el curso</h3>
+
+                <div class="campo-opinion">
+                    <label for="puntuacion-opinion">Calificación</label>
+                    <select id="puntuacion-opinion" name="puntuacion">
+                        <option value="0">Elegí una calificación</option>
+                        <option value="5">★★★★★ (5) Excelente</option>
+                        <option value="4">★★★★☆ (4) Muy bueno</option>
+                        <option value="3">★★★☆☆ (3) Bueno</option>
+                        <option value="2">★★☆☆☆ (2) Regular</option>
+                        <option value="1">★☆☆☆☆ (1) Malo</option>
+                    </select>
+                    <p class="error-campo" id="error-puntuacion-opinion"></p>
+                </div>
+
+                <div class="campo-opinion">
+                    <label for="comentario-opinion">Comentario</label>
+                    <textarea id="comentario-opinion" name="comentario" rows="4" maxlength="300"
+                        placeholder="Contanos qué te pareció el curso..."></textarea>
+                    <p class="error-campo" id="error-comentario-opinion"></p>
+                </div>
+
+                <button type="submit" id="btn-publicar-opinion" class="boton-opinion">Publicar opinión</button>
+
+                <p id="mensaje-opinion" role="status" hidden></p>
+
+            </form>
+
+            <ul id="lista-opiniones" class="lista-opiniones" aria-label="Opiniones de estudiantes"></ul>
 
         </section>
 

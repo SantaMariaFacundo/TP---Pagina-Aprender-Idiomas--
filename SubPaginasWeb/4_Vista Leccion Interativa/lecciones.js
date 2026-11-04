@@ -264,6 +264,81 @@ if (actividad) {
         return "";
     }
 
+    // Orden de las actividades dentro de cada nivel.
+    const ordenActividades = ["listening", "vocabulario", "gramatica"];
+
+    const nombresActividades = {
+        listening: "Listening",
+        vocabulario: "Vocabulario",
+        gramatica: "Gramática"
+    };
+
+    const archivosExamenes = {
+        ingles: "examenIngles.html",
+        aleman: "examenAleman.html",
+        chino: "examenChino.html"
+    };
+
+    // Identificador de cualquier actividad de este nivel.
+    function idDeActividad(actividadBuscada) {
+
+        if (nivel === "a" && actividadBuscada === "listening") {
+            return idioma + "-1";
+        }
+
+        return idioma + "-" + nivel + "-" + actividadBuscada;
+    }
+
+    // Botón para pasar a la siguiente actividad o al examen.
+    const botonSiguiente = document.createElement("a");
+    botonSiguiente.className = "volver-leccion-completa boton-siguiente";
+    botonSiguiente.hidden = true;
+
+    formulario.appendChild(botonSiguiente);
+
+    // Decide a dónde lleva el botón al terminar la actividad.
+    function configurarSiguiente() {
+
+        const usuarioActual = obtenerUsuarioActivo();
+        const posicion = ordenActividades.indexOf(tipoActividad);
+
+        // Listening → Vocabulario → Gramática
+        if (posicion < ordenActividades.length - 1) {
+
+            const siguiente = ordenActividades[posicion + 1];
+
+            botonSiguiente.textContent = "Siguiente";
+            botonSiguiente.href = "?nivel=" + nivel + "&actividad=" + siguiente;
+            botonSiguiente.setAttribute("aria-label", "Siguiente: " + nombresActividades[siguiente]);
+            botonSiguiente.hidden = false;
+            return;
+        }
+
+        // En la última actividad, revisamos si quedó alguna sin hacer.
+        const pendientes = ordenActividades.filter(function(actividadNivel) {
+            return !leccionCompletada(usuarioActual, idioma, idDeActividad(actividadNivel));
+        });
+
+        if (pendientes.length === 0) {
+
+            botonSiguiente.textContent = "Ir al examen";
+            botonSiguiente.href = "examenes/" + archivosExamenes[idioma] + "?nivel=" + nivel;
+            botonSiguiente.setAttribute("aria-label", "Ir al examen de este nivel");
+
+        } else {
+
+            // Si salteó alguna actividad, primero lo llevamos a esa.
+            botonSiguiente.textContent = "Siguiente";
+            botonSiguiente.href = "?nivel=" + nivel + "&actividad=" + pendientes[0];
+            botonSiguiente.setAttribute(
+                "aria-label",
+                "Completá " + nombresActividades[pendientes[0]] + " para habilitar el examen"
+            );
+        }
+
+        botonSiguiente.hidden = false;
+    }
+
     const volverCompletada = document.createElement("a");
     volverCompletada.textContent = "Volver al mapa de unidades";
     volverCompletada.className = "volver-leccion-completa";
@@ -293,6 +368,8 @@ if (actividad) {
         leccionFinalizada = true;
         volverCompletada.hidden = false;
         botonComprobar.disabled = true;
+
+        configurarSiguiente();
 
         if (barraProgreso) {
             barraProgreso.value = 100;

@@ -139,12 +139,12 @@ header .buscador-acceder-language .menu-usuario summary::-webkit-details-marker 
 
 
 header .buscador-acceder-language .menu-usuario .icono-usuario {
-    width: 36px;
-    height: 36px;
+    width: 2.25rem;
+    height: 2.25rem;
     object-fit: cover;
     display: block;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 0.125rem solid white;
 }
 
 
@@ -162,11 +162,11 @@ header .buscador-acceder-language .menu-usuario .opciones-usuario {
     position: absolute;
     top: calc(100% + 0.5rem);
     right: 0;
-    min-width: 150px;
+    min-width: 9.375rem;
     padding: 0.5rem;
     background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.2);
     z-index: 110;
 }
 
@@ -180,7 +180,7 @@ header .buscador-acceder-language .menu-usuario .opciones-usuario a {
 
 header .buscador-acceder-language .menu-usuario .opciones-usuario a:hover {
     background-color: #F8E9DB;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
 }
 
 

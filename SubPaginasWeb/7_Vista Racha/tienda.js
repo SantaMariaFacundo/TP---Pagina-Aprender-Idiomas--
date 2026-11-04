@@ -3,7 +3,7 @@ import "../../js/header.js";
 import "../../js/buscador.js";
 
 // Importamos las funciones de usuarios utilizadas en esta vista.
-import { obtenerUsuarioActivo, actualizarUsuario } from "../../js/usuarios.js";
+import { obtenerUsuarioActivo, actualizarUsuario, obtenerRachaActual } from "../../js/usuarios.js";
 
 
 // Obtener los elementos del HTML
@@ -69,7 +69,7 @@ function mostrarRacha(usuario) {
         return;
     }
 
-    const racha = Number(usuario.racha) || 0;
+    const racha = obtenerRachaActual(usuario);
 
     rachaActual.textContent =
         racha + (racha === 1 ? " día" : " días");

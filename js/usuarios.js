@@ -1,5 +1,81 @@
+// Cuentas de ejemplo que se cargan la primera vez.
+import { USUARIOS_DEMO } from "./datos/usuariosDemo.js";
+
 const CLAVE_USUARIOS = "grammatech_usuarios";
 const CLAVE_SESION = "grammatech_usuario_activo";
+
+// Contraseña de todas las cuentas de demostración.
+const CONTRASENA_DEMO = "Demo123456";
+
+// Convierte una fecha en texto con el formato AAAA-MM-DD.
+export function formatearFecha(fecha = new Date()) {
+    const anio = fecha.getFullYear();
+    const mes = String(fecha.getMonth() + 1).padStart(2, "0");
+    const dia = String(fecha.getDate()).padStart(2, "0");
+
+    return `${anio}-${mes}-${dia}`;
+}
+
+// Devuelve la racha vigente: si no estudió hoy ni ayer, la racha está cortada.
+export function obtenerRachaActual(usuario) {
+    const hoy = formatearFecha();
+
+    const fechaAyer = new Date();
+    fechaAyer.setDate(fechaAyer.getDate() - 1);
+    const ayer = formatearFecha(fechaAyer);
+
+    if (usuario.ultimaFechaActividad === hoy || usuario.ultimaFechaActividad === ayer) {
+        return Number(usuario.racha) || 0;
+    }
+
+    return 0;
+}
+
+// Arma la ficha completa de un usuario con todos sus datos iniciales.
+function crearFichaUsuario(datos) {
+    return {
+        id: datos.id,
+        nombre: datos.nombre,
+        usuario: datos.usuario,
+        correo: datos.correo,
+        contrasena: datos.contrasena,
+        idioma: "espanol",
+        fechaRegistro: new Date().toISOString(),
+
+        xp: datos.xp || 0,
+        xpSemanal: datos.xpSemanal || 0,
+        semanaXp: obtenerSemanaActual(),
+
+        xpDiario: 0,
+        fechaXpDiario: "",
+        racha: datos.racha || 0,
+        ultimaFechaActividad: datos.ultimaFechaActividad || "",
+        diasActividad: datos.diasActividad || [],
+        liga: datos.liga || "bronce",
+        monedas: datos.monedas || 0,
+        dobleXpPendiente: false,
+
+        cursos: {
+            ingles: { progreso: 0, leccionesCompletadas: [], examenesAprobados: [] },
+            aleman: { progreso: 0, leccionesCompletadas: [], examenesAprobados: [] },
+            chino: { progreso: 0, leccionesCompletadas: [], examenesAprobados: [] }
+        },
+
+        logros: []
+    };
+}
+
+// Crea las cuentas de demostración, con actividad registrada hoy.
+function crearUsuariosDemo() {
+    const hoy = formatearFecha();
+
+    return USUARIOS_DEMO.map((demo) => crearFichaUsuario({
+        ...demo,
+        contrasena: CONTRASENA_DEMO,
+        ultimaFechaActividad: demo.racha > 0 ? hoy : "",
+        diasActividad: demo.racha > 0 ? [hoy] : []
+    }));
+}
 
 // Obtener el lunes de la semana actual.
 export function obtenerSemanaActual() {
@@ -24,8 +100,12 @@ export function obtenerUsuarios() {
 
         const datos = localStorage.getItem(CLAVE_USUARIOS);
 
-        if (!datos) {
-            return [];
+        // null significa que todavía no se guardó ningún usuario:
+        // cargamos las cuentas de demostración.
+        if (datos === null) {
+            const usuariosIniciales = crearUsuariosDemo();
+            guardarUsuarios(usuariosIniciales);
+            return usuariosIniciales;
         }
 
         const usuarios = JSON.parse(datos);
@@ -167,48 +247,14 @@ export function registrarUsuario(nombre, usuario, correo, contrasena) {
         };
     }
 
-    const nuevoUsuario = {
-        id: crypto.randomUUID(),
+    // Generamos un ID sencillo, igual que en la práctica de clase.
+    const nuevoUsuario = crearFichaUsuario({
+        id: String(Date.now()),
         nombre: nombre,
         usuario: usuario,
         correo: correo,
-        contrasena: contrasena,
-        idioma: "espanol",
-        fechaRegistro: new Date().toISOString(),
-
-        xp: 0,
-        xpSemanal: 0,
-        semanaXp: obtenerSemanaActual(),
-
-        xpDiario: 0,
-        fechaXpDiario: "",
-        racha: 0,
-        ultimaFechaActividad: "",
-        diasActividad: [],
-        liga: "bronce",
-        monedas: 0,
-        dobleXpPendiente: false,
-
-        cursos: {
-            ingles: {
-                progreso: 0,
-                leccionesCompletadas: [],
-                examenesAprobados: []
-            },
-            aleman: {
-                progreso: 0,
-                leccionesCompletadas: [],
-                examenesAprobados: []
-            },
-            chino: {
-                progreso: 0,
-                leccionesCompletadas: [],
-                examenesAprobados: []
-            }
-        },
-
-        logros: []
-    };
+        contrasena: contrasena
+    });
 
     usuarios.push(nuevoUsuario);
     guardarUsuarios(usuarios);
@@ -254,32 +300,40 @@ export function cerrarSesion() {
     localStorage.removeItem(CLAVE_SESION);
 }
 
-// Actualizar los datos del usuario activo.
-export function actualizarUsuario(datosActualizados) {
+// Actualizar los datos de un usuario a partir de su id.
+export function actualizarUsuarioPorId(id, datosActualizados) {
     const usuarios = obtenerUsuarios();
-    const usuarioActivo = obtenerUsuarioActivo();
-
-    if (!usuarioActivo) {
-        return false;
-    }
 
     const indice = usuarios.findIndex(
-        usuario => usuario.id === usuarioActivo.id
+        usuario => usuario.id === id
     );
 
     if (indice === -1) {
         return false;
     }
 
+    // Copiamos los datos que ya tenía y pisamos solo los nuevos.
+    // El id nunca cambia.
     usuarios[indice] = {
         ...usuarios[indice],
         ...datosActualizados,
-        id: usuarioActivo.id
+        id: id
     };
 
     guardarUsuarios(usuarios);
 
     return true;
+}
+
+// Actualizar los datos del usuario activo.
+export function actualizarUsuario(datosActualizados) {
+    const usuarioActivo = obtenerUsuarioActivo();
+
+    if (!usuarioActivo) {
+        return false;
+    }
+
+    return actualizarUsuarioPorId(usuarioActivo.id, datosActualizados);
 }
 
 // Sumar experiencia al usuario activo.

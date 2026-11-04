@@ -101,13 +101,13 @@
             <h1>EDITAR PERFIL</h1>
 
             <p>
-                Modificá tus datos personales y la configuración de tu cuenta.
+                Podés cambiar tu nombre y tu contraseña.
             </p>
 
         </hgroup>
 
         <form class="formulario-perfil"
-            aria-label="Editar perfil">
+            aria-label="Editar perfil" novalidate>
 
             <section class="datos-cuenta"
                 aria-labelledby="titulo-datos-cuenta">
@@ -128,6 +128,7 @@
                         autocomplete="name"
                         minlength="3"
                         required>
+                    <p class="error-campo" id="error-nombre-completo"></p>
 
                 </div>
 
@@ -141,9 +142,8 @@
                         id="nombre-usuario"
                         name="nombre-usuario"
                         autocomplete="username"
-                        minlength="3"
-                        maxlength="21"
-                        required>
+                        aria-describedby="aviso-no-editable"
+                        readonly>
 
                 </div>
 
@@ -157,9 +157,12 @@
                         id="email"
                         name="email"
                         autocomplete="email"
-                        required>
-
+                        aria-describedby="aviso-no-editable"
+                        readonly>
                 </div>
+                <p id="aviso-no-editable" class="aviso-no-editable">
+                    El nombre de usuario y el correo no se pueden modificar.
+                </p>
 
                 <p>
                     <strong>Miembro desde:</strong>
@@ -198,7 +201,7 @@
                 Cambiar contraseña
             </button>
 
-            <form id="panel-password" hidden>
+            <form id="panel-password" hidden novalidate>
 
                 <div class="campo">
 
@@ -321,8 +324,6 @@
         </nav>
 
     </footer>
-<script src="../../js/header.js"></script>
-<script src="editarPerfilFunciones.js"></script>
     <script type="module" src="./editarPerfilFunciones.js"></script>
 </body>
 

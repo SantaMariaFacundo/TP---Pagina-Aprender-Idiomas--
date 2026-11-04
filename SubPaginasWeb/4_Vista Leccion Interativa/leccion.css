@@ -151,7 +151,7 @@ hr {
 
 .btn-audio-ingles {
     display: inline-block;
-    padding: 8px 16px;
+    padding: 0.5rem 1rem;
     background-color: #5d635d;
     color: white;
     border-radius: 1rem;
@@ -210,6 +210,11 @@ hr {
     color: white;
     text-decoration: none;
     font-weight: bold;
+}
+
+/* Botón "Siguiente" / "Ir al examen" al terminar una actividad */
+.boton-siguiente:not([hidden]) {
+    background: #2A9C8D;
 }
 
 @media screen and (max-width: 58.125rem) {

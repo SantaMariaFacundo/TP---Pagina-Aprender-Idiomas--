@@ -55,24 +55,24 @@
                     <article class="sc1-cards card-1">
                         <img class="img-icon-sc1" src="../../images/icons-general/chronometer-naranja-svgrepo-com.svg"
                             alt="">
-                        <p class="sc1-numeros-card"><data value="30">30</data></p>
-                        <p class="sc1-text-card">MINUTOS HOY</p>
+                        <p class="sc1-numeros-card"><data id="dato-racha" value="0">0</data></p>
+                        <p class="sc1-text-card">DÍAS DE RACHA</p>
                     </article>
                     <article class="sc1-cards card-2">
                         <img class="img-icon-sc1" src="../../images/icons-general/book-svgrepo-com.svg"
                             alt="">
-                        <p class="sc1-numeros-card"><data value="12">12</data></p>
-                        <p class="sc1-text-card">NUEVAS PALABRAS</p>
+                        <p class="sc1-numeros-card"><data id="dato-xp" value="0">0</data></p>
+                        <p class="sc1-text-card">XP ACUMULADOS</p>
                     </article>
                     <article class="sc1-cards card-3">
                         <img class="img-icon-sc1" src="../../images/icons-general/tick-circle-svgrepo-com.svg"
                             alt="">
-                        <p class="sc1-numeros-card"><data value="0.92">92%</data></p>
-                        <p class="sc1-text-card">PRECISIÓN</p>
+                        <p class="sc1-numeros-card"><data id="dato-lecciones" value="0">0</data></p>
+                        <p class="sc1-text-card">LECCIONES COMPLETADAS</p>
                     </article>
                     <article class="card-4">
                         <p>Ritmo de Aprendizaje</p>
-                        <p><data value="4.2">4.2</data> horas registradas esta semana</p>
+                        <p id="texto-dias-semana">0 días con actividad esta semana</p>
                     </article>
                 </section>
                 <div class="boton-sc1">
@@ -203,30 +203,7 @@
                         <h3 id="titulo-logros-recientes">Logros Recientes</h3>
                         <a href="../7_Vista Racha/tienda.html">Ver Racha</a>
                     </div>
-                    <article class="card-logros" aria-labelledby="titulo-logro-poliglota">
-                        <img class="img-icon-logros" src="../../images/icons-general/calendar-days-svgrepo-com.svg"
-                            alt="">
-                        <div>
-                            <h4 id="titulo-logro-poliglota">Poliglota Constante</h4>
-                            <p>14 días estudiando sin interrupción</p>
-                        </div>
-                    </article>
-                    <article class="card-logros" aria-labelledby="titulo-logro-listening">
-                        <img class="img-icon-logros" src="../../images/icons-general/audio-svgrepo-com.svg"
-                            alt="">
-                        <div>
-                            <h4 id="titulo-logro-listening">Listening Implecable</h4>
-                            <p>Acertaste el 90% del dialogo</p>
-                        </div>
-                    </article>
-                    <article class="card-logros" aria-labelledby="titulo-logro-vocabulario">
-                        <img class="img-icon-logros" src="../../images/icons-general/dictionary-2-svgrepo-com.svg"
-                            alt="">
-                        <div>
-                            <h4 id="titulo-logro-vocabulario">Vocabulario Brillante</h4>
-                            <p>Mas de 100 palabras aprendidas</p>
-                        </div>
-                    </article>
+                    <div id="lista-logros"></div>
                 </section>
             </aside>
         </div>
@@ -271,11 +248,31 @@
             </div>
         </section>
     
-        <dialog id="dialogo-info-curso" class="dialogo-info-curso" aria-labelledby="titulo-info-curso">
-            <h2 id="titulo-info-curso">Información del curso</h2>
-            <p class="descripcion-curso-popup"></p>
-            <p>Incluye 3 niveles (A1-A2, B1-B2 y C1-C2), 9 actividades y 3 exámenes. Desbloqueás los niveles al aprobar los anteriores.</p>
-            <button id="cerrar-info-curso" type="button">Cerrar</button>
+        <dialog id="dialogo-curso" class="dialogo-curso-index" aria-labelledby="titulo-dialogo-curso">
+
+            <div class="contenido-dialogo">
+
+                <button type="button" id="cerrar-dialogo-curso" class="cerrar-dialogo" aria-label="Cerrar información">
+                    ×
+                </button>
+
+                <span class="etiqueta-seccion">DESCUBRÍ TU PRÓXIMO IDIOMA</span>
+
+                <h2 id="titulo-dialogo-curso"></h2>
+
+                <p id="introduccion-curso"></p>
+
+                <h3>¿Qué vas a aprender?</h3>
+                <ul id="contenidos-curso"></ul>
+
+                <h3>¿Cómo funciona el curso?</h3>
+                <p id="estructura-curso"></p>
+
+                <button type="button" id="accion-dialogo-curso" class="enlace-registro-dialogo">
+                    AGREGAR CURSO
+                </button>
+
+            </div>
         </dialog>
 </main>
 

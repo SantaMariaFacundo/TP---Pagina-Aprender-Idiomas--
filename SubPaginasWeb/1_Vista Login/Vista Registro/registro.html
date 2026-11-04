@@ -59,7 +59,7 @@
 
             <div class="form-caja">
 
-                <form id="formulario-registro" aria-label="Crear cuenta" method="post">
+                <form id="formulario-registro" aria-label="Crear cuenta" novalidate>
 
 
                     <section class="iniciar-redes" aria-labelledby="titulo-registro-redes">
@@ -121,6 +121,7 @@
 
                             <input type="text" id="name" name="name" placeholder="Nombre" autocomplete="given-name"
                                 minlength="2" maxlength="50" required>
+                            <p class="error-campo" id="error-name"></p>
 
                         </div>
 
@@ -132,6 +133,7 @@
 
                             <input type="text" id="apellido" name="apellido" placeholder="Apellido"
                                 autocomplete="family-name" minlength="2" maxlength="50" required>
+                            <p class="error-campo" id="error-apellido"></p>
 
                         </div>
 
@@ -152,6 +154,7 @@
                                 <option value="chile">Chile</option>
 
                             </select>
+                            <p class="error-campo" id="error-pais"></p>
 
                         </div>
 
@@ -164,6 +167,7 @@
                             </div>
 
                             <input type="date" name="fecha" id="fecha" autocomplete="bday" required>
+                            <p class="error-campo" id="error-fecha"></p>
 
                         </div>
 
@@ -175,6 +179,7 @@
 
                             <input type="email" name="correo" id="email" placeholder="tu-nombre@correo.com"
                                 autocomplete="email" maxlength="100" required>
+                            <p class="error-campo" id="error-email"></p>
 
                         </div>
 
@@ -190,6 +195,7 @@
                                 autocomplete="new-password" minlength="10" aria-describedby="requisitos-contrasena"
                                 required>
 
+                            <p class="error-campo" id="error-contraseña"></p>
                             <ul id="requisitos-contrasena" aria-label="Requisitos de la contraseña">
 
                                 <li>
@@ -227,6 +233,7 @@
                             <input type="password" name="repcontrasena" id="repcontrasena" autocomplete="new-password"
                                 minlength="10" aria-describedby="requisitos-repcontrasena" required>
 
+                            <p class="error-campo" id="error-repcontrasena"></p>
                             <ul id="requisitos-repcontrasena" aria-label="Requisitos de la contraseña repetida">
 
                                 <li>
@@ -269,6 +276,10 @@
                             </label>
 
                         </div>
+
+                        <p class="error-campo" id="error-politica-privacidad"></p>
+
+                        <p id="mensaje-registro" role="alert" hidden></p>
 
                         <button class="boton-registrar" type="submit">
                             Registrarme
@@ -349,7 +360,6 @@
         </nav>
 
     </footer>
-    <script src="registroFunciones.js"></script>
     <script type="module" src="./registroFunciones.js"></script>
 </body>
 

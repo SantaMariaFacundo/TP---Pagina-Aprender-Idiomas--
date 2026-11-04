@@ -1,38 +1,62 @@
 // Importamos los módulos compartidos necesarios para esta página.
 import "../../js/buscador.js";
 
-// Importamos las funciones de usuarios utilizadas en esta vista.
+// Importamos las funciones de usuarios, validaciones y mensajes.
 import { iniciarSesion } from "../../js/usuarios.js";
+import { validarLogin } from "../../js/validaciones.js";
+import {
+    mostrarMensaje,
+    ocultarMensaje,
+    mostrarErroresCampos,
+    limpiarErroresCampos
+} from "../../js/mensajes.js";
 
 
-const formularioLogin = document.querySelector(
-    'form[aria-label="Iniciar sesión"]'
-);
-
-const campoCorreo = document.getElementById("email");
+const formularioLogin = document.getElementById("formulario-login");
+const campoUsuario = document.getElementById("email");
 const campoContrasena = document.getElementById("contraseña");
+const mensajeLogin = document.getElementById("mensaje-login");
 
-formularioLogin.addEventListener("submit", function(event) {
+// Si venimos del registro (login.html?registro=ok), avisamos que la cuenta se creó.
+const parametros = new URLSearchParams(window.location.search);
 
-    event.preventDefault();
+if (parametros.get("registro") === "ok") {
+    mostrarMensaje(mensajeLogin, "¡Cuenta creada correctamente! Ahora podés iniciar sesión.", "exito");
+}
 
-    const correo = campoCorreo.value.trim().toLowerCase();
-    const contrasena = campoContrasena.value;
+formularioLogin.addEventListener("submit", (evento) => {
 
-    if (correo === "" || contrasena === "") {
-        alert("Completá el correo y la contraseña.");
+    // Evitamos que el navegador recargue la página.
+    evento.preventDefault();
+
+    const datos = {
+        identificador: campoUsuario.value.trim(),
+        contrasena: campoContrasena.value
+    };
+
+    const errores = validarLogin(datos);
+
+    // Si falta algún dato, lo marcamos y no seguimos.
+    if (Object.keys(errores).length > 0) {
+        mostrarErroresCampos(formularioLogin, errores);
+        mostrarMensaje(mensajeLogin, "Completá los campos señalados.", "error");
         return;
     }
 
-    const resultado = iniciarSesion(correo, contrasena);
+    limpiarErroresCampos(formularioLogin);
+
+    const resultado = iniciarSesion(datos.identificador, datos.contrasena);
 
     if (!resultado.exito) {
-        alert(resultado.mensaje);
+        mostrarMensaje(mensajeLogin, resultado.mensaje, "error");
         return;
     }
 
-    alert("¡Bienvenido a GrammaTech!");
-
+    // Acceso correcto: vamos al panel principal.
     window.location.href = "../2_Vista home/home.html";
+});
 
+// Al escribir de nuevo, ocultamos el mensaje anterior.
+formularioLogin.addEventListener("input", () => {
+    ocultarMensaje(mensajeLogin);
 });

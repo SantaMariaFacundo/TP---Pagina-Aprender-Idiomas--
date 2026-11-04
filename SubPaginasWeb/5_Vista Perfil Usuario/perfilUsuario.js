@@ -3,7 +3,7 @@ import "../../js/header.js";
 import "../../js/buscador.js";
 
 // Importamos las funciones de usuarios utilizadas en esta vista.
-import { obtenerUsuarioActivo } from "../../js/usuarios.js";
+import { obtenerUsuarioActivo, obtenerRachaActual } from "../../js/usuarios.js";
 
 
 const tituloNombre = document.getElementById("titulo-nombre-usuario");
@@ -94,7 +94,7 @@ if (!usuarioActivo) {
         liga.slice(1);
 
     // Racha.
-    const dias = Number(usuarioActivo.racha) || 0;
+    const dias = obtenerRachaActual(usuarioActivo);
 
     tituloRacha.textContent =
         "Racha de " +

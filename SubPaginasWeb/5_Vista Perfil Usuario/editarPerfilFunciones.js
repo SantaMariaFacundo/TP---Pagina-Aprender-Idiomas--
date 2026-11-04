@@ -3,7 +3,8 @@ import "../../js/header.js";
 import "../../js/buscador.js";
 
 // Importamos las funciones de usuarios utilizadas en esta vista.
-import { obtenerUsuarios, obtenerUsuarioActivo, actualizarUsuario } from "../../js/usuarios.js";
+import { obtenerUsuarioActivo, actualizarUsuario } from "../../js/usuarios.js";
+import { revisarContrasena } from "../../js/validaciones.js";
 
 
 const formularioEditar = document.querySelector(".formulario-perfil");
@@ -12,6 +13,7 @@ const campoNombre = document.getElementById("nombre-completo");
 const campoUsuario = document.getElementById("nombre-usuario");
 const campoCorreo = document.getElementById("email");
 const mensajeDatos = document.getElementById("mensaje-datos");
+const errorNombre = document.getElementById("error-nombre-completo");
 
 const botonMostrarPassword = document.getElementById("btn-mostrar-password");
 const formularioPassword = document.getElementById("panel-password");
@@ -69,94 +71,30 @@ if (!usuarioEditar) {
 
     }
 
-    // Guardar los datos personales.
+    // Guardar los datos personales: solo se puede cambiar el nombre.
     formularioEditar.addEventListener("submit", function(evento) {
 
         evento.preventDefault();
 
         mostrarMensaje(mensajeDatos, "");
+        campoNombre.classList.remove("campo-invalido");
+        errorNombre.textContent = "";
 
         const nombre = campoNombre.value.trim();
-        const usuario = campoUsuario.value.trim();
-        const correo = campoCorreo.value.trim().toLowerCase();
 
         // Validar el nombre.
         if (nombre.length < 3) {
 
-            mostrarMensaje(
-                mensajeDatos,
-                "El nombre debe tener al menos 3 caracteres."
-            );
-
-            return;
-        }
-
-        // Validar el nombre de usuario.
-        if (!/^@?[a-zA-Z0-9_.]{3,20}$/.test(usuario)) {
-
-            mostrarMensaje(
-                mensajeDatos,
-                "El usuario debe tener entre 3 y 20 caracteres, sin espacios."
-            );
-
-            return;
-        }
-
-        // Validar el correo.
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) {
-
-            mostrarMensaje(
-                mensajeDatos,
-                "Ingresá un correo electrónico válido."
-            );
-
-            return;
-        }
-
-        // Comprobar que no exista otro usuario igual.
-        const usuarios = obtenerUsuarios();
-
-        const usuarioRepetido = usuarios.some(function(u) {
-
-            return u.id !== usuarioEditar.id &&
-                u.usuario.toLowerCase() === usuario.toLowerCase();
-
-        });
-
-        if (usuarioRepetido) {
-
-            mostrarMensaje(
-                mensajeDatos,
-                "Ese nombre de usuario ya está registrado."
-            );
-
-            return;
-        }
-
-        // Comprobar que el correo no esté registrado.
-        const correoRepetido = usuarios.some(function(u) {
-
-            return u.id !== usuarioEditar.id &&
-                u.correo.toLowerCase() === correo;
-
-        });
-
-        if (correoRepetido) {
-
-            mostrarMensaje(
-                mensajeDatos,
-                "Ese correo electrónico ya está registrado."
-            );
+            campoNombre.classList.add("campo-invalido");
+            errorNombre.textContent = "El nombre debe tener al menos 3 caracteres.";
+            mostrarMensaje(mensajeDatos, "Revisá el nombre antes de guardar.");
+            campoNombre.focus();
 
             return;
         }
 
         // Comprobar si hubo algún cambio.
-        if (
-            nombre === usuarioEditar.nombre &&
-            usuario === usuarioEditar.usuario &&
-            correo === usuarioEditar.correo
-        ) {
+        if (nombre === usuarioEditar.nombre) {
 
             mostrarMensaje(
                 mensajeDatos,
@@ -166,43 +104,28 @@ if (!usuarioEditar) {
             return;
         }
 
-        // Guardar los datos personales.
-        try {
+        // Guardar el nombre nuevo.
+        const guardado = actualizarUsuario({
+            nombre: nombre
+        });
 
-            const guardado = actualizarUsuario({
-                nombre: nombre,
-                usuario: usuario,
-                correo: correo
-            });
-
-            if (!guardado) {
-
-                mostrarMensaje(
-                    mensajeDatos,
-                    "No se pudieron guardar los cambios."
-                );
-
-                return;
-            }
-
-            usuarioEditar = obtenerUsuarioActivo();
-
-            mostrarMensaje(
-                mensajeDatos,
-                "¡Cambios guardados correctamente!",
-                true
-            );
-
-        } catch (error) {
-
-            console.error("Error al guardar los datos:", error);
+        if (!guardado) {
 
             mostrarMensaje(
                 mensajeDatos,
                 "No se pudieron guardar los cambios."
             );
 
+            return;
         }
+
+        usuarioEditar = obtenerUsuarioActivo();
+
+        mostrarMensaje(
+            mensajeDatos,
+            "¡Cambios guardados correctamente!",
+            true
+        );
 
     });
 
@@ -250,19 +173,12 @@ if (!usuarioEditar) {
             return;
         }
 
-        // Validar la nueva contraseña.
-        const contrasenaValida =
-            nueva.length >= 10 &&
-            /[A-Z]/.test(nueva) &&
-            /[a-z]/.test(nueva) &&
-            /[0-9]/.test(nueva);
+        // Validar la nueva contraseña con las mismas reglas del registro.
+        const errorContrasena = revisarContrasena(nueva);
 
-        if (!contrasenaValida) {
+        if (errorContrasena !== "") {
 
-            mostrarMensaje(
-                mensajePassword,
-                "La nueva contraseña debe tener al menos 10 caracteres, una mayúscula, una minúscula y un número."
-            );
+            mostrarMensaje(mensajePassword, errorContrasena);
 
             return;
         }

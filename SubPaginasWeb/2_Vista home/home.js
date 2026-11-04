@@ -4,6 +4,8 @@ import "../../js/buscador.js";
 
 // Importamos las funciones de usuarios utilizadas en esta vista.
 import { obtenerUsuarioActivo, actualizarUsuario } from "../../js/usuarios.js";
+import { abrirInformacionCurso, configurarCierreDialogo } from "../../js/infoCursos.js";
+import { mostrarResumenHome } from "./resumenHome.js";
 
 
 // Botones para agregar y quitar cursos.
@@ -195,6 +197,15 @@ function mostrarCursos() {
         aviso.style.display = seleccionados.length ? "none" : "flex";
     }
 
+    // Un curso que ya está agregado no se puede volver a agregar.
+    botonesAgregar.forEach(function(boton) {
+
+        const agregado = seleccionados.includes(boton.dataset.curso);
+
+        boton.disabled = agregado;
+        boton.textContent = agregado ? "Curso agregado ✔" : "Agregar Curso";
+    });
+
     // Actualizar el botón principal.
     if (continuar) {
 
@@ -300,54 +311,55 @@ botonesQuitar.forEach(function(boton) {
 
 
 
-// Mostrar los datos al abrir Home.
-mostrarSaludo();
-mostrarCursos();
+// ----------------------------------------
+// Popup "Más información" (el mismo que en la página de inicio)
+// ----------------------------------------
 
+const dialogoCurso = document.getElementById("dialogo-curso");
+const botonAccionDialogo = document.getElementById("accion-dialogo-curso");
 
-// Meta diaria compartida con Tienda: XP del día actual, no valores de ejemplo.
-function actualizarMetaDiariaHome() {
-    const usuarioActual = obtenerUsuarioActivo();
-    if (!usuarioActual) return;
-    const fecha = new Date();
-    const hoy = fecha.getFullYear() + "-" +
-        String(fecha.getMonth() + 1).padStart(2, "0") + "-" +
-        String(fecha.getDate()).padStart(2, "0");
-    const meta = 40;
-    const xpHoy = usuarioActual.fechaXpDiario === hoy ? Number(usuarioActual.xpDiario) || 0 : 0;
-    const porcentaje = Math.min(Math.round(xpHoy / meta * 100), 100);
-    const seccion = document.querySelector(".metaDiaria");
-    if (!seccion) return;
-    const cantidad = seccion.querySelector(".datos-titulo p");
-    const mensaje = seccion.querySelector(".mensaje-meta-home");
-    const barra = seccion.querySelector("progress");
-    const indicador = seccion.querySelector(".datos-progress span");
-    if (cantidad) cantidad.textContent = xpHoy + " / " + meta + " XP";
-    if (barra) { barra.max = meta; barra.value = Math.min(xpHoy, meta); barra.textContent = porcentaje + "%"; }
-    if (indicador) indicador.textContent = porcentaje + "%";
-    if (mensaje) mensaje.textContent = xpHoy >= meta
-        ? "¡Felicitaciones! Alcanzaste tu meta diaria."
-        : "Te faltan " + (meta - xpHoy) + " XP para alcanzar tu meta diaria.";
+// Curso que se está mostrando en el popup.
+let cursoDelDialogo = "";
+
+// Adapta el botón del popup: agregar el curso o ir a él si ya lo tiene.
+function actualizarBotonDialogo() {
+    if (seleccionados.includes(cursoDelDialogo)) {
+        botonAccionDialogo.textContent = "IR AL CURSO";
+    } else {
+        botonAccionDialogo.textContent = "AGREGAR CURSO";
+    }
 }
-actualizarMetaDiariaHome();
-window.addEventListener("pageshow", actualizarMetaDiariaHome);
 
-// Ventana informativa de los cursos. Se usa un solo diálogo para las tres tarjetas.
-const dialogoCurso = document.getElementById("dialogo-info-curso");
-const detalleCurso = {
-    ingles: { nombre: "Inglés", descripcion: "Practicá comprensión auditiva, vocabulario y gramática con actividades y exámenes." },
-    aleman: { nombre: "Alemán", descripcion: "Aprendé expresiones, vocabulario y estructuras de alemán con actividades interactivas." },
-    chino: { nombre: "Chino mandarín", descripcion: "Conocé palabras y expresiones de chino mandarín mientras avanzás por niveles." }
-};
+document.querySelectorAll("[data-info-curso]").forEach((boton) => {
+    boton.addEventListener("click", () => {
+        cursoDelDialogo = boton.dataset.infoCurso;
 
-document.querySelectorAll("[data-info-curso]").forEach(function(boton) {
-    boton.addEventListener("click", function() {
-        const datos = detalleCurso[boton.dataset.infoCurso];
-        if (!datos || !dialogoCurso) return;
-        dialogoCurso.querySelector("h2").textContent = "Curso de " + datos.nombre;
-        dialogoCurso.querySelector(".descripcion-curso-popup").textContent = datos.descripcion;
-        dialogoCurso.showModal();
+        if (abrirInformacionCurso(cursoDelDialogo)) {
+            actualizarBotonDialogo();
+        }
     });
 });
-const cerrarInfoCurso = document.getElementById("cerrar-info-curso");
-if (cerrarInfoCurso) cerrarInfoCurso.addEventListener("click", function() { dialogoCurso.close(); });
+
+if (botonAccionDialogo) {
+    botonAccionDialogo.addEventListener("click", () => {
+
+        // Si ya lo tiene, lo llevamos al mapa del curso.
+        if (seleccionados.includes(cursoDelDialogo)) {
+            window.location.href = "../3_Vista Mapa de Unidades/" + archivos[cursoDelDialogo];
+            return;
+        }
+
+        agregarCurso(cursoDelDialogo);
+        dialogoCurso.close();
+    });
+}
+
+configurarCierreDialogo();
+
+// ----------------------------------------
+// Mostrar los datos al abrir Home
+// ----------------------------------------
+
+mostrarSaludo();
+mostrarCursos();
+mostrarResumenHome(usuario);

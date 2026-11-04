@@ -49,7 +49,7 @@
 
             <div class="form-caja">
 
-                <form action="../2_Vista home/home.html" method="get" aria-label="Iniciar sesión">
+                <form id="formulario-login" aria-label="Iniciar sesión" novalidate>
 
                     <section class="completar-datos" aria-labelledby="titulo-completar-datos">
 
@@ -57,12 +57,13 @@
 
                         <div class="relleno">
                             <div class="relleno-label">
-                                <label for="email">Email</label>
+                                <label for="email">Usuario o correo</label>
                             </div>
 
-                            <input type="email" name="correo" id="email"
-                                placeholder="tu-nombre@correo.com"
-                                autocomplete="email" required>
+                            <input type="text" name="usuario" id="email"
+                                placeholder="@usuario o tu-nombre@correo.com"
+                                autocomplete="username" required>
+                            <p class="error-campo" id="error-email"></p>
                         </div>
 
                         <div class="relleno">
@@ -73,7 +74,10 @@
                             <input type="password" name="password" id="contraseña"
                                 placeholder="Contraseña"
                                 autocomplete="current-password" required>
+                            <p class="error-campo" id="error-contraseña"></p>
                         </div>
+
+                        <p id="mensaje-login" role="alert" hidden></p>
 
                         <button class="boton-iniciar" type="submit">
                             Iniciar Sesión
@@ -154,7 +158,6 @@
         </nav>
 
     </footer>
-<script src="../../js/buscador.js"></script>
 <script type="module" src="./loginFunciones.js"></script>
 </body>
 

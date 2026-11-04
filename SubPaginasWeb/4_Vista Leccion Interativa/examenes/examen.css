@@ -94,7 +94,7 @@ header .buscador-acceder-language .acceder {
 /* Estilo del botón */
 .btn-audio-aleman {
   display: inline-block;
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   background-color: #5d635d;
   color: white;
   border-radius: 1rem;
@@ -185,7 +185,7 @@ header .buscador-acceder-language .acceder {
 @media screen and (max-width: 53rem) {
 
     .boton-volver {
-        padding: 3px 45rem 5px 3rem;
+        padding: 0.1875rem 45rem 0.3125rem 3rem;
     }
 
 }
@@ -193,14 +193,14 @@ header .buscador-acceder-language .acceder {
 @media screen and (max-width: 49rem) {
 
     .boton-volver {
-        padding: 3px 38rem 5px 3rem;
+        padding: 0.1875rem 38rem 0.3125rem 3rem;
     }
 }
 
 @media screen and (max-width: 42rem) {
 
     .boton-volver {
-        padding: 3px 34rem 5px 3rem;
+        padding: 0.1875rem 34rem 0.3125rem 3rem;
     }
 
     .contenedor {
@@ -221,7 +221,7 @@ header .buscador-acceder-language .acceder {
 @media screen and (max-width: 40rem) {
 
     .boton-volver {
-        padding: 3px 31rem 5px 3rem;
+        padding: 0.1875rem 31rem 0.3125rem 3rem;
     }
 
     .contenedor {

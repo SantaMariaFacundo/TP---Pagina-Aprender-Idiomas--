@@ -257,12 +257,9 @@ progress::-webkit-progress-value {
     .primera-seccion{
         margin-top: 1rem;
     }
-    @media screen and (max-width: 76rem) {
-    .navegacion {
-        gap: 0.6rem;
-    }
 }
 
+/* Botón de una lección o examen bloqueado */
 .boton-card[aria-disabled="true"] {
     background-color: #858484;
     color: #ffffff;
@@ -270,6 +267,154 @@ progress::-webkit-progress-value {
     cursor: not-allowed;
 }
 
+.volver-curso-completo {
+    display: block;
+    width: fit-content;
+    margin: 2rem auto;
+    padding: 0.85rem 1.3rem;
+    border-radius: 0.75rem;
+    background: #CA6035;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
 }
-.volver-curso-completo { display: block; width: fit-content; margin: 2rem auto; padding: 0.85rem 1.3rem; border-radius: 0.75rem; background: #CA6035; color: #fff; text-decoration: none; font-weight: bold; }
-.volver-curso-completo:hover { background: #a94d2a; }
+
+.volver-curso-completo:hover {
+    background: #a94d2a;
+}
+
+/* Estado de cada lección: completada, en curso o bloqueada */
+.estado-leccion {
+    position: relative;
+    z-index: 6;
+    max-width: 14rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.estado-completada {
+    color: #1f7a6e;
+}
+
+.estado-en-curso {
+    color: #CA6035;
+}
+
+.estado-bloqueada {
+    color: #585656;
+}
+
+/* La tarjeta del examen crece si el mensaje ocupa más de una línea */
+.card-examen {
+    height: auto;
+    min-height: 18rem;
+}
+
+/* Opiniones del curso */
+.seccion-opiniones {
+    width: min(50rem, 90%);
+    margin: 0 auto 4rem;
+}
+
+.seccion-opiniones h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.promedio-opiniones {
+    text-align: center;
+    font-weight: bold;
+    color: #6D2508;
+    margin-bottom: 1.5rem;
+}
+
+.formulario-opinion,
+.opinion {
+    background-color: #ffffff;
+    border-radius: 1.8rem;
+    padding: 2rem;
+    box-shadow: 0 0.0625rem 0.375rem 0 rgba(68, 68, 68, 0.5);
+}
+
+.formulario-opinion {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.formulario-opinion h3 {
+    color: #6D2508;
+}
+
+.campo-opinion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.campo-opinion label {
+    font-weight: bold;
+}
+
+.campo-opinion select,
+.campo-opinion textarea {
+    padding: 0.7rem;
+    border: 0.0625rem solid #d8bda9;
+    border-radius: 0.8rem;
+    background-color: #F8E9DB;
+    font: inherit;
+}
+
+.campo-opinion textarea {
+    resize: vertical;
+}
+
+.boton-opinion {
+    align-self: flex-start;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: #CA6035;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.boton-opinion:hover {
+    background-color: #a94d2a;
+}
+
+.lista-opiniones {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+}
+
+.opinion {
+    padding: 1.3rem 2rem;
+}
+
+.opinion-propia {
+    border: 0.125rem solid #CA6035;
+}
+
+.opinion-autor {
+    font-weight: bold;
+    color: #6D2508;
+}
+
+.opinion-estrellas {
+    color: #b57d00;
+    font-size: 1.2rem;
+    margin: 0.3rem 0;
+}
+
+.opinion-comentario {
+    overflow-wrap: anywhere;
+}
+
