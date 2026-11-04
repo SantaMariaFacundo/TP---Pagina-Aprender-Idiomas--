@@ -1,14 +1,9 @@
-/**
- * Servicio de opiniones: guarda y lee las valoraciones de los cursos.
- *
- * Todas las opiniones se guardan en una sola clave de localStorage.
- * Cada una sabe a qué curso pertenece y qué usuario la publicó.
- */
+
 import { OPINIONES_DEMO } from "./datos/usuariosDemo.js";
 
 const CLAVE_OPINIONES = "grammatech_opiniones";
 
-// Lee todas las opiniones. Si no hay, carga las de ejemplo.
+
 function obtenerOpiniones() {
     const datos = localStorage.getItem(CLAVE_OPINIONES);
 
@@ -32,26 +27,26 @@ function obtenerOpiniones() {
     }
 }
 
-// Guarda la lista completa de opiniones.
+
 function guardarOpiniones(opiniones) {
     localStorage.setItem(CLAVE_OPINIONES, JSON.stringify(opiniones));
 }
 
-// Devuelve las opiniones de un curso, de la más nueva a la más vieja.
+
 export function obtenerOpinionesDelCurso(curso) {
     return obtenerOpiniones()
         .filter((opinion) => opinion.curso === curso)
         .sort((a, b) => (a.fecha < b.fecha ? 1 : -1));
 }
 
-// Busca la opinión que un usuario ya dejó en un curso.
+
 export function obtenerOpinionDelUsuario(curso, usuarioId) {
     return obtenerOpiniones().find(
         (opinion) => opinion.curso === curso && opinion.usuarioId === usuarioId
     );
 }
 
-// Valida los datos antes de guardar. Devuelve un objeto con los errores.
+
 export function validarOpinion(datos) {
     const errores = {};
 
@@ -66,11 +61,6 @@ export function validarOpinion(datos) {
     return errores;
 }
 
-/**
- * Guarda la opinión de un usuario en un curso.
- * Si ya había opinado, se reemplaza: cada persona tiene una sola opinión por curso.
- * Devuelve "creada" o "actualizada".
- */
 export function guardarOpinion(datos) {
     const opiniones = obtenerOpiniones();
 
@@ -98,7 +88,6 @@ export function guardarOpinion(datos) {
     return "actualizada";
 }
 
-// Calcula el promedio de estrellas de una lista de opiniones.
 export function calcularPromedio(opiniones) {
     if (opiniones.length === 0) {
         return 0;

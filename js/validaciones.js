@@ -1,16 +1,6 @@
-/**
- * Validaciones de los formularios de acceso.
- *
- * Cada función devuelve un objeto con los errores encontrados.
- * La clave es el id del campo y el valor es el mensaje.
- * Si no hay errores, devuelve un objeto vacío.
- */
-
-// Correo con formato texto@texto.dominio
 const PATRON_CORREO = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// Revisa los requisitos de la contraseña.
-// Devuelve el mensaje de error o un texto vacío si está bien.
+
 export function revisarContrasena(contrasena) {
     if (contrasena.length < 10) {
         return "La contraseña debe tener al menos 10 caracteres.";
@@ -31,7 +21,7 @@ export function revisarContrasena(contrasena) {
     return "";
 }
 
-// Formulario de inicio de sesión.
+
 export function validarLogin(datos) {
     const errores = {};
 
@@ -46,7 +36,7 @@ export function validarLogin(datos) {
     return errores;
 }
 
-// Formulario de registro.
+
 export function validarRegistro(datos) {
     const errores = {};
 
@@ -65,7 +55,7 @@ export function validarRegistro(datos) {
     if (datos.fechaNacimiento === "") {
         errores["fecha"] = "Ingresá tu fecha de nacimiento.";
     } else {
-        // Usamos el mediodía para que la zona horaria no cambie el día.
+        
         const fecha = new Date(datos.fechaNacimiento + "T12:00:00");
 
         if (fecha > new Date()) {

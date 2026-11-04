@@ -342,7 +342,7 @@ progress::-webkit-progress-value {
     box-shadow: 0 0.0625rem 0.375rem 0 rgba(68, 68, 68, 0.5);
     display: grid;
     gap: 1rem;
-    grid-template-rows: 1fr 2fr 2fr 2fr;
+    grid-template-rows: 1fr 5fr;
 }
 
 .logros-titulo {

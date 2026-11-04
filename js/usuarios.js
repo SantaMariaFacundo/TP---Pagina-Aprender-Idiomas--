@@ -1,13 +1,10 @@
-// Cuentas de ejemplo que se cargan la primera vez.
 import { USUARIOS_DEMO } from "./datos/usuariosDemo.js";
 
 const CLAVE_USUARIOS = "grammatech_usuarios";
 const CLAVE_SESION = "grammatech_usuario_activo";
 
-// Contraseña de todas las cuentas de demostración.
 const CONTRASENA_DEMO = "Demo123456";
 
-// Convierte una fecha en texto con el formato AAAA-MM-DD.
 export function formatearFecha(fecha = new Date()) {
     const anio = fecha.getFullYear();
     const mes = String(fecha.getMonth() + 1).padStart(2, "0");
@@ -16,7 +13,6 @@ export function formatearFecha(fecha = new Date()) {
     return `${anio}-${mes}-${dia}`;
 }
 
-// Devuelve la racha vigente: si no estudió hoy ni ayer, la racha está cortada.
 export function obtenerRachaActual(usuario) {
     const hoy = formatearFecha();
 
@@ -31,7 +27,7 @@ export function obtenerRachaActual(usuario) {
     return 0;
 }
 
-// Arma la ficha completa de un usuario con todos sus datos iniciales.
+
 function crearFichaUsuario(datos) {
     return {
         id: datos.id,
@@ -65,7 +61,7 @@ function crearFichaUsuario(datos) {
     };
 }
 
-// Crea las cuentas de demostración, con actividad registrada hoy.
+
 function crearUsuariosDemo() {
     const hoy = formatearFecha();
 
@@ -77,7 +73,7 @@ function crearUsuariosDemo() {
     }));
 }
 
-// Obtener el lunes de la semana actual.
+
 export function obtenerSemanaActual() {
     const fecha = new Date();
     const dia = fecha.getDay();
@@ -92,7 +88,7 @@ export function obtenerSemanaActual() {
     return `${anio}-${mes}-${numeroDia}`;
 }
 
-// Obtener los usuarios guardados.
+
 
 export function obtenerUsuarios() {
 
@@ -100,8 +96,7 @@ export function obtenerUsuarios() {
 
         const datos = localStorage.getItem(CLAVE_USUARIOS);
 
-        // null significa que todavía no se guardó ningún usuario:
-        // cargamos las cuentas de demostración.
+        
         if (datos === null) {
             const usuariosIniciales = crearUsuariosDemo();
             guardarUsuarios(usuariosIniciales);
@@ -117,7 +112,7 @@ export function obtenerUsuarios() {
         const semanaActual = obtenerSemanaActual();
         let huboCambios = false;
 
-        // Buscar las semanas anteriores pendientes de cierre.
+        
         const semanasAnteriores = [
             ...new Set(
                 usuarios
@@ -129,10 +124,10 @@ export function obtenerUsuarios() {
             )
         ];
 
-        // Calcular ascensos antes de reiniciar los puntos.
+        
         semanasAnteriores.forEach(function(semana) {
 
-            // Primero Plata, para evitar ascender dos ligas de golpe.
+            
             ["plata", "bronce"].forEach(function(liga) {
 
                 const limite = liga === "bronce" ? 5 : 3;
@@ -147,7 +142,7 @@ export function obtenerUsuarios() {
                         Number(b.xpSemanal) - Number(a.xpSemanal)
                     );
 
-                // Ascender solamente a los primeros puestos.
+                
                 participantes.slice(0, limite).forEach(function(usuario) {
 
                     usuario.liga = liga === "bronce"
@@ -162,10 +157,10 @@ export function obtenerUsuarios() {
 
         });
 
-        // Reiniciar los XP semanales.
+        
         usuarios.forEach(function(usuario) {
 
-            // Adaptar cuentas creadas antes de esta mejora.
+            
             if (!usuario.semanaXp) {
                 usuario.semanaXp = semanaActual;
                 huboCambios = true;
@@ -182,7 +177,7 @@ export function obtenerUsuarios() {
 
         });
 
-        // Guardar solamente cuando hubo modificaciones.
+        
         if (huboCambios) {
             guardarUsuarios(usuarios);
         }
@@ -198,7 +193,7 @@ export function obtenerUsuarios() {
 
 }
 
-// Guardar todos los usuarios.
+
 export function guardarUsuarios(usuarios) {
     localStorage.setItem(
         CLAVE_USUARIOS,
@@ -206,7 +201,7 @@ export function guardarUsuarios(usuarios) {
     );
 }
 
-// Obtener la cuenta que inició sesión.
+
 export function obtenerUsuarioActivo() {
     const idActivo = localStorage.getItem(CLAVE_SESION);
 
@@ -219,7 +214,7 @@ export function obtenerUsuarioActivo() {
     ) || null;
 }
 
-// Registrar una cuenta nueva.
+
 export function registrarUsuario(nombre, usuario, correo, contrasena) {
     const usuarios = obtenerUsuarios();
 
@@ -247,7 +242,7 @@ export function registrarUsuario(nombre, usuario, correo, contrasena) {
         };
     }
 
-    // Generamos un ID sencillo, igual que en la práctica de clase.
+    
     const nuevoUsuario = crearFichaUsuario({
         id: String(Date.now()),
         nombre: nombre,
@@ -266,7 +261,7 @@ export function registrarUsuario(nombre, usuario, correo, contrasena) {
     };
 }
 
-// Iniciar sesión.
+
 export function iniciarSesion(identificador, contrasena) {
     const usuarios = obtenerUsuarios();
 
@@ -295,12 +290,12 @@ export function iniciarSesion(identificador, contrasena) {
     };
 }
 
-// Cerrar sesión.
+
 export function cerrarSesion() {
     localStorage.removeItem(CLAVE_SESION);
 }
 
-// Actualizar los datos de un usuario a partir de su id.
+
 export function actualizarUsuarioPorId(id, datosActualizados) {
     const usuarios = obtenerUsuarios();
 
@@ -312,8 +307,7 @@ export function actualizarUsuarioPorId(id, datosActualizados) {
         return false;
     }
 
-    // Copiamos los datos que ya tenía y pisamos solo los nuevos.
-    // El id nunca cambia.
+    
     usuarios[indice] = {
         ...usuarios[indice],
         ...datosActualizados,
@@ -325,7 +319,7 @@ export function actualizarUsuarioPorId(id, datosActualizados) {
     return true;
 }
 
-// Actualizar los datos del usuario activo.
+
 export function actualizarUsuario(datosActualizados) {
     const usuarioActivo = obtenerUsuarioActivo();
 
@@ -336,7 +330,7 @@ export function actualizarUsuario(datosActualizados) {
     return actualizarUsuarioPorId(usuarioActivo.id, datosActualizados);
 }
 
-// Sumar experiencia al usuario activo.
+
 export function sumarExperiencia(cantidad) {
     const usuario = obtenerUsuarioActivo();
 

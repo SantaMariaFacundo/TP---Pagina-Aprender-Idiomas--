@@ -1,4 +1,4 @@
-// Buscador compartido: localiza cursos y secciones que existen en GrammaTech.
+
 import { obtenerUsuarioActivo } from "./usuarios.js";
 
 const raiz = new URL("../", import.meta.url);
@@ -23,7 +23,7 @@ function normalizar(texto) {
         .replace(/[\u0300-\u036f]/g, "").trim();
 }
 
-// Solo tenemos páginas de cursos y secciones; no hay un buscador de becas ni diccionario.
+
 document.querySelectorAll(".conteiner-search").forEach(function(formulario) {
     const campo = formulario.querySelector('input[type="search"], input');
     const lupa = formulario.querySelector(".img-search");
@@ -53,7 +53,7 @@ document.querySelectorAll(".conteiner-search").forEach(function(formulario) {
             return;
         }
 
-        // Priorizamos coincidencias exactas para no confundir "editar perfil" con "perfil".
+        
         let resultado = opcionesBusqueda.find(function(opcion) {
             return opcion.palabras.some(function(palabra) {
                 return normalizar(palabra) === consulta;

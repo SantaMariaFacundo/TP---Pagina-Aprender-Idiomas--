@@ -1,12 +1,3 @@
-/**
- * Cuentas de demostración de GrammaTech.
- *
- * Se cargan la primera vez que se abre la aplicación,
- * cuando todavía no hay usuarios guardados en localStorage.
- * Sirven para que la tabla de clasificación tenga participantes.
- *
- * Todas usan la contraseña "Demo123456".
- */
 export const USUARIOS_DEMO = [
     { id: "demo-1", nombre: "Sofía Martínez", usuario: "@sofi.martinez", correo: "sofia@demo.com", liga: "bronce", xpSemanal: 180, xp: 640, racha: 6, monedas: 240 },
     { id: "demo-2", nombre: "Lucas Gómez", usuario: "@lucasg", correo: "lucas@demo.com", liga: "bronce", xpSemanal: 150, xp: 420, racha: 4, monedas: 150 },
@@ -19,10 +10,6 @@ export const USUARIOS_DEMO = [
     { id: "demo-9", nombre: "Julieta Romero", usuario: "@juli.romero", correo: "julieta@demo.com", liga: "oro", xpSemanal: 340, xp: 2100, racha: 20, monedas: 600 }
 ];
 
-/**
- * Opiniones de ejemplo para que los cursos no aparezcan vacíos.
- * Cada opinión guarda el id de quien la publicó y el curso.
- */
 export const OPINIONES_DEMO = [
     { id: "op-1", curso: "ingles", usuarioId: "demo-7", puntuacion: 5, comentario: "Las actividades de listening me ayudaron un montón.", fecha: "2026-10-28" },
     { id: "op-2", curso: "ingles", usuarioId: "demo-2", puntuacion: 4, comentario: "Muy bueno, me gustaría que tuviera más ejercicios por nivel.", fecha: "2026-10-30" },

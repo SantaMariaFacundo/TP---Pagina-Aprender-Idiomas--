@@ -1,9 +1,3 @@
-/**
- * Información de cada curso y ventana emergente "Más información".
- * La usan la página de inicio (index) y el home, así las dos
- * muestran exactamente el mismo popup.
- */
-
 export const INFORMACION_CURSOS = {
     ingles: {
         titulo: "Inglés",
@@ -42,7 +36,7 @@ export const INFORMACION_CURSOS = {
     }
 };
 
-// Carga la lista de contenidos dentro del <ul>.
+
 function crearLista(elemento, datos) {
     elemento.replaceChildren();
 
@@ -53,10 +47,7 @@ function crearLista(elemento, datos) {
     });
 }
 
-/**
- * Completa el popup con la información del curso y lo abre.
- * Devuelve true si se pudo mostrar.
- */
+
 export function abrirInformacionCurso(id) {
     const dialogo = document.getElementById("dialogo-curso");
     const curso = INFORMACION_CURSOS[id];
@@ -74,7 +65,7 @@ export function abrirInformacionCurso(id) {
     return true;
 }
 
-// Prepara los botones para cerrar el popup (la X y el clic afuera).
+
 export function configurarCierreDialogo() {
     const dialogo = document.getElementById("dialogo-curso");
     const botonCerrar = document.getElementById("cerrar-dialogo-curso");
@@ -87,7 +78,7 @@ export function configurarCierreDialogo() {
         botonCerrar.addEventListener("click", () => dialogo.close());
     }
 
-    // Si se hace clic en el fondo oscuro, también se cierra.
+    
     dialogo.addEventListener("click", (evento) => {
         if (evento.target === dialogo) {
             dialogo.close();
