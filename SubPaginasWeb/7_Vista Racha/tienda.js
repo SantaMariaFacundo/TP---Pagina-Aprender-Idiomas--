@@ -1,12 +1,9 @@
-// Importamos los módulos compartidos necesarios para esta página.
 import "../../js/header.js";
 import "../../js/buscador.js";
 
-// Importamos las funciones de usuarios utilizadas en esta vista.
 import { obtenerUsuarioActivo, actualizarUsuario, obtenerRachaActual } from "../../js/usuarios.js";
 
 
-// Obtener los elementos del HTML
 
 const rachaActual = document.getElementById("racha-actual");
 const xpDiario = document.getElementById("xp-diario");
@@ -21,15 +18,12 @@ const mensajeTienda = document.getElementById("mensaje-tienda");
 
 const diasSemana = document.querySelectorAll(".dias-semana .dia");
 
-// Establecer la meta de experiencia diaria
 
 const META_DIARIA = 40;
 
-// Obtener el usuario que inició sesión
 
 const usuarioActivo = obtenerUsuarioActivo();
 
-// Obtener la fecha actual en formato YYYY-MM-DD
 
 function obtenerFechaLocal(fecha = new Date()) {
 
@@ -43,7 +37,6 @@ function obtenerFechaLocal(fecha = new Date()) {
 
 }
 
-// Mostrar un mensaje al usuario
 
 function mostrarMensajeTienda(texto, correcto = false) {
 
@@ -61,7 +54,6 @@ function mostrarMensajeTienda(texto, correcto = false) {
 
 }
 
-// Mostrar la racha actual
 
 function mostrarRacha(usuario) {
 
@@ -76,7 +68,6 @@ function mostrarRacha(usuario) {
 
 }
 
-// Mostrar la experiencia acumulada
 
 function mostrarExperiencia(usuario) {
 
@@ -90,11 +81,9 @@ function mostrarExperiencia(usuario) {
 
 }
 
-// Mostrar el progreso de la meta diaria
 
 function mostrarMetaDiaria(usuario) {
 
-    // Usar XP diarios solamente si corresponden a hoy
 
     const hoy = obtenerFechaLocal();
 
@@ -142,11 +131,9 @@ function mostrarMetaDiaria(usuario) {
 
 }
 
-// Mostrar los días registrados de esta semana
 
 function mostrarDiasSemana(usuario) {
 
-    // Obtener las fechas en las que el usuario estudió
 
     const fechasActividad = Array.isArray(usuario.diasActividad)
         ? usuario.diasActividad
@@ -154,7 +141,6 @@ function mostrarDiasSemana(usuario) {
 
     const hoy = new Date();
 
-    // Calcular el lunes de la semana actual
 
     const lunes = new Date(hoy);
 
@@ -164,7 +150,6 @@ function mostrarDiasSemana(usuario) {
 
     lunes.setDate(hoy.getDate() + diferencia);
 
-    // Recorrer los siete días de la semana
 
     diasSemana.forEach(function (elemento, indice) {
 
@@ -178,7 +163,6 @@ function mostrarDiasSemana(usuario) {
 
         const estado = elemento.querySelector("span");
 
-        // Marcar solamente días registrados
 
         elemento.classList.toggle("completado", completado);
 
@@ -196,7 +180,6 @@ function mostrarDiasSemana(usuario) {
 
 }
 
-// Mostrar la cantidad de monedas
 
 function mostrarMonedas(usuario) {
 
@@ -210,7 +193,6 @@ function mostrarMonedas(usuario) {
 
 }
 
-// Actualizar el estado del producto Doble XP
 
 function actualizarBotonDobleXp(usuario) {
 
@@ -222,7 +204,6 @@ function actualizarBotonDobleXp(usuario) {
 
     const precio = Number(botonDobleXp.dataset.precio) || 300;
 
-    // Comprobar si el usuario ya tiene el beneficio pendiente
 
     if (usuario.dobleXpPendiente === true) {
 
@@ -234,7 +215,6 @@ function actualizarBotonDobleXp(usuario) {
 
     }
 
-    // Permitir el canje solamente con monedas suficientes
 
     if (monedas < precio) {
 
@@ -252,7 +232,6 @@ function actualizarBotonDobleXp(usuario) {
 
 }
 
-// Actualizar todos los datos de la tienda
 
 function actualizarTienda() {
 
@@ -276,11 +255,9 @@ function actualizarTienda() {
 
 }
 
-// Comprar el beneficio Doble XP
 
 function canjearDobleXp() {
 
-    // Obtener los datos más recientes del usuario
 
     const usuario = obtenerUsuarioActivo();
 
@@ -292,7 +269,6 @@ function canjearDobleXp() {
 
     const monedas = Number(usuario.monedas) || 0;
 
-    // Evitar comprar dos veces el mismo beneficio
 
     if (usuario.dobleXpPendiente === true) {
 
@@ -304,7 +280,6 @@ function canjearDobleXp() {
 
     }
 
-    // Verificar que tenga monedas suficientes
 
     if (monedas < precio) {
 
@@ -316,14 +291,12 @@ function canjearDobleXp() {
 
     }
 
-    // Descontar las monedas y guardar el beneficio
 
     actualizarUsuario({
         monedas: monedas - precio,
         dobleXpPendiente: true
     });
 
-    // Comprobar que se haya guardado correctamente
 
     const usuarioActualizado = obtenerUsuarioActivo();
 
@@ -350,7 +323,6 @@ function canjearDobleXp() {
 
 }
 
-// Conectar el botón Canjear
 
 if (botonDobleXp) {
 
@@ -358,7 +330,6 @@ if (botonDobleXp) {
 
 }
 
-// Inicializar la tienda
 
 if (!usuarioActivo) {
 

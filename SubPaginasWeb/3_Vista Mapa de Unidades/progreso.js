@@ -1,38 +1,30 @@
-// Importamos los módulos compartidos necesarios para esta página.
 import "../../js/header.js";
 import "../../js/buscador.js";
 
-// Importamos las funciones de usuarios y la vista de opiniones.
 import { obtenerUsuarioActivo } from "../../js/usuarios.js";
 import { iniciarOpiniones } from "./opinionesVista.js";
 
 
-// Buscar el mapa del idioma que está abierto
 const mapaUnidades = document.querySelector("main[data-curso]");
 
 if (mapaUnidades) {
 
-    // Obtener el idioma del mapa
     const idioma = mapaUnidades.dataset.curso;
 
-    // Recuperar el usuario activo
     const usuario = obtenerUsuarioActivo();
 
-    // Archivos de las lecciones según el idioma
     const archivosLecciones = {
         ingles: "leccionIngles.html",
         aleman: "leccionAleman.html",
         chino: "leccionMandarin.html"
     };
 
-    // Archivos de los exámenes según el idioma
     const archivosExamenes = {
         ingles: "examenIngles.html",
         aleman: "examenAleman.html",
         chino: "examenChino.html"
     };
 
-    // Niveles y actividades disponibles
     const niveles = ["a", "b", "c"];
 
     const actividades = [
@@ -41,7 +33,6 @@ if (mapaUnidades) {
         "gramatica"
     ];
 
-    // Nombres que se muestran en los mensajes
     const nombresNiveles = {
         a: "A1-A2",
         b: "B1-B2",
@@ -54,14 +45,12 @@ if (mapaUnidades) {
 
     } else {
 
-        // Recuperar el progreso guardado de este curso
         const cursos = usuario.cursos || {};
         const curso = cursos[idioma] || {};
 
         const completadas = curso.leccionesCompletadas || [];
         const examenesAprobados = curso.examenesAprobados || [];
 
-        // Crear el identificador de cada actividad
         function obtenerIdLeccion(nivel, actividad) {
 
             if (nivel === "a" && actividad === "listening") {
@@ -71,7 +60,6 @@ if (mapaUnidades) {
             return idioma + "-" + nivel + "-" + actividad;
         }
 
-        // Comprobar si se completaron las tres actividades de un nivel
         function actividadesCompletadas(nivel) {
 
             return actividades.every(function(actividad) {
@@ -79,12 +67,10 @@ if (mapaUnidades) {
             });
         }
 
-        // Comprobar si un examen fue aprobado
         function examenAprobado(nivel) {
             return examenesAprobados.includes(nivel);
         }
 
-        // Comprobar si un nivel está desbloqueado
         function nivelDisponible(nivel) {
 
             if (nivel === "a") {
@@ -102,7 +88,6 @@ if (mapaUnidades) {
             return false;
         }
 
-        // Explicar por qué un nivel todavía está bloqueado
         function motivoNivelBloqueado(nivel) {
 
             if (nivel === "b") {
@@ -116,7 +101,6 @@ if (mapaUnidades) {
             return "Aprobá el examen B1-B2 para desbloquear este nivel.";
         }
 
-        // Construir el enlace de una actividad
         function obtenerEnlaceLeccion(nivel, actividad) {
 
             return "../4_Vista Leccion Interativa/" +
@@ -125,7 +109,6 @@ if (mapaUnidades) {
                 "&actividad=" + actividad;
         }
 
-        // Construir el enlace del examen
         function obtenerEnlaceExamen(nivel) {
 
             return "../4_Vista Leccion Interativa/examenes/" +
@@ -133,7 +116,6 @@ if (mapaUnidades) {
                 "?nivel=" + nivel;
         }
 
-        // Actualizar una barra de progreso y su porcentaje
         function actualizarBarra(contenedor, porcentaje) {
 
             const barra = contenedor.querySelector("progress");
@@ -149,7 +131,6 @@ if (mapaUnidades) {
             }
         }
 
-        // Mostrar el estado de una tarjeta con texto (no solo con color)
         function mostrarEstado(tarjeta, estado, texto) {
 
             const parrafo = tarjeta.querySelector(".estado-leccion");
@@ -162,7 +143,6 @@ if (mapaUnidades) {
             parrafo.className = "estado-leccion estado-" + estado;
         }
 
-        // Habilitar o bloquear un enlace
         function configurarEnlace(enlace, disponible, direccion, textoBoton, descripcion) {
 
             if (!enlace) {
@@ -186,7 +166,6 @@ if (mapaUnidades) {
             }
         }
 
-        // Actualizar las tres tarjetas de un nivel
         function configurarActividades(seccion, nivel) {
 
             const tarjetas = seccion.querySelectorAll(".cards-a1a2");
@@ -211,7 +190,6 @@ if (mapaUnidades) {
 
                 if (!disponible) {
 
-                    // Bloqueada: explicamos qué falta para desbloquearla.
                     mostrarEstado(tarjeta, "bloqueada", "Bloqueada. " + motivoNivelBloqueado(nivel));
 
                     configurarEnlace(enlace, false, "", "Bloqueado",
@@ -219,7 +197,6 @@ if (mapaUnidades) {
 
                 } else if (completada) {
 
-                    // Completada: se puede repetir.
                     mostrarEstado(tarjeta, "completada", "Completada ✔");
 
                     configurarEnlace(enlace, true, obtenerEnlaceLeccion(nivel, actividad), "Repetir",
@@ -227,7 +204,6 @@ if (mapaUnidades) {
 
                 } else {
 
-                    // Disponible y sin terminar: está en curso.
                     mostrarEstado(tarjeta, "en-curso", "En curso");
 
                     configurarEnlace(enlace, true, obtenerEnlaceLeccion(nivel, actividad), "Empezar",
@@ -236,7 +212,6 @@ if (mapaUnidades) {
             });
         }
 
-        // Actualizar el examen de un nivel
         function configurarExamen(seccion, nivel) {
 
             const tarjetaExamen = seccion.querySelector(".card-examen");
@@ -248,7 +223,6 @@ if (mapaUnidades) {
             const enlace = tarjetaExamen.querySelector(".boton-card");
             const nombreNivel = nombresNiveles[nivel];
 
-            // El examen requiere el nivel desbloqueado y las tres actividades completadas
             const disponible = nivelDisponible(nivel) && actividadesCompletadas(nivel);
 
             if (examenAprobado(nivel)) {
@@ -275,7 +249,6 @@ if (mapaUnidades) {
                 configurarEnlace(enlace, false, "", "Bloqueado", "Examen " + nombreNivel + " bloqueado");
             }
 
-            // Controlar el candado visual del examen
             const candado = tarjetaExamen.querySelector(".card-bloqueada");
 
             if (candado) {
@@ -283,7 +256,6 @@ if (mapaUnidades) {
             }
         }
 
-        // Recorrer los niveles A1-A2, B1-B2 y C1-C2
         const secciones = mapaUnidades.querySelectorAll(".seccion-unidades");
 
         secciones.forEach(function(seccion, indice) {
@@ -298,7 +270,6 @@ if (mapaUnidades) {
             configurarExamen(seccion, nivel);
         });
 
-        // Contar las actividades y los exámenes aprobados
         let cantidadCompletada = 0;
 
         niveles.forEach(function(nivel) {
@@ -315,11 +286,9 @@ if (mapaUnidades) {
             }
         });
 
-        // El curso contiene 9 actividades y 3 exámenes
         const total = 12;
         const porcentajeGeneral = Math.round((cantidadCompletada / total) * 100);
 
-        // Actualizar la barra principal del curso
         const barraPrincipal = mapaUnidades.querySelector(".barra-principal");
 
         if (barraPrincipal) {
@@ -328,7 +297,6 @@ if (mapaUnidades) {
             barraPrincipal.setAttribute("aria-label", "Progreso del curso: " + porcentajeGeneral + "%");
         }
 
-        // Mostrar la opción de volver al Home cuando se completó todo el curso
         if (porcentajeGeneral >= 100) {
 
             const enlaceFinal = document.createElement("a");
@@ -337,11 +305,9 @@ if (mapaUnidades) {
             enlaceFinal.className = "volver-curso-completo";
             enlaceFinal.textContent = "¡Curso completado! Volver a mis cursos";
 
-            // Lo agregamos al final del último nivel, antes de las opiniones.
             secciones[secciones.length - 1].append(enlaceFinal);
         }
 
-        // Sección de valoraciones y comentarios del curso
         iniciarOpiniones(idioma, usuario);
     }
 }

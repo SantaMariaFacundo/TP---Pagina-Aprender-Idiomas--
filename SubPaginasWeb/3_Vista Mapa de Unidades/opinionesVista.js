@@ -1,8 +1,4 @@
-/**
- * Vista de opiniones del mapa de unidades.
- * Muestra el promedio, la lista de opiniones del curso
- * y el formulario para valorar el curso.
- */
+
 import { obtenerUsuarios } from "../../js/usuarios.js";
 import {
     obtenerOpinionesDelCurso,
@@ -18,19 +14,16 @@ import {
     limpiarErroresCampos
 } from "../../js/mensajes.js";
 
-// Arma un texto de estrellas: 3 → "★★★☆☆".
 function dibujarEstrellas(puntuacion) {
     return "★".repeat(puntuacion) + "☆".repeat(5 - puntuacion);
 }
 
-// Busca el nombre de usuario actual de quien publicó la opinión.
 function obtenerNombreAutor(usuarioId) {
     const autor = obtenerUsuarios().find((usuario) => usuario.id === usuarioId);
 
     return autor ? autor.usuario : "Usuario";
 }
 
-// Dibuja la lista de opiniones del curso.
 function mostrarOpiniones(curso, usuarioActivo) {
     const lista = document.getElementById("lista-opiniones");
     const promedio = document.getElementById("promedio-opiniones");
@@ -38,7 +31,6 @@ function mostrarOpiniones(curso, usuarioActivo) {
 
     lista.replaceChildren();
 
-    // Estado vacío.
     if (opiniones.length === 0) {
         promedio.textContent = "Todavía no hay opiniones. ¡Sé el primero en valorar este curso!";
         return;
@@ -58,7 +50,6 @@ function mostrarOpiniones(curso, usuarioActivo) {
         estrellas.className = "opinion-estrellas";
         comentario.className = "opinion-comentario";
 
-        // Marcamos la opinión propia para reconocerla.
         if (opinion.usuarioId === usuarioActivo.id) {
             item.classList.add("opinion-propia");
             autor.textContent = `${obtenerNombreAutor(opinion.usuarioId)} (vos) · ${opinion.fecha}`;
@@ -69,7 +60,6 @@ function mostrarOpiniones(curso, usuarioActivo) {
         estrellas.textContent = dibujarEstrellas(opinion.puntuacion);
         estrellas.setAttribute("aria-label", `${opinion.puntuacion} de 5 estrellas`);
 
-        // textContent evita que se interprete HTML escrito por el usuario.
         comentario.textContent = opinion.comentario;
 
         item.append(autor, estrellas, comentario);
@@ -77,10 +67,7 @@ function mostrarOpiniones(curso, usuarioActivo) {
     });
 }
 
-/**
- * Prepara la sección de opiniones de un curso.
- * Se llama desde progreso.js con el curso del mapa y el usuario activo.
- */
+
 export function iniciarOpiniones(curso, usuarioActivo) {
     const formulario = document.getElementById("formulario-opinion");
 
@@ -93,7 +80,6 @@ export function iniciarOpiniones(curso, usuarioActivo) {
     const boton = document.getElementById("btn-publicar-opinion");
     const mensaje = document.getElementById("mensaje-opinion");
 
-    // Si el usuario ya opinó, cargamos su opinión para que pueda editarla.
     const opinionPrevia = obtenerOpinionDelUsuario(curso, usuarioActivo.id);
 
     if (opinionPrevia) {
@@ -134,7 +120,6 @@ export function iniciarOpiniones(curso, usuarioActivo) {
         mostrarOpiniones(curso, usuarioActivo);
     });
 
-    // Al cambiar algo, ocultamos el mensaje anterior.
     formulario.addEventListener("input", () => {
         ocultarMensaje(mensaje);
     });

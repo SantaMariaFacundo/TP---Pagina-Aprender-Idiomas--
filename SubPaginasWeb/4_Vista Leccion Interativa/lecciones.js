@@ -264,7 +264,6 @@ if (actividad) {
         return "";
     }
 
-    // Orden de las actividades dentro de cada nivel.
     const ordenActividades = ["listening", "vocabulario", "gramatica"];
 
     const nombresActividades = {
@@ -279,7 +278,6 @@ if (actividad) {
         chino: "examenChino.html"
     };
 
-    // Identificador de cualquier actividad de este nivel.
     function idDeActividad(actividadBuscada) {
 
         if (nivel === "a" && actividadBuscada === "listening") {
@@ -289,20 +287,17 @@ if (actividad) {
         return idioma + "-" + nivel + "-" + actividadBuscada;
     }
 
-    // Botón para pasar a la siguiente actividad o al examen.
     const botonSiguiente = document.createElement("a");
     botonSiguiente.className = "volver-leccion-completa boton-siguiente";
     botonSiguiente.hidden = true;
 
     formulario.appendChild(botonSiguiente);
 
-    // Decide a dónde lleva el botón al terminar la actividad.
     function configurarSiguiente() {
 
         const usuarioActual = obtenerUsuarioActivo();
         const posicion = ordenActividades.indexOf(tipoActividad);
 
-        // Listening → Vocabulario → Gramática
         if (posicion < ordenActividades.length - 1) {
 
             const siguiente = ordenActividades[posicion + 1];
@@ -314,7 +309,6 @@ if (actividad) {
             return;
         }
 
-        // En la última actividad, revisamos si quedó alguna sin hacer.
         const pendientes = ordenActividades.filter(function(actividadNivel) {
             return !leccionCompletada(usuarioActual, idioma, idDeActividad(actividadNivel));
         });
@@ -327,7 +321,6 @@ if (actividad) {
 
         } else {
 
-            // Si salteó alguna actividad, primero lo llevamos a esa.
             botonSiguiente.textContent = "Siguiente";
             botonSiguiente.href = "?nivel=" + nivel + "&actividad=" + pendientes[0];
             botonSiguiente.setAttribute(

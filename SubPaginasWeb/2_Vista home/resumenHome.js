@@ -1,13 +1,8 @@
-/**
- * Resumen de actividad del home: racha, experiencia, lecciones,
- * meta diaria y logros. Todo se calcula con los datos del usuario activo.
- */
+
 import { formatearFecha, obtenerRachaActual } from "../../js/usuarios.js";
 
-// La misma meta diaria que usa la tienda.
 const META_DIARIA = 40;
 
-// Cuenta cuántas lecciones completó en todos los cursos.
 function contarLecciones(usuario) {
     const cursos = usuario.cursos || {};
     let total = 0;
@@ -20,7 +15,6 @@ function contarLecciones(usuario) {
     return total;
 }
 
-// Cuenta cuántos exámenes aprobó en todos los cursos.
 function contarExamenes(usuario) {
     const cursos = usuario.cursos || {};
     let total = 0;
@@ -33,7 +27,6 @@ function contarExamenes(usuario) {
     return total;
 }
 
-// Cuenta los días con actividad desde el lunes de esta semana.
 function contarDiasEstaSemana(usuario) {
     const lunes = new Date();
     const diaSemana = lunes.getDay();
@@ -46,7 +39,6 @@ function contarDiasEstaSemana(usuario) {
     return dias.filter((dia) => dia >= fechaLunes).length;
 }
 
-// Escribe un número en un elemento <data>.
 function mostrarDato(id, valor) {
     const elemento = document.getElementById(id);
 
@@ -56,13 +48,11 @@ function mostrarDato(id, valor) {
     }
 }
 
-// Tarjetas de racha, XP, lecciones y días de la semana.
 function mostrarEstadisticas(usuario) {
     mostrarDato("dato-racha", obtenerRachaActual(usuario));
     mostrarDato("dato-xp", Number(usuario.xp) || 0);
     mostrarDato("dato-lecciones", contarLecciones(usuario));
 
-    // "1 día" o "3 días", según la cantidad.
     const dias = contarDiasEstaSemana(usuario);
     const textoDias = document.getElementById("texto-dias-semana");
 
@@ -71,7 +61,6 @@ function mostrarEstadisticas(usuario) {
     }
 }
 
-// Meta diaria: XP ganados hoy sobre la meta.
 function mostrarMetaDiaria(usuario) {
     const seccion = document.querySelector(".metaDiaria");
 
@@ -102,10 +91,7 @@ function mostrarMetaDiaria(usuario) {
     }
 }
 
-/**
- * Arma la lista de logros que ya consiguió el usuario.
- * Cada logro tiene título, descripción e ícono.
- */
+
 function calcularLogros(usuario) {
     const logros = [];
     const racha = obtenerRachaActual(usuario);
@@ -148,7 +134,6 @@ function calcularLogros(usuario) {
     return logros;
 }
 
-// Dibuja los logros o un mensaje si todavía no tiene ninguno.
 function mostrarLogros(usuario) {
     const contenedor = document.getElementById("lista-logros");
 
@@ -160,7 +145,6 @@ function mostrarLogros(usuario) {
 
     const logros = calcularLogros(usuario);
 
-    // Estado inicial: todavía no tiene logros.
     if (logros.length === 0) {
         const aviso = document.createElement("p");
         aviso.className = "sin-logros";
@@ -190,7 +174,6 @@ function mostrarLogros(usuario) {
     });
 }
 
-// Muestra todo el resumen de actividad del home.
 export function mostrarResumenHome(usuario) {
     if (!usuario) {
         return;

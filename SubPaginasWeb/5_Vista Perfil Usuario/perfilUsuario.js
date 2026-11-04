@@ -1,8 +1,6 @@
-// Importamos los módulos compartidos necesarios para esta página.
 import "../../js/header.js";
 import "../../js/buscador.js";
 
-// Importamos las funciones de usuarios utilizadas en esta vista.
 import { obtenerUsuarioActivo, obtenerRachaActual } from "../../js/usuarios.js";
 
 
@@ -29,7 +27,6 @@ if (!usuarioActivo) {
 
 } else {
 
-    // Cambiar textos sin eliminar los botones Editar.
     function actualizarTexto(contenedor, texto) {
 
         if (!contenedor) {
@@ -47,7 +44,6 @@ if (!usuarioActivo) {
 
     }
 
-    // Mostrar los datos de la cuenta.
     tituloNombre.textContent = usuarioActivo.nombre;
     nombreUsuario.textContent = usuarioActivo.usuario;
 
@@ -55,7 +51,6 @@ if (!usuarioActivo) {
     actualizarTexto(datosCuenta[0], usuarioActivo.nombre);
     actualizarTexto(datosCuenta[1], usuarioActivo.usuario);
 
-    // Iniciales para el avatar.
     avatar.textContent = usuarioActivo.nombre
         .trim()
         .split(/\s+/)
@@ -64,7 +59,6 @@ if (!usuarioActivo) {
         .join("")
         .toUpperCase();
 
-    // Fecha de incorporación.
     if (fechaRegistro && usuarioActivo.fechaRegistro) {
 
         const fecha = new Date(usuarioActivo.fechaRegistro);
@@ -85,7 +79,6 @@ if (!usuarioActivo) {
 
     }
 
-    // Liga actual.
     const liga = usuarioActivo.liga || "bronce";
 
     tituloLiga.textContent =
@@ -93,7 +86,6 @@ if (!usuarioActivo) {
         liga.charAt(0).toUpperCase() +
         liga.slice(1);
 
-    // Racha.
     const dias = obtenerRachaActual(usuarioActivo);
 
     tituloRacha.textContent =
@@ -101,7 +93,6 @@ if (!usuarioActivo) {
         dias +
         (dias === 1 ? " día" : " días");
 
-    // Experiencia.
     const xp = Number(usuarioActivo.xp) || 0;
 
     tituloXp.textContent =

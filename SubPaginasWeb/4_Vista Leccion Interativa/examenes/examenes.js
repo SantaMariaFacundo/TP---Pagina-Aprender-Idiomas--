@@ -1,25 +1,19 @@
-// Importamos los módulos compartidos necesarios para esta página.
 import "../../../js/header.js";
 import "../../../js/buscador.js";
 
-// Importamos las funciones de usuarios utilizadas en esta vista.
 import { obtenerUsuarioActivo, actualizarUsuario } from "../../../js/usuarios.js";
 
-// Importamos el cálculo de recompensas que también usan las lecciones.
 import { calcularRecompensa } from "../progresoLecciones.js";
 
-// Recompensa por aprobar un examen por primera vez.
 const XP_EXAMEN = 30;
 const MONEDAS_EXAMEN = 50;
 
 
-// Buscar el examen actual
 
 const examen = document.querySelector("main[data-idioma]");
 
 if (examen) {
 
-    // Obtener el idioma y el nivel desde la URL
 
     const idioma = examen.dataset.idioma;
 
@@ -29,7 +23,6 @@ if (examen) {
 
     const nivelesValidos = ["a", "b", "c"];
 
-    // Guardar las respuestas correctas de cada idioma
 
     const respuestasExamenes = {
 
@@ -53,7 +46,6 @@ if (examen) {
 
     };
 
-    // Archivos de los mapas de unidades
 
     const archivosMapas = {
         ingles: "progreso-ingles.html",
@@ -61,7 +53,6 @@ if (examen) {
         chino: "progreso-chino.html"
     };
 
-    // Obtener los elementos del formulario
 
     const formulario = examen.querySelector("form");
 
@@ -73,7 +64,6 @@ if (examen) {
 
     const contenedorBoton = formulario.querySelector(".container-boton");
 
-    // Crear el mensaje que informa el resultado
 
     const mensaje = document.createElement("p");
 
@@ -82,7 +72,6 @@ if (examen) {
 
     formulario.insertBefore(mensaje, contenedorBoton);
 
-    // Crear el enlace para regresar al mapa
 
     const enlaceVolver = document.createElement("a");
 
@@ -99,7 +88,6 @@ if (examen) {
 
     contenedorBoton.insertAdjacentElement("afterend", enlaceVolver);
 
-    // Mostrar mensajes de error o aprobación
 
     function mostrarMensaje(texto, correcto = false) {
 
@@ -113,7 +101,6 @@ if (examen) {
 
     }
 
-    // Borrar el mensaje anterior cuando cambia una respuesta
 
     function limpiarMensaje() {
 
@@ -121,7 +108,6 @@ if (examen) {
 
     }
 
-    // Obtener los datos del curso de un usuario
 
     function obtenerDatosCurso(usuario) {
 
@@ -131,7 +117,6 @@ if (examen) {
 
     }
 
-    // Generar el identificador de una actividad
 
     function obtenerIdLeccion(nivelActual, actividad) {
 
@@ -145,7 +130,6 @@ if (examen) {
 
     }
 
-    // Comprobar si terminó las tres actividades de un nivel
 
     function actividadesCompletadas(usuario, nivelActual) {
 
@@ -172,7 +156,6 @@ if (examen) {
 
     }
 
-    // Comprobar si ya aprobó un examen
 
     function examenAprobado(usuario, nivelActual) {
 
@@ -184,7 +167,6 @@ if (examen) {
 
     }
 
-    // Verificar si el usuario puede rendir el examen
 
     function examenDisponible(usuario) {
 
@@ -194,7 +176,6 @@ if (examen) {
 
         }
 
-        // El examen B requiere aprobar primero el examen A
 
         if (nivel === "b" && !examenAprobado(usuario, "a")) {
 
@@ -202,7 +183,6 @@ if (examen) {
 
         }
 
-        // El examen C requiere aprobar los exámenes A y B
 
         if (nivel === "c") {
 
@@ -217,15 +197,12 @@ if (examen) {
 
         }
 
-        // En todos los niveles deben completarse las tres tarjetas
 
         return actividadesCompletadas(usuario, nivel);
 
     }
 
-    // Guardar el examen aprobado en la cuenta
 
-    // Recompensa del último examen aprobado (para mostrarla en el mensaje)
     let recompensaExamen = null;
 
     function guardarExamenAprobado() {
@@ -238,7 +215,6 @@ if (examen) {
 
         }
 
-        // No registrar dos veces el mismo examen
 
         if (examenAprobado(usuario, nivel)) {
 
@@ -255,7 +231,6 @@ if (examen) {
             nivel
         ];
 
-        // Conservar las demás propiedades del curso
 
         const cursosActualizados = {
             ...cursos,
@@ -265,10 +240,8 @@ if (examen) {
             }
         };
 
-        // Calcular la experiencia, las monedas y la racha ganadas
         recompensaExamen = calcularRecompensa(usuario, XP_EXAMEN, MONEDAS_EXAMEN);
 
-        // Guardar el examen aprobado junto con la recompensa
 
         const guardado = actualizarUsuario({
             ...recompensaExamen.cambios,
@@ -279,7 +252,6 @@ if (examen) {
 
     }
 
-    // Preparar los botones del banco de palabras
 
     function configurarBancoPalabras() {
 
@@ -289,11 +261,9 @@ if (examen) {
 
         }
 
-        // Limpiar el área de respuesta
 
         respuesta.replaceChildren();
 
-        // Guardar el texto original de cada botón
 
         const botones = banco.querySelectorAll("button");
 
@@ -303,7 +273,6 @@ if (examen) {
 
         });
 
-        // Mover una palabra del banco a la respuesta
 
         banco.addEventListener("click", function(evento) {
 
@@ -330,7 +299,6 @@ if (examen) {
 
         });
 
-        // Devolver una palabra al banco
 
         respuesta.addEventListener("click", function(evento) {
 
@@ -354,7 +322,6 @@ if (examen) {
 
     }
 
-    // Obtener las palabras seleccionadas en su orden
 
     function obtenerOracion() {
 
@@ -376,7 +343,6 @@ if (examen) {
 
     }
 
-    // Normalizar las respuestas para ignorar tildes y puntuación
 
     function normalizarTexto(texto) {
 
@@ -390,7 +356,6 @@ if (examen) {
 
     }
 
-    // Mostrar la aprobación y permitir volver al mapa
 
     function mostrarAprobacion(resultado) {
 
@@ -420,11 +385,9 @@ if (examen) {
 
         }
 
-        // Mostrar el enlace para volver al mapa
 
         enlaceVolver.style.display = "block";
 
-        // Deshabilitar un nuevo envío del examen
 
         botonComprobar.disabled = true;
 
@@ -432,13 +395,11 @@ if (examen) {
 
     }
 
-    // Corregir las tres preguntas del examen
 
     function comprobarExamen(evento) {
 
         evento.preventDefault();
 
-        // Buscar las respuestas de opción múltiple
 
         const pregunta1 = formulario.querySelector(
             'input[name="p1"]:checked'
@@ -458,7 +419,6 @@ if (examen) {
 
         }
 
-        // Obtener la oración formada con palabras
 
         const oracion = obtenerOracion();
 
@@ -472,7 +432,6 @@ if (examen) {
 
         }
 
-        // Obtener las respuestas correctas del idioma
 
         const correctas = respuestasExamenes[idioma];
 
@@ -486,7 +445,6 @@ if (examen) {
 
         }
 
-        // Contar las respuestas correctas
 
         let cantidadCorrectas = 0;
 
@@ -511,7 +469,6 @@ if (examen) {
 
         }
 
-        // Informar los errores cuando no aprueba
 
         if (cantidadCorrectas < 3) {
 
@@ -524,7 +481,6 @@ if (examen) {
 
         }
 
-        // Guardar la aprobación si las tres son correctas
 
         const resultado = guardarExamenAprobado();
 
@@ -532,7 +488,6 @@ if (examen) {
 
     }
 
-    // Recuperar el usuario que inició sesión
 
     const usuarioActivo = obtenerUsuarioActivo();
 
@@ -544,7 +499,6 @@ if (examen) {
 
     } else if (!respuestasExamenes[idioma]) {
 
-        // Evitar corregir un idioma no configurado
 
         mostrarMensaje(
             "Este examen todavía no está configurado."
@@ -554,7 +508,6 @@ if (examen) {
 
     } else if (!examenDisponible(usuarioActivo)) {
 
-        // Regresar al mapa si el examen está bloqueado
 
         window.location.replace(
             "../../3_Vista Mapa de Unidades/" +
@@ -563,18 +516,15 @@ if (examen) {
 
     } else {
 
-        // Activar el banco de palabras
 
         configurarBancoPalabras();
 
-        // Limpiar mensajes al cambiar las respuestas
 
         formulario.addEventListener(
             "change",
             limpiarMensaje
         );
 
-        // Corregir el examen cuando se envía el formulario
 
         formulario.addEventListener(
             "submit",
