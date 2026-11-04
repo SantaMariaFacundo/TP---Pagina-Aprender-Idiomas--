@@ -1,8 +1,6 @@
-// Importamos los módulos compartidos necesarios para esta página.
 import "../../js/header.js";
 import "../../js/buscador.js";
 
-// Importamos las funciones de usuarios utilizadas en esta vista.
 import { obtenerUsuarioActivo, actualizarUsuario } from "../../js/usuarios.js";
 import { revisarContrasena } from "../../js/validaciones.js";
 
@@ -31,12 +29,10 @@ if (!usuarioEditar) {
 
 } else {
 
-    // Cargar los datos actuales.
     campoNombre.value = usuarioEditar.nombre;
     campoUsuario.value = usuarioEditar.usuario;
     campoCorreo.value = usuarioEditar.correo;
 
-    // Mostrar la fecha de registro.
     const fechaRegistro = document.getElementById("fecha-registro");
 
     if (fechaRegistro && usuarioEditar.fechaRegistro) {
@@ -60,7 +56,6 @@ if (!usuarioEditar) {
 
     }
 
-    // Mostrar errores y confirmaciones.
     function mostrarMensaje(elemento, texto, correcto = false) {
 
         elemento.textContent = texto;
@@ -71,7 +66,6 @@ if (!usuarioEditar) {
 
     }
 
-    // Guardar los datos personales: solo se puede cambiar el nombre.
     formularioEditar.addEventListener("submit", function(evento) {
 
         evento.preventDefault();
@@ -82,7 +76,6 @@ if (!usuarioEditar) {
 
         const nombre = campoNombre.value.trim();
 
-        // Validar el nombre.
         if (nombre.length < 3) {
 
             campoNombre.classList.add("campo-invalido");
@@ -93,7 +86,6 @@ if (!usuarioEditar) {
             return;
         }
 
-        // Comprobar si hubo algún cambio.
         if (nombre === usuarioEditar.nombre) {
 
             mostrarMensaje(
@@ -104,7 +96,6 @@ if (!usuarioEditar) {
             return;
         }
 
-        // Guardar el nombre nuevo.
         const guardado = actualizarUsuario({
             nombre: nombre
         });
@@ -129,7 +120,6 @@ if (!usuarioEditar) {
 
     });
 
-    // Mostrar u ocultar el cambio de contraseña.
     botonMostrarPassword.addEventListener("click", function() {
 
         formularioPassword.hidden = !formularioPassword.hidden;
@@ -149,7 +139,6 @@ if (!usuarioEditar) {
 
     });
 
-    // Guardar una nueva contraseña.
     formularioPassword.addEventListener("submit", function(evento) {
 
         evento.preventDefault();
@@ -162,7 +151,6 @@ if (!usuarioEditar) {
         const nueva = campoNueva.value;
         const confirmar = campoConfirmar.value;
 
-        // Comprobar la contraseña actual.
         if (actual !== usuarioEditar.contrasena) {
 
             mostrarMensaje(
@@ -173,7 +161,6 @@ if (!usuarioEditar) {
             return;
         }
 
-        // Validar la nueva contraseña con las mismas reglas del registro.
         const errorContrasena = revisarContrasena(nueva);
 
         if (errorContrasena !== "") {
@@ -183,7 +170,6 @@ if (!usuarioEditar) {
             return;
         }
 
-        // Comprobar que coincidan.
         if (nueva !== confirmar) {
 
             mostrarMensaje(
@@ -194,7 +180,6 @@ if (!usuarioEditar) {
             return;
         }
 
-        // Evitar repetir la contraseña anterior.
         if (actual === nueva) {
 
             mostrarMensaje(
@@ -205,7 +190,6 @@ if (!usuarioEditar) {
             return;
         }
 
-        // Guardar la nueva contraseña.
         try {
 
             const guardado = actualizarUsuario({

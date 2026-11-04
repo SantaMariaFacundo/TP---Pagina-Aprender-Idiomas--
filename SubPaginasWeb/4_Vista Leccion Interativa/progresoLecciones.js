@@ -1,10 +1,7 @@
-// Importamos las funciones de usuarios utilizadas en esta vista.
 import { obtenerUsuarioActivo, actualizarUsuario, formatearFecha } from "../../js/usuarios.js";
 
 
- // Este archivo controla el progreso y las recompensas.
 
- // Consultar si una lección ya fue completada.
 export function leccionCompletada(usuario, idioma, idLeccion) {
 
     const curso = usuario.cursos?.[idioma];
@@ -15,7 +12,6 @@ export function leccionCompletada(usuario, idioma, idLeccion) {
 
 }
 
-// Consultar si el usuario aprobó un examen.
 function examenAprobado(usuario, idioma, nivel) {
 
     const curso = usuario.cursos?.[idioma];
@@ -26,7 +22,6 @@ function examenAprobado(usuario, idioma, nivel) {
 
 }
 
-// Comprobar si el nivel está desbloqueado.
 export function nivelDisponible(usuario, idioma, nivel) {
 
     if (nivel === "a") {
@@ -46,18 +41,12 @@ export function nivelDisponible(usuario, idioma, nivel) {
 
 }
 
-/**
- * Calcula los datos del usuario que cambian al ganar una recompensa:
- * experiencia, monedas, racha, días con actividad y meta diaria.
- * Lo usan las lecciones y los exámenes.
- */
+
 export function calcularRecompensa(usuario, xpBase, monedasGanadas) {
 
-    // Si compró Doble XP en la tienda, esta recompensa vale el doble.
     const dobleXp = usuario.dobleXpPendiente === true;
     const xpGanados = dobleXp ? xpBase * 2 : xpBase;
 
-    // Calcular la racha diaria.
     const hoy = formatearFecha();
 
     const ayer = new Date();
@@ -74,14 +63,12 @@ export function calcularRecompensa(usuario, xpBase, monedasGanadas) {
         racha = 1;
     }
 
-    // Registrar los días con actividad.
     const diasActividad = [...(usuario.diasActividad || [])];
 
     if (!diasActividad.includes(hoy)) {
         diasActividad.push(hoy);
     }
 
-    // Calcular los XP ganados hoy.
     const xpAnteriorHoy = usuario.fechaXpDiario === hoy
         ? Number(usuario.xpDiario) || 0
         : 0;
@@ -104,7 +91,6 @@ export function calcularRecompensa(usuario, xpBase, monedasGanadas) {
     };
 }
 
-// Guardar una actividad completada y sus recompensas.
 export function guardarProgresoLeccion(idioma, idLeccion) {
 
     const usuario = obtenerUsuarioActivo();
@@ -113,12 +99,10 @@ export function guardarProgresoLeccion(idioma, idLeccion) {
         return { estado: "error" };
     }
 
-    // No premiar dos veces la misma actividad.
     if (leccionCompletada(usuario, idioma, idLeccion)) {
         return { estado: "repetida" };
     }
 
-    // Actualizar las lecciones completadas.
     const cursos = usuario.cursos || {};
     const curso = cursos[idioma] || {};
 
@@ -135,10 +119,8 @@ export function guardarProgresoLeccion(idioma, idLeccion) {
         }
     };
 
-    // Cada lección da 10 XP y 30 monedas.
     const recompensa = calcularRecompensa(usuario, 10, 30);
 
-    // Guardar todos los cambios.
     const guardado = actualizarUsuario({
         ...recompensa.cambios,
         cursos: cursosActualizados

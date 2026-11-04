@@ -1,25 +1,20 @@
-// Importamos los módulos compartidos necesarios para esta página.
 import "../../js/header.js";
 import "../../js/buscador.js";
 
-// Importamos las funciones de usuarios utilizadas en esta vista.
 import { obtenerUsuarioActivo, actualizarUsuario } from "../../js/usuarios.js";
 import { abrirInformacionCurso, configurarCierreDialogo } from "../../js/infoCursos.js";
 import { mostrarResumenHome } from "./resumenHome.js";
 
 
-// Botones para agregar y quitar cursos.
 const botonesAgregar = document.querySelectorAll("[data-curso]");
 const botonesQuitar = document.querySelectorAll("[data-cerrar]");
 
-// Tarjetas de los cursos.
 const tarjetas = {
     ingles: document.getElementById("card-ingles-progreso"),
     aleman: document.getElementById("card-aleman-progreso"),
     chino: document.getElementById("card-chino-progreso")
 };
 
-// Nombres y archivos de los idiomas.
 const nombres = {
     ingles: "Inglés",
     aleman: "Alemán",
@@ -32,27 +27,22 @@ const archivos = {
     chino: "progreso-chino.html"
 };
 
-// Elementos de Home.
 const saludo = document.getElementById("titulo-bienvenida");
 const aviso = document.getElementById("mensajeSinCursos");
 const continuar = document.querySelector(".boton-sc1 a");
 
-// Obtener el usuario activo.
 const usuario = obtenerUsuarioActivo();
 
-// Obtener sus cursos seleccionados.
 let seleccionados = usuario && Array.isArray(usuario.cursosSeleccionados)
     ? [...usuario.cursosSeleccionados]
     : [];
 
 function textoHome(texto) { return texto; }
 
-// Mostrar el nombre del idioma traducido.
 function nombreCurso(id) {
     return textoHome(nombres[id]);
 }
 
-// Mostrar el saludo del usuario.
 function mostrarSaludo() {
 
     if (!usuario || !saludo) {
@@ -62,7 +52,6 @@ function mostrarSaludo() {
 
 }
 
-// Calcular el progreso de cada curso.
 function progresoDe(id) {
 
     const actual = obtenerUsuarioActivo();
@@ -73,7 +62,6 @@ function progresoDe(id) {
 
     let cantidad = 0;
 
-    // Contar las actividades y exámenes completados.
     for (const nivel of ["a", "b", "c"]) {
 
         for (const tipo of ["listening", "vocabulario", "gramatica"]) {
@@ -94,7 +82,6 @@ function progresoDe(id) {
 
     }
 
-    // Obtener el nivel desbloqueado.
     const nivelActual = aprobados.includes("b")
         ? "c"
         : aprobados.includes("a")
@@ -124,7 +111,6 @@ function progresoDe(id) {
 
 }
 
-// Actualizar cada tarjeta.
 function refrescarTarjeta(id) {
 
     const tarjeta = tarjetas[id];
@@ -173,7 +159,6 @@ function refrescarTarjeta(id) {
 
 }
 
-// Mostrar los cursos seleccionados.
 function mostrarCursos() {
 
     Object.keys(tarjetas).forEach(function(id) {
@@ -192,12 +177,10 @@ function mostrarCursos() {
 
     });
 
-    // Mostrar aviso si no hay cursos.
     if (aviso) {
         aviso.style.display = seleccionados.length ? "none" : "flex";
     }
 
-    // Un curso que ya está agregado no se puede volver a agregar.
     botonesAgregar.forEach(function(boton) {
 
         const agregado = seleccionados.includes(boton.dataset.curso);
@@ -206,7 +189,6 @@ function mostrarCursos() {
         boton.textContent = agregado ? "Curso agregado ✔" : "Agregar Curso";
     });
 
-    // Actualizar el botón principal.
     if (continuar) {
 
         const primero = seleccionados.find(function(id) {
@@ -235,7 +217,6 @@ function mostrarCursos() {
 
 }
 
-// Guardar los cursos en la cuenta.
 function guardarCursos() {
 
     return !!usuario && actualizarUsuario({
@@ -244,7 +225,6 @@ function guardarCursos() {
 
 }
 
-// Agregar un curso.
 function agregarCurso(id) {
 
     if (!tarjetas[id] || seleccionados.includes(id)) {
@@ -267,7 +247,6 @@ function agregarCurso(id) {
 
 }
 
-// Quitar un curso.
 function quitarCurso(id) {
 
     if (!seleccionados.includes(id)) {
@@ -291,7 +270,6 @@ function quitarCurso(id) {
 
 }
 
-// Detectar clics en Agregar Curso.
 botonesAgregar.forEach(function(boton) {
 
     boton.addEventListener("click", function() {
@@ -300,7 +278,6 @@ botonesAgregar.forEach(function(boton) {
 
 });
 
-// Detectar clics en Quitar Curso.
 botonesQuitar.forEach(function(boton) {
 
     boton.addEventListener("click", function() {
@@ -311,17 +288,12 @@ botonesQuitar.forEach(function(boton) {
 
 
 
-// ----------------------------------------
-// Popup "Más información" (el mismo que en la página de inicio)
-// ----------------------------------------
 
 const dialogoCurso = document.getElementById("dialogo-curso");
 const botonAccionDialogo = document.getElementById("accion-dialogo-curso");
 
-// Curso que se está mostrando en el popup.
 let cursoDelDialogo = "";
 
-// Adapta el botón del popup: agregar el curso o ir a él si ya lo tiene.
 function actualizarBotonDialogo() {
     if (seleccionados.includes(cursoDelDialogo)) {
         botonAccionDialogo.textContent = "IR AL CURSO";
@@ -343,7 +315,6 @@ document.querySelectorAll("[data-info-curso]").forEach((boton) => {
 if (botonAccionDialogo) {
     botonAccionDialogo.addEventListener("click", () => {
 
-        // Si ya lo tiene, lo llevamos al mapa del curso.
         if (seleccionados.includes(cursoDelDialogo)) {
             window.location.href = "../3_Vista Mapa de Unidades/" + archivos[cursoDelDialogo];
             return;
@@ -356,9 +327,6 @@ if (botonAccionDialogo) {
 
 configurarCierreDialogo();
 
-// ----------------------------------------
-// Mostrar los datos al abrir Home
-// ----------------------------------------
 
 mostrarSaludo();
 mostrarCursos();

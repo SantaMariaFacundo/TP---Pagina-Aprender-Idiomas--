@@ -1,13 +1,10 @@
-// Importamos los módulos compartidos necesarios para esta página.
 import "../../js/header.js";
 import "../../js/buscador.js";
-// Importamos las funciones de usuarios utilizadas en esta vista.
 import { obtenerUsuarios, obtenerUsuarioActivo } from "../../js/usuarios.js";
 
 
 (function () {
 
-    // Elementos del HTML.
     const selectorLiga = document.getElementById("liga");
     const tituloLiga = document.getElementById("titulo-liga-actual");
     const descripcionLiga = document.getElementById("descripcion-liga");
@@ -17,7 +14,6 @@ import { obtenerUsuarios, obtenerUsuarioActivo } from "../../js/usuarios.js";
     const xpSemana = document.getElementById("xp-semana");
     const xpPrimerPuesto = document.getElementById("xp-primer-puesto");
 
-    // Verificar que el HTML tenga los elementos necesarios.
     if (
         !selectorLiga ||
         !tituloLiga ||
@@ -31,7 +27,6 @@ import { obtenerUsuarios, obtenerUsuarioActivo } from "../../js/usuarios.js";
         return;
     }
 
-    // Las funciones de usuarios vienen de js/usuarios.js.
     if (
         typeof obtenerUsuarioActivo !== "function" ||
         typeof obtenerUsuarios !== "function"
@@ -40,7 +35,6 @@ import { obtenerUsuarios, obtenerUsuarioActivo } from "../../js/usuarios.js";
         return;
     }
 
-    // Información de las ligas.
     const ligas = {
         bronce: {
             nombre: "LIGA BRONCE",
@@ -59,7 +53,6 @@ import { obtenerUsuarios, obtenerUsuarioActivo } from "../../js/usuarios.js";
         }
     };
 
-    // Crear una celda de la tabla.
     function crearCelda(fila, texto) {
         const celda = document.createElement("td");
         celda.textContent = texto;
@@ -67,7 +60,6 @@ import { obtenerUsuarios, obtenerUsuarioActivo } from "../../js/usuarios.js";
         return celda;
     }
 
-    // Obtener las iniciales del usuario.
     function obtenerIniciales(nombre) {
         return String(nombre || "")
             .trim()
@@ -78,17 +70,14 @@ import { obtenerUsuarios, obtenerUsuarioActivo } from "../../js/usuarios.js";
             .toUpperCase();
     }
 
-    // Obtener los XP semanales.
     function obtenerXpSemanal(usuario) {
         return Math.max(0, Number(usuario.xpSemanal) || 0);
     }
 
-    // Mostrar un número en el resumen.
     function mostrarNumero(elemento, numero) {
         elemento.textContent = numero.toLocaleString("es-AR");
     }
 
-    // Mostrar la posición del usuario activo.
     function mostrarResumen(usuariosLiga, usuarioActivo, ligaSeleccionada) {
 
         const misXp = obtenerXpSemanal(usuarioActivo);
@@ -99,7 +88,6 @@ import { obtenerUsuarios, obtenerUsuarioActivo } from "../../js/usuarios.js";
             usuario => usuario.id === usuarioActivo.id
         );
 
-        // Si estamos consultando otra liga, no tenemos puesto allí.
         if (
             ligaSeleccionada !== (usuarioActivo.liga || "bronce") ||
             posicion === -1
@@ -109,10 +97,8 @@ import { obtenerUsuarios, obtenerUsuarioActivo } from "../../js/usuarios.js";
             return;
         }
 
-        // Mostrar nuestra posición.
         mostrarNumero(puestoActual, posicion + 1);
 
-        // XP necesarios para superar al primer puesto.
         const xpLider = obtenerXpSemanal(usuariosLiga[0]);
 
         const diferencia = posicion === 0
@@ -122,7 +108,6 @@ import { obtenerUsuarios, obtenerUsuarioActivo } from "../../js/usuarios.js";
         mostrarNumero(xpPrimerPuesto, diferencia);
     }
 
-    // Mostrar la clasificación de la liga seleccionada.
     function mostrarClasificacion() {
 
         const usuarioActivo = obtenerUsuarioActivo();
@@ -139,11 +124,9 @@ import { obtenerUsuarios, obtenerUsuarioActivo } from "../../js/usuarios.js";
             return;
         }
 
-        // Actualizar encabezado.
         tituloLiga.textContent = informacion.nombre;
         descripcionLiga.textContent = informacion.descripcion;
 
-        // Obtener los usuarios de la liga seleccionada.
         const usuariosLiga = obtenerUsuarios()
             .filter(function(usuario) {
                 return (usuario.liga || "bronce") === ligaSeleccionada;
@@ -157,14 +140,12 @@ import { obtenerUsuarios, obtenerUsuarioActivo } from "../../js/usuarios.js";
                     return diferencia;
                 }
 
-                // Desempatar alfabéticamente.
                 return String(a.usuario || "").localeCompare(
                     String(b.usuario || ""),
                     "es"
                 );
             });
 
-        // Limpiar la tabla.
         tabla.replaceChildren();
 
         if (usuariosLiga.length === 0) {
@@ -181,21 +162,17 @@ import { obtenerUsuarios, obtenerUsuarioActivo } from "../../js/usuarios.js";
             tabla.appendChild(fila);
         }
 
-        // Crear una fila por cada usuario.
         usuariosLiga.forEach(function(usuario, indice) {
 
             const fila = document.createElement("tr");
             const posicion = indice + 1;
 
-            // Destacar la cuenta activa.
             if (usuario.id === usuarioActivo.id) {
                 fila.classList.add("usuario-actual");
             }
 
-            // Puesto.
             crearCelda(fila, posicion);
 
-            // Avatar.
             const celdaAvatar = document.createElement("td");
             const avatar = document.createElement("div");
 
@@ -205,13 +182,11 @@ import { obtenerUsuarios, obtenerUsuarioActivo } from "../../js/usuarios.js";
             celdaAvatar.appendChild(avatar);
             fila.appendChild(celdaAvatar);
 
-            // Nombre de usuario.
             crearCelda(
                 fila,
                 usuario.usuario || usuario.nombre || "Usuario"
             );
 
-            // XP semanales.
             const xp = obtenerXpSemanal(usuario);
 
             crearCelda(
@@ -219,7 +194,6 @@ import { obtenerUsuarios, obtenerUsuarioActivo } from "../../js/usuarios.js";
                 xp.toLocaleString("es-AR")
             );
 
-            // Estado en la liga.
             let estado = "Participando";
 
             if (
@@ -234,7 +208,6 @@ import { obtenerUsuarios, obtenerUsuarioActivo } from "../../js/usuarios.js";
             tabla.appendChild(fila);
         });
 
-        // Actualizar resumen personal.
         mostrarResumen(
             usuariosLiga,
             usuarioActivo,
@@ -242,7 +215,6 @@ import { obtenerUsuarios, obtenerUsuarioActivo } from "../../js/usuarios.js";
         );
     }
 
-    // Comprobar si hay una sesión activa.
     const usuarioActivo = obtenerUsuarioActivo();
 
     if (!usuarioActivo) {
@@ -251,12 +223,10 @@ import { obtenerUsuarios, obtenerUsuarioActivo } from "../../js/usuarios.js";
 
     } else {
 
-        // Seleccionar inicialmente la liga propia.
         selectorLiga.value = ligas[usuarioActivo.liga]
             ? usuarioActivo.liga
             : "bronce";
 
-        // Evitar recargas innecesarias del formulario.
         const formularioLiga = document.querySelector(".selector-liga");
 
         if (formularioLiga) {
@@ -265,13 +235,11 @@ import { obtenerUsuarios, obtenerUsuarioActivo } from "../../js/usuarios.js";
             });
         }
 
-        // Cambiar la liga mostrada.
         selectorLiga.addEventListener(
             "change",
             mostrarClasificacion
         );
 
-        // Cargar la tabla inicial.
         mostrarClasificacion();
     }
 

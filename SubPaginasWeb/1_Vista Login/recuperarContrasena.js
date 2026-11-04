@@ -1,6 +1,4 @@
-// Importamos los módulos compartidos necesarios para esta página.
 
-// Importamos las funciones de usuarios utilizadas en esta vista.
 import { obtenerUsuarios } from "../../js/usuarios.js";
 
 
